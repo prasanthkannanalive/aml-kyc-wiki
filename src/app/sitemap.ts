@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/library",
     "/arcade",
     "/about",
+    "/privacy",
+    "/terms",
     "/news",
     "/research",
   ].map((p) => ({
