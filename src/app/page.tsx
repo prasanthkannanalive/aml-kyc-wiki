@@ -175,6 +175,50 @@ export default async function Home() {
         </ScrollReveal>
       </section>
 
+      {/* Interactive practice */}
+      <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6">
+        <ScrollReveal>
+        <h2 className="text-2xl font-bold tracking-tight">Learn by doing</h2>
+        <p className="mt-2 text-sm text-muted">
+          Interactive tools, simulations and daily games — not just reading.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          {[
+            {
+              href: "/tools",
+              title: "Interactive Tools",
+              sub: "CDD risk calculator, UBO threshold calculator and SAR deadline timer — run them in your browser.",
+              tag: "Calculators",
+            },
+            {
+              href: "/sandbox",
+              title: "Alert Sandbox",
+              sub: "Work mock KYC, UBO and SAR scenarios and get instant disposition feedback.",
+              tag: "Simulation",
+            },
+            {
+              href: "/arcade",
+              title: "AML Arcade",
+              sub: "Five daily brain games — typology sorting, AMLdle, timed recognition and more.",
+              tag: "Daily games",
+            },
+          ].map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className="group rounded-2xl border border-line bg-surface/50 p-5 transition-all hover:border-emerald-400/40 hover:bg-surface"
+            >
+              <span className="rounded-full bg-emerald-400/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300">
+                {t.tag}
+              </span>
+              <h3 className="mt-2 font-semibold text-ink group-hover:text-emerald-300">{t.title}</h3>
+              <p className="mt-1.5 text-sm leading-6 text-muted">{t.sub}</p>
+            </Link>
+          ))}
+        </div>
+        </ScrollReveal>
+      </section>
+
       {/* Featured courses */}
       <section className="border-y border-line/60 bg-surface/30">
         <ScrollReveal className="mx-auto max-w-7xl px-4 py-14 sm:px-6">

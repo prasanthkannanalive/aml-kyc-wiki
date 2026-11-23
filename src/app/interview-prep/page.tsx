@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { interviewSections } from "@/lib/content";
 import InterviewBrowser from "@/components/InterviewBrowser";
 import QuizMode from "@/components/QuizMode";
+import MockInterview from "@/components/MockInterview";
 import ViewTracker from "@/components/ViewTracker";
 
 export const metadata: Metadata = {
@@ -23,6 +24,9 @@ export default function InterviewPrepPage() {
       <ViewTracker type="interview" id="all" />
       <div className="mt-8">
         <QuizMode sections={interviewSections} />
+      </div>
+      <div className="mt-8">
+        <MockInterview sections={interviewSections} />
       </div>
       <div className="mt-8">
         <InterviewBrowser sections={interviewSections} />

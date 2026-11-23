@@ -1,12 +1,63 @@
-// inline markdown: **bold**, `code`, *italic*
-function inline(text: string): React.ReactNode[] {
+import { glossary } from "@/lib/content";
+
+// inline markdown: **bold**, `code`, *italic* + glossary term popovers
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const TERM_RE = new RegExp(
+  glossary
+    .map((g) => escapeRe(g.term).replace(/ /g, "\\s+"))
+    .sort((a, b) => b.length - a.length)
+    .join("|"),
+  "gi"
+);
+const DEF = new Map(glossary.map((g) => [g.term.toLowerCase(), g.definition]));
+const BOUND = /[A-Za-z0-9_]/;
+
+function termNodes(text: string, keyBase: number): React.ReactNode[] {
+  const nodes: React.ReactNode[] = [];
+  let last = 0;
+  let k = keyBase;
+  TERM_RE.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = TERM_RE.exec(text))) {
+    const start = m.index;
+    const end = start + m[0].length;
+    const before = start > 0 ? text[start - 1] : "";
+    const after = end < text.length ? text[end] : "";
+    if (BOUND.test(before) || BOUND.test(after)) continue;
+    const def = DEF.get(m[0].toLowerCase().replace(/\s+/g, " "));
+    if (!def) continue;
+    if (start > last) nodes.push(text.slice(last, start));
+    nodes.push(
+      <span key={k++} className="group relative inline">
+        <button
+          type="button"
+          className="cursor-help border-b border-dotted border-emerald-400/60 font-medium text-emerald-300 underline-offset-2 hover:text-emerald-200"
+        >
+          {m[0]}
+        </button>
+        <span className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden w-64 -translate-x-1/2 rounded-xl border border-line bg-surface-2 p-3 text-left text-xs font-normal normal-case leading-5 text-body shadow-xl group-hover:block group-focus-within:block">
+          {def}
+          <span className="mt-1.5 block text-[10px] text-muted">Tap glossary for more →</span>
+        </span>
+      </span>
+    );
+    last = end;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
+function inline(text: string, k0 = 0): React.ReactNode[] {
   const nodes: React.ReactNode[] = [];
   const re = /(\*\*[^*]+\*\*|`[^`]+`|\*[^*\n]+\*)/g;
   let last = 0;
   let m: RegExpExecArray | null;
-  let k = 0;
+  let k = k0;
   while ((m = re.exec(text))) {
-    if (m.index > last) nodes.push(text.slice(last, m.index));
+    if (m.index > last) nodes.push(...termNodes(text.slice(last, m.index), k));
+    k += 100;
     const tok = m[0];
     if (tok.startsWith("**")) {
       nodes.push(
@@ -28,7 +79,7 @@ function inline(text: string): React.ReactNode[] {
     }
     last = m.index + tok.length;
   }
-  if (last < text.length) nodes.push(text.slice(last));
+  if (last < text.length) nodes.push(...termNodes(text.slice(last), k));
   return nodes;
 }
 

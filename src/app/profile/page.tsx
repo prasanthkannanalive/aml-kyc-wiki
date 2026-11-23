@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
+import ProfileExtras from "@/components/ProfileExtras";
 import { getProgress } from "@/lib/db";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
@@ -72,6 +73,8 @@ export default async function ProfilePage() {
           <div className="mt-1 text-xs text-muted">Courses</div>
         </div>
       </div>
+
+      <ProfileExtras chaptersRead={totalRead} chaptersDone={perCourse.reduce((s, p) => s + p.done, 0)} />
 
       <h2 className="mt-10 text-lg font-semibold">Progress by course</h2>
       <div className="mt-4 space-y-3">

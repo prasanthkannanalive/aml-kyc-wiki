@@ -6,6 +6,7 @@ import { disciplines } from "@/lib/disciplines";
 import { listChapters } from "@/lib/chapters";
 import { listLibrary } from "@/lib/library";
 import SearchBrowser, { type SearchItem } from "@/components/SearchBrowser";
+import SearchBox from "@/components/SearchBox";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -82,6 +83,13 @@ export default function SearchPage() {
       text: "Daily AML brain games: typology sorting, word puzzles, timed recognition, regulatory dates and alert dispositions.",
     },
     {
+      title: "Interactive Tools — risk calculator, UBO calculator, SAR timer",
+      subtitle: "Interactive · calculators",
+      href: "/tools",
+      kind: "Tool",
+      text: "CDD customer risk calculator, beneficial ownership threshold calculator and SAR/STR filing deadline timer.",
+    },
+    {
       title: "Templates & Checklists",
       subtitle: "Resources · job aids",
       href: "/resources",
@@ -116,14 +124,12 @@ export default function SearchPage() {
       <p className="mt-2 text-sm text-muted">
         {items.length} entries — courses, chapters, interview questions, glossary terms.
       </p>
-      <form action="/search" method="get" className="mt-6">
-        <input
-          type="search"
-          name="q"
+      <div className="mt-6">
+        <SearchBox
+          items={items}
           placeholder="Search — try 'hawala', 'EDD', 'sanctions', 'STR'…"
-          className="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink placeholder-muted outline-none transition-colors focus:border-emerald-400"
         />
-      </form>
+      </div>
       <div className="mt-8">
         <Suspense>
           <SearchBrowser items={items} />
