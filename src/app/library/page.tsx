@@ -6,7 +6,7 @@ import ViewTracker from "@/components/ViewTracker";
 export const metadata: Metadata = {
   title: "Document Library",
   description:
-    "Downloadable AML/KYC source documents — FATF recommendations and guidance, FinCEN advisories, Wolfsberg statements, FIU-IND rules, FFIEC manual and certification study guides.",
+    "AML/KYC source documents — downloadable public-domain regulator publications (FinCEN, FFIEC, UKFIU, FIU-IND) and certification study guides, plus links to FATF, Wolfsberg, Basel and industry guidance on the publishers' sites.",
 };
 
 export const dynamic = "force-dynamic";
@@ -173,12 +173,12 @@ export default function LibraryPage() {
       )}
 
       <p className="mt-12 rounded-xl border border-line bg-surface/50 p-4 text-xs leading-6 text-muted">
-        Documents are hosted for educational reference. FATF and Wolfsberg
-        publications remain © their respective publishers — local copies are
-        provided for study convenience with attribution and a link to the
-        original; please consult the publisher&apos;s site for authoritative
-        versions and licensing terms. FinCEN/FFIEC (US federal) and UKFIU
-        (Open Government Licence) documents are public-sector publications.
+        Only public-domain and openly licensed documents are hosted locally:
+        US federal publications (FinCEN, FFIEC — public domain), UK government
+        guidance (Open Government Licence), FIU-IND rules, IFC materials and
+        this site&apos;s own study guides. FATF, Wolfsberg, Basel, EBA and
+        vendor publications (© their respective publishers) are linked out to
+        the originals in the section above rather than redistributed.
         Always verify requirements against the issuing regulator&apos;s current
         publications. Course guides are study aids; regulator documents are the authoritative
         sources.

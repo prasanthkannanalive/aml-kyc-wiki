@@ -24,47 +24,11 @@
     "description": "Interview question bank covering money laundering, KYC/CDD, sanctions screening, reporting and transaction monitoring alerts.",
     "category": "Interview prep"
   },
-  "fatf-recommendations-2012.pdf": {
-    "title": "FATF Recommendations (2012, updated)",
-    "description": "The international standard-setter's core recommendations on AML/CFT \u2014 the backbone of every national regime.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline.pdf"
-  },
-  "fatf-rba-banking-sector.pdf": {
-    "title": "FATF \u2014 Risk-Based Approach Guidance for the Banking Sector (2014)",
-    "description": "How banks should identify, assess and manage ML/TF risk across customer types, products and jurisdictions.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Risk-Based-Approach-Banking-Sector.pdf.coredownload.pdf"
-  },
   "eba-mltf-risk-factors-guidelines.pdf": {
     "title": "EBA \u2014 ML/TF Risk Factors Guidelines (consolidated)",
     "description": "EU banking authority guidelines on money-laundering and terrorist-financing risk factors for credit institutions.",
     "category": "EU regulation",
     "source": "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2023/EBA-GL-2023-03/1061654/Guidelines%20ML%20TF%20Risk%20Factors_conslidated.pdf.pdf"
-  },
-  "fatf-bo-legal-persons-r24.pdf": {
-    "title": "FATF \u2014 Beneficial Ownership of Legal Persons (R.24, 2023)",
-    "description": "Guidance on identifying beneficial owners of companies \u2014 registries, thresholds and verification.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-Beneficial-Ownership-Legal-Persons.pdf.coredownload.pdf"
-  },
-  "fatf-bo-legal-arrangements-r25.pdf": {
-    "title": "FATF \u2014 BO & Transparency of Legal Arrangements (R.25, 2024)",
-    "description": "Beneficial ownership and transparency requirements for trusts and similar legal arrangements.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Guidance-Beneficial-Ownership-Transparency-Legal-Arrangements.pdf.coredownload.inline.pdf"
-  },
-  "fatf-bo-transparency-2014.pdf": {
-    "title": "FATF \u2014 Transparency & Beneficial Ownership (2014)",
-    "description": "Earlier FATF guidance on beneficial ownership transparency for legal persons and arrangements.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-beneficial-ownership-transparencyl.pdf"
-  },
-  "fatf-new-technologies-amlcft.pdf": {
-    "title": "FATF \u2014 New Technologies for AML/CFT (2021)",
-    "description": "How digital ID, OSINT, AI/ML and regtech create both opportunities and risks for AML programmes.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Opportunities-Challenges-of-New-Technologies-for-AML-CFT.pdf.coredownload.pdf"
   },
   "ffiec-bsa-aml-manual-cdd-bo.pdf": {
     "title": "FFIEC \u2014 BSA/AML Examination Manual (CDD/BO volume)",
@@ -86,28 +50,10 @@
     "description": "The classic guidance on what makes a SAR narrative complete and sufficient for investigators.",
     "category": "US regulation"
   },
-  "fatf-egmont-tbml-risk-indicators.pdf": {
-    "title": "FATF/Egmont \u2014 TBML Risk Indicators (2021)",
-    "description": "Risk indicators for trade-based money laundering \u2014 over/under-invoicing, phantom shipments and document fraud.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/reports/Trade-Based-Money-Laundering-Risk-Indicators.pdf"
-  },
-  "fatf-egmont-tbml-trends.pdf": {
-    "title": "FATF/Egmont \u2014 TBML Trends & Developments",
-    "description": "Analysis of evolving trade-based money laundering techniques and detection approaches.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/reports/Trade-Based-Money-Laundering-Trends-and-Developments.pdf.coredownload.inline.pdf"
-  },
   "ifc-tbml-techniques-tipsheets.pdf": {
     "title": "IFC \u2014 TBML Techniques Tip Sheets",
     "description": "Practical tip sheets on trade-based money laundering techniques for compliance professionals.",
     "category": "Industry guidance"
-  },
-  "wolfsberg-effective-monitoring-msa.pdf": {
-    "title": "Wolfsberg \u2014 Effective Monitoring for Suspicious Activity (2024)",
-    "description": "Wolfsberg Group statement on effective transaction monitoring \u2014 governance, typologies and alert quality.",
-    "category": "Industry guidance",
-    "source": "https://www.moneylaunderingnews.com/wp-content/uploads/sites/12/2024/07/Wolfsberg-Group-MSA-Statement-for-publication.pdf"
   },
   "ukfiu-better-quality-sars.pdf": {
     "title": "UKFIU \u2014 Submitting Better Quality SARs v4.0 (superseded)",
@@ -129,47 +75,9 @@
     "description": "The prescribed Suspicious Transaction Report format for Indian banking companies.",
     "category": "India regulation"
   },
-  "202007-guidelines-sound-management-risks-related-money-laundering-and-financing-terrorism-revisions-supervisory.pdf": {
-    "title": "Basel Committee \u2014 Sound Management of ML/TF Risks (d505)",
-    "description": "Basel standards for banks' money-laundering and terrorist-financing risk management \u2014 governance, CDD, monitoring and reporting expectations.",
-    "category": "Basel standards"
-  },
-  "Guidance-PEP-Rec12-22.pdf": {
-    "title": "FATF \u2014 PEP Guidance (R.12 & R.22)",
-    "description": "FATF guidance on politically exposed persons \u2014 foreign vs domestic PEPs, RCAs, enhanced due diligence and ongoing monitoring.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-PEP-Rec12-22.pdf.coredownload.pdf"
-  },
-  "Guidance-on-Digital-Identity.pdf": {
-    "title": "FATF \u2014 Guidance on Digital ID (2020)",
-    "description": "How digital identity systems can support reliable customer identification under the FATF Recommendations.",
-    "category": "FATF standards",
-    "source": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-on-Digital-Identity.pdf"
-  },
   "PEP-Interagency-Statement_FINAL-508.pdf": {
     "title": "US Interagency \u2014 Joint Statement on PEPs (2020)",
     "description": "US regulators' joint statement on politically exposed persons \u2014 risk-based approach and avoiding de-risking.",
     "category": "US regulation"
-  },
-  "pwc-pkyc-periodic-reviews.pdf": {
-    "title": "PwC \u2014 Perpetual KYC: A New Approach to Periodic Reviews",
-    "description": "How perpetual KYC replaces calendar-based reviews with event-driven refreshes.",
-    "category": "Industry guidance"
-  },
-  "themis-encompass-pkyc-whitepaper.pdf": {
-    "title": "Themis + encompass \u2014 Perpetual KYC Whitepaper",
-    "description": "Perpetual KYC in practice \u2014 continuous customer risk assessment and dynamic refresh workflows.",
-    "category": "Industry guidance"
-  },
-  "wolfsberg-sow-sof-faqs.pdf": {
-    "title": "Wolfsberg \u2014 Source of Wealth & Source of Funds FAQs (2020)",
-    "description": "Wolfsberg FAQs on corroborating source of wealth and source of funds \u2014 the EDD evidence standard.",
-    "category": "Industry guidance",
-    "source": "https://www.lawscot.org.uk/media/32ihbwcv/wolfsberg-sow-and-sof-faqs-august-2020.pdf"
-  },
-  "oracle-pkyc-dynamic-cdd.pdf": {
-    "title": "Oracle \u2014 Dynamic CDD / Perpetual KYC",
-    "description": "How dynamic customer due diligence and perpetual KYC keep customer risk profiles continuously current.",
-    "category": "Industry guidance"
   }
 }

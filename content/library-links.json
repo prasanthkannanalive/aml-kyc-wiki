@@ -1,50 +1,140 @@
 [
   {
-    "title": "Wolfsberg — PEP Guidance (2017)",
-    "description": "Wolfsberg statement and guidance on politically exposed persons — risk-based approach to PEP relationships.",
+    "title": "Wolfsberg \u2014 PEP Guidance (2017)",
+    "description": "Wolfsberg statement and guidance on politically exposed persons \u2014 risk-based approach to PEP relationships.",
     "category": "Industry guidance",
     "url": "https://wolfsberg-group.org/news/wolfsberg-group-publication-statement-guidance-on-politically-exposed-persons-peps"
   },
   {
-    "title": "Wolfsberg — FAQs on Beneficial Ownership",
+    "title": "Wolfsberg \u2014 FAQs on Beneficial Ownership",
     "description": "Wolfsberg FAQs on identifying and verifying beneficial owners of legal persons and arrangements.",
     "category": "Industry guidance",
     "url": "https://wolfsberg-group.org/resources/general"
   },
   {
-    "title": "Wolfsberg — Second MSA Statement (2025)",
-    "description": "Wolfsberg Group's second statement on effective monitoring for suspicious activity — TM effectiveness principles.",
+    "title": "Wolfsberg \u2014 Second MSA Statement (2025)",
+    "description": "Wolfsberg Group's second statement on effective monitoring for suspicious activity \u2014 TM effectiveness principles.",
     "category": "Industry guidance",
     "url": "https://wolfsberg-group.org/news/the-wolfsberg-group-publishes-its-second-statement-on-effective-monitoring-for-suspicious-activity"
   },
   {
-    "title": "Wolfsberg — TM RFI Best Practice Guidance",
+    "title": "Wolfsberg \u2014 TM RFI Best Practice Guidance",
     "description": "Best practices for requests for information during transaction monitoring alert investigations.",
     "category": "Industry guidance",
     "url": "https://wolfsberg-group.org/news/publication-of-the-wolfsberg-rfi-best-practice-guidance"
   },
   {
-    "title": "Wolfsberg — Negative News Screening FAQs",
+    "title": "Wolfsberg \u2014 Negative News Screening FAQs",
     "description": "How to filter adverse media noise from material financial-crime signals in screening.",
     "category": "Industry guidance",
     "url": "https://wolfsberg-group.org/news/publication-of-the-negative-news-screening-faqs"
   },
   {
-    "title": "FFIEC — BSA/AML Examination Manual",
-    "description": "The full FFIEC manual with per-section PDFs — the US examination standard for CDD/BO and the whole BSA/AML programme.",
+    "title": "FFIEC \u2014 BSA/AML Examination Manual",
+    "description": "The full FFIEC manual with per-section PDFs \u2014 the US examination standard for CDD/BO and the whole BSA/AML programme.",
     "category": "US regulation",
     "url": "https://bsaaml.ffiec.gov/manual"
   },
   {
-    "title": "UKFIU — SAR Best Practice (current chapters)",
-    "description": "Current UKFIU guidance notice linking to Chapters 1–3: using the SAR portal, submitting a SAR, and DAMLs/DATFs.",
+    "title": "UKFIU \u2014 SAR Best Practice (current chapters)",
+    "description": "Current UKFIU guidance notice linking to Chapters 1\u20133: using the SAR portal, submitting a SAR, and DAMLs/DATFs.",
     "category": "UK regulation",
     "url": "https://www.gamblingcommission.gov.uk/licensees-and-businesses/notice/updated-sars-guidance-from-the-ukfiu"
   },
   {
-    "title": "Home Office — Circular 022/2015 (SAR confidentiality)",
+    "title": "Home Office \u2014 Circular 022/2015 (SAR confidentiality)",
     "description": "UK guidance on SAR confidentiality, sensitivity and tipping-off offences under POCA 2002.",
     "category": "UK regulation",
     "url": "https://www.gov.uk/government/publications/circular-0222015-money-laundering-the-confidentiality-and-sensitivity-of-suspicious-activity-reports-sars-and-the-identity-of-those-who-make-them"
+  },
+  {
+    "title": "Basel Committee \u2014 Sound Management of ML/TF Risks (d505)",
+    "description": "Basel standards for banks' money-laundering and terrorist-financing risk management.",
+    "category": "Basel standards",
+    "url": "https://www.bis.org/bcbs/publ/d505.pdf"
+  },
+  {
+    "title": "FATF \u2014 PEP Guidance (R.12 & R.22)",
+    "description": "FATF guidance on politically exposed persons \u2014 foreign vs domestic PEPs, RCAs, EDD and ongoing monitoring.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-PEP-Rec12-22.pdf.coredownload.pdf"
+  },
+  {
+    "title": "FATF \u2014 Guidance on Digital ID (2020)",
+    "description": "How digital identity systems can support reliable customer identification under the FATF Recommendations.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-on-Digital-Identity.pdf"
+  },
+  {
+    "title": "FATF \u2014 BO & Transparency of Legal Arrangements (R.25)",
+    "description": "FATF guidance on beneficial ownership of trusts, foundations and other legal arrangements.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Guidance-Beneficial-Ownership-Transparency-Legal-Arrangements.pdf.coredownload.inline.pdf"
+  },
+  {
+    "title": "FATF \u2014 Beneficial Ownership of Legal Persons (R.24)",
+    "description": "FATF guidance on identifying beneficial owners of companies and other legal persons.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-Beneficial-Ownership-Legal-Persons.pdf.coredownload.pdf"
+  },
+  {
+    "title": "FATF \u2014 Transparency & Beneficial Ownership (2014)",
+    "description": "FATF guidance on transparency of legal persons and beneficial ownership.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-beneficial-ownership-transparencyl.pdf"
+  },
+  {
+    "title": "FATF/Egmont \u2014 TBML Risk Indicators",
+    "description": "Indicators for detecting trade-based money laundering in trade finance data.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/reports/Trade-Based-Money-Laundering-Risk-Indicators.pdf"
+  },
+  {
+    "title": "FATF/Egmont \u2014 TBML Trends & Developments",
+    "description": "Global trends and typologies in trade-based money laundering.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/reports/Trade-Based-Money-Laundering-Trends-and-Developments.pdf.coredownload.inline.pdf"
+  },
+  {
+    "title": "FATF \u2014 New Technologies for AML/CFT",
+    "description": "FATF guidance on opportunities and challenges of new technologies, including OSINT.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Opportunities-Challenges-of-New-Technologies-for-AML-CFT.pdf.coredownload.pdf"
+  },
+  {
+    "title": "FATF \u2014 RBA Guidance for the Banking Sector",
+    "description": "Applying the risk-based approach in banking \u2014 customer, product and geographic risk factors.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Risk-Based-Approach-Banking-Sector.pdf.coredownload.pdf"
+  },
+  {
+    "title": "FATF Recommendations (2012, updated)",
+    "description": "The global AML/CFT standard \u2014 all 40 recommendations plus interpretive notes.",
+    "category": "FATF standards",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline.pdf"
+  },
+  {
+    "title": "Oracle \u2014 Dynamic CDD / Perpetual KYC",
+    "description": "How dynamic customer due diligence and perpetual KYC keep customer risk profiles continuously current.",
+    "category": "Industry guidance",
+    "url": "https://www.oracle.com/a/ocom/docs/industries/financial-services/fs-dynamic-customer-due-diligence-kyc-br.pdf"
+  },
+  {
+    "title": "PwC \u2014 Perpetual KYC: A New Approach to Periodic Reviews",
+    "description": "How perpetual KYC replaces calendar-based reviews with event-driven refreshes.",
+    "category": "Industry guidance",
+    "url": "https://www.pwc.com/sg/en/consulting/assets/pkyc-a-new-approach-to-periodic-reviews.pdf"
+  },
+  {
+    "title": "Themis + encompass \u2014 Perpetual KYC Whitepaper",
+    "description": "Perpetual KYC in practice \u2014 continuous customer risk assessment and dynamic refresh workflows.",
+    "category": "Industry guidance",
+    "url": "https://insights.encompasscorporation.com/hubfs/Content/Whitepapers,%20Ebooks/White%20Paper%20-%20Perpetual%20KYC%20%5BThemis%20and%20Encompass%5D.pdf"
+  },
+  {
+    "title": "Wolfsberg \u2014 Source of Wealth & Source of Funds FAQs (2020)",
+    "description": "Wolfsberg FAQs on corroborating source of wealth and source of funds \u2014 the EDD evidence standard.",
+    "category": "Industry guidance",
+    "url": "https://www.lawscot.org.uk/media/32ihbwcv/wolfsberg-sow-and-sof-faqs-august-2020.pdf"
   }
 ]
