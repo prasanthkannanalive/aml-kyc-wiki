@@ -1,0 +1,1072 @@
+{
+  "fraud-prevention": [
+    {
+      "num": "0.0",
+      "file": "0.0.md"
+    },
+    {
+      "num": "1.1",
+      "file": "1.1.md",
+      "startPage": 13,
+      "endPage": 16,
+      "chars": 9478
+    },
+    {
+      "num": "1.2",
+      "file": "1.2.md",
+      "startPage": 16,
+      "endPage": 19,
+      "chars": 9905
+    },
+    {
+      "num": "1.3",
+      "file": "1.3.md",
+      "startPage": 19,
+      "endPage": 22,
+      "chars": 9584
+    },
+    {
+      "num": "1.4",
+      "file": "1.4.md",
+      "startPage": 22,
+      "endPage": 25,
+      "chars": 10469
+    },
+    {
+      "num": "1.5",
+      "file": "1.5.md",
+      "startPage": 25,
+      "endPage": 30,
+      "chars": 14818
+    },
+    {
+      "num": "2.1",
+      "file": "2.1.md",
+      "startPage": 30,
+      "endPage": 33,
+      "chars": 9401
+    },
+    {
+      "num": "2.2",
+      "file": "2.2.md",
+      "startPage": 33,
+      "endPage": 36,
+      "chars": 10756
+    },
+    {
+      "num": "2.3",
+      "file": "2.3.md",
+      "startPage": 36,
+      "endPage": 39,
+      "chars": 10039
+    },
+    {
+      "num": "2.4",
+      "file": "2.4.md",
+      "startPage": 39,
+      "endPage": 42,
+      "chars": 10456
+    },
+    {
+      "num": "2.5",
+      "file": "2.5.md",
+      "startPage": 42,
+      "endPage": 45,
+      "chars": 7959
+    },
+    {
+      "num": "2.6",
+      "file": "2.6.md",
+      "startPage": 45,
+      "endPage": 49,
+      "chars": 10109
+    },
+    {
+      "num": "3.1",
+      "file": "3.1.md",
+      "startPage": 49,
+      "endPage": 53,
+      "chars": 13974
+    },
+    {
+      "num": "3.2",
+      "file": "3.2.md",
+      "startPage": 53,
+      "endPage": 57,
+      "chars": 13167
+    },
+    {
+      "num": "3.3",
+      "file": "3.3.md",
+      "startPage": 57,
+      "endPage": 62,
+      "chars": 17386
+    },
+    {
+      "num": "3.4",
+      "file": "3.4.md",
+      "startPage": 62,
+      "endPage": 66,
+      "chars": 14077
+    },
+    {
+      "num": "3.5",
+      "file": "3.5.md",
+      "startPage": 66,
+      "endPage": 70,
+      "chars": 11161
+    },
+    {
+      "num": "3.6",
+      "file": "3.6.md",
+      "startPage": 70,
+      "endPage": 75,
+      "chars": 15835
+    },
+    {
+      "num": "3.7",
+      "file": "3.7.md",
+      "startPage": 75,
+      "endPage": 79,
+      "chars": 9094
+    },
+    {
+      "num": "4.1",
+      "file": "4.1.md",
+      "startPage": 79,
+      "endPage": 83,
+      "chars": 12570
+    },
+    {
+      "num": "4.2",
+      "file": "4.2.md",
+      "startPage": 83,
+      "endPage": 87,
+      "chars": 11729
+    },
+    {
+      "num": "4.3",
+      "file": "4.3.md",
+      "startPage": 87,
+      "endPage": 92,
+      "chars": 15177
+    },
+    {
+      "num": "4.4",
+      "file": "4.4.md",
+      "startPage": 92,
+      "endPage": 96,
+      "chars": 12197
+    },
+    {
+      "num": "4.5",
+      "file": "4.5.md",
+      "startPage": 96,
+      "endPage": 101,
+      "chars": 12430
+    },
+    {
+      "num": "5.1",
+      "file": "5.1.md",
+      "startPage": 101,
+      "endPage": 104,
+      "chars": 8639
+    },
+    {
+      "num": "5.2",
+      "file": "5.2.md",
+      "startPage": 104,
+      "endPage": 107,
+      "chars": 8877
+    },
+    {
+      "num": "5.3",
+      "file": "5.3.md",
+      "startPage": 107,
+      "endPage": 110,
+      "chars": 8947
+    },
+    {
+      "num": "5.4",
+      "file": "5.4.md",
+      "startPage": 110,
+      "endPage": 114,
+      "chars": 11819
+    },
+    {
+      "num": "5.5",
+      "file": "5.5.md",
+      "startPage": 114,
+      "endPage": 118,
+      "chars": 12572
+    },
+    {
+      "num": "5.6",
+      "file": "5.6.md",
+      "startPage": 118,
+      "endPage": 122,
+      "chars": 9882
+    },
+    {
+      "num": "6.1",
+      "file": "6.1.md",
+      "startPage": 122,
+      "endPage": 125,
+      "chars": 9075
+    },
+    {
+      "num": "6.2",
+      "file": "6.2.md",
+      "startPage": 125,
+      "endPage": 128,
+      "chars": 9927
+    },
+    {
+      "num": "6.3",
+      "file": "6.3.md",
+      "startPage": 128,
+      "endPage": 131,
+      "chars": 9107
+    },
+    {
+      "num": "6.4",
+      "file": "6.4.md",
+      "startPage": 131,
+      "endPage": 134,
+      "chars": 7598
+    },
+    {
+      "num": "6.5",
+      "file": "6.5.md",
+      "startPage": 134,
+      "endPage": 137,
+      "chars": 9482
+    },
+    {
+      "num": "6.6",
+      "file": "6.6.md",
+      "startPage": 137,
+      "endPage": 142,
+      "chars": 12260
+    },
+    {
+      "num": "7.1",
+      "file": "7.1.md",
+      "startPage": 142,
+      "endPage": 145,
+      "chars": 9099
+    },
+    {
+      "num": "7.2",
+      "file": "7.2.md",
+      "startPage": 145,
+      "endPage": 148,
+      "chars": 7812
+    },
+    {
+      "num": "7.3",
+      "file": "7.3.md",
+      "startPage": 148,
+      "endPage": 152,
+      "chars": 10360
+    },
+    {
+      "num": "7.4",
+      "file": "7.4.md",
+      "startPage": 152,
+      "endPage": 154,
+      "chars": 6451
+    },
+    {
+      "num": "7.5",
+      "file": "7.5.md",
+      "startPage": 154,
+      "endPage": 157,
+      "chars": 7385
+    },
+    {
+      "num": "7.6",
+      "file": "7.6.md",
+      "startPage": 157,
+      "endPage": 160,
+      "chars": 7966
+    },
+    {
+      "num": "7.7",
+      "file": "7.7.md",
+      "startPage": 160,
+      "endPage": 175,
+      "chars": 41556
+    }
+  ],
+  "sanctions-screening": [
+    {
+      "num": "0.0",
+      "file": "0.0.md"
+    },
+    {
+      "num": "1.1",
+      "file": "1.1.md",
+      "startPage": 9,
+      "endPage": 13,
+      "chars": 9827
+    },
+    {
+      "num": "1.2",
+      "file": "1.2.md",
+      "startPage": 13,
+      "endPage": 16,
+      "chars": 7471
+    },
+    {
+      "num": "1.3",
+      "file": "1.3.md",
+      "startPage": 16,
+      "endPage": 19,
+      "chars": 7389
+    },
+    {
+      "num": "1.4",
+      "file": "1.4.md",
+      "startPage": 19,
+      "endPage": 21,
+      "chars": 5411
+    },
+    {
+      "num": "1.5",
+      "file": "1.5.md",
+      "startPage": 21,
+      "endPage": 24,
+      "chars": 7514
+    },
+    {
+      "num": "2.1",
+      "file": "2.1.md",
+      "startPage": 24,
+      "endPage": 27,
+      "chars": 7140
+    },
+    {
+      "num": "2.2",
+      "file": "2.2.md",
+      "startPage": 27,
+      "endPage": 30,
+      "chars": 7476
+    },
+    {
+      "num": "2.3",
+      "file": "2.3.md",
+      "startPage": 30,
+      "endPage": 33,
+      "chars": 8487
+    },
+    {
+      "num": "2.4",
+      "file": "2.4.md",
+      "startPage": 33,
+      "endPage": 36,
+      "chars": 8478
+    },
+    {
+      "num": "2.5",
+      "file": "2.5.md",
+      "startPage": 36,
+      "endPage": 39,
+      "chars": 8204
+    },
+    {
+      "num": "2.6",
+      "file": "2.6.md",
+      "startPage": 39,
+      "endPage": 42,
+      "chars": 8674
+    },
+    {
+      "num": "3.1",
+      "file": "3.1.md",
+      "startPage": 42,
+      "endPage": 45,
+      "chars": 7871
+    },
+    {
+      "num": "3.2",
+      "file": "3.2.md",
+      "startPage": 45,
+      "endPage": 48,
+      "chars": 7783
+    },
+    {
+      "num": "3.3",
+      "file": "3.3.md",
+      "startPage": 48,
+      "endPage": 51,
+      "chars": 8332
+    },
+    {
+      "num": "3.4",
+      "file": "3.4.md",
+      "startPage": 51,
+      "endPage": 54,
+      "chars": 7779
+    },
+    {
+      "num": "3.5",
+      "file": "3.5.md",
+      "startPage": 54,
+      "endPage": 56,
+      "chars": 4329
+    },
+    {
+      "num": "3.6",
+      "file": "3.6.md",
+      "startPage": 56,
+      "endPage": 58,
+      "chars": 6893
+    },
+    {
+      "num": "4.1",
+      "file": "4.1.md",
+      "startPage": 58,
+      "endPage": 61,
+      "chars": 8183
+    },
+    {
+      "num": "4.2",
+      "file": "4.2.md",
+      "startPage": 61,
+      "endPage": 65,
+      "chars": 11455
+    },
+    {
+      "num": "4.3",
+      "file": "4.3.md",
+      "startPage": 65,
+      "endPage": 68,
+      "chars": 8221
+    },
+    {
+      "num": "4.4",
+      "file": "4.4.md",
+      "startPage": 68,
+      "endPage": 71,
+      "chars": 7349
+    },
+    {
+      "num": "4.5",
+      "file": "4.5.md",
+      "startPage": 71,
+      "endPage": 74,
+      "chars": 8837
+    },
+    {
+      "num": "4.6",
+      "file": "4.6.md",
+      "startPage": 74,
+      "endPage": 77,
+      "chars": 8429
+    },
+    {
+      "num": "4.7",
+      "file": "4.7.md",
+      "startPage": 77,
+      "endPage": 79,
+      "chars": 6157
+    },
+    {
+      "num": "5.1",
+      "file": "5.1.md",
+      "startPage": 79,
+      "endPage": 82,
+      "chars": 6604
+    },
+    {
+      "num": "5.2",
+      "file": "5.2.md",
+      "startPage": 82,
+      "endPage": 86,
+      "chars": 6508
+    },
+    {
+      "num": "5.3",
+      "file": "5.3.md",
+      "startPage": 86,
+      "endPage": 88,
+      "chars": 5719
+    },
+    {
+      "num": "5.4",
+      "file": "5.4.md",
+      "startPage": 88,
+      "endPage": 91,
+      "chars": 7144
+    },
+    {
+      "num": "5.5",
+      "file": "5.5.md",
+      "startPage": 91,
+      "endPage": 93,
+      "chars": 5995
+    },
+    {
+      "num": "5.6",
+      "file": "5.6.md",
+      "startPage": 93,
+      "endPage": 95,
+      "chars": 5865
+    },
+    {
+      "num": "6.1",
+      "file": "6.1.md",
+      "startPage": 95,
+      "endPage": 98,
+      "chars": 5960
+    },
+    {
+      "num": "6.2",
+      "file": "6.2.md",
+      "startPage": 98,
+      "endPage": 101,
+      "chars": 8786
+    },
+    {
+      "num": "6.3",
+      "file": "6.3.md",
+      "startPage": 101,
+      "endPage": 104,
+      "chars": 8481
+    },
+    {
+      "num": "6.4",
+      "file": "6.4.md",
+      "startPage": 104,
+      "endPage": 106,
+      "chars": 3821
+    },
+    {
+      "num": "6.5",
+      "file": "6.5.md",
+      "startPage": 106,
+      "endPage": 108,
+      "chars": 5423
+    },
+    {
+      "num": "6.6",
+      "file": "6.6.md",
+      "startPage": 108,
+      "endPage": 111,
+      "chars": 7032
+    },
+    {
+      "num": "7.1",
+      "file": "7.1.md",
+      "startPage": 111,
+      "endPage": 113,
+      "chars": 4121
+    },
+    {
+      "num": "7.2",
+      "file": "7.2.md",
+      "startPage": 113,
+      "endPage": 116,
+      "chars": 5789
+    },
+    {
+      "num": "7.3",
+      "file": "7.3.md",
+      "startPage": 116,
+      "endPage": 118,
+      "chars": 5612
+    },
+    {
+      "num": "7.4",
+      "file": "7.4.md",
+      "startPage": 118,
+      "endPage": 121,
+      "chars": 7140
+    },
+    {
+      "num": "7.5",
+      "file": "7.5.md",
+      "startPage": 121,
+      "endPage": 123,
+      "chars": 6432
+    },
+    {
+      "num": "7.6",
+      "file": "7.6.md",
+      "startPage": 123,
+      "endPage": 138,
+      "chars": 37554
+    }
+  ],
+  "counter-terrorist-financing": [
+    {
+      "num": "0.0",
+      "file": "0.0.md"
+    },
+    {
+      "num": "1.1",
+      "file": "1.1.md",
+      "startPage": 11,
+      "endPage": 14,
+      "chars": 7425
+    },
+    {
+      "num": "1.2",
+      "file": "1.2.md",
+      "startPage": 14,
+      "endPage": 17,
+      "chars": 6952
+    },
+    {
+      "num": "1.3",
+      "file": "1.3.md",
+      "startPage": 17,
+      "endPage": 20,
+      "chars": 6676
+    },
+    {
+      "num": "1.4",
+      "file": "1.4.md",
+      "startPage": 20,
+      "endPage": 22,
+      "chars": 6130
+    },
+    {
+      "num": "2.1",
+      "file": "2.1.md",
+      "startPage": 22,
+      "endPage": 25,
+      "chars": 5911
+    },
+    {
+      "num": "2.2",
+      "file": "2.2.md",
+      "startPage": 25,
+      "endPage": 28,
+      "chars": 6655
+    },
+    {
+      "num": "2.3",
+      "file": "2.3.md",
+      "startPage": 28,
+      "endPage": 31,
+      "chars": 7181
+    },
+    {
+      "num": "2.4",
+      "file": "2.4.md",
+      "startPage": 31,
+      "endPage": 34,
+      "chars": 8029
+    },
+    {
+      "num": "3.1",
+      "file": "3.1.md",
+      "startPage": 34,
+      "endPage": 37,
+      "chars": 5605
+    },
+    {
+      "num": "3.2",
+      "file": "3.2.md",
+      "startPage": 37,
+      "endPage": 40,
+      "chars": 7730
+    },
+    {
+      "num": "3.3",
+      "file": "3.3.md",
+      "startPage": 40,
+      "endPage": 42,
+      "chars": 4352
+    },
+    {
+      "num": "3.4",
+      "file": "3.4.md",
+      "startPage": 42,
+      "endPage": 45,
+      "chars": 8386
+    },
+    {
+      "num": "4.1",
+      "file": "4.1.md",
+      "startPage": 45,
+      "endPage": 47,
+      "chars": 4438
+    },
+    {
+      "num": "4.2",
+      "file": "4.2.md",
+      "startPage": 47,
+      "endPage": 50,
+      "chars": 7945
+    },
+    {
+      "num": "4.3",
+      "file": "4.3.md",
+      "startPage": 50,
+      "endPage": 52,
+      "chars": 5469
+    },
+    {
+      "num": "4.4",
+      "file": "4.4.md",
+      "startPage": 52,
+      "endPage": 55,
+      "chars": 8427
+    },
+    {
+      "num": "5.1",
+      "file": "5.1.md",
+      "startPage": 55,
+      "endPage": 58,
+      "chars": 5902
+    },
+    {
+      "num": "5.2",
+      "file": "5.2.md",
+      "startPage": 58,
+      "endPage": 61,
+      "chars": 7927
+    },
+    {
+      "num": "5.3",
+      "file": "5.3.md",
+      "startPage": 61,
+      "endPage": 63,
+      "chars": 4215
+    },
+    {
+      "num": "5.4",
+      "file": "5.4.md",
+      "startPage": 63,
+      "endPage": 78,
+      "chars": 35127
+    }
+  ],
+  "financial-intelligence-trafficking": [
+    {
+      "num": "0.0",
+      "file": "0.0.md"
+    },
+    {
+      "num": "1.1",
+      "file": "1.1.md",
+      "startPage": 7,
+      "endPage": 7,
+      "chars": 2639
+    },
+    {
+      "num": "1.2",
+      "file": "1.2.md",
+      "startPage": 7,
+      "endPage": 8,
+      "chars": 372
+    },
+    {
+      "num": "1.3",
+      "file": "1.3.md",
+      "startPage": 8,
+      "endPage": 9,
+      "chars": 720
+    },
+    {
+      "num": "1.4",
+      "file": "1.4.md",
+      "startPage": 9,
+      "endPage": 10,
+      "chars": 685
+    },
+    {
+      "num": "1.5",
+      "file": "1.5.md",
+      "startPage": 10,
+      "endPage": 11,
+      "chars": 795
+    },
+    {
+      "num": "1.6",
+      "file": "1.6.md",
+      "startPage": 11,
+      "endPage": 14,
+      "chars": 854
+    },
+    {
+      "num": "2.1",
+      "file": "2.1.md",
+      "startPage": 14,
+      "endPage": 14,
+      "chars": 2137
+    },
+    {
+      "num": "2.2",
+      "file": "2.2.md",
+      "startPage": 14,
+      "endPage": 16,
+      "chars": 451
+    },
+    {
+      "num": "2.3",
+      "file": "2.3.md",
+      "startPage": 16,
+      "endPage": 17,
+      "chars": 1976
+    },
+    {
+      "num": "2.4",
+      "file": "2.4.md",
+      "startPage": 17,
+      "endPage": 18,
+      "chars": 1674
+    },
+    {
+      "num": "2.5",
+      "file": "2.5.md",
+      "startPage": 18,
+      "endPage": 20,
+      "chars": 346
+    },
+    {
+      "num": "2.6",
+      "file": "2.6.md",
+      "startPage": 20,
+      "endPage": 22,
+      "chars": 1864
+    },
+    {
+      "num": "3.1",
+      "file": "3.1.md",
+      "startPage": 22,
+      "endPage": 24,
+      "chars": 1887
+    },
+    {
+      "num": "3.2",
+      "file": "3.2.md",
+      "startPage": 24,
+      "endPage": 25,
+      "chars": 1603
+    },
+    {
+      "num": "3.3",
+      "file": "3.3.md",
+      "startPage": 25,
+      "endPage": 27,
+      "chars": 786
+    },
+    {
+      "num": "3.4",
+      "file": "3.4.md",
+      "startPage": 27,
+      "endPage": 28,
+      "chars": 1886
+    },
+    {
+      "num": "3.5",
+      "file": "3.5.md",
+      "startPage": 28,
+      "endPage": 29,
+      "chars": 1392
+    },
+    {
+      "num": "3.6",
+      "file": "3.6.md",
+      "startPage": 29,
+      "endPage": 32,
+      "chars": 1388
+    },
+    {
+      "num": "4.1",
+      "file": "4.1.md",
+      "startPage": 32,
+      "endPage": 33,
+      "chars": 2098
+    },
+    {
+      "num": "4.2",
+      "file": "4.2.md",
+      "startPage": 33,
+      "endPage": 34,
+      "chars": 1904
+    },
+    {
+      "num": "4.3",
+      "file": "4.3.md",
+      "startPage": 34,
+      "endPage": 35,
+      "chars": 1226
+    },
+    {
+      "num": "4.4",
+      "file": "4.4.md",
+      "startPage": 35,
+      "endPage": 36,
+      "chars": 2154
+    },
+    {
+      "num": "4.5",
+      "file": "4.5.md",
+      "startPage": 36,
+      "endPage": 36,
+      "chars": 2113
+    },
+    {
+      "num": "4.6",
+      "file": "4.6.md",
+      "startPage": 36,
+      "endPage": 45,
+      "chars": 829
+    }
+  ],
+  "kyc-cdd-tm-analyst": [
+    {
+      "num": "0.0",
+      "file": "0.0.md"
+    },
+    {
+      "num": "1.1",
+      "file": "1.1.md"
+    },
+    {
+      "num": "1.2",
+      "file": "1.2.md"
+    },
+    {
+      "num": "1.3",
+      "file": "1.3.md"
+    },
+    {
+      "num": "1.4",
+      "file": "1.4.md"
+    },
+    {
+      "num": "1.5",
+      "file": "1.5.md"
+    },
+    {
+      "num": "1.6",
+      "file": "1.6.md"
+    },
+    {
+      "num": "2.1",
+      "file": "2.1.md"
+    },
+    {
+      "num": "2.2",
+      "file": "2.2.md"
+    },
+    {
+      "num": "2.3",
+      "file": "2.3.md"
+    },
+    {
+      "num": "2.4",
+      "file": "2.4.md"
+    },
+    {
+      "num": "2.5",
+      "file": "2.5.md"
+    },
+    {
+      "num": "2.6",
+      "file": "2.6.md"
+    },
+    {
+      "num": "3.1",
+      "file": "3.1.md"
+    },
+    {
+      "num": "3.2",
+      "file": "3.2.md"
+    },
+    {
+      "num": "3.3",
+      "file": "3.3.md"
+    },
+    {
+      "num": "3.4",
+      "file": "3.4.md"
+    },
+    {
+      "num": "3.5",
+      "file": "3.5.md"
+    },
+    {
+      "num": "3.6",
+      "file": "3.6.md"
+    },
+    {
+      "num": "4.1",
+      "file": "4.1.md"
+    },
+    {
+      "num": "4.2",
+      "file": "4.2.md"
+    },
+    {
+      "num": "4.3",
+      "file": "4.3.md"
+    },
+    {
+      "num": "4.4",
+      "file": "4.4.md"
+    },
+    {
+      "num": "4.5",
+      "file": "4.5.md"
+    },
+    {
+      "num": "4.6",
+      "file": "4.6.md"
+    },
+    {
+      "num": "5.1",
+      "file": "5.1.md"
+    },
+    {
+      "num": "5.2",
+      "file": "5.2.md"
+    },
+    {
+      "num": "5.3",
+      "file": "5.3.md"
+    },
+    {
+      "num": "5.4",
+      "file": "5.4.md"
+    },
+    {
+      "num": "5.5",
+      "file": "5.5.md"
+    },
+    {
+      "num": "5.6",
+      "file": "5.6.md"
+    },
+    {
+      "num": "6.1",
+      "file": "6.1.md"
+    },
+    {
+      "num": "6.2",
+      "file": "6.2.md"
+    },
+    {
+      "num": "6.3",
+      "file": "6.3.md"
+    },
+    {
+      "num": "6.4",
+      "file": "6.4.md"
+    },
+    {
+      "num": "6.5",
+      "file": "6.5.md"
+    },
+    {
+      "num": "6.6",
+      "file": "6.6.md"
+    }
+  ]
+}

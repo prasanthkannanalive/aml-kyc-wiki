@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Wolfsberg — PEP Guidance (2017)",
+    "description": "Wolfsberg statement and guidance on politically exposed persons — risk-based approach to PEP relationships.",
+    "category": "Industry guidance",
+    "url": "https://wolfsberg-group.org/news/wolfsberg-group-publication-statement-guidance-on-politically-exposed-persons-peps"
+  },
+  {
+    "title": "Wolfsberg — FAQs on Beneficial Ownership",
+    "description": "Wolfsberg FAQs on identifying and verifying beneficial owners of legal persons and arrangements.",
+    "category": "Industry guidance",
+    "url": "https://wolfsberg-group.org/resources/general"
+  },
+  {
+    "title": "Wolfsberg — Second MSA Statement (2025)",
+    "description": "Wolfsberg Group's second statement on effective monitoring for suspicious activity — TM effectiveness principles.",
+    "category": "Industry guidance",
+    "url": "https://wolfsberg-group.org/news/the-wolfsberg-group-publishes-its-second-statement-on-effective-monitoring-for-suspicious-activity"
+  },
+  {
+    "title": "Wolfsberg — TM RFI Best Practice Guidance",
+    "description": "Best practices for requests for information during transaction monitoring alert investigations.",
+    "category": "Industry guidance",
+    "url": "https://wolfsberg-group.org/news/publication-of-the-wolfsberg-rfi-best-practice-guidance"
+  },
+  {
+    "title": "Wolfsberg — Negative News Screening FAQs",
+    "description": "How to filter adverse media noise from material financial-crime signals in screening.",
+    "category": "Industry guidance",
+    "url": "https://wolfsberg-group.org/news/publication-of-the-negative-news-screening-faqs"
+  },
+  {
+    "title": "FFIEC — BSA/AML Examination Manual",
+    "description": "The full FFIEC manual with per-section PDFs — the US examination standard for CDD/BO and the whole BSA/AML programme.",
+    "category": "US regulation",
+    "url": "https://bsaaml.ffiec.gov/manual"
+  },
+  {
+    "title": "UKFIU — SAR Best Practice (current chapters)",
+    "description": "Current UKFIU guidance notice linking to Chapters 1–3: using the SAR portal, submitting a SAR, and DAMLs/DATFs.",
+    "category": "UK regulation",
+    "url": "https://www.gamblingcommission.gov.uk/licensees-and-businesses/notice/updated-sars-guidance-from-the-ukfiu"
+  },
+  {
+    "title": "Home Office — Circular 022/2015 (SAR confidentiality)",
+    "description": "UK guidance on SAR confidentiality, sensitivity and tipping-off offences under POCA 2002.",
+    "category": "UK regulation",
+    "url": "https://www.gov.uk/government/publications/circular-0222015-money-laundering-the-confidentiality-and-sensitivity-of-suspicious-activity-reports-sars-and-the-identity-of-those-who-make-them"
+  }
+]

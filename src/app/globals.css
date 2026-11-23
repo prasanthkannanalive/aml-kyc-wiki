@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --line: #e4e4e7;
+  --ink: #18181b;
+  --body: #3f3f46;
+  --muted: #71717a;
+  --faint: #a1a1aa;
+  --foreground: #18181b;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #09090b;
+  --surface: #18181b;
+  --surface-2: #27272a;
+  --line: #27272a;
+  --ink: #fafafa;
+  --body: #d4d4d8;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+  --foreground: #fafafa;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: rgb(52 211 153 / 0.3);
+}
+
+.flow-card.flow-active {
+  border-color: rgb(52 211 153 / 0.55);
+  background: rgb(52 211 153 / 0.07);
+  box-shadow: 0 0 24px rgb(52 211 153 / 0.12);
+}
+
+/* Animated logo */
+@media (prefers-reduced-motion: no-preference) {
+  .logo-bg {
+    animation: logo-shimmer 4s ease-in-out infinite;
+  }
+  .logo-shield {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: logo-breathe 3.2s ease-in-out infinite;
+  }
+  .logo-check {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: logo-draw 2.8s ease-in-out infinite;
+  }
+  .logo-dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: logo-orbit 2.6s ease-in-out infinite;
+  }
+  .logo-dot-b {
+    animation-delay: 1.1s;
+  }
+}
+
+@keyframes logo-shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.82; }
+}
+@keyframes logo-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+@keyframes logo-draw {
+  0% { stroke-dashoffset: 1; }
+  30% { stroke-dashoffset: 0; }
+  78% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1; }
+}
+@keyframes logo-orbit {
+  0%, 100% { transform: translate(0, 0); opacity: 0.9; }
+  50% { transform: translate(1.6px, -1.6px); opacity: 0.35; }
 }
