@@ -44,9 +44,24 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-lg font-semibold text-ink">What we don&apos;t collect</h2>
           <p>
-            We do not collect payment details (the site is free), government
-            ID, or any customer due-diligence data. The sandbox and case
-            studies use fictional scenarios only.
+            We do not collect government ID or any customer due-diligence
+            data. The sandbox and case studies use fictional scenarios only.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-ink">Payment data</h2>
+          <p>
+            If you purchase a subscription, payment processing is handled
+            securely by a third-party payment provider (e.g. Stripe). We do
+            not store your raw credit-card details, bank credentials or full
+            payment instrument data on our servers — the provider shares only
+            a tokenised customer reference and subscription status needed to
+            manage your plan. See our{" "}
+            <Link href="/terms" className="text-emerald-400 hover:underline">
+              Terms of Use
+            </Link>{" "}
+            for billing, renewal and refund terms.
           </p>
         </section>
 

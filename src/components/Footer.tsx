@@ -98,6 +98,8 @@ export default async function Footer() {
       </div>
       <div className="border-t border-line/80 py-6 text-center text-xs text-faint">
         <div className="mb-2 flex justify-center gap-4">
+          <Link href="/pricing" className="hover:text-muted">Pricing</Link>
+          <Link href="/contact" className="hover:text-muted">Contact</Link>
           <Link href="/privacy" className="hover:text-muted">Privacy</Link>
           <Link href="/terms" className="hover:text-muted">Terms</Link>
         </div>

@@ -44,6 +44,8 @@ export default async function Header() {
         { href: "/research", label: L("nav.research") },
         { href: "/glossary", label: L("nav.glossary") },
         { href: "/about", label: L("nav.about") },
+        { href: "/pricing", label: "Pricing" },
+        { href: "/contact", label: "Contact" },
       ],
     },
   ];

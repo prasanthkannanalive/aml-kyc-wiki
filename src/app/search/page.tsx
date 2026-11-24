@@ -132,6 +132,23 @@ export default function SearchPage() {
     });
   }
 
+  items.push(
+    {
+      title: "Pricing — Free, Pro & Team plans",
+      subtitle: "Page · subscriptions",
+      href: "/pricing",
+      kind: "Tool",
+      text: "Subscription tiers for AML/KYC Wiki — free courses and tools, Pro simulations and exams, Team seats.",
+    },
+    {
+      title: "Contact & Support",
+      subtitle: "Page · billing, help, enterprise",
+      href: "/contact",
+      kind: "Tool",
+      text: "Reach the AML/KYC Wiki team — billing issues, subscriptions, technical support and content corrections.",
+    }
+  );
+
   items.push({
     title: "Compliance Stack Landscape — AML vendors & platforms",
     subtitle: "Directory · blockchain analytics, KYC screening, certifications",

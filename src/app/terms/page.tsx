@@ -69,6 +69,46 @@ export default function TermsPage() {
         </section>
 
         <section>
+          <h2 className="text-lg font-semibold text-ink">Subscription &amp; billing</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5">
+            <li>
+              <strong className="text-ink">Plans.</strong> Paid plans (Pro,
+              Team) are billed in advance on a monthly or annual cycle and
+              renew automatically until cancelled.
+            </li>
+            <li>
+              <strong className="text-ink">Cancellation.</strong> You may
+              cancel at any time from your account page; access continues
+              until the end of the current paid period. No partial-period
+              refunds except as stated below.
+            </li>
+            <li>
+              <strong className="text-ink">Refunds.</strong> First-time Pro
+              subscriptions carry a 7-day money-back guarantee. Team plans
+              invoiced annually are refundable pro-rata within 14 days of
+              purchase. Renewals are non-refundable once the billing period
+              has started.
+            </li>
+            <li>
+              <strong className="text-ink">Price changes.</strong> If prices
+              change, we will notify you at least 30 days before the new price
+              applies to your renewal. You may cancel before renewal to avoid
+              the new price.
+            </li>
+            <li>
+              <strong className="text-ink">Non-payment.</strong> If a payment
+              fails, we will retry and notify you; accounts may be downgraded
+              to the free tier or suspended if billing remains unresolved.
+            </li>
+            <li>
+              <strong className="text-ink">Taxes.</strong> Prices exclude
+              applicable taxes unless stated; VAT/GST may be added based on
+              your billing location.
+            </li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-lg font-semibold text-ink">Availability & liability</h2>
           <p>
             The site is provided &quot;as is&quot; without warranties of any
