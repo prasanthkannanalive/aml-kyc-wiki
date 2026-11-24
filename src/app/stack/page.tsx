@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import StackBrowser from "@/components/StackBrowser";
+import StackWalkthrough from "@/components/StackWalkthrough";
 import { SAR_PIPELINE, CERTIFICATIONS, LAYERS } from "@/lib/compliance-stack";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -21,6 +22,19 @@ export default function StackPage() {
         job descriptions.
       </p>
       <ViewTracker type="search" id="stack" />
+
+      {/* guided walkthrough — mock console */}
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold">Guided walkthrough — screening to SAR</h2>
+        <p className="mt-1 text-sm text-muted">
+          A simulated compliance console: click through the menu or hit{" "}
+          <span className="font-medium text-ink">▶ Guided tour</span> and watch a wallet go from
+          screening → alert → investigation → filed SAR.
+        </p>
+        <div className="mt-5">
+          <StackWalkthrough />
+        </div>
+      </section>
 
       {/* how the stack fits the SAR workflow */}
       <section className="mt-10">
