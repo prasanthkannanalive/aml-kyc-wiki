@@ -97,6 +97,13 @@ export default function SearchPage() {
       text: "Simulated AML analyst shifts: alert triage, KYC/EDD, adverse media, SAR drafting and filing decisions with scored feedback.",
     },
     {
+      title: "AML/KYC Careers — roles, requirements, certifications",
+      subtitle: "Guide · career ladder",
+      href: "/careers",
+      kind: "Tool",
+      text: "AML/KYC career paths from entry analyst to MLRO/CCO — responsibilities, requirements, certifications and a personal readiness tracker.",
+    },
+    {
       title: "Templates & Checklists",
       subtitle: "Resources · job aids",
       href: "/resources",
