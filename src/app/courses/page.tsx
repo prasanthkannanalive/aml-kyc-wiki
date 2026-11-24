@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { courses, totalChapters } from "@/lib/content";
-import CourseCard from "@/components/CourseCard";
+import CoursesBrowser from "@/components/CoursesBrowser";
 import { getCourseReads } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -24,11 +24,9 @@ export default async function CoursesPage() {
         for financial-crime operations, organised as a browsable knowledge
         base.
       </p>
-      <div className="mt-8 grid gap-5 md:grid-cols-2">
-        {courses.map((c) => (
-          <CourseCard key={c.slug} course={c} liveReads={readCounts[c.slug]} />
-        ))}
-      </div>
+      <CoursesBrowser
+        items={courses.map((c) => ({ course: c, liveReads: readCounts[c.slug] }))}
+      />
     </div>
   );
 }
