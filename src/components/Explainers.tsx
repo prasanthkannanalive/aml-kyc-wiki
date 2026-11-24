@@ -20,7 +20,7 @@ const EXPLAINERS = [
   },
   {
     key: "kyc",
-    src: "/animations/custom-kyc.json",
+    src: "/animations/kyc-onboarding.json",
     href: "/courses/financial-intelligence-trafficking/chapters/3.2",
   },
   {
