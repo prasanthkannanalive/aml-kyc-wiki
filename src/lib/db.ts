@@ -57,6 +57,7 @@ const K = {
   progress: (id: string) => `aml:progress:${id}`,
   stats: "aml:stats", // hash field -> count
   sync: (id: string) => `aml:sync:${id}`, // guest-achievement sync blob
+  cert: (id: string) => `aml:cert:${id}`, // verifiable course certificate
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -249,6 +250,35 @@ export async function mergeSyncMeta(userId: string, incoming: SyncMeta): Promise
     writeJson("sync.json", all);
   }
   return merged;
+}
+
+/* -------------------------- certificates --------------------------- */
+
+export interface CertRecord {
+  id: string;
+  courseSlug: string;
+  courseTitle: string;
+  code: string;
+  issuedAt: string;
+}
+
+export async function getCert(id: string): Promise<CertRecord | null> {
+  if (kvEnabled()) {
+    const raw = await kvGet<string>("GET", K.cert(id));
+    return raw ? (JSON.parse(raw) as CertRecord) : null;
+  }
+  const all = readJson<Record<string, CertRecord>>("certs.json", {});
+  return all[id] ?? null;
+}
+
+export async function setCert(rec: CertRecord): Promise<void> {
+  if (kvEnabled()) {
+    await kvPost(["SET", K.cert(rec.id)], JSON.stringify(rec));
+    return;
+  }
+  const all = readJson<Record<string, CertRecord>>("certs.json", {});
+  all[rec.id] = rec;
+  writeJson("certs.json", all);
 }
 
 /* --------------------- live engagement helpers --------------------- */

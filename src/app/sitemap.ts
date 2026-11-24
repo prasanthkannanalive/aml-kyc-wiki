@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/glossary",
     "/disciplines",
     "/sandbox",
+    "/exams",
+    "/review",
     "/tools",
     "/job-simulation",
     "/careers",

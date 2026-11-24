@@ -10,6 +10,7 @@ import {
 } from "@/lib/chapters";
 import ChapterContent from "@/components/ChapterContent";
 import ChapterScenario from "@/components/ChapterScenario";
+import { MODULE_OVERVIEWS } from "@/lib/module-overviews";
 import ViewTracker from "@/components/ViewTracker";
 
 export function generateStaticParams() {
@@ -111,6 +112,30 @@ export default async function ChapterPage({
         </p>
 
         <ChapterScenario slug={slug} num={meta.num} title={meta.title} />
+
+        {meta.moduleNum != null && meta.moduleNum > 0 &&
+          (() => {
+            const ov = MODULE_OVERVIEWS[`${slug}/${meta.moduleNum}`];
+            if (!ov) return null;
+            return (
+              <div className="mt-6 rounded-xl border border-line bg-surface/40 p-4">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
+                  Module {meta.moduleNum} context
+                </p>
+                <p className="mt-1.5 text-xs leading-5 text-muted">{ov.summary}</p>
+                <div className="mt-2.5 flex flex-wrap gap-1.5">
+                  {ov.points.slice(0, 3).map((pt) => (
+                    <span
+                      key={pt}
+                      className="rounded-full border border-line bg-background/60 px-2.5 py-0.5 text-[11px] text-muted"
+                    >
+                      {pt}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
         <article className="mt-8">
           <ChapterContent markdown={body} />

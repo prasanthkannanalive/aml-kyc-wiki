@@ -5,6 +5,7 @@ import StackWalkthrough from "@/components/StackWalkthrough";
 import HopExplorer from "@/components/HopExplorer";
 import DeFiFlow from "@/components/DeFiFlow";
 import { SAR_PIPELINE, CERTIFICATIONS, LAYERS } from "@/lib/compliance-stack";
+import { courses } from "@/lib/content";
 import ViewTracker from "@/components/ViewTracker";
 
 export const metadata: Metadata = {
@@ -184,6 +185,20 @@ export default function StackPage() {
                 <span className="text-[10px] uppercase tracking-wide text-faint">{c.issuer}</span>
               </div>
               <p className="mt-1.5 text-xs leading-5 text-muted">{c.desc}</p>
+              <p className="mt-2.5 text-[10px] font-semibold uppercase tracking-wide text-faint">
+                Covered by
+              </p>
+              <div className="mt-1 flex flex-wrap gap-1">
+                {c.covers.map((slug) => (
+                  <Link
+                    key={slug}
+                    href={`/courses/${slug}`}
+                    className="rounded-full border border-line bg-surface px-2 py-0.5 text-[10px] text-muted transition-colors hover:border-emerald-400/40 hover:text-emerald-300"
+                  >
+                    {courses.find((x) => x.slug === slug)?.code ?? slug}
+                  </Link>
+                ))}
+              </div>
             </div>
           ))}
         </div>

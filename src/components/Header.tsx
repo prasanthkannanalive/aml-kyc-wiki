@@ -25,6 +25,8 @@ export default async function Header() {
       label: L("nav.practice"),
       items: [
         { href: "/sandbox", label: L("nav.sandbox") },
+        { href: "/exams", label: "Mock Exams" },
+        { href: "/review", label: "Daily Review" },
         { href: "/tools", label: L("nav.tools") },
         { href: "/job-simulation", label: L("nav.simulation") },
         { href: "/arcade", label: L("nav.arcade") },

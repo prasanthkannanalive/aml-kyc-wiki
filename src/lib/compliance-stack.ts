@@ -256,18 +256,21 @@ export const CERTIFICATIONS = [
     name: "CCCA",
     issuer: "Chainalysis",
     desc: "Certified Crypto Compliance Associate — the credential crypto-compliance job posts name most often",
+    covers: ["virtual-asset-compliance", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
     href: "/courses/virtual-asset-compliance",
   },
   {
     name: "CAMS",
     issuer: "ACAMS",
     desc: "Certified Anti-Money Laundering Specialist — the generalist gold standard across all AML roles",
+    covers: ["kyc-cdd-tm-analyst", "fraud-prevention", "sanctions-screening", "trade-based-laundering"],
     href: "/careers",
   },
   {
     name: "ICA",
     issuer: "ICA",
     desc: "International Compliance Association certificate — strong for UK/EU-facing roles",
+    covers: ["sanctions-screening", "kyc-cdd-tm-analyst", "financial-intelligence-trafficking"],
     href: "/careers",
   },
 ];

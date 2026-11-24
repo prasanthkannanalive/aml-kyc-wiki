@@ -38,6 +38,27 @@ export default function FinalExam({
     () => false
   );
 
+  const certKey = `aml-cert:${courseSlug}`;
+  const certSubscribe = (cb: () => void) => {
+    window.addEventListener("aml-cert-issued", cb);
+    window.addEventListener("storage", cb);
+    return () => {
+      window.removeEventListener("aml-cert-issued", cb);
+      window.removeEventListener("storage", cb);
+    };
+  };
+  const certId = useSyncExternalStore(
+    certSubscribe,
+    () => {
+      try {
+        return localStorage.getItem(certKey) ?? "";
+      } catch {
+        return "";
+      }
+    },
+    () => ""
+  );
+
   const score = picked.filter((p, i) => p === questions[i].answer).length;
   const allAnswered = picked.every((p) => p !== null);
   const didPass = score / questions.length >= PASS_MARK;
@@ -56,6 +77,23 @@ export default function FinalExam({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "exam", id: courseSlug }),
       }).catch(() => {});
+      fetch("/api/cert", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ courseSlug }),
+      })
+        .then((r) => r.json())
+        .then((d) => {
+          if (d?.id) {
+            try {
+              localStorage.setItem(certKey, d.id);
+            } catch {
+              /* ignore */
+            }
+            window.dispatchEvent(new Event("aml-cert-issued"));
+          }
+        })
+        .catch(() => {});
     }
   };
 
@@ -97,6 +135,16 @@ export default function FinalExam({
             browser. This is a course-completion credential issued by this
             knowledge base — it is not an external accreditation.
           </p>
+          {certId && (
+            <a
+              href={`/verify/${certId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block rounded-lg border border-emerald-400/40 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold text-emerald-300 transition-colors hover:bg-emerald-400/20"
+            >
+              View &amp; verify certificate →
+            </a>
+          )}
           <button
             onClick={() => {
               retake();

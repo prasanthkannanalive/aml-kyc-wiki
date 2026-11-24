@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { courses, leaderboard, totalChapters } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
-import { getAllProgress, getAllStats } from "@/lib/db";
+import { getAllProgress, getAllStats, getUsers } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -134,6 +134,43 @@ export default async function LeaderboardPage() {
     return { type, label, total };
   }).filter((r) => r.total > 0 || r.type !== "exam");
   const maxPractice = Math.max(1, ...practiceRows.map((r) => r.total));
+
+  /* ---------- learner streaks & weekly activity ---------- */
+  const users = await getUsers();
+  const nameFor = new Map(users.map((u) => [u.id, u.name || u.email]));
+  const dayKey = (iso: string) => iso.slice(0, 10);
+  const todayMs = Date.parse(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
+  const today = new Date(todayMs).toISOString().slice(0, 10);
+  const dayStr = (ms: number) => new Date(ms).toISOString().slice(0, 10);
+  const weekStart = todayMs - 6 * 86400000;
+  const streakRows = Object.entries(progress)
+    .map(([uid, p]) => {
+      const days = new Set(
+        Object.values(p)
+          .filter((v) => typeof v === "string")
+          .map(dayKey)
+      );
+      // streak: consecutive days ending today or yesterday
+      let streak = 0;
+      let cursor = days.has(today) ? todayMs : todayMs - 86400000;
+      while (days.has(dayStr(cursor))) {
+        streak += 1;
+        cursor -= 86400000;
+      }
+      const week = Object.values(p).filter(
+        (v) => typeof v === "string" && Date.parse(v) >= weekStart
+      ).length;
+      return {
+        uid,
+        name: nameFor.get(uid) ?? `Reader ${uid.slice(0, 6)}`,
+        streak,
+        week,
+        total: Object.keys(p).length,
+      };
+    })
+    .filter((r) => r.streak > 0 || r.week > 0)
+    .sort((a, b) => b.streak - a.streak || b.week - a.week)
+    .slice(0, 8);
 
   /* ---------- live strip ---------- */
   const totalEvents = Object.values(stats).reduce((s, v) => s + v, 0);
@@ -319,6 +356,53 @@ export default async function LeaderboardPage() {
               </div>
             ))}
           </div>
+        </>
+      )}
+
+      {/* learner streaks */}
+      {streakRows.length > 0 && (
+        <>
+          <h2 className="mt-12 text-2xl font-bold tracking-tight">
+            Learner Streaks &amp; This Week
+          </h2>
+          <div className="mt-6 overflow-hidden rounded-2xl border border-line">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
+                  <th className="px-5 py-3.5 font-medium">#</th>
+                  <th className="px-5 py-3.5 font-medium">Learner</th>
+                  <th className="px-5 py-3.5 text-right font-medium">🔥 Streak</th>
+                  <th className="hidden px-5 py-3.5 text-right font-medium sm:table-cell">This week</th>
+                  <th className="hidden px-5 py-3.5 text-right font-medium md:table-cell">All-time activity</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-line/60">
+                {streakRows.map((r, i) => (
+                  <tr key={r.uid} className="transition-colors hover:bg-surface-2/50">
+                    <td className="px-5 py-4">
+                      <span className={`text-lg font-bold ${i < 3 ? "text-emerald-400" : "text-faint"}`}>
+                        {i + 1}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4 font-medium text-ink">{r.name}</td>
+                    <td className="px-5 py-4 text-right font-mono text-body">
+                      {r.streak > 0 ? `${r.streak}d` : "—"}
+                    </td>
+                    <td className="hidden px-5 py-4 text-right font-mono text-muted sm:table-cell">
+                      {r.week} events
+                    </td>
+                    <td className="hidden px-5 py-4 text-right font-mono text-muted md:table-cell">
+                      {r.total}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-xs text-faint">
+            Streaks count consecutive days with recorded progress; &quot;this
+            week&quot; counts activity events in the last 7 days.
+          </p>
         </>
       )}
 
