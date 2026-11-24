@@ -36,6 +36,7 @@ export default function JobSimulation() {
   const [picks, setPicks] = useState<number[]>([]);
   const [finished, setFinished] = useState(false);
   const [progress, setProgress] = useState<SimProgress>({ done: {} });
+  const [filter, setFilter] = useState<"all" | "shift" | "filing">("all");
 
   useEffect(() => {
     const t = setTimeout(() => setProgress(load()), 0);
@@ -89,9 +90,22 @@ export default function JobSimulation() {
 
   // ---- scenario select ----
   if (!active) {
+    const shown = simulations.filter((s) => filter === "all" || s.category === filter);
     return (
-      <div className="grid gap-5 md:grid-cols-2">
-        {simulations.map((s) => {
+      <div>
+        <div className="mb-5 flex flex-wrap gap-2">
+          {([["all", "All simulations"], ["shift", "Analyst shifts"], ["filing", "SAR/STR filing — by country"]] as const).map(([f, label]) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${filter === f ? "border-emerald-400 bg-emerald-400/15 text-emerald-300" : "border-line text-muted hover:border-emerald-400/40 hover:text-ink"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+        {shown.map((s) => {
           const best = progress.done[s.slug];
           return (
             <button
@@ -117,6 +131,7 @@ export default function JobSimulation() {
             </button>
           );
         })}
+        </div>
       </div>
     );
   }

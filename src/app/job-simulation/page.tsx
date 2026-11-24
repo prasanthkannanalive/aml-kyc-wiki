@@ -15,8 +15,10 @@ export default function JobSimulationPage() {
       <p className="mt-3 max-w-2xl text-muted">
         Step into the analyst&apos;s chair. Each simulation walks you through a real
         shift — alert queues, KYC refreshes, adverse media, escalation calls and
-        SAR deadlines — and scores every decision with the reasoning a senior
-        analyst would give. Best scores are saved on this device.
+        SAR deadlines — plus SAR/STR filing simulations for the US, UK, Canada,
+        Australia, Singapore, Hong Kong, Japan, UAE and the EU. Every decision is
+        scored with the reasoning a senior analyst would give. Best scores are
+        saved on this device.
       </p>
       <ViewTracker type="search" id="job-simulation" />
       <div className="mt-10">
