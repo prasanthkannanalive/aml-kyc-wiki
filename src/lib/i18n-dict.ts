@@ -111,6 +111,9 @@ export const dict: Record<Lang, Record<string, string>> = {
     "footer.tagline":
       "The knowledge base for AML, KYC and financial-crime operations — courses, frameworks and field guides for the analysts who keep the financial system clean.",
     "footer.explore": "Explore",
+    "footer.learn": "Learn",
+    "footer.practice": "Practice",
+    "footer.community": "Community",
     "footer.disciplines": "Disciplines",
     "footer.note":
       "Educational material only — not legal advice. Always verify against current regulatory sources.",
@@ -221,6 +224,9 @@ export const dict: Record<Lang, Record<string, string>> = {
       "La base de conocimiento para operaciones de AML, KYC y delitos financieros — cursos, marcos y guías para los analistas que mantienen limpio el sistema financiero.",
     "footer.explore": "Explorar",
     "footer.disciplines": "Disciplinas",
+    "footer.learn": "Aprender",
+    "footer.practice": "Práctica",
+    "footer.community": "Comunidad",
     "footer.note":
       "Material educativo únicamente — no es asesoramiento legal. Verifique siempre las fuentes regulatorias actuales.",
     "footer.langnote": "Interfaz traducida — el contenido de los artículos está en inglés.",
@@ -330,6 +336,9 @@ export const dict: Record<Lang, Record<string, string>> = {
       "AML, KYC और वित्तीय अपराध संचालन के लिए ज्ञान आधार — पाठ्यक्रम, ढांचे और क्षेत्र गाइड उन विश्लेषकों के लिए जो वित्तीय प्रणाली को साफ रखते हैं।",
     "footer.explore": "देखें",
     "footer.disciplines": "विषय",
+    "footer.learn": "सीखें",
+    "footer.practice": "अभ्यास",
+    "footer.community": "समुदाय",
     "footer.note":
       "केवल शैक्षिक सामग्री — कानूनी सलाह नहीं। हमेशा वर्तमान नियामक स्रोतों से सत्यापित करें।",
     "footer.langnote": "इंटरफ़ेस अनुवादित — लेख सामग्री अंग्रेज़ी में है।",

@@ -12,11 +12,49 @@ const CAT_HREF: Record<string, string> = {
   glossary: "/glossary",
 };
 
+const GROUPS: { key: string; links: [string, string][] }[] = [
+  {
+    key: "footer.learn",
+    links: [
+      ["nav.courses", "/courses"],
+      ["nav.training", "/training"],
+      ["nav.disciplines", "/disciplines"],
+      ["nav.library", "/library"],
+      ["nav.resources", "/resources"],
+      ["nav.glossary", "/glossary"],
+    ],
+  },
+  {
+    key: "footer.practice",
+    links: [
+      ["nav.sandbox", "/sandbox"],
+      ["nav.tools", "/tools"],
+      ["nav.simulation", "/job-simulation"],
+      ["nav.arcade", "/arcade"],
+      ["nav.cases", "/cases"],
+      ["nav.interview", "/interview-prep"],
+    ],
+  },
+  {
+    key: "footer.community",
+    links: [
+      ["nav.careers", "/careers"],
+      ["nav.leaderboard", "/leaderboard"],
+      ["nav.regulators", "/regulators"],
+      ["nav.news", "/news"],
+      ["nav.research", "/research"],
+      ["nav.about", "/about"],
+    ],
+  },
+];
+
+const DISCIPLINES_GROUP = "footer.disciplines";
+
 export default async function Footer() {
   const lang = await getLang();
   return (
     <footer className="border-t border-line/80">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-6">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <Logo size={32} />
@@ -28,31 +66,22 @@ export default async function Footer() {
             {t(lang, "footer.tagline")}
           </p>
         </div>
+        {GROUPS.map((g) => (
+          <div key={g.key}>
+            <h3 className="text-sm font-semibold text-ink">{t(lang, g.key)}</h3>
+            <ul className="mt-3 space-y-2 text-sm text-muted">
+              {g.links.map(([lk, href]) => (
+                <li key={href}>
+                  <Link className="hover:text-ink" href={href}>
+                    {t(lang, lk)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         <div>
-          <h3 className="text-sm font-semibold text-ink">{t(lang, "footer.explore")}</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted">
-            <li><Link className="hover:text-ink" href="/courses">{t(lang, "nav.courses")}</Link></li>
-            <li><Link className="hover:text-ink" href="/training">{t(lang, "nav.training")}</Link></li>
-            <li><Link className="hover:text-ink" href="/disciplines">{t(lang, "nav.disciplines")}</Link></li>
-            <li><Link className="hover:text-ink" href="/sandbox">{t(lang, "nav.sandbox")}</Link></li>
-            <li><Link className="hover:text-ink" href="/tools">{t(lang, "nav.tools")}</Link></li>
-            <li><Link className="hover:text-ink" href="/job-simulation">{t(lang, "nav.simulation")}</Link></li>
-            <li><Link className="hover:text-ink" href="/careers">{t(lang, "nav.careers")}</Link></li>
-            <li><Link className="hover:text-ink" href="/resources">{t(lang, "nav.resources")}</Link></li>
-            <li><Link className="hover:text-ink" href="/library">{t(lang, "nav.library")}</Link></li>
-            <li><Link className="hover:text-ink" href="/arcade">{t(lang, "nav.arcade")}</Link></li>
-            <li><Link className="hover:text-ink" href="/cases">{t(lang, "nav.cases")}</Link></li>
-            <li><Link className="hover:text-ink" href="/regulators">{t(lang, "nav.regulators")}</Link></li>
-            <li><Link className="hover:text-ink" href="/interview-prep">{t(lang, "nav.interview")}</Link></li>
-            <li><Link className="hover:text-ink" href="/leaderboard">{t(lang, "nav.leaderboard")}</Link></li>
-            <li><Link className="hover:text-ink" href="/glossary">{t(lang, "nav.glossary")}</Link></li>
-            <li><Link className="hover:text-ink" href="/news">{t(lang, "nav.news")}</Link></li>
-            <li><Link className="hover:text-ink" href="/research">{t(lang, "nav.research")}</Link></li>
-            <li><Link className="hover:text-ink" href="/about">{t(lang, "nav.about")}</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-sm font-semibold text-ink">{t(lang, "footer.disciplines")}</h3>
+          <h3 className="text-sm font-semibold text-ink">{t(lang, DISCIPLINES_GROUP)}</h3>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             {categories.map((c) => (
               <li key={c.slug}>
