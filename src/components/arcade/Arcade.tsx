@@ -579,6 +579,11 @@ export default function Arcade() {
         allDone && p.lastPlay !== todayStr() ? p.streak + 1 : p.streak;
       const np = { ...p, done, streak, lastPlay: allDone ? todayStr() : p.lastPlay };
       saveProgress(np);
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "arcade", id: gid }),
+      }).catch(() => {});
       return np;
     });
   };

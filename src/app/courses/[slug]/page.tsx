@@ -211,6 +211,7 @@ export default async function CoursePage({
                       <ModuleQuiz
                         moduleTitle={m.title}
                         questions={(m.quiz ?? MODULE_QUIZZES[course.slug]?.[m.num])!}
+                        trackId={`${course.slug}/m${m.num}`}
                       />
                     </div>
                   )}

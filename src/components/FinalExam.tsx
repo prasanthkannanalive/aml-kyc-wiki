@@ -51,6 +51,11 @@ export default function FinalExam({
         /* ignore */
       }
       window.dispatchEvent(new Event("aml-exam-pass"));
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "exam", id: courseSlug }),
+      }).catch(() => {});
     }
   };
 

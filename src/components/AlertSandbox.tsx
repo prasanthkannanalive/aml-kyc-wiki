@@ -26,8 +26,14 @@ export default function AlertSandbox({ scenarios }: { scenarios: SandboxScenario
   };
 
   const next = () => {
-    if (idx + 1 >= scenarios.length) setDone(true);
-    else {
+    if (idx + 1 >= scenarios.length) {
+      setDone(true);
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "sandbox", id: "alert-triage" }),
+      }).catch(() => {});
+    } else {
       setIdx(idx + 1);
       setPicked(null);
     }

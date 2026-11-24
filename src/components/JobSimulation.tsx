@@ -77,6 +77,11 @@ export default function JobSimulation() {
         save(np);
         return np;
       });
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "sim", id: active!.slug }),
+      }).catch(() => {});
       setFinished(true);
     } else {
       setStep((s) => s + 1);

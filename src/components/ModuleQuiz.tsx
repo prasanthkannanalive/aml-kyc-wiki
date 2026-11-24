@@ -12,14 +12,28 @@ export interface QuizQuestion {
 export default function ModuleQuiz({
   moduleTitle,
   questions,
+  trackId,
 }: {
   moduleTitle: string;
   questions: QuizQuestion[];
+  trackId?: string;
 }) {
   const [picked, setPicked] = useState<(number | null)[]>(
     () => questions.map(() => null)
   );
   const [submitted, setSubmitted] = useState(false);
+
+  const submit = () => {
+    if (!allAnswered || submitted) return;
+    setSubmitted(true);
+    if (trackId) {
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "quiz", id: trackId }),
+      }).catch(() => {});
+    }
+  };
 
   const score = picked.filter((p, i) => p === questions[i].answer).length;
   const allAnswered = picked.every((p) => p !== null);
@@ -85,7 +99,7 @@ export default function ModuleQuiz({
       <div className="mt-5 flex items-center gap-4">
         {!submitted ? (
           <button
-            onClick={() => allAnswered && setSubmitted(true)}
+            onClick={submit}
             disabled={!allAnswered}
             className="rounded-lg bg-emerald-400 px-4 py-2 text-xs font-semibold text-zinc-950 transition-colors hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-40"
           >
