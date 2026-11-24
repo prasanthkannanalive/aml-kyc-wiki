@@ -16,12 +16,12 @@ const RULES: [Variant, RegExp][] = [
   ["alert", /fraud|detect|monitor|red flag|indicator|signal|typolog|smurf|mule|scam|deepfake|screen|match|identit|verif|investigat|osint|evidence|behaviour|behavior|analytics|model|device|authenticat|biometric/i],
 ];
 
-function pickVariant(text: string): Variant {
+export function pickVariant(text: string): Variant {
   for (const [v, re] of RULES) if (re.test(text)) return v;
   return "flow";
 }
 
-const ACCENT: Record<Variant, string> = {
+export const ACCENT: Record<Variant, string> = {
   flow: "#34d399",
   cycle: "#38bdf8",
   chain: "#a78bfa",
@@ -270,7 +270,7 @@ function AlertDiagram({ accent }: { accent: string }) {
   );
 }
 
-const DIAGRAMS: Record<Variant, (p: { accent: string }) => React.ReactNode> = {
+export const DIAGRAMS: Record<Variant, (p: { accent: string }) => React.ReactNode> = {
   flow: FlowDiagram,
   cycle: CycleDiagram,
   chain: ChainDiagram,

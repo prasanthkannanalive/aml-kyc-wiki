@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import ChapterContent from "./ChapterContent";
+import ModuleExplorer from "./ModuleExplorer";
 import type { Scenario } from "@/lib/scenarios";
 import { t, ti, type Lang } from "@/lib/i18n-dict";
 
@@ -63,6 +64,13 @@ export default function TrainingPlayer({
 
   const pct = chapters.length ? Math.round((done.size / chapters.length) * 100) : 0;
   const isDone = done.has(current?.num ?? "");
+
+  // module intro — show the interactive overview when landing on a module's first chapter
+  const currentModule = modules.find(([, m]) =>
+    m.items.some((c) => c.num === current?.num)
+  );
+  const isModuleStart =
+    !!currentModule && currentModule[1].items[0]?.num === current?.num;
 
   // track chapter view once per lesson opened
   useEffect(() => {
@@ -209,6 +217,19 @@ export default function TrainingPlayer({
               <div className="mb-1 text-xs font-medium uppercase tracking-wider text-emerald-300">
                 {ti(lang, "train.module", { n: current.moduleNum ?? 0 })} · {current.moduleTitle}
               </div>
+              {isModuleStart && currentModule && (
+                <div className="mb-6">
+                  <ModuleExplorer
+                    key={`${course.slug}-m${currentModule[0]}`}
+                    slug={course.slug}
+                    moduleNum={currentModule[0]}
+                    moduleTitle={currentModule[1].title}
+                    chapters={[]}
+                    defaultOpen
+                    hideChapters
+                  />
+                </div>
+              )}
               <h1 className="text-2xl font-bold tracking-tight text-ink">
                 {current.num} — {current.title}
               </h1>

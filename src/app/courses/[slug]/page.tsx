@@ -5,6 +5,7 @@ import { courses, getCourse, totalChapters } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
 import ViewTracker from "@/components/ViewTracker";
 import ModuleQuiz from "@/components/ModuleQuiz";
+import ModuleExplorer from "@/components/ModuleExplorer";
 import FinalExam from "@/components/FinalExam";
 import { MODULE_QUIZZES, FINAL_EXAM } from "@/lib/module-quizzes";
 import { getCourseReads, getCourseCompletions } from "@/lib/db";
@@ -180,6 +181,15 @@ export default async function CoursePage({
                     <span className="ml-2 text-xs text-muted">
                       {m.chapters.length} chapters
                     </span>
+                  </div>
+                  <div className="border-b border-line/60 px-4 py-3">
+                    <ModuleExplorer
+                      slug={course.slug}
+                      moduleNum={m.num}
+                      moduleTitle={m.title}
+                      chapters={[]}
+                      hideChapters
+                    />
                   </div>
                   <ul className="divide-y divide-line/60">
                     {m.chapters.map((ch) => (
