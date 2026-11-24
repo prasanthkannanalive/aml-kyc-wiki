@@ -90,6 +90,13 @@ export default function SearchPage() {
       text: "CDD customer risk calculator, beneficial ownership threshold calculator and SAR/STR filing deadline timer.",
     },
     {
+      title: "AML/KYC Job Simulation — analyst shift roleplay",
+      subtitle: "Interactive · scored decisions",
+      href: "/job-simulation",
+      kind: "Tool",
+      text: "Simulated AML analyst shifts: alert triage, KYC/EDD, adverse media, SAR drafting and filing decisions with scored feedback.",
+    },
+    {
       title: "Templates & Checklists",
       subtitle: "Resources · job aids",
       href: "/resources",

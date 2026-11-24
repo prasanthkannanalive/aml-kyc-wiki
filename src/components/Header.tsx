@@ -14,6 +14,7 @@ export default async function Header() {
     { href: "/disciplines", label: t(lang, "nav.disciplines") },
     { href: "/sandbox", label: t(lang, "nav.sandbox") },
     { href: "/tools", label: t(lang, "nav.tools") },
+    { href: "/job-simulation", label: t(lang, "nav.simulation") },
     { href: "/cases", label: t(lang, "nav.cases") },
     { href: "/interview-prep", label: t(lang, "nav.interview") },
     { href: "/resources", label: t(lang, "nav.resources") },

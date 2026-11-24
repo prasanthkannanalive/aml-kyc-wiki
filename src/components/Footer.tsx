@@ -36,6 +36,7 @@ export default async function Footer() {
             <li><Link className="hover:text-ink" href="/disciplines">{t(lang, "nav.disciplines")}</Link></li>
             <li><Link className="hover:text-ink" href="/sandbox">{t(lang, "nav.sandbox")}</Link></li>
             <li><Link className="hover:text-ink" href="/tools">{t(lang, "nav.tools")}</Link></li>
+            <li><Link className="hover:text-ink" href="/job-simulation">{t(lang, "nav.simulation")}</Link></li>
             <li><Link className="hover:text-ink" href="/resources">{t(lang, "nav.resources")}</Link></li>
             <li><Link className="hover:text-ink" href="/library">{t(lang, "nav.library")}</Link></li>
             <li><Link className="hover:text-ink" href="/arcade">{t(lang, "nav.arcade")}</Link></li>

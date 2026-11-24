@@ -182,8 +182,14 @@ export default async function Home() {
         <p className="mt-2 text-sm text-muted">
           Interactive tools, simulations and daily games — not just reading.
         </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
+            {
+              href: "/job-simulation",
+              title: "Job Simulation",
+              sub: "Work a real analyst shift — triage alerts, run EDD, file SARs. Every decision scored.",
+              tag: "Roleplay",
+            },
             {
               href: "/tools",
               title: "Interactive Tools",
