@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getSessionUser } from "@/lib/auth";
-import { getProgress } from "@/lib/db";
+import { getProgress, getSyncMeta } from "@/lib/db";
+import { syncMetaToStats } from "@/lib/sync-stats";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
 import { careerRoles, certifications } from "@/lib/careers";
@@ -18,6 +19,7 @@ export const dynamic = "force-dynamic";
 export default async function CareersPage() {
   const user = await getSessionUser();
   const progress = user ? await getProgress(user.id) : {};
+  const syncMeta = user ? await getSyncMeta(user.id) : null;
   const readKeys = Object.keys(progress);
 
   const perCourse = courses.map((c) => {
@@ -55,7 +57,11 @@ export default async function CareersPage() {
       <ViewTracker type="search" id="careers" />
 
       <div className="mt-8">
-        <CareerReadiness perCourse={perCourse} loggedIn={!!user} />
+        <CareerReadiness
+          perCourse={perCourse}
+          loggedIn={!!user}
+          serverStats={syncMetaToStats(syncMeta)}
+        />
       </div>
 
       {/* ladder */}

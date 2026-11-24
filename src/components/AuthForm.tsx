@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
 const ICONS = {
@@ -53,7 +53,55 @@ function FieldIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
+declare global {
+  interface Window {
+    google?: {
+      accounts: {
+        id: {
+          initialize: (cfg: { client_id: string; callback: (r: { credential: string }) => void }) => void;
+          renderButton: (el: HTMLElement, opts: Record<string, unknown>) => void;
+        };
+      };
+    };
+  }
+}
+
+// push localStorage achievement signals to the account after sign-in
+function syncGuestProgress() {
+  try {
+    const exam = localStorage.getItem("aml-kyc-final-exam:kyc-cdd-tm-analyst") === "passed";
+    const sims: Record<string, number> = {};
+    try {
+      const raw = localStorage.getItem("aml-sim-v1");
+      if (raw) {
+        const d = (JSON.parse(raw) as { done?: Record<string, number> }).done ?? {};
+        Object.assign(sims, d);
+      }
+    } catch {}
+    let arcade: { streak: number; games: number } | undefined;
+    try {
+      const raw = localStorage.getItem("aml-arcade-v1");
+      if (raw) {
+        const a = JSON.parse(raw) as { done?: Record<string, number>; streak?: number };
+        arcade = { streak: a.streak ?? 0, games: Object.keys(a.done ?? {}).length };
+      }
+    } catch {}
+    if (!exam && !Object.keys(sims).length && !arcade) return;
+    fetch("/api/auth/sync", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ exam, sims, arcade }),
+    }).catch(() => {});
+  } catch {}
+}
+
+export default function AuthForm({
+  mode,
+  googleClientId,
+}: {
+  mode: "login" | "signup";
+  googleClientId?: string;
+}) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,6 +109,54 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleErr, setGoogleErr] = useState("");
+  const googleBtnRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!googleClientId || !googleBtnRef.current || typeof window === "undefined") return;
+    const render = () => {
+      if (!window.google || !googleBtnRef.current) return;
+      window.google.accounts.id.initialize({
+        client_id: googleClientId,
+        callback: async (resp) => {
+          setGoogleErr("");
+          setLoading(true);
+          try {
+            const res = await fetch("/api/auth/google", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ credential: resp.credential }),
+            });
+            if (!res.ok) {
+              const d = await res.json().catch(() => ({}));
+              setGoogleErr(d.error ?? "Google sign-in failed.");
+              return;
+            }
+            syncGuestProgress();
+            router.push("/profile");
+            router.refresh();
+          } finally {
+            setLoading(false);
+          }
+        },
+      });
+      window.google.accounts.id.renderButton(googleBtnRef.current, {
+        theme: "filled_black",
+        size: "large",
+        width: googleBtnRef.current.offsetWidth || 320,
+        text: mode === "login" ? "signin_with" : "signup_with",
+      });
+    };
+    if (window.google) {
+      render();
+    } else {
+      const s = document.createElement("script");
+      s.src = "https://accounts.google.com/gsi/client";
+      s.async = true;
+      s.onload = render;
+      document.head.appendChild(s);
+    }
+  }, [googleClientId, mode, router]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,6 +173,7 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
         setError(data.error ?? "Something went wrong.");
         return;
       }
+      syncGuestProgress();
       router.push("/profile");
       router.refresh();
     } finally {
@@ -89,6 +186,17 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
 
   return (
     <form onSubmit={submit} className="space-y-4">
+      {googleClientId && (
+        <>
+          <div ref={googleBtnRef} className="flex min-h-[44px] justify-center" />
+          {googleErr && <p className="text-center text-sm text-red-400">{googleErr}</p>}
+          <div className="flex items-center gap-3 text-xs text-faint">
+            <span className="h-px flex-1 bg-line" />
+            or continue with email
+            <span className="h-px flex-1 bg-line" />
+          </div>
+        </>
+      )}
       {mode === "signup" && (
         <div>
           <label className="mb-1.5 block text-sm text-muted">Display name</label>

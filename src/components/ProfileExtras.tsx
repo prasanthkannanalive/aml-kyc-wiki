@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { EMPTY_STATS, mergeStats, type SyncStats } from "@/lib/sync-stats";
 
 const LEVELS = [
   { xp: 0, title: "Analyst" },
@@ -22,41 +23,46 @@ function loadArcade() {
 export default function ProfileExtras({
   chaptersRead,
   chaptersDone,
+  serverStats,
 }: {
   chaptersRead: number;
   chaptersDone: number;
+  serverStats?: SyncStats;
 }) {
-  const [arcade, setArcade] = useState<{ streak: number; games: number; best: number } | null>(null);
-  const [sims, setSims] = useState<{ played: number; best: number } | null>(null);
-  const [examPassed, setExamPassed] = useState(false);
+  const [localStats, setLocalStats] = useState<SyncStats | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
       const a = loadArcade();
       const done = a.done ?? {};
-      setArcade({
-        streak: a.streak ?? 0,
-        games: Object.keys(done).length,
-        best: Math.max(0, ...Object.values(done)),
-      });
+      const s: SyncStats = { ...EMPTY_STATS };
+      s.arcadeGames = Object.keys(done).length;
+      s.arcadeToday = s.arcadeGames;
+      s.arcadeStreak = a.streak ?? 0;
       try {
-        setExamPassed(localStorage.getItem("aml-kyc-final-exam:kyc-cdd-tm-analyst") === "passed");
+        s.exam = localStorage.getItem("aml-kyc-final-exam:kyc-cdd-tm-analyst") === "passed";
       } catch {}
       try {
         const sim = localStorage.getItem("aml-sim-v1");
         if (sim) {
           const d = (JSON.parse(sim) as { done?: Record<string, number> }).done ?? {};
           const vals = Object.values(d);
-          setSims({ played: vals.length, best: Math.max(0, ...vals) });
+          s.simPlayed = vals.length;
+          s.simBest = Math.max(0, ...vals);
         }
       } catch {}
+      setLocalStats(s);
     }, 0);
     return () => clearTimeout(t);
   }, []);
 
-  const arcadeXp = (arcade?.games ?? 0) * 15;
-  const simXp = (sims?.played ?? 0) * 25 + ((sims?.best ?? 0) >= 70 ? 25 : 0);
-  const xp = chaptersRead * 10 + chaptersDone * 20 + arcadeXp + simXp + (examPassed ? 100 : 0);
+  const stats = localStats
+    ? mergeStats(localStats, serverStats ?? EMPTY_STATS)
+    : (serverStats ?? null);
+
+  const arcadeXp = (stats?.arcadeGames ?? 0) * 15;
+  const simXp = (stats?.simPlayed ?? 0) * 25 + ((stats?.simBest ?? 0) >= 70 ? 25 : 0);
+  const xp = chaptersRead * 10 + chaptersDone * 20 + arcadeXp + simXp + (stats?.exam ? 100 : 0);
 
   const [shownXp, setShownXp] = useState(0);
   const xpRef = useRef(0);
@@ -105,20 +111,20 @@ export default function ProfileExtras({
             <div className="text-[11px] text-muted">Course XP</div>
           </div>
           <div className="rounded-xl bg-surface p-3 text-center">
-            <div className="font-mono text-lg font-bold text-ink">{arcade?.games ?? "—"}</div>
+            <div className="font-mono text-lg font-bold text-ink">{stats ? stats.arcadeGames : "—"}</div>
             <div className="text-[11px] text-muted">Arcade games today</div>
           </div>
           <div className="rounded-xl bg-surface p-3 text-center">
-            <div className="font-mono text-lg font-bold text-ink">{arcade?.streak ?? "—"}</div>
+            <div className="font-mono text-lg font-bold text-ink">{stats ? stats.arcadeStreak : "—"}</div>
             <div className="text-[11px] text-muted">Day streak</div>
           </div>
           <div className="rounded-xl bg-surface p-3 text-center">
-            <div className="font-mono text-lg font-bold text-ink">{sims?.played ?? "—"}</div>
+            <div className="font-mono text-lg font-bold text-ink">{stats ? stats.simPlayed : "—"}</div>
             <div className="text-[11px] text-muted">Simulations</div>
           </div>
           <div className="rounded-xl bg-surface p-3 text-center">
-            <div className={`font-mono text-lg font-bold ${examPassed ? "text-emerald-400" : "text-muted"}`}>
-              {examPassed ? "✓" : "—"}
+            <div className={`font-mono text-lg font-bold ${stats?.exam ? "text-emerald-400" : "text-muted"}`}>
+              {stats?.exam ? "✓" : "—"}
             </div>
             <div className="text-[11px] text-muted">Final exam</div>
           </div>

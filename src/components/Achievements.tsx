@@ -2,26 +2,30 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { badges, TIER_STYLE, type BadgeDef } from "@/lib/badges";
+import { EMPTY_STATS, mergeStats, type SyncStats } from "@/lib/sync-stats";
 import Confetti from "@/components/Confetti";
 
 interface CourseProg { slug: string; read: number; done: number; total: number }
-interface LocalStats { exam: boolean; simBest: number; arcadeToday: number; arcadeStreak: number }
+type LocalStats = SyncStats;
 
 const SEEN_KEY = "aml-badges-seen-v1";
 
-function loadLocal(): LocalStats {
-  const out: LocalStats = { exam: false, simBest: 0, arcadeToday: 0, arcadeStreak: 0 };
+function loadLocal(): SyncStats {
+  const out: SyncStats = { ...EMPTY_STATS };
   try {
     out.exam = localStorage.getItem("aml-kyc-final-exam:kyc-cdd-tm-analyst") === "passed";
     const sim = localStorage.getItem("aml-sim-v1");
     if (sim) {
       const d = (JSON.parse(sim) as { done?: Record<string, number> }).done ?? {};
-      out.simBest = Math.max(0, ...Object.values(d));
+      const vals = Object.values(d);
+      out.simBest = Math.max(0, ...vals);
+      out.simPlayed = vals.length;
     }
     const arc = localStorage.getItem("aml-arcade-v1");
     if (arc) {
       const a = JSON.parse(arc) as { done?: Record<string, number>; streak?: number };
       out.arcadeToday = Object.keys(a.done ?? {}).length;
+      out.arcadeGames = out.arcadeToday;
       out.arcadeStreak = a.streak ?? 0;
     }
   } catch {}
@@ -49,20 +53,32 @@ function earnedSet(perCourse: CourseProg[], local: LocalStats): Set<string> {
   return s;
 }
 
-export default function Achievements({ perCourse }: { perCourse: CourseProg[] }) {
-  const [local, setLocal] = useState<LocalStats | null>(null);
+export default function Achievements({
+  perCourse,
+  serverStats,
+}: {
+  perCourse: CourseProg[];
+  serverStats?: SyncStats;
+}) {
+  const [local, setLocal] = useState<SyncStats | null>(null);
   const [toasts, setToasts] = useState<BadgeDef[]>([]);
   const [confetti, setConfetti] = useState(0);
+
+  const merged = useMemo(
+    () => (local ? mergeStats(local, serverStats ?? EMPTY_STATS) : (serverStats ?? null)),
+    [local, serverStats]
+  );
 
   useEffect(() => {
     const t = setTimeout(() => {
       const l = loadLocal();
       setLocal(l);
+      const m = mergeStats(l, serverStats ?? EMPTY_STATS);
       let prev: string[] = [];
       try {
         prev = JSON.parse(localStorage.getItem(SEEN_KEY) ?? "[]");
       } catch {}
-      const earned = earnedSet(perCourse, l);
+      const earned = earnedSet(perCourse, m);
       // persist earned∪prev so badges don't re-toast
       const merged = [...new Set([...prev, ...earned])];
       try { localStorage.setItem(SEEN_KEY, JSON.stringify(merged)); } catch {}
@@ -79,11 +95,11 @@ export default function Achievements({ perCourse }: { perCourse: CourseProg[] })
       }
     }, 300);
     return () => clearTimeout(t);
-  }, [perCourse]);
+  }, [perCourse, serverStats]);
 
   const earned = useMemo(
-    () => (local ? earnedSet(perCourse, local) : new Set<string>()),
-    [perCourse, local]
+    () => (merged ? earnedSet(perCourse, merged) : new Set<string>()),
+    [perCourse, merged]
   );
 
   const earnedBadges = badges.filter((b) => earned.has(b.id));

@@ -56,6 +56,7 @@ const K = {
   emailIdx: (email: string) => `aml:email:${email.toLowerCase()}`,
   progress: (id: string) => `aml:progress:${id}`,
   stats: "aml:stats", // hash field -> count
+  sync: (id: string) => `aml:sync:${id}`, // guest-achievement sync blob
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -205,6 +206,49 @@ export async function getAllProgress(): Promise<ProgressStore> {
     })
   );
   return out;
+}
+
+/* ---------------------- achievement sync meta ---------------------- */
+
+export interface SyncMeta {
+  exam?: boolean;
+  sims?: Record<string, number>;
+  arcade?: { streak: number; games: number };
+  updatedAt?: string;
+}
+
+export async function getSyncMeta(userId: string): Promise<SyncMeta | null> {
+  if (kvEnabled()) {
+    const raw = await kvGet<string>("GET", K.sync(userId));
+    return raw ? (JSON.parse(raw) as SyncMeta) : null;
+  }
+  const all = readJson<Record<string, SyncMeta>>("sync.json", {});
+  return all[userId] ?? null;
+}
+
+export async function mergeSyncMeta(userId: string, incoming: SyncMeta): Promise<SyncMeta> {
+  const cur = (await getSyncMeta(userId)) ?? {};
+  const merged: SyncMeta = {
+    exam: cur.exam || incoming.exam || undefined,
+    sims: { ...(cur.sims ?? {}) },
+    arcade: {
+      streak: Math.max(cur.arcade?.streak ?? 0, incoming.arcade?.streak ?? 0),
+      games: Math.max(cur.arcade?.games ?? 0, incoming.arcade?.games ?? 0),
+    },
+    updatedAt: new Date().toISOString(),
+  };
+  for (const [k, v] of Object.entries(incoming.sims ?? {})) {
+    merged.sims![k] = Math.max(merged.sims![k] ?? 0, v);
+  }
+  if (!merged.exam) delete merged.exam;
+  if (kvEnabled()) {
+    await kvPost(["SET", K.sync(userId)], JSON.stringify(merged));
+  } else {
+    const all = readJson<Record<string, SyncMeta>>("sync.json", {});
+    all[userId] = merged;
+    writeJson("sync.json", all);
+  }
+  return merged;
 }
 
 /* --------------------- live engagement helpers --------------------- */

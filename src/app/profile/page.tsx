@@ -4,7 +4,8 @@ import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
 import ProfileExtras from "@/components/ProfileExtras";
 import Achievements from "@/components/Achievements";
-import { getProgress } from "@/lib/db";
+import { getProgress, getSyncMeta } from "@/lib/db";
+import { syncMetaToStats } from "@/lib/sync-stats";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
 
@@ -16,6 +17,8 @@ export default async function ProfilePage() {
   if (!user) redirect("/login");
 
   const progress = await getProgress(user.id);
+  const syncMeta = await getSyncMeta(user.id);
+  const serverStats = syncMetaToStats(syncMeta);
   const readKeys = Object.keys(progress);
 
   // per-course progress
@@ -75,11 +78,16 @@ export default async function ProfilePage() {
         </div>
       </div>
 
-      <ProfileExtras chaptersRead={totalRead} chaptersDone={perCourse.reduce((s, p) => s + p.done, 0)} />
+      <ProfileExtras
+        chaptersRead={totalRead}
+        chaptersDone={perCourse.reduce((s, p) => s + p.done, 0)}
+        serverStats={serverStats}
+      />
 
       <div className="mt-8">
         <Achievements
           perCourse={perCourse.map((p) => ({ slug: p.course.slug, read: p.read, done: p.done, total: p.total }))}
+          serverStats={serverStats}
         />
       </div>
 
