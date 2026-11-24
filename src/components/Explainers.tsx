@@ -1,5 +1,7 @@
 import Link from "next/link";
 import LottiePlayer from "@/components/LottiePlayer";
+import UboGraph from "@/components/explainers/UboGraph";
+import TmFlow from "@/components/explainers/TmFlow";
 import ScrollReveal from "@/components/fx/ScrollReveal";
 import { getLang, t } from "@/lib/i18n";
 
@@ -26,12 +28,12 @@ const EXPLAINERS = [
   },
   {
     key: "ubo",
-    src: "/animations/custom-ubo.json",
+    viz: "ubo" as const,
     href: "/courses/kyc-cdd-tm-analyst/chapters/3.5",
   },
   {
     key: "tm",
-    src: "/animations/custom-tm.json",
+    viz: "tm" as const,
     href: "/courses/kyc-cdd-tm-analyst/chapters/4.1",
   },
 ] as const;
@@ -54,8 +56,14 @@ export default async function Explainers() {
               href={e.href}
               className="group flex flex-col rounded-2xl border border-line bg-surface/50 p-5 transition-all hover:border-emerald-400/40 hover:bg-surface"
             >
-              <div className="flex h-36 items-center justify-center rounded-xl bg-background/60">
-                <LottiePlayer src={e.src} className="h-32 w-32" />
+              <div className="flex h-36 items-center justify-center overflow-hidden rounded-xl bg-background/60">
+                {"viz" in e && e.viz === "ubo" ? (
+                  <UboGraph />
+                ) : "viz" in e && e.viz === "tm" ? (
+                  <TmFlow />
+                ) : (
+                  <LottiePlayer src={"src" in e ? e.src : ""} className="h-32 w-32" />
+                )}
               </div>
               <h3 className="mt-4 font-semibold text-ink">
                 {t(lang, `explainer.${e.key}.title`)}
