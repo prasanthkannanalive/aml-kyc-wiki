@@ -8,7 +8,7 @@ export interface SearchItem {
   title: string;
   subtitle: string;
   href: string;
-  kind: "Course" | "Chapter" | "Question" | "Term" | "Case" | "Discipline" | "Tool" | "Document";
+  kind: "Course" | "Chapter" | "Question" | "Term" | "Case" | "Discipline" | "Tool" | "Document" | "Regulator";
   text: string;
 }
 
@@ -43,6 +43,7 @@ export default function SearchBrowser({ items }: { items: SearchItem[] }) {
     Discipline: "bg-cyan-400/10 text-cyan-300",
     Tool: "bg-fuchsia-400/10 text-fuchsia-300",
     Document: "bg-orange-400/10 text-orange-300",
+    Regulator: "bg-teal-400/10 text-teal-300",
   };
 
   return (

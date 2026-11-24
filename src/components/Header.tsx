@@ -34,6 +34,7 @@ export default async function Header() {
       label: L("nav.explore"),
       items: [
         { href: "/cases", label: L("nav.cases") },
+        { href: "/regulators", label: L("nav.regulators") },
         { href: "/interview-prep", label: L("nav.interview") },
         { href: "/careers", label: L("nav.careers") },
         { href: "/resources", label: L("nav.resources") },

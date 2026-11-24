@@ -5,6 +5,7 @@ import { enforcementCases } from "@/lib/cases";
 import { disciplines } from "@/lib/disciplines";
 import { listChapters } from "@/lib/chapters";
 import { listLibrary } from "@/lib/library";
+import { REGULATORS } from "@/lib/regulators";
 import SearchBrowser, { type SearchItem } from "@/components/SearchBrowser";
 import SearchBox from "@/components/SearchBox";
 
@@ -111,6 +112,24 @@ export default function SearchPage() {
       text: "SAR narrative template, CDD checklist, EDD PEP checklist, alert disposition framework, TM tuning checklist.",
     }
   );
+
+  items.push({
+    title: "Regulatory Bodies — FIUs & AML supervisors by country",
+    subtitle: "Directory · 16 jurisdictions",
+    href: "/regulators",
+    kind: "Tool",
+    text: "Financial intelligence units and AML regulators by country — legal framework, filing channel, deadline style and regime maturity.",
+  });
+
+  for (const r of REGULATORS) {
+    items.push({
+      title: `${r.country} — ${r.fiu.split("—")[0].trim()}`,
+      subtitle: `Regulator · ${r.tier} regime`,
+      href: `/regulators#${r.code.toLowerCase()}`,
+      kind: "Regulator",
+      text: `${r.regulator} ${r.law} ${r.filing} ${r.deadline} ${r.note} ${r.fatf}`,
+    });
+  }
 
   for (const d of listLibrary()) {
     items.push({

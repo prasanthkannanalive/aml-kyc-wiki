@@ -21,6 +21,7 @@ const KIND_STYLE: Record<string, string> = {
   Discipline: "bg-cyan-400/10 text-cyan-300",
   Tool: "bg-fuchsia-400/10 text-fuchsia-300",
   Document: "bg-orange-400/10 text-orange-300",
+  Regulator: "bg-teal-400/10 text-teal-300",
 };
 
 export default function SearchBox({ items, placeholder }: { items: SuggestItem[]; placeholder: string }) {

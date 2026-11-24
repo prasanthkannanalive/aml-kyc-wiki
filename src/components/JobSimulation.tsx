@@ -46,6 +46,31 @@ export default function JobSimulation() {
     return () => clearTimeout(t);
   }, []);
 
+  // deep-link: /job-simulation?sim=<slug> auto-starts that scenario
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("sim");
+    if (!slug) return;
+    const sim = simulations.find((s) => s.slug === slug);
+    if (sim) {
+      const t = setTimeout(() => {
+        setActive(sim);
+        setStep(0);
+        setPicked(null);
+        setAnswers([]);
+        setPicks([]);
+        setFinished(false);
+        setHintOpen(false);
+        try {
+          setNotes(localStorage.getItem(`aml-sim-notes:${sim.slug}`) ?? "");
+        } catch {
+          setNotes("");
+        }
+        setFilter(sim.category === "filing" ? "filing" : "shift");
+      }, 350);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
   const pick = (sim: Simulation) => {
     setActive(sim);
     setStep(0);
