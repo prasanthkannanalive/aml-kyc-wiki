@@ -18,7 +18,11 @@ export default function LoginPage() {
         Sign in to track your reading progress across the knowledge base.
       </p>
       <div className="mt-8">
-        <AuthForm mode="login" googleClientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID} />
+        <AuthForm
+          mode="login"
+          googleClientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+          logtoEnabled={!!(process.env.LOGTO_ENDPOINT && process.env.LOGTO_APP_ID)}
+        />
       </div>
       <p className="mt-6 text-center text-sm text-muted">
         No account?{" "}

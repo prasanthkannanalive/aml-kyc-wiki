@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
 import ProfileExtras from "@/components/ProfileExtras";
 import Achievements from "@/components/Achievements";
+import SyncOnVisit from "@/components/SyncOnVisit";
 import { getProgress, getSyncMeta } from "@/lib/db";
 import { syncMetaToStats } from "@/lib/sync-stats";
 import { courses } from "@/lib/content";
@@ -58,6 +59,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <SyncOnVisit />
       <h1 className="text-3xl font-bold tracking-tight">{user.name}</h1>
       <p className="mt-1 text-sm text-muted">{user.email}</p>
 

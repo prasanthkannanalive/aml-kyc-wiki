@@ -19,7 +19,11 @@ export default function SignupPage() {
         Track chapters you read and build your compliance knowledge profile.
       </p>
       <div className="mt-8">
-        <AuthForm mode="signup" googleClientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID} />
+        <AuthForm
+          mode="signup"
+          googleClientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+          logtoEnabled={!!(process.env.LOGTO_ENDPOINT && process.env.LOGTO_APP_ID)}
+        />
       </div>
       <p className="mt-6 text-center text-sm text-muted">
         Already registered?{" "}

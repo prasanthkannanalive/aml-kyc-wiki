@@ -98,9 +98,11 @@ function syncGuestProgress() {
 export default function AuthForm({
   mode,
   googleClientId,
+  logtoEnabled,
 }: {
   mode: "login" | "signup";
   googleClientId?: string;
+  logtoEnabled?: boolean;
 }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -186,9 +188,21 @@ export default function AuthForm({
 
   return (
     <form onSubmit={submit} className="space-y-4">
-      {googleClientId && (
+      {(googleClientId || logtoEnabled) && (
         <>
-          <div ref={googleBtnRef} className="flex min-h-[44px] justify-center" />
+          {googleClientId && <div ref={googleBtnRef} className="flex min-h-[44px] justify-center" />}
+          {logtoEnabled && (
+            <a
+              href="/api/auth/logto"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-line bg-surface py-3 text-sm font-semibold text-ink transition-colors hover:border-emerald-400/60 hover:text-emerald-300"
+            >
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="6" width="12" height="8" rx="2" />
+                <path d="M5 6V4.5a3 3 0 0 1 6 0V6" />
+              </svg>
+              Continue with Logto
+            </a>
+          )}
           {googleErr && <p className="text-center text-sm text-red-400">{googleErr}</p>}
           <div className="flex items-center gap-3 text-xs text-faint">
             <span className="h-px flex-1 bg-line" />
