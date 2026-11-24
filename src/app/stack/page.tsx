@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import StackBrowser from "@/components/StackBrowser";
 import StackWalkthrough from "@/components/StackWalkthrough";
+import HopExplorer from "@/components/HopExplorer";
 import { SAR_PIPELINE, CERTIFICATIONS, LAYERS } from "@/lib/compliance-stack";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -22,6 +23,61 @@ export default function StackPage() {
         job descriptions.
       </p>
       <ViewTracker type="search" id="stack" />
+
+      {/* hop explorer — real panel look */}
+      <section className="mt-10">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold">Trace a money trail — hop by hop</h2>
+            <p className="mt-1 text-sm text-muted">
+              This is what the investigation panel looks like inside Reactor / TRM Investigations:
+              address cards connected hop to hop, each with amount, cluster tag and risk. Hit{" "}
+              <span className="font-medium text-ink">▶ Trace funds</span> and click any node for its detail.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 text-xs">
+            <a href="/tools" className="rounded-lg border border-line px-3 py-1.5 text-muted transition-colors hover:border-emerald-400/40 hover:text-ink">
+              Quick demo: Travel Rule checker →
+            </a>
+            <a href="/sandbox" className="rounded-lg border border-line px-3 py-1.5 text-muted transition-colors hover:border-emerald-400/40 hover:text-ink">
+              Practice: alert sandbox →
+            </a>
+          </div>
+        </div>
+        <div className="mt-5">
+          <HopExplorer />
+        </div>
+      </section>
+
+      {/* key points to note */}
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold">Points analysts should note</h2>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              t: "Enrichment beats alerts",
+              d: "A bare rule hit is noise; the same alert enriched with mixer/sanctions exposure is a case. Budget for analytics feeds.",
+            },
+            {
+              t: "Unhosted wallets change the rules",
+              d: "No counterparty VASP means no Travel Rule exchange — but FATF still requires you to collect and retain the data.",
+            },
+            {
+              t: "One bad hop can end the trail",
+              d: "Mixers and chain-hops sever attribution. Capture evidence before the trail goes dark — screenshots and exports are part of the SAR.",
+            },
+            {
+              t: "Corroborate across vendors",
+              d: "Top teams run Chainalysis + TRM + Elliptic together — cluster tags disagree, and disagreement is itself a signal.",
+            },
+          ].map((p) => (
+            <div key={p.t} className="rounded-xl border border-amber-400/20 bg-amber-400/5 p-4">
+              <h3 className="text-sm font-semibold text-amber-200">{p.t}</h3>
+              <p className="mt-1.5 text-xs leading-5 text-muted">{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* guided walkthrough — mock console */}
       <section className="mt-10">

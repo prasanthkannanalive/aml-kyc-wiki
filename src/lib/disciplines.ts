@@ -87,6 +87,7 @@ export const disciplines: Discipline[] = [
     ],
     links: [
       { label: "Virtual Asset Compliance course", href: "/courses/virtual-asset-compliance" },
+      { label: "Compliance stack landscape", href: "/stack" },
       { label: "Virtual asset indicators chapter", href: "/courses/financial-intelligence-trafficking/chapters/2.3" },
       { label: "VASP & crypto glossary terms", href: "/glossary" },
       { label: "Sanctions screening course", href: "/courses/sanctions-screening" },

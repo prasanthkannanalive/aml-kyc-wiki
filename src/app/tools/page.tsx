@@ -20,6 +20,19 @@ export default function ToolsPage() {
       <div className="mt-10">
         <Tools />
       </div>
+      <div className="mt-10 rounded-2xl border border-line bg-surface/50 p-5">
+        <h2 className="text-base font-semibold text-ink">Want to see the platforms these tools sit inside?</h2>
+        <p className="mt-1 text-sm text-muted">
+          The calculators here mirror logic that runs inside the real compliance stack — explore the
+          vendor landscape, watch a guided screening→SAR walkthrough, or trace a money trail hop by hop.
+        </p>
+        <a
+          href="/stack"
+          className="mt-3 inline-block rounded-lg bg-emerald-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-300"
+        >
+          Open the Compliance Stack Landscape →
+        </a>
+      </div>
     </div>
   );
 }
