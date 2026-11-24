@@ -27,6 +27,7 @@ export default function ProfileExtras({
   chaptersDone: number;
 }) {
   const [arcade, setArcade] = useState<{ streak: number; games: number; best: number } | null>(null);
+  const [sims, setSims] = useState<{ played: number; best: number } | null>(null);
   const [examPassed, setExamPassed] = useState(false);
 
   useEffect(() => {
@@ -41,12 +42,21 @@ export default function ProfileExtras({
       try {
         setExamPassed(localStorage.getItem("aml-kyc-final-exam:kyc-cdd-tm-analyst") === "passed");
       } catch {}
+      try {
+        const sim = localStorage.getItem("aml-sim-v1");
+        if (sim) {
+          const d = (JSON.parse(sim) as { done?: Record<string, number> }).done ?? {};
+          const vals = Object.values(d);
+          setSims({ played: vals.length, best: Math.max(0, ...vals) });
+        }
+      } catch {}
     }, 0);
     return () => clearTimeout(t);
   }, []);
 
   const arcadeXp = (arcade?.games ?? 0) * 15;
-  const xp = chaptersRead * 10 + chaptersDone * 20 + arcadeXp + (examPassed ? 100 : 0);
+  const simXp = (sims?.played ?? 0) * 25 + ((sims?.best ?? 0) >= 70 ? 25 : 0);
+  const xp = chaptersRead * 10 + chaptersDone * 20 + arcadeXp + simXp + (examPassed ? 100 : 0);
 
   const [shownXp, setShownXp] = useState(0);
   const xpRef = useRef(0);
@@ -89,7 +99,7 @@ export default function ProfileExtras({
         <div className="mt-3 h-2 overflow-hidden rounded-full bg-surface-2">
           <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${pct}%` }} />
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           <div className="rounded-xl bg-surface p-3 text-center">
             <div className="font-mono text-lg font-bold text-ink">{chaptersRead * 10 + chaptersDone * 20}</div>
             <div className="text-[11px] text-muted">Course XP</div>
@@ -103,6 +113,10 @@ export default function ProfileExtras({
             <div className="text-[11px] text-muted">Day streak</div>
           </div>
           <div className="rounded-xl bg-surface p-3 text-center">
+            <div className="font-mono text-lg font-bold text-ink">{sims?.played ?? "—"}</div>
+            <div className="text-[11px] text-muted">Simulations</div>
+          </div>
+          <div className="rounded-xl bg-surface p-3 text-center">
             <div className={`font-mono text-lg font-bold ${examPassed ? "text-emerald-400" : "text-muted"}`}>
               {examPassed ? "✓" : "—"}
             </div>
@@ -110,8 +124,9 @@ export default function ProfileExtras({
           </div>
         </div>
         <p className="mt-3 text-[11px] leading-5 text-muted">
-          XP = 10 per chapter read + 20 per chapter completed + 15 per arcade game + 100 for the
-          final exam. Levels are a self-tracking aid, not an accreditation.
+          XP = 10 per chapter read + 20 per chapter completed + 15 per arcade game + 25 per
+          simulation (+25 bonus at 70%) + 100 for the final exam. Levels are a
+          self-tracking aid, not an accreditation.
         </p>
       </div>
     </div>

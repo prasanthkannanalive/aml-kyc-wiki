@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { simulations, type Simulation } from "@/lib/simulations";
+import { simHints } from "@/lib/sim-hints";
 
 interface SimProgress {
   done: Record<string, number>; // slug -> best score %
@@ -34,6 +35,8 @@ export default function JobSimulation() {
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<number[]>([]);
   const [picks, setPicks] = useState<number[]>([]);
+  const [hintOpen, setHintOpen] = useState(false);
+  const [notes, setNotes] = useState("");
   const [finished, setFinished] = useState(false);
   const [progress, setProgress] = useState<SimProgress>({ done: {} });
   const [filter, setFilter] = useState<"all" | "shift" | "filing">("all");
@@ -50,6 +53,12 @@ export default function JobSimulation() {
     setAnswers([]);
     setPicks([]);
     setFinished(false);
+    setHintOpen(false);
+    try {
+      setNotes(localStorage.getItem(`aml-sim-notes:${sim.slug}`) ?? "");
+    } catch {
+      setNotes("");
+    }
   };
 
   const choose = (i: number) => {
@@ -72,6 +81,7 @@ export default function JobSimulation() {
     } else {
       setStep((s) => s + 1);
       setPicked(null);
+      setHintOpen(false);
     }
   };
 
@@ -146,7 +156,10 @@ export default function JobSimulation() {
           <div className="text-5xl">{rank.emoji}</div>
           <h2 className="mt-3 text-2xl font-bold text-ink">{rank.title}</h2>
           <p className="mt-1 font-mono text-sm text-muted">
-            Score: {score}% · {active.title}
+            Score: {score}% · {active.title} ·{" "}
+            <span className="text-emerald-400 font-semibold">
+              +{score >= 70 ? 50 : score >= 50 ? 25 : 10} XP earned
+            </span>
           </p>
           <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-body">
             {score >= 70
@@ -232,6 +245,24 @@ export default function JobSimulation() {
           ))}
         </ul>
       )}
+      {simHints[`${active.slug}/${st.id}`] && (
+        <div className="mt-4">
+          <button
+            onClick={() => setHintOpen((h) => !h)}
+            className="flex items-center gap-1.5 rounded-lg border border-amber-400/40 bg-amber-400/10 px-3 py-1.5 text-xs font-medium text-amber-300 hover:bg-amber-400/20"
+          >
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M8 2a4.5 4.5 0 0 0-4.4 5.5c.3.9.3 1.8-.2 2.6L3 13l2.9-.4c.8.5 1.7.7 2.6.5A4.5 4.5 0 1 0 8 2Z" />
+            </svg>
+            {hintOpen ? "Hide hint" : "Need a hint?"}
+          </button>
+          {hintOpen && (
+            <p className="mt-2 rounded-lg border border-amber-400/30 bg-amber-400/5 p-3 text-sm leading-6 text-body">
+              {simHints[`${active.slug}/${st.id}`]}
+            </p>
+          )}
+        </div>
+      )}
       <div className="mt-5 space-y-2.5">
         {st.options.map((o, i) => {
           const state = picked === null ? "" : i === picked ? (o.correct ? "correct" : o.partial ? "partial" : "wrong") : "dim";
@@ -267,6 +298,38 @@ export default function JobSimulation() {
           </button>
         </div>
       )}
+      {/* field notepad — persists per scenario */}
+      <div className="mt-6 rounded-xl border border-line bg-surface/60 p-4">
+        <div className="flex items-center justify-between">
+          <label htmlFor="sim-notes" className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 2.5h7l3 3v8H3v-11Z" /><path d="M10 2.5v3h3" /><path d="M5.5 8h5M5.5 10.5h5" />
+            </svg>
+            Field notes — {active.title}
+          </label>
+          <div className="flex items-center gap-3">
+            <span className="text-[10px] text-faint">{notes.length} chars · saved on this device</span>
+            {notes && (
+              <button
+                onClick={() => { setNotes(""); try { localStorage.removeItem(`aml-sim-notes:${active.slug}`); } catch {} }}
+                className="text-[10px] text-muted hover:text-red-400"
+              >Clear</button>
+            )}
+          </div>
+        </div>
+        <textarea
+          id="sim-notes"
+          value={notes}
+          onChange={(e) => {
+            setNotes(e.target.value);
+            try { localStorage.setItem(`aml-sim-notes:${active.slug}`, e.target.value); } catch {}
+          }}
+          rows={4}
+          placeholder="Jot down red flags, deadlines, questions to revisit — like a real analyst's notebook…"
+          className="mt-2 w-full rounded-lg border border-line bg-surface px-3 py-2 font-mono text-xs leading-5 text-ink placeholder-muted outline-none focus:border-emerald-400"
+        />
+      </div>
+
       <button onClick={reset} className="mt-4 text-xs text-muted hover:text-ink">
         ← Back to simulations
       </button>
