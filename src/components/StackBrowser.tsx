@@ -35,16 +35,19 @@ export default function StackBrowser() {
           {FILTERS.map((f) => {
             const active = layer === f;
             const meta = f === "all" ? null : layerMeta(f);
+            const dot =
+              f === "analytics" ? "bg-sky-400" : f === "kyc" ? "bg-violet-400" : f === "workflow" ? "bg-emerald-400" : "bg-zinc-400";
             return (
               <button
                 key={f}
                 onClick={() => setLayer(f)}
-                className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${
                   active
                     ? "border-emerald-400/60 bg-emerald-400/15 text-emerald-300"
                     : "border-line text-muted hover:border-emerald-400/40 hover:text-ink"
                 }`}
               >
+                <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
                 {f === "all" ? `All · ${VENDORS.length}` : `${meta!.label} · ${VENDORS.filter((v) => v.layer === f).length}`}
               </button>
             );

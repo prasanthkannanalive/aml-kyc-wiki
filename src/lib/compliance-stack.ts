@@ -171,6 +171,42 @@ export const VENDORS: StackVendor[] = [
       "Real-time onboarding decisions",
     ],
   },
+
+  // ---- case & filing workflow ----
+  {
+    name: "Unit21",
+    layer: "workflow",
+    tagline: "Alert & case management — the queue where enriched alerts land",
+    caps: [
+      "Alert queue with rule-based triage & disposition",
+      "Case files aggregating alerts, notes and evidence",
+      "SAR drafting templates tied to case data",
+      "API-first — ingests alerts from any upstream tool",
+    ],
+    seenIn: "Common TMS/case layer in mid-size VASP and fintech stacks",
+  },
+  {
+    name: "NICE Actimize",
+    layer: "workflow",
+    tagline: "Enterprise transaction-monitoring system — the incumbent TMS",
+    caps: [
+      "Real-time transaction monitoring rules engine",
+      "Alert management, investigation workflow, regulatory reporting",
+      "Screening against sanctions and watchlists",
+      "Deployed by banks and large VASPs at scale",
+    ],
+  },
+  {
+    name: "Feedzai",
+    layer: "workflow",
+    tagline: "AI-driven transaction monitoring — behavioral anomaly detection",
+    caps: [
+      "ML models score transactions for money-laundering risk",
+      "Reduces false positives vs static rules",
+      "Case management and SAR workflow built in",
+      "Strong in banking; expanding into crypto monitoring",
+    ],
+  },
 ];
 
 // ---- how the stack fits the SAR workflow ----
