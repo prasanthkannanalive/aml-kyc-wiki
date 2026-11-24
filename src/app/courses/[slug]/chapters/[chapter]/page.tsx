@@ -9,6 +9,7 @@ import {
   readChapterBody,
 } from "@/lib/chapters";
 import ChapterContent from "@/components/ChapterContent";
+import ChapterScenario from "@/components/ChapterScenario";
 import ViewTracker from "@/components/ViewTracker";
 
 export function generateStaticParams() {
@@ -108,6 +109,8 @@ export default async function ChapterPage({
         <p className="mt-2 text-sm text-muted">
           From {course.title}
         </p>
+
+        <ChapterScenario slug={slug} num={meta.num} title={meta.title} />
 
         <article className="mt-8">
           <ChapterContent markdown={body} />
