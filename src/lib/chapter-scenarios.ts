@@ -351,4 +351,84 @@ export const CHAPTER_SCENARIOS: Record<string, string> = {
     "Metrics: alerts generated, cases confirmed, STRs filed — measure what matters, not just activity.",
 
   /* ---------------- KYC/CDD/TM already covered above ---------------- */
+
+  /* ---------------- VIRTUAL ASSET COMPLIANCE ---------------- */
+  "virtual-asset-compliance/0.0":
+    "A customer deposits 14 BTC into their exchange account — the transaction is public, permanent, and says nothing about who they are.",
+  "virtual-asset-compliance/1.1":
+    "A customer wants to deposit USDT — is it a virtual asset, a stablecoin, or something else entirely under the rules?",
+  "virtual-asset-compliance/1.2":
+    "Ransomware demands payment in Monero — why do criminals prefer crypto, and what can compliance actually see?",
+  "virtual-asset-compliance/1.3":
+    "A VASP processes a $5,000 crypto transfer — does the Travel Rule apply, and what data must accompany it?",
+  "virtual-asset-compliance/1.4":
+    "An exchange operates in the EU, serves US customers and hosts servers in Singapore — which licensing regime applies?",
+  "virtual-asset-compliance/2.1":
+    "A user sends Bitcoin to a fresh address — what does the transaction actually contain, and where is the identity?",
+  "virtual-asset-compliance/2.2":
+    "A Bitcoin transaction creates a change output — why does one payment generate two new addresses?",
+  "virtual-asset-compliance/2.3":
+    "An address receives funds from a Tornado Cash withdrawal — clustering heuristics connect it to a larger wallet network.",
+  "virtual-asset-compliance/2.4":
+    "A customer routes funds through a mixer then chain-hops to Ethereum — each hop is designed to break the analytical trail.",
+  "virtual-asset-compliance/3.1":
+    "Chainalysis flags an address as 72% exposed to darknet markets — how do vendors actually build that score?",
+  "virtual-asset-compliance/3.2":
+    "A deposit shows 30% indirect exposure to ransomware addresses — is that a freeze, an alert, or just noise?",
+  "virtual-asset-compliance/3.3":
+    "Stolen crypto moves through three wallets then hits an exchange deposit address — the off-ramp is where identity lives.",
+  "virtual-asset-compliance/3.4":
+    "Walk a full case: flagged deposit → trace backwards through mixer → identify exchange endpoints → decide EDD or SAR.",
+  "virtual-asset-compliance/4.1":
+    "A new customer claims to be a 'crypto trader' with a self-custody wallet — what CDD evidence do you actually need?",
+  "virtual-asset-compliance/4.2":
+    "A customer withdraws $8,000 in BTC to an unhosted wallet — Travel Rule data can't be exchanged; what do you collect instead?",
+  "virtual-asset-compliance/4.3":
+    "A deposit address has prior exposure to a sanctioned mixer — monitoring rules must decide: freeze, alert, or escalate.",
+  "virtual-asset-compliance/4.4":
+    "You file a SAR on crypto laundering — the FIU analyst isn't technical; the narrative must explain addresses, mixers and exposure scores in plain language.",
+  "virtual-asset-compliance/5.1":
+    "FBI serves an exchange with a seizure order for a ransomware wallet — how do authorities actually recover crypto?",
+  "virtual-asset-compliance/5.2":
+    "A Dutch exchange holds the KYC data for a Russian laundering network — which legal channel gets it, and how fast?",
+  "virtual-asset-compliance/5.3":
+    "Pig-butchering victims deposit crypto to scam wallets — the typology looks like investment, not theft, until the pattern emerges.",
+  "virtual-asset-compliance/5.4":
+    "A customer routes funds through a DeFi protocol with no legal entity — who do you file the SAR against, and who do you even monitor?",
+
+  /* ---------------- TRADE-BASED LAUNDERING ---------------- */
+  "trade-based-laundering/0.0":
+    "A corporate client pays $1M for 'industrial valves' — the invoice looks perfect, but did the goods ever exist?",
+  "trade-based-laundering/1.1":
+    "Company A invoices Company B for $1M of goods worth $100k — the $900k difference is the laundered value.",
+  "trade-based-laundering/1.2":
+    "Why do criminals prefer invoices over suitcases? Trade offers legitimate cover, global reach and documentary complexity.",
+  "trade-based-laundering/1.3":
+    "FATF's TBML report catalogs over-invoicing, phantom shipments, multiple invoicing — the techniques that move value through paperwork.",
+  "trade-based-laundering/1.4":
+    "A documentary credit pays against documents, not goods — where in the trade lifecycle does the bank's control actually end?",
+  "trade-based-laundering/2.1":
+    "An invoice declares steel pipes at 10x market price — over-invoicing moves value out while the goods shipment looks real.",
+  "trade-based-laundering/2.2":
+    "Three invoices reference the same bill of lading — multiple invoicing multiplies $100k of goods into $300k of payments.",
+  "trade-based-laundering/2.3":
+    "A 'consulting services' invoice has no deliverable — services TBML launders money with no physical goods at all.",
+  "trade-based-laundering/2.4":
+    "Gold bars transit a free-trade zone, get relabeled, and exit at inflated value — FTZs are TBML's favorite infrastructure.",
+  "trade-based-laundering/3.1":
+    "The invoice says 500 units, the bill of lading says 500 metric tons — cross-document inconsistency is the documentary red flag.",
+  "trade-based-laundering/3.2":
+    "A customer pays round $500k for 'miscellaneous parts' — pricing that doesn't match market or history signals manipulation.",
+  "trade-based-laundering/3.3":
+    "The counterparty shares a registered agent with three shell companies — network analysis reveals the TBML infrastructure.",
+  "trade-based-laundering/3.4":
+    "You need monitoring rules that check price deviation, document consistency and counterparty risk — not just transaction amounts.",
+  "trade-based-laundering/4.1":
+    "An open-account payment flows through three correspondent banks — no one in the chain sees the trade documents.",
+  "trade-based-laundering/4.2":
+    "A letter of credit presents perfect documents for goods that don't exist — the bank must pay; fraud is built into the instrument.",
+  "trade-based-laundering/4.3":
+    "Your TBML alert needs escalation — which team reviews documents, who files the SAR, and when does law enforcement get involved?",
+  "trade-based-laundering/4.4":
+    "Building the programme: risk assessment, trade-specific monitoring, role-based training and audit-ready evidence.",
 };

@@ -101,6 +101,20 @@ export const categories: Category[] = [
       "Plain-language definitions of AML, KYC, CDD, EDD, STR, PEP, UBO and the rest of the vocabulary.",
     count: 55,
   },
+  {
+    slug: "virtual-asset-compliance",
+    name: "Virtual Asset Compliance",
+    description:
+      "Crypto AML: VASPs, the Travel Rule, on-chain tracing, mixers, exposure scoring and VASP operations.",
+    count: 20,
+  },
+  {
+    slug: "trade-based-laundering",
+    name: "Trade-Based Laundering",
+    description:
+      "TBML techniques, invoice manipulation, documentary red flags and correspondent-banking exposure.",
+    count: 16,
+  },
 ];
 
 export const courses: Course[] = [
@@ -712,6 +726,184 @@ export const courses: Course[] = [
           { title: "UK Home Office — Circular 022/2015, SAR confidentiality & tipping-off", url: "https://www.gov.uk/government/publications/circular-0222015-money-laundering-the-confidentiality-and-sensitivity-of-suspicious-activity-reports-sars-and-the-identity-of-those-who-make-them", note: "web page" },
           { title: "FIU-IND — AML/CFT Guidelines for Reporting Entities (2023)", url: "https://fiuindia.gov.in/pdfs/AML_legislation/AMLCFTguidelines10032023.pdf" },
           { title: "FIU-IND — STR reporting format for banking companies", url: "https://fiuindia.gov.in/pdfs/downloads/SBA.pdf" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "virtual-asset-compliance",
+    code: "AML-VAC",
+    title: "Certified Virtual Asset Compliance Analyst",
+    tagline: "Crypto & Virtual Asset AML — Study Guide",
+    provider: "Independent certification prep",
+    description:
+      "Virtual assets move value differently from bank money — publicly, pseudonymously, across borders in minutes, and through rails that traditional transaction monitoring was never built to see. This guide covers the whole stack: what a virtual asset is and why it attracts financial crime, the FATF Travel Rule and global licensing regimes, how transactions, wallets and mixers actually work on-chain, how chain-analytics vendors trace and score exposure, what a VASP's compliance operation looks like end to end, and how investigations, seizures and enforcement really unfold.",
+    audience: [
+      "Crypto compliance officers",
+      "VASP onboarding and monitoring analysts",
+      "AML analysts moving into virtual assets",
+      "Fintech and payments risk teams",
+    ],
+    level: "Practitioner",
+    pages: 96,
+    lastReviewed: "November 2026",
+    jurisdictions: ["UK", "EU", "US", "India", "Global"],
+    reads: 31540,
+    completions: 4480,
+    featured: true,
+    outcomes: [
+      "Explain how virtual assets, stablecoins and DeFi fit the AML perimeter",
+      "Apply FATF R.15/16, the Travel Rule and MiCA-style licensing",
+      "Read on-chain transactions and understand clustering and attribution",
+      "Use chain-analytics exposure scoring in alert triage",
+      "Run VASP onboarding, monitoring and SAR filing for crypto activity",
+    ],
+    sources: [
+      {
+        module: "Core references & regulators",
+        items: [
+          { title: "FATF — Updated Guidance for a Risk-Based Approach to Virtual Assets (2021)", url: "https://www.fatf-gafi.org" },
+          { title: "FATF — Virtual Asset Red Flag Indicators (2020)", url: "https://www.fatf-gafi.org" },
+          { title: "FATF — Targeted Update on Virtual Assets (2024)", url: "https://www.fatf-gafi.org" },
+          { title: "EU — MiCA Regulation (Markets in Crypto-Assets)", url: "https://eur-lex.europa.eu" },
+          { title: "US FinCEN — Application of BSA Rules to Convertible Virtual Currency (2013)", url: "https://www.fincen.gov" },
+          { title: "US FinCEN — Virtual Currency SAR & RFI guidance", url: "https://www.fincen.gov" },
+          { title: "OFAC — Sanctions List Search & virtual-asset advisories", url: "https://ofac.treasury.gov" },
+        ],
+      },
+    ],
+    modules: [
+      {
+        num: 1,
+        title: "The virtual-asset landscape",
+        chapters: [
+          { num: "1.1", title: "What a virtual asset actually is" },
+          { num: "1.2", title: "Why virtual assets attract financial crime" },
+          { num: "1.3", title: "FATF Recommendations 15–16 and the VASP definition" },
+          { num: "1.4", title: "Licensing regimes: MiCA, the US, UK and the Travel Rule" },
+        ],
+      },
+      {
+        num: 2,
+        title: "How value moves on-chain",
+        chapters: [
+          { num: "2.1", title: "Keys, addresses and transaction anatomy" },
+          { num: "2.2", title: "UTXO versus account models" },
+          { num: "2.3", title: "The public ledger, clustering and attribution" },
+          { num: "2.4", title: "Mixers, chain-hopping and privacy techniques" },
+        ],
+      },
+      {
+        num: 3,
+        title: "On-chain analytics and tracing",
+        chapters: [
+          { num: "3.1", title: "How chain-analytics vendors work" },
+          { num: "3.2", title: "Exposure scoring and risk ratings" },
+          { num: "3.3", title: "Following the fiat off-ramp" },
+          { num: "3.4", title: "Reconstructing a case end to end" },
+        ],
+      },
+      {
+        num: 4,
+        title: "VASP compliance operations",
+        chapters: [
+          { num: "4.1", title: "Onboarding and CDD for crypto customers" },
+          { num: "4.2", title: "Implementing the Travel Rule" },
+          { num: "4.3", title: "Transaction monitoring rules for crypto" },
+          { num: "4.4", title: "Filing SARs and STRs on virtual-asset activity" },
+        ],
+      },
+      {
+        num: 5,
+        title: "Investigations, enforcement and the frontier",
+        chapters: [
+          { num: "5.1", title: "Seizures, forfeiture and exchange cooperation" },
+          { num: "5.2", title: "Cross-border requests: MLATs and chain-data sharing" },
+          { num: "5.3", title: "Typologies: ransomware, scams, darknet markets and sanctions evasion" },
+          { num: "5.4", title: "The frontier: DeFi, unhosted wallets and what comes next" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "trade-based-laundering",
+    code: "AML-TBML",
+    title: "Trade-Based Money Laundering Analyst",
+    tagline: "TBML Detection & Correspondent Risk — Study Guide",
+    provider: "Independent certification prep",
+    description:
+      "Trade is the largest single channel through which illicit value crosses borders — and the hardest for banks to see, because the bank is usually only moving money against documents it cannot fully verify. This guide covers what trade-based money laundering is, why invoices and shipping documents are the weapon of choice, every major technique from over-invoicing to phantom shipments and services TBML, the documentary and network red flags that actually surface in files, how correspondent banks and open-account products create the blind spot, and how to build a TBML control programme that survives an audit.",
+    audience: [
+      "Trade finance and correspondent banking analysts",
+      "AML analysts covering corporate clients",
+      "Sanctions and dual-use compliance staff",
+      "Risk and audit teams",
+    ],
+    level: "Practitioner",
+    pages: 74,
+    lastReviewed: "November 2026",
+    jurisdictions: ["UK", "EU", "US", "India", "Global"],
+    reads: 22110,
+    completions: 3120,
+    outcomes: [
+      "Explain TBML techniques: invoicing manipulation, phantom shipments, services TBML",
+      "Spot documentary, pricing and network red flags in trade files",
+      "Understand the correspondent-banking and open-account blind spot",
+      "Build monitoring rules and escalation paths for TBML",
+      "Design an audit-ready TBML control programme",
+    ],
+    sources: [
+      {
+        module: "Core references & regulators",
+        items: [
+          { title: "FATF/Egmont — Trade-Based Money Laundering: Risk Indicators", url: "https://www.fatf-gafi.org" },
+          { title: "FATF/Egmont — TBML Trends and Developments (2020)", url: "https://www.fatf-gafi.org" },
+          { title: "IFC — TBML Techniques: A Reference Guide for Exporters", url: "https://www.ifc.org" },
+          { title: "FinCEN — Trade-Based Money Laundering advisories", url: "https://www.fincen.gov" },
+          { title: "ICC — Uniform Customs and Practice for Documentary Credits (UCP 600)", url: "https://iccwbo.org" },
+          { title: "Wolfsberg — Correspondent Banking Due Diligence Questionnaire", url: "https://wolfsberg-group.org" },
+        ],
+      },
+    ],
+    modules: [
+      {
+        num: 1,
+        title: "TBML fundamentals",
+        chapters: [
+          { num: "1.1", title: "What trade-based money laundering is" },
+          { num: "1.2", title: "Why trade is the perfect laundering channel" },
+          { num: "1.3", title: "The FATF/Egmont TBML reports and typologies" },
+          { num: "1.4", title: "The trade finance lifecycle and where it breaks" },
+        ],
+      },
+      {
+        num: 2,
+        title: "The techniques",
+        chapters: [
+          { num: "2.1", title: "Over-invoicing and under-invoicing" },
+          { num: "2.2", title: "Phantom shipments and multiple invoicing" },
+          { num: "2.3", title: "Misdescription, services and TBML in invoices" },
+          { num: "2.4", title: "Goods-based laundering: commodities and free-trade zones" },
+        ],
+      },
+      {
+        num: 3,
+        title: "Detection and red flags",
+        chapters: [
+          { num: "3.1", title: "Documentary red flags" },
+          { num: "3.2", title: "Pricing and valuation red flags" },
+          { num: "3.3", title: "Network and counterparty analysis" },
+          { num: "3.4", title: "Building TBML monitoring rules" },
+        ],
+      },
+      {
+        num: 4,
+        title: "Correspondent exposure and response",
+        chapters: [
+          { num: "4.1", title: "Open-account TBML and the correspondent blind spot" },
+          { num: "4.2", title: "Documentary credits and LC fraud" },
+          { num: "4.3", title: "Escalation, reporting and the law-enforcement interface" },
+          { num: "4.4", title: "Building a TBML control programme" },
         ],
       },
     ],

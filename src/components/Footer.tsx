@@ -9,6 +9,8 @@ const CAT_HREF: Record<string, string> = {
   "counter-terrorist-financing": "/courses/counter-terrorist-financing",
   "financial-intelligence": "/courses/financial-intelligence-trafficking",
   "regulatory-frameworks": "/courses",
+  "virtual-asset-compliance": "/courses/virtual-asset-compliance",
+  "trade-based-laundering": "/courses/trade-based-laundering",
   glossary: "/glossary",
 };
 

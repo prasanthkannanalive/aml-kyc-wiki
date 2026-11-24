@@ -86,6 +86,7 @@ export const disciplines: Discipline[] = [
       "Fake OTC desks laundering through 'investment' wrappers",
     ],
     links: [
+      { label: "Virtual Asset Compliance course", href: "/courses/virtual-asset-compliance" },
       { label: "Virtual asset indicators chapter", href: "/courses/financial-intelligence-trafficking/chapters/2.3" },
       { label: "VASP & crypto glossary terms", href: "/glossary" },
       { label: "Sanctions screening course", href: "/courses/sanctions-screening" },
@@ -112,6 +113,7 @@ export const disciplines: Discipline[] = [
       "Over-invoicing combined with trade-based value transfer (TBVT)",
     ],
     links: [
+      { label: "TBML Analyst course", href: "/courses/trade-based-laundering" },
       { label: "Troika Laundromat case study", href: "/cases/troika-laundromat" },
       { label: "Deutsche Bank mirror trades case", href: "/cases/deutsche-bank" },
       { label: "Trade finance & sanctions chapters", href: "/courses/sanctions-screening" },
