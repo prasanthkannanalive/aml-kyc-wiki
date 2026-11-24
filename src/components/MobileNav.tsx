@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { NavGroup } from "@/components/NavMenu";
 
-interface NavLink {
-  href: string;
-  label: string;
-}
 
 export default function MobileNav({
-  links,
+  groups,
   searchLabel,
   menuLabel,
 }: {
-  links: NavLink[];
+  groups: NavGroup[];
   searchLabel: string;
   menuLabel: string;
 }) {
@@ -42,7 +39,7 @@ export default function MobileNav({
         </svg>
       </button>
       {open && (
-        <div className="absolute inset-x-0 top-16 border-b border-line bg-background px-4 pb-6 pt-4">
+        <div className="absolute inset-x-0 top-16 max-h-[80vh] overflow-y-auto border-b border-line bg-background px-4 pb-6 pt-4">
           <form action="/search" method="get" className="mb-3">
             <input
               type="search"
@@ -51,16 +48,25 @@ export default function MobileNav({
               className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink placeholder-faint outline-none focus:border-emerald-400"
             />
           </form>
-          <nav className="flex flex-col gap-1">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm text-body hover:bg-surface-2"
-              >
-                {l.label}
-              </Link>
+          <nav className="flex flex-col gap-4">
+            {groups.map((g) => (
+              <div key={g.label}>
+                <div className="px-3 pb-1 text-[11px] font-semibold uppercase tracking-wider text-faint">
+                  {g.label}
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  {g.items.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-3 py-2 text-sm text-body hover:bg-surface-2"
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </nav>
         </div>

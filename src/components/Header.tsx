@@ -4,28 +4,46 @@ import ThemeToggle from "@/components/ThemeToggle";
 import AuthNav from "@/components/AuthNav";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
+import NavMenu, { type NavGroup } from "@/components/NavMenu";
 import { getLang, t } from "@/lib/i18n";
 
 export default async function Header() {
   const lang = await getLang();
-  const links = [
-    { href: "/courses", label: t(lang, "nav.courses") },
-    { href: "/training", label: t(lang, "nav.training") },
-    { href: "/disciplines", label: t(lang, "nav.disciplines") },
-    { href: "/sandbox", label: t(lang, "nav.sandbox") },
-    { href: "/tools", label: t(lang, "nav.tools") },
-    { href: "/job-simulation", label: t(lang, "nav.simulation") },
-    { href: "/careers", label: t(lang, "nav.careers") },
-    { href: "/cases", label: t(lang, "nav.cases") },
-    { href: "/interview-prep", label: t(lang, "nav.interview") },
-    { href: "/resources", label: t(lang, "nav.resources") },
-    { href: "/library", label: t(lang, "nav.library") },
-    { href: "/arcade", label: t(lang, "nav.arcade") },
-    { href: "/leaderboard", label: t(lang, "nav.leaderboard") },
-    { href: "/news", label: t(lang, "nav.news") },
-    { href: "/research", label: t(lang, "nav.research") },
-    { href: "/glossary", label: t(lang, "nav.glossary") },
-    { href: "/about", label: t(lang, "nav.about") },
+  const L = (k: string) => t(lang, k);
+
+  const groups: NavGroup[] = [
+    {
+      label: L("nav.learn"),
+      items: [
+        { href: "/courses", label: L("nav.courses") },
+        { href: "/training", label: L("nav.training") },
+        { href: "/disciplines", label: L("nav.disciplines") },
+        { href: "/library", label: L("nav.library") },
+      ],
+    },
+    {
+      label: L("nav.practice"),
+      items: [
+        { href: "/sandbox", label: L("nav.sandbox") },
+        { href: "/tools", label: L("nav.tools") },
+        { href: "/job-simulation", label: L("nav.simulation") },
+        { href: "/arcade", label: L("nav.arcade") },
+      ],
+    },
+    {
+      label: L("nav.explore"),
+      items: [
+        { href: "/cases", label: L("nav.cases") },
+        { href: "/interview-prep", label: L("nav.interview") },
+        { href: "/careers", label: L("nav.careers") },
+        { href: "/resources", label: L("nav.resources") },
+        { href: "/leaderboard", label: L("nav.leaderboard") },
+        { href: "/news", label: L("nav.news") },
+        { href: "/research", label: L("nav.research") },
+        { href: "/glossary", label: L("nav.glossary") },
+        { href: "/about", label: L("nav.about") },
+      ],
+    },
   ];
 
   return (
@@ -42,32 +60,22 @@ export default async function Header() {
           <input
             type="search"
             name="q"
-            placeholder={`${t(lang, "nav.search")}…`}
+            placeholder={`${L("nav.search")}…`}
             className="w-full rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-ink placeholder-faint outline-none transition-colors focus:border-emerald-400"
           />
         </form>
 
         <div className="flex items-center gap-3">
-          <nav className="hidden items-center gap-4 text-sm text-muted xl:flex">
-            {links.slice(0, 9).map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="transition-colors hover:text-ink"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
+          <NavMenu groups={groups} />
           <LanguageSwitcher lang={lang} />
           <ThemeToggle />
-          <MobileNav links={links} searchLabel={t(lang, "nav.search")} menuLabel={t(lang, "nav.menu")} />
+          <MobileNav groups={groups} searchLabel={L("nav.search")} menuLabel={L("nav.menu")} />
           <AuthNav />
           <Link
             href="/courses"
             className="hidden rounded-lg bg-emerald-400 px-3.5 py-1.5 text-sm font-medium text-zinc-950 transition-colors hover:bg-emerald-300 lg:block"
           >
-            {t(lang, "nav.browse")}
+            {L("nav.browse")}
           </Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 const LEVELS = [
   { xp: 0, title: "Analyst" },
@@ -46,6 +47,25 @@ export default function ProfileExtras({
 
   const arcadeXp = (arcade?.games ?? 0) * 15;
   const xp = chaptersRead * 10 + chaptersDone * 20 + arcadeXp + (examPassed ? 100 : 0);
+
+  const [shownXp, setShownXp] = useState(0);
+  const xpRef = useRef(0);
+  useEffect(() => {
+    const t = setTimeout(() => {
+      const from = xpRef.current;
+      const start = performance.now();
+      const dur = 900;
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - start) / dur);
+        const v = Math.round(from + (xp - from) * (1 - Math.pow(1 - p, 3)));
+        xpRef.current = v;
+        setShownXp(v);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, 350);
+    return () => clearTimeout(t);
+  }, [xp]);
   const level = [...LEVELS].reverse().find((l) => xp >= l.xp) ?? LEVELS[0];
   const next = LEVELS.find((l) => l.xp > xp);
   const pct = next ? Math.min(100, Math.round(((xp - level.xp) / (next.xp - level.xp)) * 100)) : 100;
@@ -60,7 +80,7 @@ export default function ProfileExtras({
             <div className="mt-0.5 text-2xl font-bold text-emerald-400">{level.title}</div>
           </div>
           <div className="text-right">
-            <div className="font-mono text-sm text-ink">{xp} XP</div>
+            <div className="font-mono text-sm text-ink">{shownXp} XP</div>
             <div className="text-xs text-muted">
               {next ? `${next.xp - xp} XP to ${next.title}` : "Top level reached"}
             </div>

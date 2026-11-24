@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
 import ProfileExtras from "@/components/ProfileExtras";
+import Achievements from "@/components/Achievements";
 import { getProgress } from "@/lib/db";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
@@ -75,6 +76,12 @@ export default async function ProfilePage() {
       </div>
 
       <ProfileExtras chaptersRead={totalRead} chaptersDone={perCourse.reduce((s, p) => s + p.done, 0)} />
+
+      <div className="mt-8">
+        <Achievements
+          perCourse={perCourse.map((p) => ({ slug: p.course.slug, read: p.read, done: p.done, total: p.total }))}
+        />
+      </div>
 
       <h2 className="mt-10 text-lg font-semibold">Progress by course</h2>
       <div className="mt-4 space-y-3">
