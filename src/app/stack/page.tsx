@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import StackBrowser from "@/components/StackBrowser";
 import StackWalkthrough from "@/components/StackWalkthrough";
 import HopExplorer from "@/components/HopExplorer";
+import DeFiFlow from "@/components/DeFiFlow";
 import { SAR_PIPELINE, CERTIFICATIONS, LAYERS } from "@/lib/compliance-stack";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -46,6 +47,19 @@ export default function StackPage() {
         </div>
         <div className="mt-5">
           <HopExplorer />
+        </div>
+      </section>
+
+      {/* DeFi contract-level flow */}
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold">DeFi flows — contract-level tracing</h2>
+        <p className="mt-1 text-sm text-muted">
+          When funds move through DEXs, pools and bridges the trail lives at the contract-call level.
+          This panel mimics DeFiLlama-style flow graphs: token packets travel node to node while the
+          side panel shows the exact contract interaction — approvals, swaps, bridge sends.
+        </p>
+        <div className="mt-5">
+          <DeFiFlow />
         </div>
       </section>
 
