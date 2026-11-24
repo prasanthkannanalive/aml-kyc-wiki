@@ -171,6 +171,9 @@ export default async function CareersPage() {
           <Link href="/interview-prep" className="rounded-xl border border-line px-5 py-2 text-sm font-medium text-ink hover:border-emerald-400/50">
             Interview prep
           </Link>
+          <Link href="/stack" className="rounded-xl border border-line px-5 py-2 text-sm font-medium text-ink hover:border-emerald-400/50">
+            Compliance stack
+          </Link>
         </div>
       </section>
     </div>

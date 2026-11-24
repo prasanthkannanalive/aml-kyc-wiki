@@ -180,9 +180,9 @@ export default async function Home() {
         <ScrollReveal>
         <h2 className="text-2xl font-bold tracking-tight">Learn by doing</h2>
         <p className="mt-2 text-sm text-muted">
-          Interactive tools, simulations and daily games — not just reading.
+          Interactive tools, simulations, vendor landscape and daily games — not just reading.
         </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {[
             {
               href: "/job-simulation",
@@ -207,6 +207,12 @@ export default async function Home() {
               title: "AML Arcade",
               sub: "Five daily brain games — typology sorting, AMLdle, timed recognition and more.",
               tag: "Daily games",
+            },
+            {
+              href: "/stack",
+              title: "Compliance Stack",
+              sub: "The platforms teams actually use — blockchain analytics, KYC screening, SAR workflow and guided demos.",
+              tag: "Vendor landscape",
             },
           ].map((t) => (
             <Link
