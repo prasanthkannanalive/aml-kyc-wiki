@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/training",
     "/cases",
     "/regulators",
+    "/stack",
     "/interview-prep",
     "/leaderboard",
     "/glossary",

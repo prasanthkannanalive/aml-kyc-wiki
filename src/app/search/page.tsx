@@ -6,6 +6,7 @@ import { disciplines } from "@/lib/disciplines";
 import { listChapters } from "@/lib/chapters";
 import { listLibrary } from "@/lib/library";
 import { REGULATORS } from "@/lib/regulators";
+import { VENDORS, LAYERS } from "@/lib/compliance-stack";
 import SearchBrowser, { type SearchItem } from "@/components/SearchBrowser";
 import SearchBox from "@/components/SearchBox";
 
@@ -128,6 +129,24 @@ export default function SearchPage() {
       href: `/regulators#${r.code.toLowerCase()}`,
       kind: "Regulator",
       text: `${r.regulator} ${r.law} ${r.filing} ${r.deadline} ${r.note} ${r.fatf}`,
+    });
+  }
+
+  items.push({
+    title: "Compliance Stack Landscape — AML vendors & platforms",
+    subtitle: "Directory · blockchain analytics, KYC screening, certifications",
+    href: "/stack",
+    kind: "Tool",
+    text: "The platforms compliance teams use — Chainalysis, TRM Labs, Elliptic, CipherTrace, World-Check and more — plus the SAR workflow and certifications like CCCA.",
+  });
+
+  for (const v of VENDORS) {
+    items.push({
+      title: v.name,
+      subtitle: `Vendor · ${LAYERS.find((l) => l.key === v.layer)!.label}`,
+      href: `/stack#vendor-${v.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      kind: "Vendor",
+      text: `${v.tagline} ${v.caps.join(" ")} ${v.cert ?? ""} ${v.seenIn ?? ""}`,
     });
   }
 
