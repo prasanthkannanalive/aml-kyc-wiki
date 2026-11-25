@@ -1120,6 +1120,14 @@ export const glossary: GlossaryTerm[] = [
   { term: "Production order", definition: "A court or prosecutor order compelling a firm to produce documents or information for an investigation.", category: "Reporting" },
   { term: "Placement", definition: "The first money-laundering stage — introducing illicit funds into the financial system.", category: "Core" },
   { term: "Integration", definition: "The final money-laundering stage — re-entering laundered funds into the legitimate economy as apparently clean assets.", category: "Core" },
+  { term: "AMLA Authority", definition: "The EU's Anti-Money Laundering Authority (Frankfurt) — direct EU supervisor for the highest-risk obliged entities, including CASPs, under the phased AMLR framework.", category: "Frameworks" },
+  { term: "DORA", definition: "Digital Operational Resilience Act — EU rules for ICT risk management, incident reporting and resilience testing across financial entities, including crypto firms.", category: "Frameworks" },
+  { term: "eIDAS 2.0", definition: "The EU digital identity framework enabling EUDI Wallets — cryptographically verified identity attributes that may replace document-based remote KYC.", category: "Frameworks" },
+  { term: "BOI register", definition: "Beneficial Ownership Information register — public or restricted databases of who really owns legal entities, under CTA/AMLD5/6 reforms.", category: "Ownership" },
+  { term: "FATF grey list", definition: "Jurisdictions under increased FATF monitoring for strategic AML/CFT deficiencies — customers connected to them attract enhanced due diligence.", category: "Frameworks" },
+  { term: "FinCEN 314(a)/(b)", definition: "US information-sharing channels: 314(a) circulates law-enforcement requests to banks; 314(b) permits institutions to share ML/TF information with each other.", category: "Reporting" },
+  { term: "CASP", definition: "Crypto-Asset Service Provider — the EU/MiCA term for exchanges, custodians and transfer services, now squarely inside AML obligations.", category: "Channels" },
+  { term: "Travel Rule", definition: "FATF Recommendation 16 — originator and beneficiary information must accompany qualifying transfers; thresholds differ by jurisdiction (US $3k, EU none, UK £1k).", category: "Channels" },
 ];
 
 export interface InterviewQA {

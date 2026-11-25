@@ -99,6 +99,20 @@ export default function SearchPage() {
       text: "Simulated AML analyst shifts: alert triage, KYC/EDD, adverse media, SAR drafting and filing decisions with scored feedback.",
     },
     {
+      title: "Mock Exam Simulator — timed practice papers",
+      subtitle: "Assessment · timed exams",
+      href: "/exams",
+      kind: "Tool",
+      text: "Timed randomized mock exams across all AML/KYC courses — mixed papers or per-course, 15-minute timer, per-module score breakdown.",
+    },
+    {
+      title: "Daily Review — spaced repetition",
+      subtitle: "Assessment · daily quiz",
+      href: "/review",
+      kind: "Tool",
+      text: "Ten random questions from every course's module banks for spaced-repetition review, with a daily streak tracker.",
+    },
+    {
       title: "AML/KYC Careers — roles, requirements, certifications",
       subtitle: "Guide · career ladder",
       href: "/careers",
