@@ -1,25 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
 
-export default function CopyButton({ text }: { text: string }) {
+export default function CopyButton({ text, className }: { text: string; className?: string }) {
   const [copied, setCopied] = useState(false);
   return (
-    <motion.button
-      whileTap={{ scale: 0.96 }}
+    <button
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(text);
           setCopied(true);
-          setTimeout(() => setCopied(false), 1600);
+          setTimeout(() => setCopied(false), 1500);
         } catch {
           /* clipboard unavailable */
         }
       }}
-      className="rounded-lg border border-line px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:border-emerald-400/50 hover:text-ink"
+      className={className}
+      title="Click to copy"
     >
-      {copied ? "Copied ✓" : "Copy"}
-    </motion.button>
+      {copied ? "Copied!" : text}
+    </button>
   );
 }

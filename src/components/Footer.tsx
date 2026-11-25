@@ -33,6 +33,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.sandbox", "/sandbox"],
       ["nav.exams", "/exams"],
       ["nav.review", "/review"],
+      ["labs", "/labs"],
       ["nav.tools", "/tools"],
       ["nav.simulation", "/job-simulation"],
       ["nav.arcade", "/arcade"],
@@ -45,6 +46,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
     links: [
       ["nav.careers", "/careers"],
       ["nav.leaderboard", "/leaderboard"],
+      ["teams", "/teams"],
       ["nav.regulators", "/regulators"],
       ["nav.news", "/news"],
       ["nav.research", "/research"],

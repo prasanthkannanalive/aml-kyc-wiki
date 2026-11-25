@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import RegulatorsBrowser from "@/components/RegulatorsBrowser";
 import { ENFORCEMENT_STAGES } from "@/lib/regulators";
 import { AML_CFT_PILLARS, FATF_LISTS, REFORMS } from "@/lib/reg-frameworks";
+import { getRegFeed } from "@/lib/reg-feed";
 import { courses } from "@/lib/content";
 import Link from "next/link";
 import ViewTracker from "@/components/ViewTracker";
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
 };
 export const dynamic = "force-dynamic";
 
-export default function RegulatorsPage() {
+export default async function RegulatorsPage() {
+  const feed = await getRegFeed();
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
       <h1 className="text-3xl font-bold tracking-tight">Regulatory Bodies</h1>
@@ -138,6 +140,38 @@ export default function RegulatorsPage() {
                 })}
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* regulatory watch feed */}
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold">Regulatory watch</h2>
+        <p className="mt-1 text-sm text-muted">
+          Latest AML/CFT headlines from FATF, FinCEN and EU AML coverage —
+          refreshed hourly.
+        </p>
+        <div className="mt-5 space-y-2">
+          {feed.map((item, i) => (
+            <a
+              key={i}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 rounded-xl border border-line bg-surface/50 px-4 py-3 transition-colors hover:border-emerald-400/40"
+            >
+              <span className="mt-0.5 shrink-0 rounded-full border border-line bg-background/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted">
+                {item.source}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-medium text-ink">{item.title}</span>
+                {item.date && (
+                  <span className="mt-0.5 block text-[11px] text-faint">
+                    {new Date(item.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                  </span>
+                )}
+              </span>
+            </a>
           ))}
         </div>
       </section>

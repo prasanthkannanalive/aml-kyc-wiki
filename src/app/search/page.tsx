@@ -113,6 +113,20 @@ export default function SearchPage() {
       text: "Ten random questions from every course's module banks for spaced-repetition review, with a daily streak tracker.",
     },
     {
+      title: "Transaction Data Lab — rule tuning sandbox",
+      subtitle: "Interactive · synthetic data",
+      href: "/labs",
+      kind: "Tool",
+      text: "Build AML detection rules — structuring, velocity, large amounts, layering — and run them against a synthetic transaction dataset to see alerts fire.",
+    },
+    {
+      title: "Study Teams — cohort progress tracking",
+      subtitle: "Community · group learning",
+      href: "/teams",
+      kind: "Tool",
+      text: "Create a study team with a shareable join code and track member progress across all AML/KYC courses.",
+    },
+    {
       title: "AML/KYC Careers — roles, requirements, certifications",
       subtitle: "Guide · career ladder",
       href: "/careers",

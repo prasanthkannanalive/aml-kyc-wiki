@@ -58,6 +58,7 @@ const K = {
   stats: "aml:stats", // hash field -> count
   sync: (id: string) => `aml:sync:${id}`, // guest-achievement sync blob
   cert: (id: string) => `aml:cert:${id}`, // verifiable course certificate
+  teams: "aml:teams", // JSON doc: TeamRecord[]
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -279,6 +280,42 @@ export async function setCert(rec: CertRecord): Promise<void> {
   const all = readJson<Record<string, CertRecord>>("certs.json", {});
   all[rec.id] = rec;
   writeJson("certs.json", all);
+}
+
+/* ----------------------------- teams ------------------------------- */
+
+export interface TeamRecord {
+  id: string;
+  name: string;
+  code: string;
+  createdBy: string;
+  createdAt: string;
+  members: string[]; // user ids
+}
+
+const TEAM_CODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+
+export function genTeamCode(): string {
+  let s = "";
+  for (let i = 0; i < 6; i++)
+    s += TEAM_CODE_ALPHABET[Math.floor(Math.random() * TEAM_CODE_ALPHABET.length)];
+  return s;
+}
+
+export async function getTeams(): Promise<TeamRecord[]> {
+  if (kvEnabled()) {
+    const raw = await kvGet<string>("GET", K.teams);
+    return raw ? (JSON.parse(raw) as TeamRecord[]) : [];
+  }
+  return readJson<TeamRecord[]>("teams.json", []);
+}
+
+export async function saveTeams(teams: TeamRecord[]): Promise<void> {
+  if (kvEnabled()) {
+    await kvPost(["SET", K.teams], JSON.stringify(teams));
+    return;
+  }
+  writeJson("teams.json", teams);
 }
 
 /* --------------------- live engagement helpers --------------------- */
