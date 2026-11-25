@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScenarioRunner from "@/components/ScenarioRunner";
+import CaseSimulator from "@/components/CaseSimulator";
 import { PLAYGROUND_SCENARIOS, SCENARIO_CATS } from "@/lib/playground";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -106,6 +107,19 @@ export default function PlaygroundPage() {
         </div>
         <div className="mt-5 rounded-2xl border border-line bg-surface/40 p-5 sm:p-6">
           <ScenarioRunner />
+        </div>
+      </section>
+
+      {/* guided case files */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold">Case file simulator</h2>
+        <p className="mt-1 text-sm text-muted">
+          Work a case the way a real analyst does — evidence lands step by step,
+          you follow the money trail, make the call at each decision point, then
+          see the filing and rationale the case produces.
+        </p>
+        <div className="mt-5">
+          <CaseSimulator />
         </div>
       </section>
 
