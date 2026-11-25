@@ -71,6 +71,13 @@ export default function SearchPage() {
 
   items.push(
     {
+      title: "Learning Paths — role-based course sequences",
+      subtitle: "Guided · curated paths",
+      href: "/paths",
+      kind: "Course",
+      text: "Role-based learning paths: AML analyst, fraud analyst, sanctions specialist, crypto compliance, FIU intelligence and trade finance — ordered courses with a path certificate.",
+    },
+    {
       title: "Playground — 100 challenging AML scenarios + all interactive tools",
       subtitle: "Interactive · scenario judgment",
       href: "/playground",

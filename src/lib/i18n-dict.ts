@@ -8,6 +8,7 @@ export type Lang = (typeof LANGS)[number]["code"];
 
 export const dict: Record<Lang, Record<string, string>> = {
   en: {
+    "nav.paths": "Learning Paths",
     "nav.courses": "Courses",
     "nav.training": "Training",
     "nav.cases": "Cases",
@@ -126,6 +127,7 @@ export const dict: Record<Lang, Record<string, string>> = {
     "footer.langnote": "Interface translated — article content is in English.",
   },
   es: {
+    "nav.paths": "Rutas de aprendizaje",
     "nav.courses": "Cursos",
     "nav.training": "Formación",
     "nav.cases": "Casos",
@@ -244,6 +246,7 @@ export const dict: Record<Lang, Record<string, string>> = {
     "footer.langnote": "Interfaz traducida — el contenido de los artículos está en inglés.",
   },
   hi: {
+    "nav.paths": "लर्निंग पाथ",
     "nav.courses": "पाठ्यक्रम",
     "nav.training": "प्रशिक्षण",
     "nav.cases": "मामले",
