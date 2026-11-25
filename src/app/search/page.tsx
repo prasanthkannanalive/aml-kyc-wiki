@@ -153,6 +153,27 @@ export default function SearchPage() {
       href: "/resources",
       kind: "Tool",
       text: "SAR narrative template, CDD checklist, EDD PEP checklist, alert disposition framework, TM tuning checklist.",
+    },
+    {
+      title: "SAR Writing Practice — narrative drafting exercises",
+      subtitle: "Field craft · scored drafts",
+      href: "/sar-writer",
+      kind: "Tool",
+      text: "Draft suspicious-activity report narratives from real case briefs — structuring, nominee onboarding, TBML — with fact-coverage scoring and model answers.",
+    },
+    {
+      title: "Document Red-Flag Spotter — issue detection",
+      subtitle: "Field craft · spot the problems",
+      href: "/doc-spotter",
+      kind: "Tool",
+      text: "Spot planted red flags in realistic LC documents, KYB registry extracts, Travel Rule records and SAR drafts — hidden among plausible decoys.",
+    },
+    {
+      title: "Filing Walkthroughs — SAR/STR by jurisdiction",
+      subtitle: "Field craft · filing guides",
+      href: "/filing",
+      kind: "Tool",
+      text: "How suspicious-activity reports are filed in the US, UK, EU, Canada, India and Singapore — deadlines, channels, form fields and examiner traps.",
     }
   );
 

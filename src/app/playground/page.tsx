@@ -68,6 +68,27 @@ const EXPERIENCES = [
     desc: "Guided console walkthrough, hop explorer and DeFi flow graph of real platforms.",
     accent: "border-indigo-400/30",
   },
+  {
+    href: "/sar-writer",
+    title: "SAR Writing Practice",
+    tag: "Field craft",
+    desc: "Draft suspicious-activity narratives from real case briefs — fact-coverage scoring + model answers.",
+    accent: "border-rose-400/30",
+  },
+  {
+    href: "/doc-spotter",
+    title: "Document Red-Flag Spotter",
+    tag: "Field craft",
+    desc: "Spot planted issues in realistic LC, KYB, Travel Rule and SAR documents — among decoys.",
+    accent: "border-rose-400/30",
+  },
+  {
+    href: "/filing",
+    title: "Filing Walkthroughs",
+    tag: "Field craft",
+    desc: "How SARs/STRs are actually filed — US BSA, UK DAML, goAML, FINTRAC, FIU-IND, STRO.",
+    accent: "border-rose-400/30",
+  },
 ];
 
 export default function PlaygroundPage() {
