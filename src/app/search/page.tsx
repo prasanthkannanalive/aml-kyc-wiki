@@ -71,6 +71,13 @@ export default function SearchPage() {
 
   items.push(
     {
+      title: "Playground — 100 challenging AML scenarios + all interactive tools",
+      subtitle: "Interactive · scenario judgment",
+      href: "/playground",
+      kind: "Tool",
+      text: "100 hard AML/KYC decision scenarios across 10 typologies with difficulty ratings, plus links to every interactive experience: sandbox, data lab, exams, review, tools, simulations, arcade.",
+    },
+    {
       title: "Alert Sandbox — TM triage simulation",
       subtitle: "Interactive · hands-on practice",
       href: "/sandbox",

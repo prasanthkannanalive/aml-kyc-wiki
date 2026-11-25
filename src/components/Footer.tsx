@@ -30,6 +30,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
   {
     key: "footer.practice",
     links: [
+      ["nav.playground", "/playground"],
       ["nav.sandbox", "/sandbox"],
       ["nav.exams", "/exams"],
       ["nav.review", "/review"],
