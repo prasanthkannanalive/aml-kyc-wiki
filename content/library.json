@@ -1,22 +1,22 @@
 {
   "fraud-prevention-study-guide.pdf": {
-    "title": "Fraud Prevention \u2014 Certification Study Guide",
+    "title": "Fraud Prevention — Certification Study Guide",
     "description": "Complete study guide for the Certified Fraud Prevention Analyst: fraud typologies, APP scams, account takeover, mules, detection analytics and the fraud risk management programme.",
     "category": "Course guide"
   },
   "sanctions-screening-study-guide.pdf": {
-    "title": "Sanctions Screening \u2014 Certification Study Guide",
+    "title": "Sanctions Screening — Certification Study Guide",
     "description": "Study guide for sanctions screening: UN, OFAC, EU and UK regimes, list matching, alert disposition, the 50% rule and vessel screening.",
     "category": "Course guide"
   },
   "counter-terrorist-financing-study-guide.pdf": {
-    "title": "Counter-Terrorist Financing \u2014 Certification Study Guide",
+    "title": "Counter-Terrorist Financing — Certification Study Guide",
     "description": "Study guide covering why TF differs from money laundering, FATF and UNSCR frameworks, terrorist financing channels and detection.",
     "category": "Course guide"
   },
   "financial-intelligence-trafficking-ebook.pdf": {
-    "title": "Financial Intelligence \u2014 FIHT e-book v2.1",
-    "description": "Financial intelligence study material: following the money in human trafficking \u2014 typologies, red flags, STRs and institutional frameworks.",
+    "title": "Financial Intelligence — FIHT e-book v2.1",
+    "description": "Financial intelligence study material: following the money in human trafficking — typologies, red flags, STRs and institutional frameworks.",
     "category": "Course guide"
   },
   "aml-kyc-interview-questions.pdf": {
@@ -25,159 +25,171 @@
     "category": "Interview prep"
   },
   "eba-mltf-risk-factors-guidelines.pdf": {
-    "title": "EBA \u2014 ML/TF Risk Factors Guidelines (consolidated)",
+    "title": "EBA — ML/TF Risk Factors Guidelines (consolidated)",
     "description": "EU banking authority guidelines on money-laundering and terrorist-financing risk factors for credit institutions.",
     "category": "EU regulation",
     "source": "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2023/EBA-GL-2023-03/1061654/Guidelines%20ML%20TF%20Risk%20Factors_conslidated.pdf.pdf"
   },
   "ffiec-bsa-aml-manual-cdd-bo.pdf": {
-    "title": "FFIEC \u2014 BSA/AML Examination Manual (CDD/BO volume)",
-    "description": "US interagency examination manual section on customer due diligence and beneficial ownership \u2014 what examiners test.",
+    "title": "FFIEC — BSA/AML Examination Manual (CDD/BO volume)",
+    "description": "US interagency examination manual section on customer due diligence and beneficial ownership — what examiners test.",
     "category": "US regulation"
   },
   "fincen-funnel-accounts-advisory.pdf": {
-    "title": "FinCEN \u2014 Funnel Accounts Advisory FIN-2014-A005",
-    "description": "Advisory on accounts used to collect and disburse funds for third parties \u2014 a key typology for analysts.",
+    "title": "FinCEN — Funnel Accounts Advisory FIN-2014-A005",
+    "description": "Advisory on accounts used to collect and disburse funds for third parties — a key typology for analysts.",
     "category": "US regulation"
   },
   "fincen-sar-electronic-filing.pdf": {
-    "title": "FinCEN \u2014 SAR Electronic Filing Instructions",
+    "title": "FinCEN — SAR Electronic Filing Instructions",
     "description": "Technical specifications for filing Suspicious Activity Reports through the BSA E-Filing system.",
     "category": "US regulation"
   },
   "fincen-sar-narrative-guidance.pdf": {
-    "title": "FinCEN \u2014 Complete & Sufficient SAR Narrative Guidance (2003)",
+    "title": "FinCEN — Complete & Sufficient SAR Narrative Guidance (2003)",
     "description": "The classic guidance on what makes a SAR narrative complete and sufficient for investigators.",
     "category": "US regulation"
   },
   "ifc-tbml-techniques-tipsheets.pdf": {
-    "title": "IFC \u2014 TBML Techniques Tip Sheets",
+    "title": "IFC — TBML Techniques Tip Sheets",
     "description": "Practical tip sheets on trade-based money laundering techniques for compliance professionals.",
     "category": "Industry guidance"
   },
   "ukfiu-better-quality-sars.pdf": {
-    "title": "UKFIU \u2014 Submitting Better Quality SARs v4.0 (superseded)",
-    "description": "SUPERSEDED \u2014 historical reference. Withdrawn Dec 2025 and replaced by the current UKFIU SAR best-practice chapters (see Web guidance section). Retained for historical context.",
+    "title": "UKFIU — Submitting Better Quality SARs v4.0 (superseded)",
+    "description": "SUPERSEDED — historical reference. Withdrawn Dec 2025 and replaced by the current UKFIU SAR best-practice chapters (see Web guidance section). Retained for historical context.",
     "category": "UK regulation"
   },
   "ukfiu-sar-portal-guide.pdf": {
-    "title": "UKFIU \u2014 Using the SAR Portal (Chapter 1)",
+    "title": "UKFIU — Using the SAR Portal (Chapter 1)",
     "description": "Step-by-step guide to submitting SARs through the UK NCA online portal.",
     "category": "UK regulation"
   },
   "fiu-ind-amlcft-guidelines-2023.pdf": {
-    "title": "FIU-IND \u2014 AML/CFT Guidelines for Reporting Entities (2023)",
+    "title": "FIU-IND — AML/CFT Guidelines for Reporting Entities (2023)",
     "description": "India's Financial Intelligence Unit guidelines for banks and reporting entities under PMLA.",
     "category": "India regulation"
   },
   "fiu-ind-str-format-banking.pdf": {
-    "title": "FIU-IND \u2014 STR Reporting Format for Banking Companies",
+    "title": "FIU-IND — STR Reporting Format for Banking Companies",
     "description": "The prescribed Suspicious Transaction Report format for Indian banking companies.",
     "category": "India regulation"
   },
   "PEP-Interagency-Statement_FINAL-508.pdf": {
-    "title": "US Interagency \u2014 Joint Statement on PEPs (2020)",
-    "description": "US regulators' joint statement on politically exposed persons \u2014 risk-based approach and avoiding de-risking.",
+    "title": "US Interagency — Joint Statement on PEPs (2020)",
+    "description": "US regulators' joint statement on politically exposed persons — risk-based approach and avoiding de-risking.",
     "category": "US regulation"
   },
   "fatf-va-vasp-updated-guidance.pdf": {
-    "title": "FATF \u2014 Updated Guidance for a Risk-Based Approach to Virtual Assets & VASPs (2021)",
-    "description": "FATF's updated VA/VASP guidance \u2014 VASP definition, Travel Rule, red flags and risk-based approach for crypto AML.",
+    "title": "FATF — Updated Guidance for a Risk-Based Approach to Virtual Assets & VASPs (2021)",
+    "description": "FATF's updated VA/VASP guidance — VASP definition, Travel Rule, red flags and risk-based approach for crypto AML.",
     "category": "Virtual assets"
   },
   "fatf-va-red-flag-indicators.pdf": {
-    "title": "FATF \u2014 Virtual Asset Red Flag Indicators (2020)",
-    "description": "FATF red-flag indicators for virtual-asset ML/TF \u2014 transaction, customer and behavioural signals for VASP monitoring.",
+    "title": "FATF — Virtual Asset Red Flag Indicators (2020)",
+    "description": "FATF red-flag indicators for virtual-asset ML/TF — transaction, customer and behavioural signals for VASP monitoring.",
     "category": "Virtual assets"
   },
   "fatf-va-7th-targeted-update.pdf": {
-    "title": "FATF \u2014 7th Targeted Update on VA/VASP Implementation (2026)",
-    "description": "FATF targeted update assessing global implementation of virtual-asset standards \u2014 gaps in licensing, Travel Rule and DeFi coverage.",
+    "title": "FATF — 7th Targeted Update on VA/VASP Implementation (2026)",
+    "description": "FATF targeted update assessing global implementation of virtual-asset standards — gaps in licensing, Travel Rule and DeFi coverage.",
     "category": "Virtual assets"
   },
   "fincen-cvc-guidance.pdf": {
-    "title": "FinCEN \u2014 BSA Requirements for Convertible Virtual Currency (2013)",
-    "description": "FinCEN guidance applying Bank Secrecy Act obligations to CVC exchangers and administrators \u2014 MSB registration, SAR and recordkeeping.",
+    "title": "FinCEN — BSA Requirements for Convertible Virtual Currency (2013)",
+    "description": "FinCEN guidance applying Bank Secrecy Act obligations to CVC exchangers and administrators — MSB registration, SAR and recordkeeping.",
     "category": "Virtual assets"
   },
   "fincen-cvc-advisory.pdf": {
-    "title": "FinCEN \u2014 Advisory on Convertible Virtual Currency (CVC)",
-    "description": "FinCEN advisory on money laundering through convertible virtual currency \u2014 typologies and red flags for regulated entities.",
+    "title": "FinCEN — Advisory on Convertible Virtual Currency (CVC)",
+    "description": "FinCEN advisory on money laundering through convertible virtual currency — typologies and red flags for regulated entities.",
     "category": "Virtual assets"
   },
   "fatf-new-technologies-aml-cft.pdf": {
-    "title": "FATF \u2014 Opportunities and Challenges of New Technologies for AML/CFT",
-    "description": "FATF analysis of AI, digital ID, big data and DLT for AML/CFT \u2014 opportunities, risks and supervisory implications.",
+    "title": "FATF — Opportunities and Challenges of New Technologies for AML/CFT",
+    "description": "FATF analysis of AI, digital ID, big data and DLT for AML/CFT — opportunities, risks and supervisory implications.",
     "category": "FATF guidance"
   },
   "fatf-egmont-tbml-risk-indicators.pdf": {
-    "title": "FATF/Egmont \u2014 TBML Risk Indicators",
-    "description": "FATF/Egmont risk indicators for trade-based money laundering \u2014 documentary, pricing and counterparty red flags.",
+    "title": "FATF/Egmont — TBML Risk Indicators",
+    "description": "FATF/Egmont risk indicators for trade-based money laundering — documentary, pricing and counterparty red flags.",
     "category": "Trade finance"
   },
   "fatf-egmont-tbml-trends.pdf": {
-    "title": "FATF/Egmont \u2014 TBML Trends and Developments (2020)",
-    "description": "FATF/Egmont report on TBML trends \u2014 free-trade zones, services TBML, digital trade documents and TBML-TF.",
+    "title": "FATF/Egmont — TBML Trends and Developments (2020)",
+    "description": "FATF/Egmont report on TBML trends — free-trade zones, services TBML, digital trade documents and TBML-TF.",
     "category": "Trade finance"
   },
   "fatf-recommendations-2012.pdf": {
-    "title": "FATF \u2014 Recommendations (International Standards, 2012)",
-    "description": "The FATF 40 Recommendations \u2014 the global AML/CFT standard underpinning national regimes worldwide.",
+    "title": "FATF — Recommendations (International Standards, 2012)",
+    "description": "The FATF 40 Recommendations — the global AML/CFT standard underpinning national regimes worldwide.",
     "category": "FATF guidance"
   },
   "fatf-rba-banking-sector.pdf": {
-    "title": "FATF \u2014 Risk-Based Approach Guidance for the Banking Sector",
-    "description": "FATF guidance on applying the risk-based approach in banking \u2014 risk assessment, CDD and ongoing monitoring.",
+    "title": "FATF — Risk-Based Approach Guidance for the Banking Sector",
+    "description": "FATF guidance on applying the risk-based approach in banking — risk assessment, CDD and ongoing monitoring.",
     "category": "FATF guidance"
   },
   "bis-sound-management-aml.pdf": {
-    "title": "Basel Committee \u2014 Sound Management of Risks Related to ML/TF (2020)",
-    "description": "Basel Committee guidance on bank risk management for money laundering and terrorist financing \u2014 governance and controls.",
+    "title": "Basel Committee — Sound Management of Risks Related to ML/TF (2020)",
+    "description": "Basel Committee guidance on bank risk management for money laundering and terrorist financing — governance and controls.",
     "category": "Basel guidance"
   },
   "fatf-bo-legal-persons.pdf": {
-    "title": "FATF \u2014 Beneficial Ownership of Legal Persons (R.24, 2023)",
-    "description": "FATF guidance on beneficial ownership of legal persons \u2014 identification, verification and transparency requirements.",
+    "title": "FATF — Beneficial Ownership of Legal Persons (R.24, 2023)",
+    "description": "FATF guidance on beneficial ownership of legal persons — identification, verification and transparency requirements.",
     "category": "FATF guidance"
   },
   "fatf-bo-legal-arrangements.pdf": {
-    "title": "FATF \u2014 BO & Transparency of Legal Arrangements (R.25, 2024)",
-    "description": "FATF guidance on beneficial ownership of trusts and legal arrangements \u2014 nominee, trustee and beneficiary identification.",
+    "title": "FATF — BO & Transparency of Legal Arrangements (R.25, 2024)",
+    "description": "FATF guidance on beneficial ownership of trusts and legal arrangements — nominee, trustee and beneficiary identification.",
     "category": "FATF guidance"
   },
   "fatf-bo-transparency-2014.pdf": {
-    "title": "FATF \u2014 Transparency & Beneficial Ownership (2014)",
-    "description": "FATF guidance on transparency and beneficial ownership \u2014 legal persons, arrangements and the prevention of misuse.",
+    "title": "FATF — Transparency & Beneficial Ownership (2014)",
+    "description": "FATF guidance on transparency and beneficial ownership — legal persons, arrangements and the prevention of misuse.",
     "category": "FATF guidance"
   },
   "fatf-pep-guidance.pdf": {
-    "title": "FATF \u2014 PEP Guidance (R.12 & R.22, 2013)",
-    "description": "FATF guidance on politically exposed persons \u2014 domestic/foreign/international organisation PEPs and enhanced due diligence.",
+    "title": "FATF — PEP Guidance (R.12 & R.22, 2013)",
+    "description": "FATF guidance on politically exposed persons — domestic/foreign/international organisation PEPs and enhanced due diligence.",
     "category": "FATF guidance"
   },
   "fatf-digital-identity.pdf": {
-    "title": "FATF \u2014 Guidance on Digital Identity (2020)",
-    "description": "FATF guidance on digital identity systems for AML/CFT \u2014 remote onboarding, biometrics and non-face-to-face verification.",
+    "title": "FATF — Guidance on Digital Identity (2020)",
+    "description": "FATF guidance on digital identity systems for AML/CFT — remote onboarding, biometrics and non-face-to-face verification.",
     "category": "FATF guidance"
   },
   "oracle-perpetual-kyc.pdf": {
-    "title": "Oracle \u2014 Dynamic CDD / Perpetual KYC",
-    "description": "Oracle whitepaper on perpetual KYC \u2014 moving from periodic reviews to event-driven, continuous customer due diligence.",
+    "title": "Oracle — Dynamic CDD / Perpetual KYC",
+    "description": "Oracle whitepaper on perpetual KYC — moving from periodic reviews to event-driven, continuous customer due diligence.",
     "category": "Industry guidance"
   },
   "pwc-perpetual-kyc.pdf": {
-    "title": "PwC \u2014 Perpetual KYC: A New Approach to Periodic Reviews",
-    "description": "PwC paper on perpetual KYC \u2014 risk triggers, refresh automation and the future of customer due diligence.",
+    "title": "PwC — Perpetual KYC: A New Approach to Periodic Reviews",
+    "description": "PwC paper on perpetual KYC — risk triggers, refresh automation and the future of customer due diligence.",
     "category": "Industry guidance"
   },
   "themis-perpetual-kyc.pdf": {
-    "title": "Themis + encompass \u2014 Perpetual KYC Whitepaper",
-    "description": "Whitepaper on perpetual KYC architecture \u2014 data sources, trigger design and audit-ready refresh processes.",
+    "title": "Themis + encompass — Perpetual KYC Whitepaper",
+    "description": "Whitepaper on perpetual KYC architecture — data sources, trigger design and audit-ready refresh processes.",
     "category": "Industry guidance"
   },
   "wolfsberg-msa-monitoring.pdf": {
-    "title": "Wolfsberg Group \u2014 Effective Monitoring for Suspicious Activity (2024)",
-    "description": "Wolfsberg Group statement on effective transaction monitoring \u2014 alert management, tuning and model governance.",
+    "title": "Wolfsberg Group — Effective Monitoring for Suspicious Activity (2024)",
+    "description": "Wolfsberg Group statement on effective transaction monitoring — alert management, tuning and model governance.",
     "category": "Industry guidance"
+  },
+  "ffiec-bsa-aml-exam-manual-2020.pdf": {
+    "title": "FFIEC — BSA/AML Examination Manual (April 2020 update)",
+    "description": "US interagency examination manual — scoping, risk assessment, compliance program, independent testing, BSA officer and training: what examiners actually test.",
+    "category": "US regulation",
+    "source": "https://bsaaml.ffiec.gov/manual"
+  },
+  "wolfsberg-sow-sof-faqs.pdf": {
+    "title": "Wolfsberg Group — Source of Wealth & Source of Funds FAQs",
+    "description": "Industry-standard guidance for private banking: how to collect, corroborate and risk-assess customer SoW/SoF — a key EDD skill for high-net-worth onboarding.",
+    "category": "Industry guidance",
+    "source": "https://wolfsberg-group.org/news/publication-of-source-of-wealth-and-source-of-funds-private-banking-wealth-management-faqs"
   }
 }
