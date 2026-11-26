@@ -230,6 +230,43 @@ export default async function CoursePage({
             </div>
           </section>
 
+          {/* Practice this course */}
+          <section className="mt-12">
+            <h2 className="text-xl font-semibold">Practice this course</h2>
+            <p className="mt-1 text-sm text-muted">
+              Work the case files built from this course&apos;s curriculum, then test yourself.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <Link
+                href={`/playground?sim=${course.slug}`}
+                className="rounded-xl border border-emerald-400/30 bg-emerald-400/5 p-4 transition-colors hover:border-emerald-400/60"
+              >
+                <p className="text-sm font-bold text-ink">Case-file simulations</p>
+                <p className="mt-1 text-xs leading-5 text-muted">
+                  Guided evidence → decision → filing walkthroughs mapped to this course.
+                </p>
+              </Link>
+              <Link
+                href={`/exams?course=${course.slug}`}
+                className="rounded-xl border border-sky-400/30 bg-sky-400/5 p-4 transition-colors hover:border-sky-400/60"
+              >
+                <p className="text-sm font-bold text-ink">Mock exam</p>
+                <p className="mt-1 text-xs leading-5 text-muted">
+                  Timed paper from this course&apos;s question bank with module breakdown.
+                </p>
+              </Link>
+              <Link
+                href="/review"
+                className="rounded-xl border border-violet-400/30 bg-violet-400/5 p-4 transition-colors hover:border-violet-400/60"
+              >
+                <p className="text-sm font-bold text-ink">Daily review</p>
+                <p className="mt-1 text-xs leading-5 text-muted">
+                  Spaced-repetition questions drawn from every course you&apos;ve read.
+                </p>
+              </Link>
+            </div>
+          </section>
+
           {/* Sources & further reading */}
           {course.sources && course.sources.length > 0 && (
             <section className="mt-12">

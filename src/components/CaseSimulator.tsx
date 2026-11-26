@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { CASE_SIMS, type CaseSim } from "@/lib/case-sims";
+import { courses } from "@/lib/content";
 
 const KIND_STYLE: Record<string, { label: string; cls: string }> = {
   evidence: { label: "EVIDENCE", cls: "border-sky-400/40 bg-sky-400/10 text-sky-300" },
@@ -13,13 +14,18 @@ const KIND_STYLE: Record<string, { label: string; cls: string }> = {
 
 const DIFF_DOTS = ["", "●", "●●", "●●●", "●●●●", "●●●●●"];
 
-export default function CaseSimulator() {
+export default function CaseSimulator({ initialCourse = "all" }: { initialCourse?: string }) {
   const [active, setActive] = useState<CaseSim | null>(null);
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [mistakes, setMistakes] = useState(0);
   const [finished, setFinished] = useState<string[]>([]);
   const [lastDone, setLastDone] = useState<{ sim: CaseSim; mistakes: number } | null>(null);
+  const [courseFilter, setCourseFilter] = useState<string>(initialCourse);
+
+  const courseLabel = (slug: string) => courses.find((c) => c.slug === slug)?.title ?? slug;
+  const simCourses = Array.from(new Set(CASE_SIMS.map((c) => c.course)));
+  const visible = courseFilter === "all" ? CASE_SIMS : CASE_SIMS.filter((c) => c.course === courseFilter);
 
   const cur = active?.steps[step];
   const isDecision = cur?.kind === "decision";
@@ -70,8 +76,33 @@ export default function CaseSimulator() {
             />
           </div>
         )}
+        <div className="mb-4 flex flex-wrap gap-2">
+          <button
+            onClick={() => setCourseFilter("all")}
+            className={`rounded-full border px-3 py-1 text-[11px] font-semibold transition-colors ${
+              courseFilter === "all"
+                ? "border-emerald-400/60 bg-emerald-400/10 text-emerald-300"
+                : "border-line bg-surface/50 text-muted hover:text-ink"
+            }`}
+          >
+            All courses ({CASE_SIMS.length})
+          </button>
+          {simCourses.map((slug) => (
+            <button
+              key={slug}
+              onClick={() => setCourseFilter(slug)}
+              className={`rounded-full border px-3 py-1 text-[11px] font-semibold transition-colors ${
+                courseFilter === slug
+                  ? "border-emerald-400/60 bg-emerald-400/10 text-emerald-300"
+                  : "border-line bg-surface/50 text-muted hover:text-ink"
+              }`}
+            >
+              {courseLabel(slug)} ({CASE_SIMS.filter((c) => c.course === slug).length})
+            </button>
+          ))}
+        </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {CASE_SIMS.map((c) => (
+          {visible.map((c) => (
             <button
               key={c.slug}
               onClick={() => start(c)}
@@ -89,7 +120,8 @@ export default function CaseSimulator() {
               </div>
               <h3 className="mt-1.5 text-sm font-bold text-ink">{c.title}</h3>
               <p className="mt-1 text-xs leading-5 text-muted">{c.blurb}</p>
-              <p className="mt-2 text-[10px] font-medium text-faint">
+              <p className="mt-1 text-[10px] font-medium text-sky-400/80">{courseLabel(c.course)}</p>
+              <p className="mt-1 text-[10px] font-medium text-faint">
                 {finished.includes(c.slug) ? "✓ completed — replay" : `${c.steps.length} steps · ~5 min`}
               </p>
             </button>

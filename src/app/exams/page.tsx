@@ -9,7 +9,12 @@ export const metadata: Metadata = {
     "Timed, randomized mock exams across every AML/KYC course — mixed papers or per-course simulations with per-module score breakdowns.",
 };
 
-export default function ExamsPage() {
+export default async function ExamsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ course?: string }>;
+}) {
+  const { course } = await searchParams;
   const bank: BankCourse[] = courses.map((c) => {
     const modQs = Object.entries(MODULE_QUIZZES[c.slug] ?? {}).flatMap(
       ([mod, qs]) => qs.map((q) => ({ ...q, module: `M${mod}` }))
@@ -41,7 +46,10 @@ export default function ExamsPage() {
       </p>
 
       <div className="mt-8">
-        <ExamSimulator courses={bank} />
+        <ExamSimulator
+          courses={bank}
+          initialSlug={course && bank.some((b) => b.slug === course) ? course : ""}
+        />
       </div>
 
       <p className="mt-8 text-xs leading-5 text-muted">

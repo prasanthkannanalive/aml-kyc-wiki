@@ -3,6 +3,7 @@ import Link from "next/link";
 import ScenarioRunner from "@/components/ScenarioRunner";
 import CaseSimulator from "@/components/CaseSimulator";
 import { PLAYGROUND_SCENARIOS, SCENARIO_CATS } from "@/lib/playground";
+import { CASE_SIMS } from "@/lib/case-sims";
 import ViewTracker from "@/components/ViewTracker";
 
 export const metadata: Metadata = {
@@ -91,7 +92,13 @@ const EXPERIENCES = [
   },
 ];
 
-export default function PlaygroundPage() {
+export default async function PlaygroundPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ sim?: string }>;
+}) {
+  const { sim } = await searchParams;
+  const initialCourse = CASE_SIMS.some((c) => c.course === sim) ? (sim as string) : "all";
   const byCat = SCENARIO_CATS.map((c) => ({
     cat: c,
     n: PLAYGROUND_SCENARIOS.filter((s) => s.cat === c).length,
@@ -140,7 +147,7 @@ export default function PlaygroundPage() {
           see the filing and rationale the case produces.
         </p>
         <div className="mt-5">
-          <CaseSimulator />
+          <CaseSimulator initialCourse={initialCourse} />
         </div>
       </section>
 

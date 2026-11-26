@@ -12,6 +12,7 @@ export interface CaseStep {
 export interface CaseSim {
   slug: string;
   title: string;
+  course: string; // course slug this sim trains
   domain: string;
   difficulty: 1 | 2 | 3 | 4 | 5;
   blurb: string;
@@ -26,6 +27,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "structuring-ring",
     title: "The Structuring Ring",
+    course: "kyc-cdd-tm-analyst",
     domain: "Transaction monitoring",
     difficulty: 4,
     blurb: "Nine sub-threshold deposits, one beneficiary, one question: coincidence or construction?",
@@ -81,6 +83,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "sanctions-name-match",
     title: "The Name That Isn't",
+    course: "sanctions-screening",
     domain: "Sanctions screening",
     difficulty: 5,
     blurb: "A 94% name match on the SDN list. Same name, different life — or the most expensive false positive you'll ever dismiss?",
@@ -136,6 +139,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "tbml-invoice",
     title: "The Over-Invoiced Container",
+    course: "trade-based-laundering",
     domain: "Trade-based ML",
     difficulty: 4,
     blurb: "$480k for 'textiles' that market data says are worth $200k. The paperwork is perfect. That's the problem.",
@@ -191,6 +195,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "crypto-peel-chain",
     title: "The Peel Chain Delivery",
+    course: "virtual-asset-compliance",
     domain: "Virtual assets",
     difficulty: 5,
     blurb: "Funds arrive from a mixer via nine hops of peeling. The customer says 'trading profits'. The chain says otherwise.",
@@ -246,6 +251,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "pep-nominee",
     title: "The Son's New Account",
+    course: "kyc-cdd-tm-analyst",
     domain: "PEP & corruption",
     difficulty: 4,
     blurb: "A PEP's adult son opens an account two weeks after dad's was declined. Same address. Different name. Coincidence?",
@@ -301,6 +307,7 @@ export const CASE_SIMS: CaseSim[] = [
   {
     slug: "trade-misinvoice",
     title: "The Invoice Mill",
+    course: "trade-based-laundering",
     domain: "TBML & trade",
     difficulty: 5,
     blurb: "Forty consulting invoices a month, one mailbox, one registration agent. Beautiful invoices. Zero substance.",
@@ -351,6 +358,414 @@ export const CASE_SIMS: CaseSim[] = [
     outcome: {
       filed: "SAR on invoice-mill layering — 40 shell consultants, shared infrastructure, fabricated post-alert documentation.",
       rationale: "TBML's quietest form: thousands of plausible micro-payments that aggregate into serious value movement. Aggregation is the detection — never assess the invoice, assess the pattern.",
+    },
+  },
+  {
+    slug: "grandparent-scam",
+    title: "The Grandparent Scam",
+    course: "fraud-prevention",
+    domain: "Authorized push payment fraud",
+    difficulty: 3,
+    blurb: "A distressed customer wires £42,000 to a 'grandson's lawyer' — and swears it's legitimate. Is it?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The wire",
+        body: "Customer, age 78, walks into a branch with a pre-filled transfer form: £42,000 to 'Hargreaves & Sons Solicitors', reference 'urgent family matter'. She is calm but insistent. The beneficiary account was opened 9 days ago.",
+      },
+      {
+        kind: "evidence",
+        title: "The red flags",
+        body: "The solicitor firm has no web presence, no SRA registration match, and its account received £310k in 11 days from 23 different elderly customers — every transfer tagged 'legal fees'. This is a mule solicitor account, a classic APP fraud convergence point.",
+      },
+      {
+        kind: "note",
+        title: "Why she can't see it",
+        body: "The scammer coached her for weeks: 'your grandson was arrested, bail needs £42k, don't tell anyone or the deal collapses.' APP fraud is authorized — she genuinely believes it. Your job isn't to convince her; it's to slow the money and protect her.",
+      },
+      {
+        kind: "decision",
+        title: "Branch response",
+        body: "The transfer hasn't been sent yet. What's the correct first action?",
+        choices: [
+          { label: "Process it — she has capacity and confirmed three times", correct: false, feedback: "Capacity to consent isn't the issue — inducement voids consent. And the firm is unregistered; the payment is going to criminals." },
+          { label: "Pause the transfer, verify the firm independently, raise an APP fraud alert", correct: true, feedback: "Correct. Delay + verification is the last intervention point before the money is gone." },
+          { label: "Refuse outright and report her for suspicious activity", correct: false, feedback: "She's the victim, not the suspect. Refusing without engaging wastes the recovery window." },
+          { label: "Process it but flag for SAR review later", correct: false, feedback: "Once sent, recovery odds collapse — APP refunds depend on speed. Act now." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "After the pause",
+        body: "Verification fails — no such firm. She's distressed and the 'grandson' calls mid-conversation. Do you proceed?",
+        choices: [
+          { label: "Proceed — she confirmed again on the phone", correct: false, feedback: "The caller is the scammer. A second confirmation from a coached victim is not evidence." },
+          { label: "Cancel, file the fraud report, refer to the firm's MLRO + law enforcement", correct: true, feedback: "Correct. Cancel the payment, document the mule account, report to Action Fraud/NCA — the beneficiary account is now intelligence." },
+          { label: "Let her decide — it's her money", correct: false, feedback: "Firms have a duty to prevent APP fraud; 'customer insisted' is not a defence when red flags are this dense." },
+          { label: "Transfer to a different account 'to be safe'", correct: false, feedback: "Don't improvise — cancel and escalate through the proper fraud channel." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "APP fraud report + SAR on the beneficiary mule account (23 victims, £310k in 11 days).",
+      rationale: "The analyst's skill is recognising convergence: one mule account collecting 'legal fees' from dozens of elderly customers is infrastructure, not a coincidence. Catch it at the branch, before the wire leaves.",
+    },
+  },
+  {
+    slug: "mule-network",
+    title: "The Mule With Two Phones",
+    course: "fraud-prevention",
+    domain: "Money mule networks",
+    difficulty: 4,
+    blurb: "One customer, 200 small incoming transfers, money out within hours. What's he actually doing?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "Pattern on the account",
+        body: "TM flags customer 'Dev K.' — 187 incoming Faster Payments totalling £94,200 in 30 days from 160+ distinct senders, mostly £300–£800 each. Funds leave within 2–4 hours, typically to 2–3 crypto on-ramps.",
+      },
+      {
+        kind: "evidence",
+        title: "What Dev says",
+        body: "He's a student who 'helps people move money for a small fee'. He shows two phones: one personal, one 'for work'. On the work phone, a chat thread of payment instructions — sender name, exact amount, destination — arriving minutes before each transfer.",
+      },
+      {
+        kind: "note",
+        title: "The typology",
+        body: "This is a money mule — knowingly or not — inside a fraud distribution network. The 'fee' is usually a few percent; the senders are APP fraud victims. Dev may be coerced, deceived, or complicit — the account pattern is identical.",
+      },
+      {
+        kind: "decision",
+        title: "Disposition",
+        body: "What do you do with Dev's account?",
+        choices: [
+          { label: "Close the account — he's obviously complicit", correct: false, feedback: "Closure assumes guilt you can't prove. He may be a coerced student — the 'work phone' pattern is used on vulnerable people too." },
+          { label: "SAR + enhanced monitoring + preserve the instruction chat as evidence", correct: true, feedback: "Correct. The account is laundering infrastructure regardless of Dev's intent — file on the activity, let investigators sort out culpability." },
+          { label: "No SAR — he's a victim too", correct: false, feedback: "Mule accounts ARE the laundering mechanism. The SAR covers the activity; victim status doesn't exempt the filing." },
+          { label: "Ask Dev to stop and keep the account open", correct: false, feedback: "Keeping a live mule account benefits the network. Restrict and escalate." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "The bigger picture",
+        body: "Entity resolution shows Dev's forwarding destinations match 3 other flagged accounts. What does that tell you?",
+        choices: [
+          { label: "Coincidence — small numbers overlap", correct: false, feedback: "Shared on-ramp destinations across 'independent' mules is network topology, not coincidence." },
+          { label: "A mule network converging on shared cash-out points — escalate as a cluster, not 4 cases", correct: true, feedback: "Correct. Entity resolution turns single alerts into network intelligence — one SAR covering the cluster beats four isolated filings." },
+          { label: "Dev is innocent — networks can't be proven", correct: false, feedback: "You're not proving intent — you're documenting a laundering pattern for investigators." },
+          { label: "Close all 4 accounts immediately", correct: false, feedback: "Same error at scale — restrict, preserve evidence, file one cluster SAR." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "Cluster SAR — mule network, shared crypto off-ramps, instruction-chat evidence preserved.",
+      rationale: "Mule detection is pattern-first: fan-in from many victims, rapid fan-out to cash-out, network convergence via shared destinations. The person matters less than the topology.",
+    },
+  },
+  {
+    slug: "charity-front",
+    title: "The Charity That Isn't",
+    course: "counter-terrorist-financing",
+    domain: "NPO abuse",
+    difficulty: 4,
+    blurb: "A registered charity collects cash donations and wires them to a 'partner NGO' in a conflict zone. Where's the problem?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The account",
+        body: "'Hope Relief Foundation' — registered charity, 14 months old. Receives ~£60k/month in cash deposits at a single branch, always just under CTR thresholds, always same two depositors. Wires 90% out monthly to 'MedAid Partners' in a FATF grey-list jurisdiction.",
+      },
+      {
+        kind: "evidence",
+        title: "The paper trail",
+        body: "No website, no staff listing, registered address is a mailbox service. The 'partner NGO' has no web presence either. Cash donation envelopes are pre-numbered — donations appear staged, not organic.",
+      },
+      {
+        kind: "note",
+        title: "Why NPOs attract abuse",
+        body: "Charities are trusted, lightly scrutinised, and cash-friendly — ideal for placing and consolidating funds. FATF Recommendation 8 requires NPO-specific protections; abuse doesn't require the charity to be fake, only its finances to be.",
+      },
+      {
+        kind: "decision",
+        title: "Initial assessment",
+        body: "The charity is a customer in good standing — donations are legal income. What's the right response?",
+        choices: [
+          { label: "Nothing — donations are legal and charities are protected", correct: false, feedback: "Legal income isn't the question — the question is whether the money reaches its stated purpose." },
+          { label: "EDD on the charity: governance, beneficiaries, partner verification", correct: true, feedback: "Correct. NPO risk assessment asks: who controls it, where does money go, can you verify the partner?" },
+          { label: "Close the account — obviously a front", correct: false, feedback: "You can't prove front status yet — and closing a registered charity without evidence creates its own problems." },
+          { label: "Report to the charity regulator only", correct: false, feedback: "Regulator referral may be right, but YOUR obligation to your FIU runs independently — don't outsource the decision." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "The partner question",
+        body: "EDD reveals 'MedAid Partners' shares a director with Hope Relief — the 'partner' is a shell owned by the charity's own founder. Funds are commingled; no project documentation exists. Now what?",
+        choices: [
+          { label: "SAR — self-dealing charity + staged cash + grey-list corridor is TF/ML pattern", correct: true, feedback: "Correct. Founder-controlled 'partner', unverifiable beneficiaries, staged donations — this is abuse infrastructure, whether or not a terrorist group is named." },
+          { label: "Watch for another quarter — give them time to comply", correct: false, feedback: "The pattern is already established; delay lets the corridor keep moving." },
+          { label: "Freeze and let police sort it out", correct: false, feedback: "You file intelligence; freezing without legal authority is beyond your role — escalate to MLRO." },
+          { label: "Accept a 'we're investigating internally' letter", correct: false, feedback: "Internal letters don't change the money flows — the SAR documents what the account actually does." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "SAR — NPO abuse pattern: staged cash collection, founder self-dealing via shell partner, grey-list corridor transfers.",
+      rationale: "CTF through NPOs doesn't look like terrorism — it looks like a badly-run charity. The detection skill is asking whether money reaches beneficiaries, not whether the paperwork is in order.",
+    },
+  },
+  {
+    slug: "trafficking-remittance",
+    title: "The Remittance That Isn't Family",
+    course: "financial-intelligence-trafficking",
+    domain: "Human trafficking indicators",
+    difficulty: 5,
+    blurb: "Weekly remittances to one corridor, senders who can't explain the recipients. Coincidence — or a network?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "Cluster alert",
+        body: "FinCEN-style analysis flags 14 accounts sending regular remittances (£200–£500 weekly) to recipients in a known trafficking corridor. Senders are young women, many recently opened accounts, several sharing registered addresses.",
+      },
+      {
+        kind: "evidence",
+        title: "What the senders say",
+        body: "Interviews (where obtainable) are scripted and near-identical: 'sending money home to my mother.' But recipient names don't match — some recipients are men, some are the same person across 'different families'. Two senders gave the same mother's maiden name.",
+      },
+      {
+        kind: "note",
+        title: "Why this matters",
+        body: "Trafficking victims' earnings are often controlled by traffickers who remit them out — the 'family' story is cover. Shared addresses + scripted stories + mismatched recipients = possible coercion infrastructure, not 14 independent families.",
+      },
+      {
+        kind: "decision",
+        title: "The senders may be victims",
+        body: "If these women are trafficking victims, what's the correct compliance posture?",
+        choices: [
+          { label: "SAR immediately on all 14 — the pattern is clear", correct: true, feedback: "Correct — SAR covers the activity. Victim status affects enforcement response, not your reporting duty." },
+          { label: "Don't file — they're victims, reporting could endanger them", correct: false, feedback: "Your FIU shares trafficking intelligence with victim-protection channels; non-reporting hides the network." },
+          { label: "Close the accounts to protect them", correct: false, feedback: "Closing may cut their only link to help — and destroys evidence. Report, refer to victim services." },
+          { label: "Wait for more evidence — one cluster isn't enough", correct: false, feedback: "Scripted stories + shared addresses + mismatched recipients IS the evidence pattern." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "The recipient side",
+        body: "Two recipients received from 5+ 'different families' — £3,800/month total, withdrawn as cash within hours. Likely what?",
+        choices: [
+          { label: "A busy family member — plausible innocent explanation", correct: false, feedback: "Five unrelated 'families' sending to one person is aggregation, not family." },
+          { label: "Aggregation point — the trafficker collecting victim remittances", correct: true, feedback: "Correct. Cash-out within hours + multi-source inflow = collection layer. SARs on both ends link the network." },
+          { label: "Charity collecting donations", correct: false, feedback: "No charity would receive 'family remittances' from unrelated young women." },
+          { label: "Ignore — recipient side is another FIU's problem", correct: false, feedback: "Cross-border networks need both ends documented — your SAR is the input that lets theirs connect." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "SARs on senders + aggregation-point recipients — possible trafficking remittance network.",
+      rationale: "FIHT detection is contextual: the transactions look like ordinary remittances. The signal is in the stories not matching the topology — scripted narratives, shared addresses, cash-out speed.",
+    },
+  },
+  {
+    slug: "unhosted-wallet",
+    title: "The Unhosted Wallet",
+    course: "virtual-asset-compliance",
+    domain: "Travel Rule & unhosted wallets",
+    difficulty: 4,
+    blurb: "Customer wants to send 12 BTC to a wallet with no VASP behind it. Do you let it go?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The request",
+        body: "Verified customer requests withdrawal of 12 BTC (~$840k) to a self-hosted wallet address. Enhanced due diligence already done — source of funds is documented trading profits. No counterparty VASP exists to request Travel Rule data from.",
+      },
+      {
+        kind: "evidence",
+        title: "The wallet",
+        body: "On-chain analysis: the address has received funds from 3 mixers and 1 sanctioned exchange cluster. It has never sent to a known exchange. First deposit was 6 weeks ago — same week the customer opened their account.",
+      },
+      {
+        kind: "note",
+        title: "The regulatory reality",
+        body: "Unhosted wallets sit in a Travel Rule gap — there's no VASP to verify the counterparty. FATF and most regulators require enhanced scrutiny: verify ownership/control where possible, assess ML/TF risk, and you may still have to decline or file.",
+      },
+      {
+        kind: "decision",
+        title: "Can you process it?",
+        body: "Source of funds is documented, customer is verified — what's the blocker?",
+        choices: [
+          { label: "Nothing — Travel Rule only applies VASP-to-VASP", correct: false, feedback: "The gap doesn't remove your ML/TF obligations — a mixer-tainted destination with no accountable party is a risk finding, not a loophole." },
+          { label: "EDD the wallet: ownership proof, purpose, risk assessment — then decide", correct: true, feedback: "Correct. Unhosted ≠ prohibited, but you must be able to answer 'who controls this and why does it matter?'" },
+          { label: "Auto-block all unhosted wallets", correct: false, feedback: "Blanket bans fail legitimate users — self-custody is legal. Risk-based, not absolute." },
+          { label: "Process it and file SAR 'just in case'", correct: false, feedback: "SAR needs actual suspicion — 'just in case' isn't a standard. Do the EDD first." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "The EDD result",
+        body: "Customer can't prove wallet ownership — 'a friend set it up for me'. The address received mixer funds AFTER the customer's account opened. What's your call?",
+        choices: [
+          { label: "Proceed — SoF documentation covers it", correct: false, feedback: "SoF covers the BTC's origin, not the destination's risk — and 'a friend' can't explain mixer inflows." },
+          { label: "Decline the withdrawal + SAR — unexplained third-party control of a mixer-linked destination", correct: true, feedback: "Correct. You can't verify control, the destination is tainted, and the timing is wrong. Decline, document, file." },
+          { label: "Ask for a second wallet instead", correct: false, feedback: "Destination-shopping doesn't fix the control problem — and looks like evasion." },
+          { label: "Escalate to compliance for a one-off approval", correct: false, feedback: "Escalation is fine, but the facts (no control proof + mixer + timing) don't support approval." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "SAR — attempted withdrawal to mixer-linked unhosted wallet with unverifiable third-party control.",
+      rationale: "The Travel Rule gap is a risk-assessment problem, not a free pass. When you can't establish who controls the destination and the chain shows mixer inflows, 'compliant processing' isn't an option.",
+    },
+  },
+  {
+    slug: "shell-kyb",
+    title: "The Corporate Customer With No Paper Trail",
+    course: "kyc-cdd-tm-analyst",
+    domain: "KYB & beneficial ownership",
+    difficulty: 4,
+    blurb: "A 'consulting LLC' wants a business account. The registry shows 4 layers of holding companies and zero humans. How deep do you dig?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The application",
+        body: "'Meridian Global Consulting LLC' applies for a business account expecting $2M/month flows. Registry extract: incorporated 3 weeks ago in a secrecy jurisdiction, sole activity 'management consulting'. No website, no employees listed, registered agent is a formation mill.",
+      },
+      {
+        kind: "evidence",
+        title: "The ownership chain",
+        body: "Shareholder: 'Harbour Holdings Ltd' (Panama). Its shareholder: 'Blue Crest Trust' (Cook Islands). The trust's protector and beneficiary are both listed as 'the Trustee' — a corporate service provider. No natural person appears anywhere in the structure.",
+      },
+      {
+        kind: "note",
+        title: "Why this fails KYB",
+        body: "CDD/KYB requires identifying the beneficial owner — the natural person who ultimately owns or controls. A structure engineered so no human is visible isn't 'complex', it's designed to defeat identification. Expect high-risk jurisdiction + no operating history + no verifiable business = decline or EDD that can't complete.",
+      },
+      {
+        kind: "decision",
+        title: "What's the correct outcome?",
+        body: "The customer provides the registry documents — they're all genuine, all properly filed. Do you have enough to onboard?",
+        choices: [
+          { label: "Yes — documents are authentic, that's what KYB requires", correct: false, feedback: "Authentic documents describing an opaque structure still fail the beneficial-ownership requirement." },
+          { label: "No — no natural-person UBO can be identified; decline or require restructuring", correct: true, feedback: "Correct. When the structure exists to hide ownership, EDD can't cure it — decline and document why." },
+          { label: "Onboard with 'high risk' rating and monitor", correct: false, feedback: "You can't rate a risk you can't identify — no UBO means no risk rating is possible." },
+          { label: "Accept a 'declaration of beneficial ownership' form", correct: false, feedback: "A self-declaration naming 'the Trustee' isn't a natural person — it's the same opacity with a signature." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "Post-decline",
+        body: "Customer resubmits with a 'UBO declaration' naming a nominee director in Estonia who 'controls' everything. Registry shows the nominee signs for 40 companies. Accept?",
+        choices: [
+          { label: "Accept — a named person is a UBO", correct: false, feedback: "A nominee signing for 40 companies isn't a beneficial owner — they're a cut-out. Beneficial ownership means economic interest/control, not a signature." },
+          { label: "Decline — nominee chains don't satisfy UBO; document and consider SAR if deception was deliberate", correct: true, feedback: "Correct. The pattern (layers + nominee + secrecy jurisdictions + no operating business) may itself be suspicious enough to report." },
+          { label: "Split the difference — onboard with $10k limits", correct: false, feedback: "Limits don't fix unidentified ownership — they just cap the exposure while the risk remains." },
+          { label: "Ask for the nominee's source of wealth", correct: false, feedback: "The nominee's wealth is irrelevant — the question is who actually owns Meridian." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "Declined onboarding — no identifiable natural-person UBO; SAR considered given deliberate opacity pattern.",
+      rationale: "KYB isn't paperwork collection — it's answering 'who actually owns this?' When every layer is designed to prevent that answer, the correct outcome is refusal, not creative onboarding.",
+    },
+  },
+  {
+    slug: "vessel-ownership",
+    title: "The Ship That Isn't Who It Says",
+    course: "sanctions-screening",
+    domain: "Vessel screening & ownership",
+    difficulty: 5,
+    blurb: "A tanker delivers your customer's cargo. The registered owner is clean — but three layers down, the money leads somewhere sanctioned.",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The transaction",
+        body: "Customer (a commodities trader) pays $2.3M for a cargo shipment. Beneficiary: 'Pacific Star Shipping Ltd' — flag of convenience registry, clean on sanctions lists. Payment is for freight + cargo value.",
+      },
+      {
+        kind: "evidence",
+        title: "Ownership digging",
+        body: "Registry shows owner: 'Oceanic Holdings SA' — clean. But payment records show Pacific Star's management company is 'Volga Maritime Services', a known sanctions-evasion facilitator. The vessel's AIS history shows it dark for 11 days near a sanctioned port.",
+      },
+      {
+        kind: "note",
+        title: "The 50% rule and beyond",
+        body: "OFAC's 50% rule: entities owned 50%+ by sanctioned parties are blocked even if not listed. But modern evasion uses layered structures, flag changes and management-company cut-outs — the listed name is often the cleanest part of the chain.",
+      },
+      {
+        kind: "decision",
+        title: "Is this a match?",
+        body: "Pacific Star isn't on any list. Its direct owner isn't sanctioned. What's the screening verdict?",
+        choices: [
+          { label: "Clear — not on the list, pay it", correct: false, feedback: "List-only screening misses ownership laundering. Management company + AIS gap + flag-of-convenience = investigate." },
+          { label: "High-risk — escalate for ownership/control verification before payment", correct: true, feedback: "Correct. The question isn't 'is it listed' but 'who actually controls this vessel and the money'." },
+          { label: "Block immediately — suspicious enough", correct: false, feedback: "You have indicators, not proof — escalate to get the ownership picture before deciding." },
+          { label: "Pay and file SAR if it turns out bad", correct: false, feedback: "Payment to a potentially sanctioned-linked vessel can't be undone — resolve before releasing funds." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "The smoking gun",
+        body: "Deeper digging shows Oceanic Holdings' sole shareholder is a trust whose protector is an SDN-designated individual (a sanctioned Russian oligarch's associate). Under the 50% rule, is Pacific Star blocked?",
+        choices: [
+          { label: "No — the trust breaks the ownership chain", correct: false, feedback: "Trusts don't break chains — look through to the controller. A sanctioned protector + management facilitator + AIS gap = the vessel is a sanctions asset." },
+          { label: "Yes — blocked ownership means blocked payments; freeze + SAR", correct: true, feedback: "Correct. The payment would benefit a sanctioned party through layered ownership — block, preserve evidence, file." },
+          { label: "Ask the customer to confirm it's not sanctioned", correct: false, feedback: "Customer representations don't override your own ownership analysis." },
+          { label: "Partial payment — 50% to be safe", correct: false, feedback: "There's no 'safe half' — the entire payment benefits the blocked structure." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "Payment blocked + SAR — vessel payment to entity under sanctioned ownership via trust layer; AIS gap suggests sanctions-evasion routing.",
+      rationale: "Modern sanctions screening is ownership archaeology: the list match is the start, not the end. Flags change, managers are cut-outs, and the real controller sits three layers down a trust.",
+    },
+  },
+  {
+    slug: "trade-diversion",
+    title: "The Container That Changed Flags",
+    course: "trade-based-laundering",
+    domain: "Trade diversion & export control",
+    difficulty: 4,
+    blurb: "A shipment of 'agricultural equipment' transits a sanctioned jurisdiction overnight. Legally it left clean — where's the problem?",
+    steps: [
+      {
+        kind: "evidence",
+        title: "The shipment",
+        body: "Customer exports 'precision agricultural machinery' worth $890k to a buyer in a neutral country. Documents: commercial invoice, packing list, certificate of origin — all clean. Route: origin → sanctioned-jurisdiction port → neutral destination, 36-hour transit.",
+      },
+      {
+        kind: "evidence",
+        title: "The cargo",
+        body: "HS codes on the invoice say 'harvesting machinery'. But the freight forwarder's manifest lists 'dual-use electronic components' — a category requiring export licence for the transit state. The container seals were photographed broken at the transit port.",
+      },
+      {
+        kind: "note",
+        title: "Why transits matter",
+        body: "Sanctions and export controls attach to goods AND routes. 'Made in clean country, sold to clean buyer' doesn't help if the cargo transits an embargoed port or contains controlled components — diversion is the oldest TBML trick.",
+      },
+      {
+        kind: "decision",
+        title: "Documentary assessment",
+        body: "All your customer's documents are in order. The forwarder's manifest is the only flag. What's your move?",
+        choices: [
+          { label: "Process — customer's documents are clean, that's their responsibility", correct: false, feedback: "You finance the shipment — 'customer's paperwork' doesn't transfer your exposure when you hold the manifest." },
+          { label: "Hold disbursement pending resolution of the manifest discrepancy", correct: true, feedback: "Correct. Conflicting cargo descriptions + broken seals + sanctioned transit = don't fund until resolved." },
+          { label: "File SAR immediately — it's obviously diversion", correct: false, feedback: "You have indicators, not proof — hold funds, verify, then decide whether suspicion meets threshold." },
+          { label: "Reduce the payment to cover 'risk'", correct: false, feedback: "Partial payment doesn't cure a controlled-goods problem — it just shares the liability." },
+        ],
+      },
+      {
+        kind: "decision",
+        title: "What the customer says",
+        body: "Customer claims the manifest is 'a clerical error' and produces an amended invoice — but the HS codes still show dual-use components, and the seal photos are timestamped before his 'correction'. Now what?",
+        choices: [
+          { label: "Accept — they corrected it, move on", correct: false, feedback: "Amended paperwork after a hold is a classic cover-up pattern — the codes didn't change because they can't." },
+          { label: "SAR — falsified documentation + sanctions-transit attempt = reportable", correct: true, feedback: "Correct. Falsified docs post-escalation is consciousness-of-guilt — that's SAR-grade evidence." },
+          { label: "Terminate relationship only, no report", correct: false, feedback: "Exiting doesn't discharge your reporting duty — the attempted diversion is the reportable conduct." },
+          { label: "Report to the transit state's authorities", correct: false, feedback: "Your FIU channel covers your jurisdiction's obligations — foreign reporting is parallel, not instead." },
+        ],
+      },
+    ],
+    outcome: {
+      filed: "SAR — trade diversion attempt via falsified HS codes + sanctioned-jurisdiction transit; disbursement held then cancelled.",
+      rationale: "TBML and sanctions evasion converge at the document layer: clean invoices, dirty manifests, and paperwork that changes after you ask questions.",
     },
   },
 ];

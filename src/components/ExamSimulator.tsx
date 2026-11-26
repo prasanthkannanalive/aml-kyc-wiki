@@ -28,9 +28,15 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export default function ExamSimulator({ courses }: { courses: BankCourse[] }) {
+export default function ExamSimulator({
+  courses,
+  initialSlug = "",
+}: {
+  courses: BankCourse[];
+  initialSlug?: string;
+}) {
   const [mode, setMode] = useState<"pick" | "run" | "done">("pick");
-  const [slug, setSlug] = useState<string>(""); // "" = mixed
+  const [slug, setSlug] = useState<string>(initialSlug); // "" = mixed
   const [questions, setQuestions] = useState<BankQuestion[]>([]);
   const [picked, setPicked] = useState<(number | null)[]>([]);
   const [secsLeft, setSecsLeft] = useState(TIME_LIMIT);
@@ -54,6 +60,13 @@ export default function ExamSimulator({ courses }: { courses: BankCourse[] }) {
     setSubmitted(false);
     setMode("run");
   };
+
+  useEffect(() => {
+    if (!initialSlug) return;
+    const t = setTimeout(() => start(initialSlug), 0);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (mode !== "run" || submitted) return;
