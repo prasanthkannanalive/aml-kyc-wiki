@@ -49,6 +49,13 @@ export const LEARNING_PATHS: LearningPath[] = [
     courses: ["financial-intelligence-trafficking", "counter-terrorist-financing", "trade-based-laundering"],
   },
   {
+    slug: "us-regulatory-frameworks",
+    title: "US Regulatory Frameworks",
+    tagline: "BSA, FinCEN and OFAC in practice — CTRs, SARs, E-Filing, list matching and the exam manual examiners use.",
+    audience: "US-based analysts and candidates who need to evidence BSA/FinCEN/OFAC experience on a resume.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+  },
+  {
     slug: "trade-finance-compliance",
     title: "Trade Finance Compliance",
     tagline: "TBML detection, correspondent risk and the documentary trail behind trade-based laundering.",
