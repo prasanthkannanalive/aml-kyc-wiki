@@ -86,6 +86,12 @@ export default async function Home() {
             >
               {t(lang, "hero.leaderboard")}
             </Link>
+            <Link
+              href="/walkthrough"
+              className="hero-anim-cta rounded-lg border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-emerald-400/60 hover:text-emerald-300"
+            >
+              {t(lang, "hero.tour")}
+            </Link>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[

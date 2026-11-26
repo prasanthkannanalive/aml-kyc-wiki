@@ -53,6 +53,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.news", "/news"],
       ["nav.research", "/research"],
       ["nav.about", "/about"],
+      ["walkthrough", "/walkthrough"],
     ],
   },
 ];

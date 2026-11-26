@@ -78,6 +78,13 @@ export default function SearchPage() {
       text: "Role-based learning paths: AML analyst, fraud analyst, sanctions specialist, crypto compliance, FIU intelligence and trade finance — ordered courses with a path certificate.",
     },
     {
+      title: "Website Walkthrough — guided tour of everything",
+      subtitle: "Guide · site orientation",
+      href: "/walkthrough",
+      kind: "Tool",
+      text: "An 11-step interactive tour of the AML/KYC Wiki — courses, learning paths, playground simulations, field-craft labs, exams, credentials, reference material and community features.",
+    },
+    {
       title: "Playground — 100 challenging AML scenarios + all interactive tools",
       subtitle: "Interactive · scenario judgment",
       href: "/playground",

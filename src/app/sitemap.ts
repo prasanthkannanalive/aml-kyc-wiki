@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/glossary",
     "/disciplines",
     "/playground",
+    "/walkthrough",
     "/sandbox",
     "/exams",
     "/review",
