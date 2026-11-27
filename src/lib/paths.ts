@@ -56,6 +56,13 @@ export const LEARNING_PATHS: LearningPath[] = [
     courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
   },
   {
+    slug: "india-compliance",
+    title: "India Compliance (PMLA / FIU-IND / SEBI)",
+    tagline: "PMLA obligations, STR filing to FIU-IND, CTR thresholds and SEBI-facing securities compliance — the Indian market track.",
+    audience: "Indian bank, NBFC, fintech and broking compliance roles — pairs with NISM Series-XXIV / IIBF credentials.",
+    courses: ["kyc-cdd-tm-analyst", "sanctions-screening", "counter-terrorist-financing"],
+  },
+  {
     slug: "trade-finance-compliance",
     title: "Trade Finance Compliance",
     tagline: "TBML detection, correspondent risk and the documentary trail behind trade-based laundering.",

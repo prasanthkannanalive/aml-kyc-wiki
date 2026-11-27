@@ -300,4 +300,7 @@ export const certifications = [
   { cert: "ACFE CFE — Fraud Examiner", issuer: "ACFE", value: "Fraud investigations, dispute/asset-recovery adjacent roles", level: "Mid" },
   { cert: "CISA / CIA", issuer: "ISACA / IIA", value: "QA, internal audit and second-line paths", level: "Mid" },
   { cert: "CPA / ACCA", issuer: "Accounting bodies", value: "Finance credibility — helps in banking and audit-facing roles", level: "All" },
+  { cert: "NISM Series-XXIV — AML & CFT in Securities Markets", issuer: "NISM (India)", value: "PMLA rules + SEBI guidelines + STR filing — the standard credential for Indian broking, wealth and investment-banking compliance roles", level: "India: Entry–Mid" },
+  { cert: "NISM-IFSCA-01 — AML/CFT in the IFSC", issuer: "NISM (India)", value: "60-minute remote-proctored exam for GIFT City / international financial services — valued by global banking hubs operating out of IFSCs", level: "India IFSC: Mid" },
+  { cert: "IIBF Certification — Functions/Basics of Banking (IT & BPO)", issuer: "IIBF (India)", value: "Targets IT/BPO banking-operations staff handling KYC remediation and account servicing — the credential for ops-side AML work in Indian banks", level: "India: Entry" },
 ];
