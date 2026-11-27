@@ -69,7 +69,14 @@ export default function CheatSheetsPage() {
         <Link href="/walkthrough" className="text-emerald-400 hover:underline">
           Take the walkthrough
         </Link>{" "}
-        if you&apos;re new here.
+        if you&apos;re new here.{" "}
+        <Link href="/typologies" className="text-emerald-400 hover:underline">
+          Typologies cheat sheet →
+        </Link>{" "}
+        ·{" "}
+        <Link href="/banking" className="text-emerald-400 hover:underline">
+          Banking &amp; exams →
+        </Link>
       </p>
     </div>
   );

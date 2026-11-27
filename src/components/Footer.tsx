@@ -27,6 +27,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.stack", "/stack"],
       ["nav.glossary", "/glossary"],
       ["cheatsheets", "/cheatsheets"],
+      ["typologies", "/typologies"],
     ],
   },
   {
@@ -55,6 +56,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.research", "/research"],
       ["nav.about", "/about"],
       ["walkthrough", "/walkthrough"],
+      ["banking", "/banking"],
     ],
   },
 ];

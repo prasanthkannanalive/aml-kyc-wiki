@@ -85,6 +85,20 @@ export default function SearchPage() {
       text: "Printable-style quick recaps for all seven AML/KYC courses — key distinctions, numbers that matter, traps to remember — plus the practice toolkit reference for sandbox, labs, exams and field craft.",
     },
     {
+      title: "Typologies Cheat Sheet — ML, fraud & sanctions evasion",
+      subtitle: "Reference · typology patterns",
+      href: "/typologies",
+      kind: "Tool",
+      text: "Every major money-laundering, fraud and sanctions-evasion typology — placement, layering, integration, fraud, evasion and emerging — with how each works and what an analyst sees, plus quick-reference glossary terms.",
+    },
+    {
+      title: "Banking Systems & Examination Regimes — worldwide AML/KYC",
+      subtitle: "Reference · jurisdictions & exams",
+      href: "/banking",
+      kind: "Tool",
+      text: "Worldwide banking and financial systems under AML/KYC — institution types, correspondent banking, internal vs external examination regimes, and the law/FIU/supervisor/filing stack for the main jurisdictions.",
+    },
+    {
       title: "Website Walkthrough — guided tour of everything",
       subtitle: "Guide · site orientation",
       href: "/walkthrough",
