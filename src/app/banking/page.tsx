@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FI_TYPES, EXAM_REGIMES, COUNTRY_AML, BANKING_FACTS } from "@/lib/banking";
+import { ExamRegimesTable, CountryAmlTable } from "@/components/BankingExplorer";
 
 export const metadata: Metadata = {
   title: "Banking Systems & Examination Regimes — Worldwide AML/KYC",
@@ -59,44 +60,8 @@ export default function BankingPage() {
           regulator&apos;s independent assessment — the ones that decide
           enforcement.
         </p>
-        {/* mobile cards */}
-        <div className="mt-5 space-y-3 md:hidden">
-          {EXAM_REGIMES.map((e) => (
-            <div key={e.jurisdiction} className="rounded-xl border border-line bg-surface/50 p-4">
-              <p className="text-sm font-bold text-ink">{e.jurisdiction}</p>
-              <dl className="mt-2 space-y-1.5 text-xs">
-                <div>
-                  <dt className="font-semibold uppercase tracking-wide text-muted">Internal</dt>
-                  <dd className="mt-0.5 leading-5 text-body">{e.internal}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold uppercase tracking-wide text-muted">External exam</dt>
-                  <dd className="mt-0.5 leading-5 text-body">{e.external}</dd>
-                </div>
-              </dl>
-            </div>
-          ))}
-        </div>
-        {/* desktop table */}
-        <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-line md:block">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
-                <th className="px-5 py-3.5 font-medium">Jurisdiction</th>
-                <th className="px-5 py-3.5 font-medium">Internal layer</th>
-                <th className="px-5 py-3.5 font-medium">External exam</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-line/60">
-              {EXAM_REGIMES.map((e) => (
-                <tr key={e.jurisdiction} className="transition-colors hover:bg-surface-2/50">
-                  <td className="px-5 py-4 font-semibold text-ink">{e.jurisdiction}</td>
-                  <td className="px-5 py-4 text-body">{e.internal}</td>
-                  <td className="px-5 py-4 text-muted">{e.external}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-5">
+          <ExamRegimesTable rows={EXAM_REGIMES} />
         </div>
         <p className="mt-3 text-xs text-muted">
           US examiners work from the{" "}
@@ -117,51 +82,8 @@ export default function BankingPage() {
             Full regulator directory →
           </Link>
         </p>
-        {/* mobile cards */}
-        <div className="mt-5 space-y-3 md:hidden">
-          {COUNTRY_AML.map((c) => (
-            <div key={c.country} className="rounded-xl border border-line bg-surface/50 p-4">
-              <p className="text-sm font-bold text-ink">{c.country}</p>
-              <dl className="mt-2 space-y-1.5 text-xs">
-                {[
-                  ["Core law", c.law],
-                  ["FIU", c.fiu],
-                  ["Supervisor", c.supervisor],
-                  ["Filing", c.filing],
-                ].map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="font-semibold uppercase tracking-wide text-muted">{k}</dt>
-                    <dd className="mt-0.5 leading-5 text-body">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          ))}
-        </div>
-        {/* desktop table */}
-        <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-line md:block">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
-                <th className="px-5 py-3.5 font-medium">Country</th>
-                <th className="px-5 py-3.5 font-medium">Core law</th>
-                <th className="px-5 py-3.5 font-medium">FIU</th>
-                <th className="px-5 py-3.5 font-medium">Supervisor</th>
-                <th className="px-5 py-3.5 font-medium">Filing</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-line/60">
-              {COUNTRY_AML.map((c) => (
-                <tr key={c.country} className="transition-colors hover:bg-surface-2/50">
-                  <td className="px-5 py-4 font-semibold text-ink">{c.country}</td>
-                  <td className="px-5 py-4 text-body">{c.law}</td>
-                  <td className="px-5 py-4 text-muted">{c.fiu}</td>
-                  <td className="px-5 py-4 text-muted">{c.supervisor}</td>
-                  <td className="px-5 py-4 text-muted">{c.filing}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-5">
+          <CountryAmlTable rows={COUNTRY_AML} />
         </div>
       </section>
     </div>
