@@ -300,7 +300,13 @@ export const certifications = [
   { cert: "ACFE CFE — Fraud Examiner", issuer: "ACFE", value: "Fraud investigations, dispute/asset-recovery adjacent roles", level: "Mid" },
   { cert: "CISA / CIA", issuer: "ISACA / IIA", value: "QA, internal audit and second-line paths", level: "Mid" },
   { cert: "CPA / ACCA", issuer: "Accounting bodies", value: "Finance credibility — helps in banking and audit-facing roles", level: "All" },
+  { cert: "ACAMS CKYCA / CTMA", issuer: "ACAMS", value: "Associate-level entry credentials — no experience prerequisite, earn credits toward CAMS; the on-ramp US banks actually recognise", level: "US & Global: Entry" },
+  { cert: "ABA Certificate in BSA & AML Compliance", issuer: "American Bankers Association", value: "Self-paced US banking-law certificate; stepping stone to the CAFP exam", level: "US: Entry" },
+  { cert: "FIBA AMLCA", issuer: "FIBA (FIU partnership)", value: "Recognised across US banks, correspondent teams and Latin American institutions", level: "US / LatAm: Entry–Mid" },
+  { cert: "CISI Level 3 Award in Combating Financial Crime", issuer: "CISI (SFCCA partnership)", value: "Favoured by UK investment banks, wealth managers and brokerages; jurisdiction variants for Singapore/HK", level: "UK / SG / HK: Entry–Mid" },
+  { cert: "ACAMS CAFCA / CCAS", issuer: "ACAMS", value: "Fintech and cryptoasset specialist credentials — the pair EU crypto/fintech compliance teams screen for", level: "Global fintech/crypto: Entry" },
   { cert: "NISM Series-XXIV — AML & CFT in Securities Markets", issuer: "NISM (India)", value: "PMLA rules + SEBI guidelines + STR filing — the standard credential for Indian broking, wealth and investment-banking compliance roles", level: "India: Entry–Mid" },
   { cert: "NISM-IFSCA-01 — AML/CFT in the IFSC", issuer: "NISM (India)", value: "60-minute remote-proctored exam for GIFT City / international financial services — valued by global banking hubs operating out of IFSCs", level: "India IFSC: Mid" },
+  { cert: "SCI GRC / AML tracks", issuer: "Saudi Compliance Institute", value: "Regional credential for DIFC/ADGM and Saudi market compliance roles alongside CAMS/ICA", level: "Middle East: Mid" },
   { cert: "IIBF Certification — Functions/Basics of Banking (IT & BPO)", issuer: "IIBF (India)", value: "Targets IT/BPO banking-operations staff handling KYC remediation and account servicing — the credential for ops-side AML work in Indian banks", level: "India: Entry" },
 ];
