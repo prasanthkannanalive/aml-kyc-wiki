@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LEARNING_PATHS, pathStats } from "@/lib/paths";
+import { COUNTRY_AML } from "@/lib/banking";
 import { getSessionUser } from "@/lib/auth";
 import { getProgress } from "@/lib/db";
 import PathCertificate from "@/components/PathCertificate";
@@ -40,6 +41,7 @@ export default async function PathPage({
 
   const user = await getSessionUser();
   const progress = user ? await getProgress(user.id) : {};
+  const aml = path.country ? COUNTRY_AML.find((c) => c.country === path.country) : null;
 
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
@@ -82,6 +84,38 @@ export default async function PathPage({
         <span>·</span>
         <span>~{Math.round(totalMins / 60)} hours total</span>
       </div>
+
+      {/* jurisdiction regulatory stack */}
+      {aml && (
+        <div className="mt-6 rounded-xl border border-sky-400/30 bg-sky-400/5 p-5">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-sky-300">
+            {aml.country} regulatory stack
+          </h2>
+          <dl className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Core law", aml.law],
+              ["Financial intelligence unit", aml.fiu],
+              ["Supervisor", aml.supervisor],
+              ["Filing rule", aml.filing],
+            ].map(([k, v]) => (
+              <div key={k}>
+                <dt className="text-[10px] font-semibold uppercase tracking-widest text-muted">{k}</dt>
+                <dd className="mt-1 text-xs leading-5 text-body">{v}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 text-[11px] text-faint">
+            Step-by-step filing walkthrough:{" "}
+            <Link href="/filing" className="text-sky-300 hover:underline">
+              /filing
+            </Link>{" "}
+            · full framework:{" "}
+            <Link href="/regulators" className="text-sky-300 hover:underline">
+              /regulators
+            </Link>
+          </p>
+        </div>
+      )}
 
       {/* ordered courses */}
       <div className="mt-8 space-y-3">

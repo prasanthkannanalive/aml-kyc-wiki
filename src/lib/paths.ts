@@ -10,6 +10,8 @@ export interface LearningPath {
   tagline: string;
   audience: string;
   courses: string[]; // course slugs, in recommended order
+  /** key into COUNTRY_AML (src/lib/banking.ts) for jurisdiction paths */
+  country?: string;
 }
 
 export const LEARNING_PATHS: LearningPath[] = [
@@ -58,9 +60,82 @@ export const LEARNING_PATHS: LearningPath[] = [
   {
     slug: "india-compliance",
     title: "India Compliance (PMLA / FIU-IND / SEBI)",
+    country: "India",
     tagline: "PMLA obligations, STR filing to FIU-IND, CTR thresholds and SEBI-facing securities compliance — the Indian market track.",
     audience: "Indian bank, NBFC, fintech and broking compliance roles — pairs with NISM Series-XXIV / IIBF credentials.",
     courses: ["kyc-cdd-tm-analyst", "sanctions-screening", "counter-terrorist-financing"],
+  },
+  {
+    slug: "us-compliance",
+    title: "US Compliance (BSA / FinCEN / OFAC)",
+    tagline: "BSA program pillars, SAR/CTR filing to FinCEN, OFAC sanctions and the FFIEC exam manual — the US market track.",
+    audience: "US bank, fintech and MSB compliance roles — pairs with CAMS/CCCA credentials.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "United States",
+  },
+  {
+    slug: "uk-compliance",
+    title: "UK Compliance (MLR / OFSI / NCA)",
+    tagline: "MLR 2017 obligations, DAML consent regime, OFSI strict liability and the FCA/PRA examination stack.",
+    audience: "UK banking, e-money and crypto firm compliance — pairs with ICA qualifications.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "United Kingdom",
+  },
+  {
+    slug: "eu-compliance",
+    title: "EU Compliance (AMLD / goAML / AMLA)",
+    tagline: "AMLD6 obligations, national FIU filing via goAML, CASP rules and the AMLA single-rulebook transition.",
+    audience: "EU credit institutions, fintechs and CASPs across member states.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "European Union",
+  },
+  {
+    slug: "canada-compliance",
+    title: "Canada Compliance (PCMLTFA / FINTRAC)",
+    tagline: "PCMLTFA obligations, 'as soon as practicable' STR filing, travel-rule and OSFI examination expectations.",
+    audience: "Canadian banks, MSBs and fintechs — FINTRAC registration is mandatory.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "Canada",
+  },
+  {
+    slug: "singapore-compliance",
+    title: "Singapore Compliance (MAS / TTFCA)",
+    tagline: "MAS Notice requirements, 5-day STR filing, 1-day targeted-financial-sanctions reporting and VASP licensing.",
+    audience: "Singapore banks, payment firms and licensed VASPs.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "Singapore",
+  },
+  {
+    slug: "australia-compliance",
+    title: "Australia Compliance (AML/CTF Act / AUSTRAC)",
+    tagline: "AML/CTF Act obligations, SMR/TTR reporting, enrolment and ongoing customer due diligence under AUSTRAC.",
+    audience: "Australian banks, remitters and newly-captured DNFBPs.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "Australia",
+  },
+  {
+    slug: "uae-compliance",
+    title: "UAE Compliance (Federal AML / goAML / CBUAE)",
+    tagline: "Federal AML framework, real-time goAML reporting, VARA-regulated virtual assets and CBUAE supervision.",
+    audience: "UAE banks, free-zone financial firms and VARA-licensed VASPs.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "UAE",
+  },
+  {
+    slug: "switzerland-compliance",
+    title: "Switzerland Compliance (AMLO / FINMA / MROS)",
+    tagline: "AMLO obligations for banks and financial intermediaries, MROS reporting and the 20-day blocking rule.",
+    audience: "Swiss banks, trustees and financial intermediaries under FINMA/SRO oversight.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "Switzerland",
+  },
+  {
+    slug: "hongkong-compliance",
+    title: "Hong Kong Compliance (AMLO / HKMA / JFIU)",
+    tagline: "AMLO 2012 obligations, STR filing to JFIU, HKMA vetting and SFC-regulated securities AML.",
+    audience: "HK banks, brokers and fintechs — AMLO applies to banks and securities.",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing"],
+    country: "Hong Kong",
   },
   {
     slug: "trade-finance-compliance",
