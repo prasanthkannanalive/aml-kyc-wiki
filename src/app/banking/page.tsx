@@ -59,8 +59,27 @@ export default function BankingPage() {
           regulator&apos;s independent assessment — the ones that decide
           enforcement.
         </p>
-        <div className="mt-5 overflow-x-auto rounded-2xl border border-line">
-          <table className="w-full min-w-[720px] text-sm">
+        {/* mobile cards */}
+        <div className="mt-5 space-y-3 md:hidden">
+          {EXAM_REGIMES.map((e) => (
+            <div key={e.jurisdiction} className="rounded-xl border border-line bg-surface/50 p-4">
+              <p className="text-sm font-bold text-ink">{e.jurisdiction}</p>
+              <dl className="mt-2 space-y-1.5 text-xs">
+                <div>
+                  <dt className="font-semibold uppercase tracking-wide text-muted">Internal</dt>
+                  <dd className="mt-0.5 leading-5 text-body">{e.internal}</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold uppercase tracking-wide text-muted">External exam</dt>
+                  <dd className="mt-0.5 leading-5 text-body">{e.external}</dd>
+                </div>
+              </dl>
+            </div>
+          ))}
+        </div>
+        {/* desktop table */}
+        <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-line md:block">
+          <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
                 <th className="px-5 py-3.5 font-medium">Jurisdiction</th>
@@ -98,8 +117,30 @@ export default function BankingPage() {
             Full regulator directory →
           </Link>
         </p>
-        <div className="mt-5 overflow-x-auto rounded-2xl border border-line">
-          <table className="w-full min-w-[760px] text-sm">
+        {/* mobile cards */}
+        <div className="mt-5 space-y-3 md:hidden">
+          {COUNTRY_AML.map((c) => (
+            <div key={c.country} className="rounded-xl border border-line bg-surface/50 p-4">
+              <p className="text-sm font-bold text-ink">{c.country}</p>
+              <dl className="mt-2 space-y-1.5 text-xs">
+                {[
+                  ["Core law", c.law],
+                  ["FIU", c.fiu],
+                  ["Supervisor", c.supervisor],
+                  ["Filing", c.filing],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="font-semibold uppercase tracking-wide text-muted">{k}</dt>
+                    <dd className="mt-0.5 leading-5 text-body">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
+        </div>
+        {/* desktop table */}
+        <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-line md:block">
+          <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
                 <th className="px-5 py-3.5 font-medium">Country</th>
