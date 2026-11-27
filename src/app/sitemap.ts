@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/library",
     "/arcade",
+    "/challenge",
     "/about",
     "/privacy",
     "/terms",

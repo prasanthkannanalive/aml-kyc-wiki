@@ -33,6 +33,7 @@ export default async function Header() {
         { href: "/tools", label: L("nav.tools") },
         { href: "/job-simulation", label: L("nav.simulation") },
         { href: "/arcade", label: L("nav.arcade") },
+        { href: "/challenge", label: L("challenge") },
       ],
     },
     {

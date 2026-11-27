@@ -59,6 +59,7 @@ const K = {
   sync: (id: string) => `aml:sync:${id}`, // guest-achievement sync blob
   cert: (id: string) => `aml:cert:${id}`, // verifiable course certificate
   teams: "aml:teams", // JSON doc: TeamRecord[]
+  challenge: (day: string) => `aml:challenge:${day}`, // JSON doc: ChallengeEntry[]
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -316,6 +317,63 @@ export async function saveTeams(teams: TeamRecord[]): Promise<void> {
     return;
   }
   writeJson("teams.json", teams);
+}
+
+/* ---------------------- daily challenge board ---------------------- */
+
+export interface ChallengeEntry {
+  key: string; // "u:<userId>" or "a:<anonId>"
+  name: string;
+  score: number;
+  ts: string; // ISO time the best score was achieved
+}
+
+function sortBoard(board: ChallengeEntry[]): ChallengeEntry[] {
+  return [...board].sort(
+    (a, b) => b.score - a.score || a.ts.localeCompare(b.ts)
+  );
+}
+
+export async function getChallengeBoard(
+  day: string
+): Promise<ChallengeEntry[]> {
+  let board: ChallengeEntry[] = [];
+  if (kvEnabled()) {
+    const raw = await kvGet<string>("GET", K.challenge(day));
+    board = raw ? (JSON.parse(raw) as ChallengeEntry[]) : [];
+  } else {
+    board = readJson<Record<string, ChallengeEntry[]>>("challenge.json", {})[
+      day
+    ] ?? [];
+  }
+  return sortBoard(board);
+}
+
+/** Upsert by player key — keeps the best score, earliest timestamp wins ties. */
+export async function submitChallenge(
+  day: string,
+  entry: ChallengeEntry
+): Promise<{ board: ChallengeEntry[]; rank: number }> {
+  const board = await getChallengeBoard(day);
+  const i = board.findIndex((e) => e.key === entry.key);
+  if (i >= 0) {
+    if (entry.score > board[i].score) board[i] = { ...entry };
+  } else {
+    board.push(entry);
+  }
+  const sorted = sortBoard(board);
+  if (kvEnabled()) {
+    await kvPost(["SET", K.challenge(day)], JSON.stringify(sorted));
+  } else {
+    const all = readJson<Record<string, ChallengeEntry[]>>(
+      "challenge.json",
+      {}
+    );
+    all[day] = sorted;
+    writeJson("challenge.json", all);
+  }
+  const rank = sorted.findIndex((e) => e.key === entry.key) + 1;
+  return { board: sorted, rank };
 }
 
 /* --------------------- live engagement helpers --------------------- */

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { bumpStat, recordProgress } from "@/lib/db";
 import { getSessionUser } from "@/lib/auth";
 
-const ALLOWED = new Set(["course", "chapter", "interview", "glossary", "search", "complete", "quiz", "exam", "sandbox", "sim", "arcade"]);
+const ALLOWED = new Set(["course", "chapter", "interview", "glossary", "search", "complete", "quiz", "exam", "sandbox", "sim", "arcade", "challenge"]);
 
 export async function POST(req: NextRequest) {
   try {

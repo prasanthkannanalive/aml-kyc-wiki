@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { courses, leaderboard, totalChapters } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
-import { getAllProgress, getAllStats, getUsers } from "@/lib/db";
+import { getAllProgress, getAllStats, getChallengeBoard, getUsers } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +37,7 @@ function Bar({ pct, className = "bg-emerald-400" }: { pct: number; className?: s
 const SECTION_LABELS: Record<string, string> = {
   tools: "Compliance tools",
   arcade: "Daily arcade",
+  challenge: "Daily challenge",
   library: "Document library",
   careers: "Careers guide",
   "job-simulation": "Job simulation",
@@ -49,6 +50,7 @@ const PRACTICE_LABELS: [string, string][] = [
   ["sandbox", "Sandbox runs"],
   ["sim", "Job simulations"],
   ["arcade", "Arcade games played"],
+  ["challenge", "Daily challenges played"],
 ];
 
 export default async function LeaderboardPage() {
@@ -171,6 +173,9 @@ export default async function LeaderboardPage() {
     .filter((r) => r.streak > 0 || r.week > 0)
     .sort((a, b) => b.streak - a.streak || b.week - a.week)
     .slice(0, 8);
+
+  /* ---------- today's challenge board ---------- */
+  const challengeBoard = (await getChallengeBoard(today)).slice(0, 8);
 
   /* ---------- live strip ---------- */
   const totalEvents = Object.values(stats).reduce((s, v) => s + v, 0);
@@ -405,6 +410,62 @@ export default async function LeaderboardPage() {
           </p>
         </>
       )}
+
+      {/* today's challenge */}
+      <div className="mt-12 flex items-end justify-between">
+        <h2 className="text-2xl font-bold tracking-tight">Today&apos;s Challenge</h2>
+        <Link
+          href="/challenge"
+          className="text-sm font-medium text-emerald-400 hover:text-emerald-300"
+        >
+          Play today&apos;s run →
+        </Link>
+      </div>
+      <div className="mt-6 overflow-hidden rounded-2xl border border-line">
+        {challengeBoard.length === 0 ? (
+          <p className="px-5 py-6 text-center text-sm text-muted">
+            No scores yet today —{" "}
+            <Link href="/challenge" className="text-emerald-400 hover:underline">
+              be the first on the board
+            </Link>
+            .
+          </p>
+        ) : (
+          <table className="w-full text-sm">
+            <tbody className="divide-y divide-line/60">
+              {challengeBoard.map((e, i) => (
+                <tr key={e.key} className="transition-colors hover:bg-surface-2/50">
+                  <td className="w-12 px-5 py-3">
+                    <span
+                      className={`font-mono text-sm font-bold ${
+                        i === 0
+                          ? "text-amber-300"
+                          : i === 1
+                            ? "text-slate-300"
+                            : i === 2
+                              ? "text-amber-600"
+                              : "text-faint"
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                  </td>
+                  <td className="px-2 py-3 font-medium text-ink">{e.name}</td>
+                  <td className="px-5 py-3 text-right font-mono text-body">
+                    {e.score}/5
+                  </td>
+                  <td className="hidden px-5 py-3 text-right text-xs text-faint sm:table-cell">
+                    {new Date(e.ts).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
 
       {/* practice activity */}
       <h2 className="mt-12 text-2xl font-bold tracking-tight">Practice Activity</h2>

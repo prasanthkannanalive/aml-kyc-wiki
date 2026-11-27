@@ -215,6 +215,12 @@ export default async function Home() {
               tag: "Daily games",
             },
             {
+              href: "/challenge",
+              title: "Daily Challenge",
+              sub: "Five AML calls a day, same for everyone — submit your score to today's leaderboard.",
+              tag: "Daily competition",
+            },
+            {
               href: "/stack",
               title: "Compliance Stack",
               sub: "The platforms teams actually use — blockchain analytics, KYC screening, SAR workflow and guided demos.",

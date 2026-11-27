@@ -41,6 +41,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.tools", "/tools"],
       ["nav.simulation", "/job-simulation"],
       ["nav.arcade", "/arcade"],
+      ["challenge", "/challenge"],
       ["nav.cases", "/cases"],
       ["nav.interview", "/interview-prep"],
     ],

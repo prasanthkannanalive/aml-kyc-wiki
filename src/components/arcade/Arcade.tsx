@@ -693,7 +693,11 @@ export default function Arcade() {
         <a href="/interview-prep" className="text-emerald-400 hover:underline">
           drill interview questions
         </a>
-        .
+        . Competing?{" "}
+        <a href="/challenge" className="text-emerald-400 hover:underline">
+          Today&apos;s Daily Challenge
+        </a>{" "}
+        puts five calls on a global leaderboard.
       </p>
     </div>
   );

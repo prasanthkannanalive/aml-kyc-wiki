@@ -127,6 +127,13 @@ export default function SearchPage() {
       text: "Daily AML brain games: typology sorting, word puzzles, timed recognition, regulatory dates and alert dispositions.",
     },
     {
+      title: "Daily Challenge — five AML calls, one leaderboard",
+      subtitle: "Interactive · daily competition",
+      href: "/challenge",
+      kind: "Tool",
+      text: "Five fixed AML scenario questions per day, same for everyone worldwide — submit your score to today's leaderboard and build a streak.",
+    },
+    {
       title: "Interactive Tools — risk calculator, UBO calculator, SAR timer",
       subtitle: "Interactive · calculators",
       href: "/tools",
