@@ -62,7 +62,7 @@ export const LEARNING_PATHS: LearningPath[] = [
     title: "India Compliance (PMLA / FIU-IND / SEBI)",
     country: "India",
     tagline: "PMLA obligations, STR filing to FIU-IND, CTR thresholds and SEBI-facing securities compliance — the Indian market track.",
-    audience: "Indian bank, NBFC, fintech and broking compliance roles — pairs with NISM Series-XXIV / IIBF credentials.",
+    audience: "Indian bank, NBFC, fintech and broking compliance roles — pairs with NISM Series-XXIV / IIBF credentials. GIFT City (IFSC) roles add the IFSCA AML/CTF/KYC Guidelines 2022 stack and the mandatory NISM-IFSCA-01 credential for designated officers.",
     courses: ["kyc-cdd-tm-analyst", "sanctions-screening", "counter-terrorist-financing"],
   },
   {
