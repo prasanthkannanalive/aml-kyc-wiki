@@ -12,6 +12,9 @@ import { getCourseReads, getCourseCompletions } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
+
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
 }
@@ -62,6 +65,35 @@ export default async function CoursePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${siteUrl}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Courses",
+                item: `${siteUrl}/courses`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: `${course.title} (${course.code})`,
+                item: `${siteUrl}/courses/${course.slug}`,
+              },
+            ],
+          }),
+        }}
       />
       {/* Header */}
       <nav className="text-sm text-muted">

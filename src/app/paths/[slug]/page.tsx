@@ -41,9 +41,28 @@ export default async function PathPage({
   const user = await getSessionUser();
   const progress = user ? await getProgress(user.id) : {};
 
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: path.title,
+    description: path.tagline,
+    itemListElement: courses.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${c.title} (${c.code})`,
+      url: `${siteUrl}/courses/${c.slug}`,
+    })),
+  };
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
       <ViewTracker type="search" id={`path-${slug}`} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <nav className="text-sm text-muted">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span className="mx-2">/</span>

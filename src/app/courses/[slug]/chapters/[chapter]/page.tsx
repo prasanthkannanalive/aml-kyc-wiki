@@ -13,6 +13,9 @@ import ChapterScenario from "@/components/ChapterScenario";
 import { MODULE_OVERVIEWS } from "@/lib/module-overviews";
 import ViewTracker from "@/components/ViewTracker";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
+
 export function generateStaticParams() {
   return courses.flatMap((c) =>
     listChapters(c.slug).map((ch) => ({ slug: c.slug, chapter: ch.num }))
@@ -56,6 +59,7 @@ export default async function ChapterPage({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `${meta.num} ${meta.title}`,
+    description: `${meta.title} from the ${course.title} (${course.code}) study guide.`,
     isPartOf: {
       "@type": "Course",
       name: `${course.title} (${course.code})`,
@@ -64,11 +68,36 @@ export default async function ChapterPage({
     wordCount: words,
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Courses", item: `${siteUrl}/courses` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: course.title,
+        item: `${siteUrl}/courses/${slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: `${meta.num} ${meta.title}`,
+        item: `${siteUrl}/courses/${slug}/chapters/${chapter}`,
+      },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <ViewTracker type="chapter" id={`${slug}/${chapter}`} />
       <nav className="text-sm text-muted">

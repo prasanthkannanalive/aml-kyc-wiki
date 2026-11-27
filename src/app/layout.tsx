@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "AML/KYC Wiki — Financial Crime Operations Knowledge Base",
     template: "%s | AML/KYC Wiki",
@@ -28,6 +32,13 @@ export const metadata: Metadata = {
       "Courses, frameworks and field guides for AML, KYC and financial-crime operations analysts.",
     type: "website",
     siteName: "AML/KYC Wiki",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AML/KYC Wiki — Financial Crime Operations Knowledge Base",
+    description:
+      "Courses, frameworks and field guides for AML, KYC and financial-crime operations analysts.",
   },
   appleWebApp: {
     capable: true,
@@ -54,6 +65,38 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": `${siteUrl}/#org`,
+                  name: "AML/KYC Wiki",
+                  url: siteUrl,
+                  logo: `${siteUrl}/icons/icon-512.png`,
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${siteUrl}/#website`,
+                  url: siteUrl,
+                  name: "AML/KYC Wiki",
+                  publisher: { "@id": `${siteUrl}/#org` },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html:

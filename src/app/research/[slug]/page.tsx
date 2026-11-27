@@ -26,8 +26,22 @@ export default async function ResearchArticlePage({
   const a = research.find((x) => x.slug === slug);
   if (!a) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.title,
+    description: a.dek,
+    datePublished: a.date,
+    author: { "@type": "Organization", name: "AML/KYC Wiki" },
+    publisher: { "@type": "Organization", name: "AML/KYC Wiki" },
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <nav className="text-sm text-muted">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span className="mx-2">/</span>

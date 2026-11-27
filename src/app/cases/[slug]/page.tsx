@@ -34,8 +34,24 @@ export default async function CasePage({
   const c = getCase(slug);
   if (!c) notFound();
 
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://aml-kyc-wiki.vercel.app";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${c.org} enforcement case`,
+    description: c.summary.slice(0, 300),
+    datePublished: `${c.year}-01-01`,
+    author: { "@type": "Organization", name: "AML/KYC Wiki" },
+    isPartOf: { "@type": "WebSite", name: "AML/KYC Wiki", url: siteUrl },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <nav className="text-sm text-muted">
         <Link href="/cases" className="hover:text-ink">Enforcement Cases</Link>
         <span className="mx-2">/</span>
