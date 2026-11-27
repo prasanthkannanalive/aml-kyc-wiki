@@ -5,7 +5,7 @@ import { getProgress, getSyncMeta } from "@/lib/db";
 import { syncMetaToStats } from "@/lib/sync-stats";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
-import { careerRoles, certifications } from "@/lib/careers";
+import { careerRoles, certifications, decisionChain } from "@/lib/careers";
 import CareerReadiness from "@/components/CareerReadiness";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -64,6 +64,43 @@ export default async function CareersPage() {
         />
       </div>
 
+      {/* decision chain */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold tracking-tight">Who makes the final call</h2>
+        <p className="mt-1 text-sm text-muted">
+          The escalation chain — analysts recommend, the MLRO decides, the board
+          oversees. SAR filing is mandatory once suspicion exists; the MLRO
+          cannot &ldquo;decide&rdquo; not to file a valid one.
+        </p>
+        <div className="mt-6 space-y-2">
+          {decisionChain.map((d, i) => (
+            <div
+              key={d.step}
+              className={`flex flex-col gap-2 rounded-xl border px-5 py-4 sm:flex-row sm:items-center ${
+                i === 2
+                  ? "border-emerald-400/50 bg-emerald-400/5"
+                  : "border-line bg-surface/50"
+              }`}
+            >
+              <span className="font-mono text-xs font-bold text-emerald-400">{d.step}</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-bold text-ink">{d.actor}</p>
+                <p className="text-xs leading-5 text-muted">{d.decides}</p>
+              </div>
+              <span
+                className={`shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold ${
+                  i === 2
+                    ? "bg-emerald-400/15 text-emerald-300"
+                    : "bg-surface-2 text-muted"
+                }`}
+              >
+                {d.call}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ladder */}
       {levels.map((lv) => {
         const roles = careerRoles.filter((r) => r.level === lv.key);
@@ -78,6 +115,9 @@ export default async function CareersPage() {
                     <div>
                       <h3 className="text-lg font-bold text-ink">{r.title}</h3>
                       <p className="mt-0.5 text-xs font-medium text-emerald-400">{r.aliases}</p>
+                      <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-wide text-amber-300/90">
+                        Final call: {r.authority}
+                      </p>
                     </div>
                     <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-emerald-300">
                       {r.level}
@@ -115,6 +155,27 @@ export default async function CareersPage() {
                       </ul>
                     </div>
                   </div>
+                  {r.courses && r.courses.length > 0 && (
+                    <div className="mt-4 border-t border-line/60 pt-4">
+                      <h4 className="text-xs font-semibold uppercase tracking-wide text-muted">
+                        Course path for this role
+                      </h4>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {r.courses.map((slug, i) => {
+                          const c = courses.find((x) => x.slug === slug);
+                          return c ? (
+                            <Link
+                              key={slug}
+                              href={`/courses/${slug}`}
+                              className="rounded-full border border-sky-400/30 bg-sky-400/5 px-3 py-1 text-[11px] font-medium text-sky-300 transition-colors hover:border-sky-400/60"
+                            >
+                              {i + 1}. {c.title}
+                            </Link>
+                          ) : null;
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>

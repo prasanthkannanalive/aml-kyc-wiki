@@ -12,6 +12,10 @@ export interface CareerRole {
   readyAt: number;
   /** optional course that must have meaningful progress */
   keyCourse?: string;
+  /** who holds the final call at this level */
+  authority: string;
+  /** recommended course slugs for this role, in order */
+  courses?: string[];
 }
 
 export const careerRoles: CareerRole[] = [
@@ -35,6 +39,8 @@ export const careerRoles: CareerRole[] = [
     certifications: ["ICA Certificate in AML/CTF (entry-level boost)", "Site knowledge base + final exam badge"],
     readyAt: 15,
     keyCourse: "kyc-cdd-tm-analyst",
+    authority: "Recommends only — every decision routes upward",
+    courses: ["kyc-cdd-tm-analyst"],
   },
   {
     slug: "alert-analyst",
@@ -56,6 +62,8 @@ export const careerRoles: CareerRole[] = [
     certifications: ["CAMS (preferred for mid roles)", "ICA AML/CTF Certificate"],
     readyAt: 20,
     keyCourse: "fraud-prevention",
+    authority: "Recommends only — dispositions go to a senior or MLRO",
+    courses: ["kyc-cdd-tm-analyst", "fraud-prevention"],
   },
   {
     slug: "sanctions-analyst",
@@ -76,6 +84,8 @@ export const careerRoles: CareerRole[] = [
     certifications: ["ICA Certificate in Sanctions Compliance", "ICA AML/CTF Certificate"],
     readyAt: 15,
     keyCourse: "sanctions-screening",
+    authority: "Recommends only — potential matches escalate to MLRO",
+    courses: ["sanctions-screening"],
   },
   {
     slug: "senior-analyst",
@@ -96,6 +106,8 @@ export const careerRoles: CareerRole[] = [
     ],
     certifications: ["CAMS", "ICA AML/CTF Diploma", "ACFE CFE (investigations)", "CISA (QA/audit path)"],
     readyAt: 40,
+    authority: "Recommends — validates junior work; cannot approve exits",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "fraud-prevention"],
   },
   {
     slug: "sar-investigator",
@@ -117,6 +129,8 @@ export const careerRoles: CareerRole[] = [
     certifications: ["CAMS", "Advanced CAMS", "ICA AML/CTF Diploma"],
     readyAt: 50,
     keyCourse: "kyc-cdd-tm-analyst",
+    authority: "Drafts the filing — MLRO owns the file-off decision",
+    courses: ["kyc-cdd-tm-analyst", "fraud-prevention", "financial-intelligence-trafficking"],
   },
   {
     slug: "edd-analyst",
@@ -137,6 +151,8 @@ export const careerRoles: CareerRole[] = [
     certifications: ["CAMS", "ICA AML/CTF", "ICA Sanctions/PEP short courses"],
     readyAt: 45,
     keyCourse: "kyc-cdd-tm-analyst",
+    authority: "Recommends — EDD outcome feeds the MLRO decision",
+    courses: ["kyc-cdd-tm-analyst"],
   },
   {
     slug: "deputy-mlro",
@@ -157,6 +173,8 @@ export const careerRoles: CareerRole[] = [
     ],
     certifications: ["CAMS", "Advanced CAMS", "ICA AML/CTF Advanced Diploma", "CPA/ACCA helps"],
     readyAt: 65,
+    authority: "Acts for MLRO — pre-clears filings under MLRO authority",
+    courses: ["kyc-cdd-tm-analyst", "sanctions-screening", "counter-terrorist-financing", "trade-based-laundering"],
   },
   {
     slug: "mlro",
@@ -178,6 +196,8 @@ export const careerRoles: CareerRole[] = [
     ],
     certifications: ["CAMS", "Advanced CAMS", "ICA Advanced Diploma", "jurisdiction-specific MLRO training"],
     readyAt: 85,
+    authority: "FIRST FINAL CALL — personally approves SARs, exits, program",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing", "trade-based-laundering", "fraud-prevention", "virtual-asset-compliance", "financial-intelligence-trafficking"],
   },
   {
     slug: "head-fincrime",
@@ -198,6 +218,8 @@ export const careerRoles: CareerRole[] = [
     ],
     certifications: ["CAMS", "Advanced CAMS", "ICA Advanced Diploma", "MBA or equivalent leadership signal"],
     readyAt: 90,
+    authority: "Second — owns program outcomes and risk appetite",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing", "trade-based-laundering", "fraud-prevention", "virtual-asset-compliance", "financial-intelligence-trafficking"],
   },
   {
     slug: "cco",
@@ -218,6 +240,55 @@ export const careerRoles: CareerRole[] = [
     ],
     certifications: ["CAMS + broader compliance certs", "ICA/ACAMS advanced tracks", "jurisdiction-specific CCO requirements"],
     readyAt: 95,
+    authority: "Third — compliance sign-off to the board",
+    courses: ["sanctions-screening", "kyc-cdd-tm-analyst", "counter-terrorist-financing", "trade-based-laundering", "fraud-prevention", "virtual-asset-compliance", "financial-intelligence-trafficking"],
+  },
+];
+
+export interface DecisionStep {
+  step: string;
+  actor: string;
+  decides: string;
+  call: string;
+}
+
+/** The escalation chain — who actually decides, bottom to top. */
+export const decisionChain: DecisionStep[] = [
+  {
+    step: "01",
+    actor: "Analyst — KYC / TM / Screening",
+    decides: "Flags alerts, dispositions cases, completes CDD files",
+    call: "Recommends only — no final call",
+  },
+  {
+    step: "02",
+    actor: "Senior Analyst / SAR Investigator / EDD",
+    decides: "Complex alerts, SAR drafts, EDD files, junior QA",
+    call: "Recommends — cannot approve exits or sign filings alone",
+  },
+  {
+    step: "03",
+    actor: "MLRO / BSA Officer / Nominated Officer",
+    decides: "Files or declines SARs, approves exits, owns the program",
+    call: "FIRST FINAL CALL — personally liable to the regulator",
+  },
+  {
+    step: "04",
+    actor: "Head of Financial Crime",
+    decides: "Program strategy, risk appetite, budget, team design",
+    call: "Second — owns program outcomes",
+  },
+  {
+    step: "05",
+    actor: "Chief Compliance Officer",
+    decides: "All-compliance sign-off, regulatory strategy, board reporting",
+    call: "Third — signs the compliance attestation",
+  },
+  {
+    step: "06",
+    actor: "Board / Audit Committee",
+    decides: "Approves risk appetite, oversees the MLRO, receives reports",
+    call: "Ultimate accountability — can remove the MLRO",
   },
 ];
 
