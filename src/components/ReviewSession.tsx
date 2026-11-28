@@ -4,9 +4,16 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { BankQuestion } from "./ExamSimulator";
 import QuizDebrief from "@/components/QuizDebrief";
+import { quizKey } from "@/lib/quiz-key";
+import {
+  isWeakStat,
+  localQuizStats,
+  recordQuizResults,
+} from "@/lib/quiz-results";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 
 const REVIEW_SIZE = 10;
+const WEAK_SHARE = 0.6; // up to 60% of the session targets weak questions
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -36,12 +43,39 @@ function bumpStreak() {
   }
 }
 
+type PoolItem = { course: string; q: BankQuestion };
+
+/** Weighted pick: up to WEAK_SHARE of slots go to questions the learner
+ *  has historically struggled with (local stats + server-provided weak keys). */
+function pickSession(pool: PoolItem[], n: number, weakKeys: Set<string>) {
+  const stats = localQuizStats();
+  const tagged = pool.map((item) => {
+    const key = quizKey(item.q.q);
+    const s = stats[key];
+    return { item, key, weak: weakKeys.has(key) || isWeakStat(s) };
+  });
+  const weak = shuffle(tagged.filter((t) => t.weak));
+  const rest = shuffle(tagged.filter((t) => !t.weak));
+  const weakTake = Math.min(weak.length, Math.ceil(n * WEAK_SHARE));
+  const out = [...weak.slice(0, weakTake), ...rest];
+  // top up from leftovers if the pools didn't fill n slots
+  for (const t of [...weak.slice(weakTake), ...rest.slice(n - weakTake)]) {
+    if (out.length >= n) break;
+    if (!out.includes(t)) out.push(t);
+  }
+  return out.slice(0, n).map((t) => t.item);
+}
+
 export default function ReviewSession({
   questions,
+  weakKeys = [],
 }: {
-  questions: { course: string; q: BankQuestion }[];
+  questions: PoolItem[];
+  weakKeys?: string[];
 }) {
-  const [qs, setQs] = useState(() => shuffle(questions).slice(0, REVIEW_SIZE));
+  const [qs, setQs] = useState<PoolItem[]>(() =>
+    pickSession(questions, REVIEW_SIZE, new Set(weakKeys))
+  );
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
@@ -67,6 +101,14 @@ export default function ReviewSession({
     if (idx + 1 >= qs.length) {
       setFinished(true);
       setStreak(bumpStreak());
+      recordQuizResults(
+        qs.map((x, i) => ({
+          key: quizKey(x.q.q),
+          ok: answers[i] === x.q.answer,
+          section: x.q.section,
+          course: x.course,
+        }))
+      );
       fetch("/api/track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -79,7 +121,7 @@ export default function ReviewSession({
   };
 
   const restart = () => {
-    setQs(shuffle(questions).slice(0, REVIEW_SIZE));
+    setQs(pickSession(questions, REVIEW_SIZE, new Set(weakKeys)));
     setIdx(0);
     setPicked(null);
     setAnswers([]);

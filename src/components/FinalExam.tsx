@@ -4,6 +4,8 @@ import { useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 import QuizDebrief from "@/components/QuizDebrief";
+import { quizKey } from "@/lib/quiz-key";
+import { recordQuizResults } from "@/lib/quiz-results";
 
 const PASS_MARK = 0.7;
 const STORAGE_PREFIX = "aml-kyc-final-exam:";
@@ -66,6 +68,14 @@ export default function FinalExam({
 
   const submit = () => {
     setSubmitted(true);
+    recordQuizResults(
+      questions.map((item, i) => ({
+        key: quizKey(item.q),
+        ok: picked[i] === item.answer,
+        section: item.section,
+        course: courseSlug,
+      }))
+    );
     if (didPass) {
       try {
         localStorage.setItem(storageKey, "passed");

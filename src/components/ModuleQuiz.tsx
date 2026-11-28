@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import QuizDebrief from "@/components/QuizDebrief";
+import { quizKey } from "@/lib/quiz-key";
+import { recordQuizResults } from "@/lib/quiz-results";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 
 export interface QuizQuestion extends ModuleQuizQuestion {}
@@ -31,6 +33,14 @@ export default function ModuleQuiz({
         body: JSON.stringify({ type: "quiz", id: trackId }),
       }).catch(() => {});
     }
+    recordQuizResults(
+      questions.map((item, i) => ({
+        key: quizKey(item.q),
+        ok: picked[i] === item.answer,
+        section: item.section,
+        course: trackId?.split("/")[0],
+      }))
+    );
   };
 
   const score = picked.filter((p, i) => p === questions[i].answer).length;

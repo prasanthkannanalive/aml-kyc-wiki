@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import type { CertMock } from "@/lib/cert-mocks";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 import { tipForSection } from "@/lib/quiz-tips";
+import { quizKey } from "@/lib/quiz-key";
+import { recordQuizResults } from "@/lib/quiz-results";
 
 function fmt(secs: number) {
   const m = Math.floor(secs / 60);
@@ -65,6 +67,21 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
   const missed = questions
     .map((item, i) => ({ item, i, ok: picked[i] === item.answer }))
     .filter((x) => !x.ok);
+
+  const recordedRef = useRef(false);
+  useEffect(() => {
+    if (!submitted || recordedRef.current) return;
+    recordedRef.current = true;
+    recordQuizResults(
+      questions.map((item, i) => ({
+        key: quizKey(item.q),
+        ok: picked[i] === item.answer,
+        section: item.section,
+        course: `cert:${mock.id}`,
+      }))
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitted]);
 
   const submit = () => {
     if (timer.current) clearInterval(timer.current);

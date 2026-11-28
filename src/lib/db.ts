@@ -69,6 +69,7 @@ const K = {
   teams: "aml:teams", // JSON doc: TeamRecord[]
   challenge: (day: string) => `aml:challenge:${day}`, // JSON doc: ChallengeEntry[]
   procodes: "aml:procodes", // set of unredeemed Pro codes
+  quizstats: (id: string) => `aml:quizstats:${id}`, // per-question outcomes
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -434,6 +435,47 @@ export async function submitChallenge(
   }
   const rank = sorted.findIndex((e) => e.key === entry.key) + 1;
   return { board: sorted, rank };
+}
+
+/* ------------------------- quiz result stats ----------------------- */
+
+export interface QuizStatEntry {
+  c: number; // correct
+  w: number; // wrong
+  s?: string; // section label
+  course?: string;
+}
+export type QuizStats = Record<string, QuizStatEntry>;
+
+export async function getQuizStats(userId: string): Promise<QuizStats> {
+  if (kvEnabled()) {
+    const raw = await kvGet<string>("GET", K.quizstats(userId));
+    return raw ? (JSON.parse(raw) as QuizStats) : {};
+  }
+  return readJson<Record<string, QuizStats>>("quizstats.json", {})[userId] ?? {};
+}
+
+export async function recordQuizStats(
+  userId: string,
+  items: { key: string; ok: boolean; section?: string; course?: string }[]
+): Promise<void> {
+  if (!items.length) return;
+  const cur = await getQuizStats(userId);
+  for (const it of items) {
+    const e = cur[it.key] ?? { c: 0, w: 0 };
+    if (it.ok) e.c += 1;
+    else e.w += 1;
+    if (it.section) e.s = it.section;
+    if (it.course) e.course = it.course;
+    cur[it.key] = e;
+  }
+  if (kvEnabled()) {
+    await kvPost(["SET", K.quizstats(userId)], JSON.stringify(cur));
+    return;
+  }
+  const all = readJson<Record<string, QuizStats>>("quizstats.json", {});
+  all[userId] = cur;
+  writeJson("quizstats.json", all);
 }
 
 /* --------------------- live engagement helpers --------------------- */

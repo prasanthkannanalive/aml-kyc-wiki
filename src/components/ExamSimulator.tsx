@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { quizKey } from "@/lib/quiz-key";
+import { recordQuizResults } from "@/lib/quiz-results";
 
 export interface BankQuestion {
   q: string;
@@ -8,6 +10,7 @@ export interface BankQuestion {
   answer: number;
   explain?: string[]; // one note per option: why it is right or wrong
   module?: string; // label for breakdown, e.g. "Module 3" or course code
+  section?: string; // topic section for categorised stats
 }
 
 export interface BankCourse {
@@ -99,6 +102,20 @@ export default function ExamSimulator({
       body: JSON.stringify({ type: "exam", id: slug === "" ? "simulator-mixed" : slug }),
     }).catch(() => {});
   };
+
+  const recordedRef = useRef(false);
+  useEffect(() => {
+    if (mode !== "done" || recordedRef.current) return;
+    recordedRef.current = true;
+    recordQuizResults(
+      questions.map((q, i) => ({
+        key: quizKey(q.q),
+        ok: picked[i] === q.answer,
+        section: q.section ?? q.module,
+        course: slug === "" ? undefined : slug,
+      }))
+    );
+  }, [mode, questions, picked, slug]);
 
   const score = picked.filter((p, i) => p === questions[i].answer).length;
   const pct = questions.length ? score / questions.length : 0;

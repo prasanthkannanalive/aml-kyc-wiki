@@ -5,7 +5,7 @@ import { getSessionUser } from "@/lib/auth";
 import ProfileExtras from "@/components/ProfileExtras";
 import Achievements from "@/components/Achievements";
 import SyncOnVisit from "@/components/SyncOnVisit";
-import { getProgress, getSyncMeta } from "@/lib/db";
+import { getProgress, getQuizStats, getSyncMeta } from "@/lib/db";
 import { syncMetaToStats } from "@/lib/sync-stats";
 import { courses } from "@/lib/content";
 import { listChapters } from "@/lib/chapters";
@@ -18,6 +18,7 @@ export default async function ProfilePage() {
   if (!user) redirect("/login");
 
   const progress = await getProgress(user.id);
+  const quizStats = await getQuizStats(user.id);
   const syncMeta = await getSyncMeta(user.id);
   const serverStats = syncMetaToStats(syncMeta);
   const readKeys = Object.keys(progress);
@@ -44,6 +45,26 @@ export default async function ProfilePage() {
   const totalCh = perCourse.reduce((s, p) => s + p.total, 0);
   const totalRead = perCourse.reduce((s, p) => s + p.read, 0);
   const pct = totalCh ? Math.round((totalRead / totalCh) * 100) : 0;
+
+  // weak areas: aggregate per-question stats by section (fallback: course)
+  const areaMap = new Map<string, { c: number; w: number; course?: string }>();
+  for (const s of Object.values(quizStats)) {
+    const label = s.s ?? s.course ?? "General";
+    const cur = areaMap.get(label) ?? { c: 0, w: 0, course: s.course };
+    cur.c += s.c;
+    cur.w += s.w;
+    areaMap.set(label, cur);
+  }
+  const weakAreas = [...areaMap.entries()]
+    .map(([name, v]) => ({
+      name,
+      ...v,
+      acc: v.c + v.w ? v.c / (v.c + v.w) : 1,
+      n: v.c + v.w,
+    }))
+    .filter((a) => a.n >= 2)
+    .sort((a, b) => a.acc - b.acc || b.n - a.n)
+    .slice(0, 5);
 
   const recent = readKeys
     .filter((k) => k.startsWith("chapter:"))
@@ -99,6 +120,49 @@ export default async function ProfilePage() {
           serverStats={serverStats}
         />
       </div>
+
+      {weakAreas.length > 0 && (
+        <>
+          <h2 className="mt-10 text-lg font-semibold">Weak areas to revisit</h2>
+          <p className="mt-1 text-xs text-muted">
+            Built from every quiz, mock and review session you&apos;ve taken.
+            Daily review now weights these topics automatically.
+          </p>
+          <div className="mt-4 space-y-2">
+            {weakAreas.map((a) => (
+              <div
+                key={a.name}
+                className="rounded-xl border border-line bg-surface/60 px-4 py-3"
+              >
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-medium text-ink">{a.name}</span>
+                  <span
+                    className={`font-mono text-xs font-semibold ${
+                      a.acc < 0.6 ? "text-red-400" : "text-amber-400"
+                    }`}
+                  >
+                    {Math.round(a.acc * 100)}% · {a.n} attempts
+                  </span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2">
+                  <div
+                    className={`h-full rounded-full ${
+                      a.acc < 0.6 ? "bg-red-400" : "bg-amber-400"
+                    }`}
+                    style={{ width: `${Math.round(a.acc * 100)}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/review"
+            className="mt-3 inline-block text-xs font-medium text-emerald-400 hover:underline"
+          >
+            Start an adaptive review session →
+          </Link>
+        </>
+      )}
 
       <h2 className="mt-10 text-lg font-semibold">Progress by course</h2>
       <div className="mt-4 space-y-3">
