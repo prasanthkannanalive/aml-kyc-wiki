@@ -199,6 +199,29 @@ export default function FinalExam({
                     );
                   })}
                 </div>
+                {submitted && item.explain && (
+                  <div className="mt-2 space-y-1 rounded-lg border border-line/60 bg-surface/40 p-3">
+                    {item.options.map((opt, oi) => {
+                      const isCorrect = item.answer === oi;
+                      const note = item.explain![oi];
+                      if (!note) return null;
+                      return (
+                        <p
+                          key={oi}
+                          className={`text-[11px] leading-5 ${
+                            isCorrect ? "text-emerald-300" : "text-muted"
+                          }`}
+                        >
+                          <span className="font-mono font-semibold">
+                            {String.fromCharCode(65 + oi)}
+                            {isCorrect ? " ✓" : ""}:
+                          </span>{" "}
+                          {note}
+                        </p>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -161,6 +161,30 @@ export default function ReviewSession({
             })}
           </div>
 
+          {answered && cur.q.explain && (
+            <div className="mt-3 space-y-1 rounded-lg border border-line/60 bg-surface/40 p-3">
+              {cur.q.options.map((opt, oi) => {
+                const isCorrect = cur.q.answer === oi;
+                const note = cur.q.explain![oi];
+                if (!note) return null;
+                return (
+                  <p
+                    key={oi}
+                    className={`text-[11px] leading-5 ${
+                      isCorrect ? "text-emerald-300" : "text-muted"
+                    }`}
+                  >
+                    <span className="font-mono font-semibold">
+                      {String.fromCharCode(65 + oi)}
+                      {isCorrect ? " ✓" : ""}:
+                    </span>{" "}
+                    {note}
+                  </p>
+                );
+              })}
+            </div>
+          )}
+
           {answered && (
             <div className="mt-4 flex items-center justify-between">
               <span

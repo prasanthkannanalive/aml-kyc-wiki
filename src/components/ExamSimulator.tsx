@@ -6,6 +6,7 @@ export interface BankQuestion {
   q: string;
   options: string[];
   answer: number;
+  explain?: string[]; // one note per option: why it is right or wrong
   module?: string; // label for breakdown, e.g. "Module 3" or course code
 }
 
@@ -41,6 +42,7 @@ export default function ExamSimulator({
   const [picked, setPicked] = useState<(number | null)[]>([]);
   const [secsLeft, setSecsLeft] = useState(TIME_LIMIT);
   const [submitted, setSubmitted] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const active = courses.find((c) => c.slug === slug);
@@ -58,6 +60,7 @@ export default function ExamSimulator({
     setPicked(sample.map(() => null));
     setSecsLeft(TIME_LIMIT);
     setSubmitted(false);
+    setShowReview(false);
     setMode("run");
   };
 
@@ -180,7 +183,7 @@ export default function ExamSimulator({
             </div>
           ))}
         </div>
-        <div className="mt-5 flex gap-3">
+        <div className="mt-5 flex flex-wrap gap-3">
           <button
             onClick={() => setMode("pick")}
             className="rounded-lg bg-emerald-400 px-4 py-2 text-xs font-semibold text-zinc-950 hover:bg-emerald-300"
@@ -193,7 +196,65 @@ export default function ExamSimulator({
           >
             Retake same paper
           </button>
+          <button
+            onClick={() => setShowReview((v) => !v)}
+            className="rounded-lg border border-line px-4 py-2 text-xs font-medium text-muted hover:text-ink"
+          >
+            {showReview ? "Hide review" : "Review answers & why"}
+          </button>
         </div>
+
+        {showReview && (
+          <div className="mt-6 space-y-4">
+            {questions.map((item, qi) => {
+              const myPick = picked[qi];
+              return (
+                <div
+                  key={qi}
+                  className="rounded-lg border border-line bg-surface/60 p-4"
+                >
+                  <p className="text-xs font-medium leading-5 text-ink">
+                    <span className="mr-2 font-mono text-emerald-400">
+                      {qi + 1}.
+                    </span>
+                    {item.q}
+                    {item.module && (
+                      <span className="ml-2 font-mono text-[10px] uppercase text-muted">
+                        {item.module}
+                      </span>
+                    )}
+                  </p>
+                  <div className="mt-2 space-y-1">
+                    {item.options.map((opt, oi) => {
+                      const isCorrect = item.answer === oi;
+                      const isPicked = myPick === oi;
+                      const note = item.explain?.[oi];
+                      return (
+                        <p
+                          key={oi}
+                          className={`text-[11px] leading-5 ${
+                            isCorrect
+                              ? "text-emerald-300"
+                              : isPicked
+                                ? "text-red-300"
+                                : "text-muted"
+                          }`}
+                        >
+                          <span className="font-mono font-semibold">
+                            {String.fromCharCode(65 + oi)}
+                            {isCorrect ? " ✓" : isPicked ? " ✗" : ""}:
+                          </span>{" "}
+                          {opt}
+                          {note && <span className="text-muted"> — {note}</span>}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
