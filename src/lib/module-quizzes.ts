@@ -4,6 +4,8 @@ export interface ModuleQuizQuestion {
   answer: number;
   /** One note per option (same order as `options`): why it is correct or why it is wrong. */
   explain?: string[];
+  /** Topic section for categorised scoring (cert mocks). */
+  section?: string;
 }
 
 // 5-question end-of-module checks, keyed by course slug then module num

@@ -46,6 +46,45 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
     mock.passCount !== undefined ? score >= mock.passCount : pct >= (mock.passPct ?? 0.6);
   const answered = picked.filter((p) => p !== null).length;
 
+  // per-section breakdown
+  const sections = new Map<string, { correct: number; total: number }>();
+  questions.forEach((item, i) => {
+    const s = item.section ?? "General";
+    const cur = sections.get(s) ?? { correct: 0, total: 0 };
+    cur.total += 1;
+    if (picked[i] === item.answer) cur.correct += 1;
+    sections.set(s, cur);
+  });
+  const sectionRows = [...sections.entries()].map(([name, v]) => ({
+    name,
+    ...v,
+    pct: v.correct / v.total,
+  }));
+  const weakest = [...sectionRows].sort((a, b) => a.pct - b.pct).slice(0, 3);
+  const missed = questions
+    .map((item, i) => ({ item, i, ok: picked[i] === item.answer }))
+    .filter((x) => !x.ok);
+
+  const IMPROVEMENTS: Record<string, string> = {
+    "PMLA": "Re-read PMLA/RBI KYC chapters — thresholds (₹10L CTR), deadlines (7-day STR) and definitions (proceeds of crime, scheduled offences) are the most-tested facts.",
+    "FIU-IND": "Focus on reporting mechanics: STR vs CTR vs CNTR, 7-day window, FIU-IND formats — drill the filing guides.",
+    "SEBI": "Review SEBI AML/CFT framework + market-abuse chapters — UCC, KRA-KYC, UBO 25% threshold and market-specific red flags.",
+    "KYC": "Revisit CDD/EDD chapters — OVDs, pKYC refresh cycles (2/8/10 yrs), PEP/RCAs and source-of-wealth verification.",
+    "Monitoring": "Work the transaction-monitoring + labs chapters — structuring, velocity, pass-through and false-positive tuning.",
+    "TBML": "Study the TBML typology + trade-finance chapters — over/under-invoicing, phantom shipments, black-hole corridors.",
+    "Crypto": "Review virtual-asset + sanctions chapters — Travel Rule, mixers, chain-hopping, VASP obligations.",
+    "SAR": "Practise SAR/STR writing in /sar-writer — five Ws, chronology, suspicion-not-guilt framing, continuing reports.",
+    "EDD": "Deep-dive the EDD/PEP chapters — senior approval, SoW corroboration, adverse media, RCAs.",
+    "Governance": "Read enforcement cases + careers chapter — MLRO duties, three-lines model, personal liability.",
+    "FATF": "Study the regulators page + FATF recommendation chapters — grey/black lists, R.10/16/20/30-32.",
+    "Enforcement": "Review the /cases library — TD Bank, Binance, Danske teach institutional-failure patterns.",
+  };
+  const tipFor = (name: string) => {
+    for (const [k, v] of Object.entries(IMPROVEMENTS))
+      if (name.includes(k)) return v;
+    return "Revisit the relevant course chapters and re-take the module quiz for this section.";
+  };
+
   const submit = () => {
     if (timer.current) clearInterval(timer.current);
     setSubmitted(true);
@@ -75,6 +114,60 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
           <p className="mt-2 text-xs text-muted">
             Mock only — this simulates {mock.format.toLowerCase()}. It does not
             issue any credential.
+          </p>
+        </div>
+
+        {/* Section-wise scorecard */}
+        <div className="mt-6 rounded-xl border border-line bg-surface/60 p-5">
+          <h3 className="text-sm font-bold text-ink">Score by section</h3>
+          <div className="mt-3 space-y-2">
+            {sectionRows.map((s) => (
+              <div key={s.name} className="flex items-center gap-3">
+                <span className="w-56 shrink-0 truncate text-xs text-muted" title={s.name}>
+                  {s.name}
+                </span>
+                <div className="h-2 flex-1 overflow-hidden rounded-full bg-surface-2">
+                  <div
+                    className={`h-full rounded-full ${
+                      s.pct >= 0.7
+                        ? "bg-emerald-400"
+                        : s.pct >= 0.5
+                          ? "bg-amber-400"
+                          : "bg-red-400"
+                    }`}
+                    style={{ width: `${Math.round(s.pct * 100)}%` }}
+                  />
+                </div>
+                <span className="w-16 shrink-0 text-right font-mono text-xs text-ink">
+                  {s.correct}/{s.total}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Improvement plan */}
+        <div className="mt-4 rounded-xl border border-amber-400/30 bg-amber-400/5 p-5">
+          <h3 className="text-sm font-bold text-ink">What to improve</h3>
+          <ul className="mt-2 space-y-2">
+            {weakest.map((s) => (
+              <li key={s.name} className="text-xs leading-5 text-body">
+                <span className="font-semibold text-ink">
+                  {s.name} — {Math.round(s.pct * 100)}%
+                </span>{" "}
+                ({s.correct}/{s.total} correct). {tipFor(s.name)}
+              </li>
+            ))}
+            {missed.length === 0 && (
+              <li className="text-xs text-emerald-300">
+                Perfect score — no weak sections. Try a fresh retake to confirm
+                it wasn&apos;t luck.
+              </li>
+            )}
+          </ul>
+          <p className="mt-3 text-[11px] text-muted">
+            Tip: retake the mock after revising the weak sections — the question
+            order is fixed, so track whether your section scores improve.
           </p>
         </div>
 
@@ -206,6 +299,11 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
               </span>
               {item.q}
             </p>
+            {item.section && (
+              <p className="mt-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-faint">
+                {item.section}
+              </p>
+            )}
             <div className="mt-2 grid gap-1.5 sm:grid-cols-2">
               {item.options.map((opt, oi) => {
                 const isPicked = picked[qi] === oi;

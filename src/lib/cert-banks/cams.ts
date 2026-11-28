@@ -12,6 +12,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       '1995',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — too early.',
       'Correct — FATF founded 1989 at G7 Paris summit.',
@@ -28,6 +29,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only tax',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — broader.',
       'Correct — comprehensive AML/CFT/PF standards.',
@@ -44,6 +46,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only individuals',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — country-level.',
       'Correct — peer reviews of national regimes.',
@@ -60,6 +63,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Compliant',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — not sanctions.',
       'Correct — strategic deficiencies, increased monitoring.',
@@ -76,6 +80,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Compliant',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — most severe.',
       'Correct — highest risk, countermeasures expected.',
@@ -92,6 +97,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'A police force',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       "Wrong — it's FIU network.",
       'Correct — Egmont connects FIUs globally.',
@@ -108,6 +114,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'A police force',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — industry body.',
       "Correct — global banks' AML guidance statements.",
@@ -124,6 +131,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only liquidity',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — guidance not enforcement.',
       'Correct — BCBS 115/SRP 17 on AML risk management.',
@@ -140,6 +148,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Enforceable directly',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — not laws.',
       'Correct — standards implemented via national law.',
@@ -156,6 +165,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only for rich countries',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — published.',
       'Correct — public peer assessments.',
@@ -172,6 +182,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only report',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — not banning.',
       'Correct — risk assessment is foundational.',
@@ -188,6 +199,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only for corporates',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — comprehensive CDD.',
       'Correct — full CDD including UBO and purpose.',
@@ -204,6 +216,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'PEP rule',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       "Wrong — that's CDD.",
       'Correct — R.16 = originator/beneficiary info on transfers.',
@@ -220,6 +233,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only foreign',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — broader.',
       'Correct — STR reporting obligation.',
@@ -236,6 +250,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only prevention',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — enforcement side.',
       'Correct — LE, prosecution, confiscation powers.',
@@ -252,6 +267,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only fraud',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — WMD focus.',
       'Correct — PF = financing weapons of mass destruction.',
@@ -268,6 +284,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only investigate',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — comprehensive.',
       'Correct — criminalise + freeze + cooperate.',
@@ -284,6 +301,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only EU',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       "Wrong — it's the UN list.",
       'Correct — consolidated UNSC sanctions lists.',
@@ -300,6 +318,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only EU',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       "Wrong — it's a list.",
       "Correct — US Treasury's SDN list.",
@@ -316,6 +335,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'FIU',
     ],
     answer: 1,
+    section: "Global Frameworks — FATF, UN, OFAC/OFSI",
     explain: [
       'Wrong — RBI is Indian.',
       "Correct — OFSI = UK HM Treasury's sanctions office.",
@@ -332,6 +352,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — RBA.',
       'Correct — EDD for high-risk customers.',
@@ -348,6 +369,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only heads',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — broader.',
       'Correct — foreign/domestic/international + RCAs.',
@@ -364,6 +386,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only EDD-lite',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — full EDD.',
       'Correct — senior approval + SoW + enhanced monitoring.',
@@ -380,6 +403,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only CA cert',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — multiple sources.',
       'Correct — corroborate via multiple documents.',
@@ -396,6 +420,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only once',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — mandatory.',
       'Correct — adverse media screening is EDD requirement.',
@@ -412,6 +437,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only warnings',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — EDD applies.',
       'Correct — RCAs get enhanced scrutiny.',
@@ -428,6 +454,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only media',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — broader.',
       'Correct — multiple sources.',
@@ -444,6 +471,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only products',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — broader.',
       'Correct — risk nexus links customer to risk factors.',
@@ -460,6 +488,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only alerts',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — deeper.',
       'Correct — enhanced monitoring is more intensive.',
@@ -476,6 +505,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only IT',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — senior level.',
       'Correct — senior management approval for high-risk.',
@@ -492,6 +522,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — too infrequent.',
       'Correct — high-risk needs frequent review.',
@@ -508,6 +539,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only on request',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — event-driven.',
       'Correct — triggers prompt review.',
@@ -524,6 +556,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only initial',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — opposite.',
       'Correct — pKYC = continuous refresh.',
@@ -540,6 +573,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — low-risk only.',
       'Correct — SDD for demonstrably low-risk.',
@@ -556,6 +590,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only the currency',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — deeper.',
       "Correct — understand respondent's customer base.",
@@ -572,6 +607,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only for USD',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       "Wrong — they're risky.",
       'Correct — nested accounts obscure ultimate users.',
@@ -588,6 +624,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only small',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       "Wrong — it's prohibited.",
       'Correct — shell banks (no physical presence) are banned.',
@@ -604,6 +641,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only USD',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — risky.',
       'Correct — PTAs obscure fund flows.',
@@ -620,6 +658,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Faster payments',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       "Wrong — it's withdrawal.",
       'Correct — de-risking exits risky-seeming relationships.',
@@ -636,6 +675,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only regulators',
     ],
     answer: 1,
+    section: "EDD, PEPs & High-Risk Onboarding",
     explain: [
       'Wrong — broader.',
       'Correct — DNFBPs have AML obligations.',
@@ -652,6 +692,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only hawala',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       "Wrong — that's placement.",
       'Correct — TBML exploits trade finance documents.',
@@ -668,6 +709,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Delaying',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       "Wrong — that's under-invoicing.",
       'Correct — inflated price moves excess to seller.',
@@ -684,6 +726,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only tax',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — opposite.',
       'Correct — under-declaring moves value abroad.',
@@ -700,6 +743,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Delayed',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — non-existent.',
       'Correct — fake docs create trade appearance.',
@@ -716,6 +760,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Currencies',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — multiple.',
       "Correct — duplicate invoices enable extra 'payments'.",
@@ -732,6 +777,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only sanctions',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — opposite.',
       'Correct — weak oversight attracts TBML.',
@@ -748,6 +794,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only dates',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — price analysis.',
       'Correct — benchmark prices + verify docs.',
@@ -764,6 +811,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only weights',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — opposite.',
       'Correct — misdeclaring value/type to evade.',
@@ -780,6 +828,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only sea',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — indirect.',
       'Correct — third-country routing hides origin.',
@@ -796,6 +845,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Domestic only',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — limited visibility.',
       'Correct — nested relationships limit visibility.',
@@ -812,6 +862,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Banning trade',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — EDD needed.',
       'Correct — comprehensive trade verification.',
@@ -828,6 +879,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Air freight',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — normal.',
       'Correct — anomalies vs benchmarks/corridors.',
@@ -844,6 +896,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only bills',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — fake.',
       'Correct — fictitious invoices for fraudulent financing.',
@@ -860,6 +913,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only LC',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — non-shipment.',
       "Correct — financing fraud where goods don't exist.",
@@ -876,6 +930,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only inspections',
     ],
     answer: 1,
+    section: "Trade-Based Money Laundering",
     explain: [
       'Wrong — fraudulent docs.',
       'Correct — fake docs under LC fraud.',
@@ -892,6 +947,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only for USD',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       "Wrong — it's risky.",
       'Correct — post-shipment assumes goods exist; fraud possible.',
@@ -908,6 +964,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only report',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — full obligations.',
       'Correct — VASPs are covered entities.',
@@ -924,6 +981,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Nothing',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — transaction data.',
       'Correct — VASP transfers carry counterparty info.',
@@ -940,6 +998,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Small amounts',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — obfuscation.',
       'Correct — mixers break on-chain links.',
@@ -956,6 +1015,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Trading',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — cross-chain.',
       'Correct — cross-chain conversion complicates tracing.',
@@ -972,6 +1032,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only stablecoins',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — grey zone.',
       'Correct — disintermediation raises duty questions.',
@@ -988,6 +1049,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'One platform',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — abuse possible.',
       'Correct — NFTs can disguise illicit funds.',
@@ -1004,6 +1066,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only banks',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — prohibited.',
       'Correct — OFAC sanctioned mixers; dealings banned.',
@@ -1020,6 +1083,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only BTC',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — often illicit.',
       'Correct — may breach sanctions/AML.',
@@ -1036,6 +1100,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only small',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — illicit.',
       'Correct — darknet enables criminal markets.',
@@ -1052,6 +1117,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Nothing',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — tracing.',
       'Correct — cluster + trace public flows.',
@@ -1068,6 +1134,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Mining',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       "Wrong — it's layering.",
       'Correct — peeling chain = sequential small transfers.',
@@ -1084,6 +1151,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only browsers',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — analytics tools.',
       'Correct — specialised blockchain analytics.',
@@ -1100,6 +1168,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only KYC',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — comprehensive.',
       'Correct — full licensing regime.',
@@ -1116,6 +1185,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only exchanges',
     ],
     answer: 1,
+    section: "Crypto, VASPs & Emerging Channels",
     explain: [
       'Wrong — they pose challenges.',
       'Correct — unhosted wallets complicate Travel Rule.',
@@ -1132,6 +1202,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only criminal',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — characteristics.',
       'Correct — stable + transferable = attractive for crime.',
@@ -1148,6 +1219,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only centralized',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — they complicate.',
       'Correct — bridges move value across chains.',
@@ -1164,6 +1236,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only large',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — suspicion standard.',
       'Correct — knowledge/suspicion suffices.',
@@ -1180,6 +1253,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       '90 days',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       "Wrong — that's India.",
       'Correct — 30 calendar days.',
@@ -1196,6 +1270,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       '90 days',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       "Wrong — that's US.",
       'Correct — PMLA Rule 8: 7 days.',
@@ -1212,6 +1287,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       '90 days',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — ASAP standard.',
       'Correct — UK requires prompt reporting.',
@@ -1228,6 +1304,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only for banks',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — consent needed.',
       'Correct — Defence Against Money Laundering requires NCA consent.',
@@ -1244,6 +1321,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Refile',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — deemed consent.',
       'Correct — silence = deemed consent.',
@@ -1260,6 +1338,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only opinion',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — suspicion standard.',
       'Correct — facts + figures + suspicion framing.',
@@ -1276,6 +1355,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — initial first.',
       'Correct — as long as suspicion persists.',
@@ -1292,6 +1372,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'FIU reporting',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       "Wrong — that's required.",
       'Correct — telling the subject is prohibited.',
@@ -1308,6 +1389,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Ignore',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — scope limited.',
       'Correct — ordered docs by deadline.',
@@ -1324,6 +1406,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only outcome',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — needs documentation.',
       'Correct — contemporaneous + factual + complete.',
@@ -1340,6 +1423,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'System error',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       "Wrong — that's FN.",
       'Correct — FP = legitimate flagged.',
@@ -1356,6 +1440,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'No alerts',
     ],
     answer: 1,
+    section: "SAR/STR Regimes & Investigation",
     explain: [
       'Wrong — opposite.',
       'Correct — FP overload hides real cases.',
@@ -1372,6 +1457,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Prosecution only',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — distinct roles.',
       'Correct — investigation → evidence → prosecution.',
@@ -1388,6 +1474,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only reports',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — critical.',
       'Correct — preserve evidence for LE/courts.',
@@ -1404,6 +1491,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only monitor',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — intelligence role.',
       'Correct — FIU analyzes/disseminates intelligence.',
@@ -1420,6 +1508,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only IT',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — specific role.',
       'Correct — MLRO owns AML programme.',
@@ -1436,6 +1525,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only audit',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — governance.',
       'Correct — board must oversee AML framework.',
@@ -1452,6 +1542,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only business',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — three lines.',
       'Correct — business owns, risk oversees, audit assures.',
@@ -1468,6 +1559,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only external',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — risk-based.',
       'Correct — independent, risk-based audits.',
@@ -1484,6 +1576,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only fined',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — must remediate.',
       'Correct — findings need action plans + remediation.',
@@ -1500,6 +1593,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Fast processing',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — opposite.',
       'Correct — deliberately ignoring red flags = liability.',
@@ -1516,6 +1610,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only foreigners',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — intent not required.',
       'Correct — strict liability for breaches.',
@@ -1532,6 +1627,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only warnings',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — personal exposure.',
       'Correct — designated officers face personal liability.',
@@ -1548,6 +1644,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only customers',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — broader.',
       "Correct — firms liable for associated persons' conduct.",
@@ -1564,6 +1661,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only shareholders',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — entity liable.',
       'Correct — both entity and individuals face action.',
@@ -1580,6 +1678,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'No impact',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       "Wrong — it's a tension.",
       'Correct — de-risking can harm legitimate access.',
@@ -1596,6 +1695,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only fees',
     ],
     answer: 1,
+    section: "Governance, Liability & Enforcement",
     explain: [
       'Wrong — DD required.',
       'Correct — correspondent must assess respondent risk.',
@@ -1612,6 +1712,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only USD',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — risky.',
       'Correct — PTAs obscure ultimate users.',
@@ -1628,6 +1729,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only monitoring',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — EDD needed.',
       'Correct — nested accounts need deeper scrutiny.',
@@ -1644,6 +1746,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only regulators',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — broader.',
       'Correct — DNFBPs have obligations.',
@@ -1660,6 +1763,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only listed',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — mandatory.',
       'Correct — public UBO registers increase transparency.',
@@ -1676,6 +1780,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'A promotion',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — smurfing.',
       'Correct — sub-threshold deposits = structuring.',
@@ -1692,6 +1797,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Ask waiver',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — CDD failure.',
       'Correct — document + EDC + possible decline.',
@@ -1708,6 +1814,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'File SAR immediately',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — EDD required.',
       'Correct — EDD + document + possible decline.',
@@ -1724,6 +1831,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Salary',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — suspicious.',
       'Correct — pass-through = conduit.',
@@ -1740,6 +1848,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Tax planning',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — suspicious.',
       'Correct — mispricing = TBML.',
@@ -1756,6 +1865,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Required',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — manipulation.',
       'Correct — splitting to hide intent is abuse.',
@@ -1772,6 +1882,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Acceptable',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — CDD issue.',
       'Correct — inconsistent docs fail verification.',
@@ -1788,6 +1899,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only warn',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — material risk.',
       'Correct — EDD to assess relevance.',
@@ -1804,6 +1916,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Only inform',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — ongoing screening.',
       'Correct — new PEP status triggers EDD.',
@@ -1820,6 +1933,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'No action',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — high risk.',
       'Correct — multiple risk factors → EDD/decline.',
@@ -1836,6 +1950,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Invest for them',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — verify first.',
       'Correct — unregistered advisors are red flags.',
@@ -1852,6 +1967,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Tax planning',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — suspicious.',
       'Correct — same UBO multiple accounts = flag.',
@@ -1868,6 +1984,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Required',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — insufficient.',
       'Correct — need prescribed OVD.',
@@ -1884,6 +2001,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Process',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       "Wrong — can't assist.",
       "Correct — don't facilitate evasion.",
@@ -1900,6 +2018,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Coincidence',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — INS flag.',
       'Correct — pre-announcement trading warrants escalation.',
@@ -1916,6 +2035,7 @@ export const CAMS: ModuleQuizQuestion[] = [
       'Promotion',
     ],
     answer: 1,
+    section: "Mixed Review — All Domains",
     explain: [
       'Wrong — smurfing.',
       'Correct — weekly sub-threshold = structuring.',

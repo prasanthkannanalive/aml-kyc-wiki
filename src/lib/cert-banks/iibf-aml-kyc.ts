@@ -12,6 +12,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       '2005',
     ],
     answer: 2,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — too early.',
       'Wrong — PMLA came later.',
@@ -28,6 +29,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'State police only',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       "Wrong — RBI supervises banks, doesn't enforce PMLA.",
       'Correct — ED enforces PMLA provisions; FIU-IND receives reports.',
@@ -44,6 +46,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only cyber laws',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — broader than IPC.',
       'Correct — scheduled offences span IPC, NDPS, PC Act, SEBI, Customs and more.',
@@ -60,6 +63,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only foreign sources',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — must link to scheduled offences.',
       'Correct — property derived directly/indirectly from scheduled offences.',
@@ -76,6 +80,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only tax evasion',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — domestic laundering counts.',
       'Correct — any process connected with proceeds of crime, directly or indirectly.',
@@ -92,6 +97,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Community service',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — includes imprisonment.',
       'Correct — 3-7 years rigorous imprisonment + fine; enhanced for certain cases.',
@@ -108,6 +114,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for foreigners',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — attempt is explicitly covered.',
       'Correct — PMLA covers attempt/conspiracy/abetment.',
@@ -124,6 +131,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only banks',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — ED has specific PMLA powers.',
       'Correct — ED attaches/freezes proceeds via adjudicating authority.',
@@ -140,6 +148,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'FIU-IND',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       "Wrong — police investigate, don't confiscate.",
       'Correct — Special Court orders confiscation after attachment.',
@@ -156,6 +165,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Income Tax Act',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — separate legislation.',
       'Correct — Benami Transactions (Prohibition) Act 1988, amended 2016.',
@@ -172,6 +182,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only gold',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — broader than black money.',
       'Correct — property held by/for another without consideration.',
@@ -188,6 +199,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       '2022',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — too early.',
       'Correct — 2016 amendment strengthened enforcement.',
@@ -204,6 +216,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only reported',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — confiscation is the key remedy.',
       'Correct — benami property can be confiscated.',
@@ -220,6 +233,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only corruption',
     ],
     answer: 0,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Correct — ML is the process; hawala is one method.',
       'Wrong — hawala is a method, not the definition.',
@@ -236,6 +250,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only foreigners',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — broader than banks.',
       'Correct — reporting entities, offenders, and anyone dealing with proceeds.',
@@ -252,6 +267,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only government',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — far broader.',
       'Correct — all notified entities including DNFBPs.',
@@ -268,6 +284,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only IT head',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — specific compliance role.',
       'Correct — designated officer owns PMLA reporting.',
@@ -284,6 +301,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Home Ministry',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — RBI is separate.',
       'Correct — FIU-IND is under EIB, Dept. of Revenue, Finance Ministry.',
@@ -300,6 +318,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'CBDT',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — RBI is a regulator.',
       'Correct — EIB under Dept. of Revenue houses FIU-IND.',
@@ -316,6 +335,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       '2015',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Indian Legal Framework",
     explain: [
       'Wrong — original 2002.',
       'Correct — 2005 amendment expanded proceeds definition.',
@@ -332,6 +352,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Know Your Currency',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — it's customer, not company.",
       'Correct — Know Your Customer.',
@@ -348,6 +369,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Credit Due Diligence',
     ],
     answer: 0,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Correct — Customer Due Diligence.',
       'Wrong — not data disclosure.',
@@ -364,6 +386,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — RBA, not always.',
       'Correct — EDD for high-risk customers/products/jurisdictions.',
@@ -380,6 +403,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only NRIs',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — opposite of high risk.',
       'Correct — SDD for demonstrably low-risk customers like some govt accounts.',
@@ -396,6 +420,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Income Tax Act',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — RBI issues directions under PMLA.',
       'Correct — RBI Master Direction operationalises PMLA for banks.',
@@ -412,6 +437,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only utility bills',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — broader list.',
       'Correct — OVDs are prescribed: passport, voter ID, DL, Aadhaar etc.',
@@ -428,6 +454,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Driving licence',
     ],
     answer: 2,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — passport is OVD.',
       'Wrong — voter ID is OVD.',
@@ -444,6 +471,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only once ever',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — KYC precedes activation.',
       'Correct — KYC before or during onboarding.',
@@ -460,6 +488,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — all customers have refresh cycles.',
       'Correct — all customers get periodic refresh; frequency scales with risk.',
@@ -476,6 +505,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — too infrequent.',
       'Correct — high-risk typically 2-yearly or more frequent.',
@@ -492,6 +522,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — too frequent.',
       'Correct — medium-risk typically 8-yearly.',
@@ -508,6 +539,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — too frequent.',
       'Correct — low-risk typically 10-yearly.',
@@ -524,6 +556,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only income',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — multi-factor.',
       'Correct — risk scoring combines multiple factors.',
@@ -540,6 +573,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for foreign PEPs',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — EDD required.',
       'Correct — PEPs get EDD including senior approval and SoW.',
@@ -556,6 +590,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for foreign PEPs',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — not presumed guilty.',
       'Correct — RCAs can channel PEP influence or wealth.',
@@ -572,6 +607,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Their pension',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — that's SoW.",
       'Correct — SoF = origin of the specific money.',
@@ -588,6 +624,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Their investments',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — that's SoF.",
       'Correct — SoW = lifetime wealth accumulation.',
@@ -604,6 +641,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only passport',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — extra requirements.',
       'Correct — NRI accounts need overseas proof, tax declarations, PIS compliance.',
@@ -620,6 +658,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for corporates',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — it's a registry.",
       'Correct — CKYC under CERSAI stores KYC for reuse across banks.',
@@ -636,6 +675,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Illegal',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — it's a valid method.",
       'Correct — Aadhaar eKYC is RBI-approved for onboarding.',
@@ -652,6 +692,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only email',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — video KYC needs verification.',
       'Correct — live video + liveness + document check.',
@@ -668,6 +709,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'The auditor',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       "Wrong — nominee isn't owner.",
       "Correct — nominee receives on death; doesn't own during life.",
@@ -684,6 +726,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'None',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — all holders.',
       "Correct — every joint holder must be KYC'd.",
@@ -700,6 +743,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'No KYC',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — guardian KYC needed.',
       "Correct — guardian KYC + minor's birth certificate.",
@@ -716,6 +760,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only foreign transactions',
     ],
     answer: 1,
+    section: "KYC, CDD, EDD & Customer Onboarding",
     explain: [
       'Wrong — threshold-based.',
       'Correct — cash transactions >₹10 lakh (or connected monthly).',
@@ -732,6 +777,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for corporates',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — suspicion-based, not amount.',
       'Correct — any suspicion of ML/TF, any amount/mode.',
@@ -748,6 +794,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       '90 days',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — not 24h.',
       'Correct — PMLA Rule 8: 7 days.',
@@ -764,6 +811,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Paying salaries',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — opposite.',
       'Correct — splitting to evade thresholds.',
@@ -780,6 +828,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Credit scores',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — pattern needs aggregation.',
       'Correct — sum over days/weeks per customer.',
@@ -796,6 +845,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Salary credits',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — opposite.',
       'Correct — rapid in-out movement.',
@@ -812,6 +862,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Tax planning',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — that's placement.",
       'Correct — layering obscures the trail.',
@@ -828,6 +879,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Optional stage',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — it's final.",
       'Correct — integration returns laundered funds to legitimate economy.',
@@ -844,6 +896,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Optional',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — it's first.",
       'Correct — placement introduces dirty money.',
@@ -860,6 +913,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only hawala',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — that's placement.",
       'Correct — TBML exploits trade documents.',
@@ -876,6 +930,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Delaying payment',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — that's under-invoicing.",
       'Correct — inflated price moves excess value to seller.',
@@ -892,6 +947,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Store cash',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — it's a laundering tool.",
       'Correct — aggregate small deposits then forward.',
@@ -908,6 +964,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only corporates',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — mules are account holders.',
       'Correct — mule accounts move illicit funds.',
@@ -924,6 +981,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only foreign',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — it's about frequency.",
       'Correct — velocity = many transactions quickly.',
@@ -940,6 +998,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only cash',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — it's about proximity to limits.",
       'Correct — amounts just under ₹10L etc. signal structuring.',
@@ -956,6 +1015,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Auto-approved',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — rules decay.',
       'Correct — periodic documented review is expected.',
@@ -972,6 +1032,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'System error',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — that's false negative.",
       'Correct — FP = legitimate activity flagged.',
@@ -988,6 +1049,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Too many alerts',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — that's FP.",
       'Correct — FN = missed real fraud.',
@@ -1004,6 +1066,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'No alerts',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — opposite.',
       'Correct — FP overload buries true positives.',
@@ -1020,6 +1083,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only final outcome',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — needs documentation.',
       'Correct — contemporaneous, factual, complete records.',
@@ -1036,6 +1100,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Ask customer',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       "Wrong — can't ignore.",
       'Correct — file when suspicion persists; FIU decides.',
@@ -1052,6 +1117,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — initial SAR first.',
       'Correct — continuing reports as long as suspicion persists.',
@@ -1068,6 +1134,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only opinion',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — accusations exceed standard.',
       'Correct — facts + figures + suspicion framing.',
@@ -1084,6 +1151,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Reporting to FIU',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — internal sharing is fine.',
       'Correct — tipping off = telling the subject.',
@@ -1100,6 +1168,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Ignore',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — scope is limited.',
       'Correct — produce ordered docs by deadline.',
@@ -1116,6 +1185,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "Transaction Monitoring, CTR/STR & TBML",
     explain: [
       'Wrong — pre-conviction attachment possible.',
       'Correct — ED can attach during investigation.',
@@ -1132,6 +1202,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'A tax',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — not a bank.',
       'Correct — hawala moves value via trust networks.',
@@ -1148,6 +1219,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Invoice retention',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — normal behaviour.',
       'Correct — price anomalies, phantom docs, risky corridors.',
@@ -1164,6 +1236,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Tech upgrade',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — AIS gaps are suspicious.',
       'Correct — going dark near sanctioned ports signals evasion.',
@@ -1180,6 +1253,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Marketing',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — KYC precedes servicing.',
       'Correct — verify identity first.',
@@ -1196,6 +1270,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Address fraud',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       "Wrong — it's anti-spoofing.",
       'Correct — liveness confirms a real live person.',
@@ -1212,6 +1287,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only signature',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — broader.',
       'Correct — verifies document authenticity + person match.',
@@ -1228,6 +1304,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only email',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — broader screening.',
       'Correct — sanctions/PEP/adverse-media checks.',
@@ -1244,6 +1321,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Translation',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — usually too much noise.',
       'Correct — judging relevance/recency/materiality is the skill.',
@@ -1260,6 +1338,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Hacked data',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — not classified.',
       'Correct — open-source intelligence.',
@@ -1276,6 +1355,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only amounts',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — broader.',
       'Correct — upstream/downstream flows expose networks.',
@@ -1292,6 +1372,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Registered mail only',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — vague RFIs fail.',
       'Correct — specific + deadline + no tipping off.',
@@ -1308,6 +1389,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Legal jargon',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — memory unreliable.',
       'Correct — contemporaneous + factual + complete.',
@@ -1324,6 +1406,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'The auditor',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — signer may be nominee.',
       'Correct — natural person owning/controlling.',
@@ -1340,6 +1423,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       '110%',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       "Wrong — that's the HoldCo stake.",
       'Correct — 50% × 60% = 30%.',
@@ -1356,6 +1440,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only US',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — can be valuable.',
       'Correct — anonymous ownership by design.',
@@ -1372,6 +1457,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Ask waiver',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — violates CDD.',
       'Correct — document efforts + EDC + possible decline.',
@@ -1388,6 +1474,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only signatures',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — adds entity layer.',
       'Correct — KYB verifies the business entity.',
@@ -1404,6 +1491,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only PAN',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — broader.',
       'Correct — verify entity details via registries.',
@@ -1420,6 +1508,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only settlor',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — all parties.',
       'Correct — all trust parties must be identified.',
@@ -1436,6 +1525,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for NRIs',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — not presumed guilty.',
       'Correct — nominees can hide UBO.',
@@ -1452,6 +1542,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for tax',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — legal but risky.',
       'Correct — shells can be layering vehicles.',
@@ -1468,6 +1559,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only MNCs',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       "Wrong — they're vehicles.",
       'Correct — fronts legitimize illicit income.',
@@ -1484,6 +1576,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'They are foreign',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — verification is the issue.',
       'Correct — cash businesses obscure revenue source.',
@@ -1500,6 +1593,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only registries',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — statutory lists primary.',
       'Correct — government sanctions lists + PEP/media.',
@@ -1516,6 +1610,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only emails',
     ],
     answer: 1,
+    section: "KYC Operations, KYB, UBO & Screening",
     explain: [
       'Wrong — exact matching misses variants.',
       'Correct — algorithmic matching for name variants.',
@@ -1532,6 +1627,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Match timing',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — similarity triggers alert.',
       'Correct — identifiers resolve true vs false.',
@@ -1548,6 +1644,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Wait for audit',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — breach.',
       'Correct — freeze + reject + report + confidentiality.',
@@ -1564,6 +1661,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only ministers',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — broader.',
       'Correct — prominent function + RCAs.',
@@ -1580,6 +1678,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only sports',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       "Wrong — it's negative.",
       'Correct — adverse media flags risk signals.',
@@ -1596,6 +1695,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only government secrets',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — public sources.',
       'Correct — open-source intelligence.',
@@ -1612,6 +1712,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only amounts',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       "Wrong — it's about connections.",
       'Correct — maps relationships to find networks.',
@@ -1628,6 +1729,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only alerts',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       "Wrong — it's about baselines.",
       "Correct — models learn 'normal' per customer.",
@@ -1644,6 +1746,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for corporates',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       "Wrong — it's suspicious.",
       'Correct — physical impossibility of travel time.',
@@ -1660,6 +1763,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only ads',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — broader.',
       'Correct — device signals reveal fraud patterns.',
@@ -1676,6 +1780,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only passwords',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — biometrics.',
       'Correct — biometric matching for identity.',
@@ -1692,6 +1797,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only dates',
     ],
     answer: 0,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Correct — comprehensive narrative needs all elements.',
       'Wrong — too thin.',
@@ -1708,6 +1814,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only opinion',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — suspicion standard.',
       'Correct — facts + suspicion, not proven guilt.',
@@ -1724,6 +1831,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Is harmless',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — opposite.',
       'Correct — tipping off endangers investigation.',
@@ -1740,6 +1848,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Ignore',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — scope limited.',
       'Correct — ordered docs by deadline.',
@@ -1756,6 +1865,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Never',
     ],
     answer: 1,
+    section: "SAR/STR Craft, Cases & Enforcement",
     explain: [
       'Wrong — initial first.',
       'Correct — as long as suspicion persists.',
@@ -1772,6 +1882,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'No penalties exist',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — entities liable too.',
       'Correct — both institutions and individuals face action.',
@@ -1788,6 +1899,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Sanctions only',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — AML failures.',
       'Correct — largest BSA penalty for compliance failures.',
@@ -1804,6 +1916,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only sanctions',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — broader.',
       'Correct — VASP AML/sanctions + executive liability.',
@@ -1820,6 +1933,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Fast processing',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — opposite.',
       'Correct — deliberately ignoring red flags = liability.',
@@ -1836,6 +1950,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for foreigners',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — intent not required.',
       'Correct — strict liability for sanctions breaches.',
@@ -1852,6 +1967,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only regulators',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — broader.',
       'Correct — gatekeepers like lawyers/accountants can be abused.',
@@ -1868,6 +1984,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Lower fees',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       "Wrong — it's withdrawal.",
       'Correct — de-risking exits risky-seeming relationships.',
@@ -1884,6 +2001,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only large banks',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — nested risk.',
       "Correct — correspondent can't see respondent's customers.",
@@ -1900,6 +2018,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only for MNCs',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       "Wrong — they're risky.",
       'Correct — nested accounts obscure ultimate users.',
@@ -1916,6 +2035,7 @@ export const IIBF_AML_KYC: ModuleQuizQuestion[] = [
       'Only sanctions',
     ],
     answer: 1,
+    section: "Digital Assets, FATF Lists & Miscellaneous",
     explain: [
       'Wrong — opposite.',
       'Correct — weak oversight attracts TBML.',

@@ -12,6 +12,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Information Technology Act, 2000',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       'Wrong — Companies Act governs corporate law, not AML.',
       "Correct — PMLA 2002 is India's core AML statute; SEBI regulations operationalise it for intermediaries.",
@@ -28,6 +29,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Tax evasion by corporates',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       "Wrong — large cash transactions trigger CTRs but aren't the definition.",
       'Correct — PMLA §3 defines ML as any process/activity connected with proceeds of crime, directly or indirectly.',
@@ -44,6 +46,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'CBDT',
     ],
     answer: 2,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       "Wrong — RBI supervises banks; it doesn't receive STRs.",
       'Wrong — SEBI regulates markets but FIU-IND receives reports.',
@@ -60,6 +63,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       '90 days',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       "Wrong — 24 hours isn't the PMLA window.",
       'Correct — PMLA Rule 8: STR within 7 days of concluding suspicion.',
@@ -76,6 +80,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       '₹50 lakh',
     ],
     answer: 2,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       'Wrong — ₹50,000 is a PAN threshold, not the CTR line.',
       "Wrong — ₹2 lakh isn't the CTR threshold.",
@@ -92,6 +97,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only transactions over ₹1 crore',
     ],
     answer: 2,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       'Wrong — suspicious transactions are reportable regardless of amount/mode.',
       "Wrong — remittances aren't the sole trigger.",
@@ -108,6 +114,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Income tax refunds',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       "Wrong — it's a legal property concept, not just seized cash.",
       'Correct — property derived directly or indirectly from scheduled offences.',
@@ -124,6 +131,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only cyber offences',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       'Wrong — the schedule is broad, not just IPC.',
       'Correct — scheduled offences span IPC, NDPS, PC Act, SEBI Act and others.',
@@ -140,6 +148,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only government bodies',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       'Wrong — far broader than banks.',
       'Correct — all notified reporting entities including securities intermediaries.',
@@ -156,6 +165,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'KYC certification',
     ],
     answer: 1,
+    section: "PMLA, FIU-IND & Reporting Basics",
     explain: [
       "Wrong — it's customer due diligence.",
       'Correct — KYC = identifying/verifying the client before the relationship.',
@@ -172,6 +182,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'RBI circulars only',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — SEBI issues its own framework.',
       "Correct — SEBI's AML/CFT framework operationalises PMLA for market intermediaries.",
@@ -188,6 +199,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only institutions',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — broader than individuals.',
       "Correct — 'client' covers every person type, resident or non-resident.",
@@ -204,6 +216,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       '10 years',
     ],
     answer: 2,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — too short for AML.',
       'Wrong — 3 years is insufficient.',
@@ -220,6 +233,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Identifying beneficial owners',
     ],
     answer: 2,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — PAN is standard KYC.',
       'Wrong — OVD verification is standard CDD.',
@@ -236,6 +250,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Always a physical visit',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — digital onboarding still needs verification.',
       'Correct — video KYC/eKYC with liveness are SEBI-approved methods.',
@@ -252,6 +267,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Reduce taxes',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       "Wrong — it's an AML control.",
       'Correct — UCC links beneficial ownership across accounts/brokers.',
@@ -268,6 +284,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Multiple accounts with same UBO',
     ],
     answer: 2,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — sub-threshold deposits are a flag.',
       'Wrong — profile mismatch is a flag.',
@@ -284,6 +301,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'A reporting exemption',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — purposeless chained trading lacks economic rationale.',
       'Correct — layering, manipulation or mule use — escalate for review.',
@@ -300,6 +318,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Never after onboarding',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — more frequent than typical requirement.',
       'Correct — high-risk clients need annual or risk-based more frequent refresh.',
@@ -316,6 +335,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'The auditor',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       "Wrong — CEO isn't necessarily owner.",
       'Correct — natural persons with ≥25% ownership/control are UBOs.',
@@ -332,6 +352,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'A tax strategy',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — front-running is prohibited abuse.',
       'Correct — trading on advance knowledge of client orders violates market-abuse norms.',
@@ -348,6 +369,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Required by SEBI',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — splitting to hide intent is manipulation.',
       'Correct — layering/splitting orders to evade detection is abuse.',
@@ -364,6 +386,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only IT',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       "Wrong — it's a compliance role.",
       'Correct — the PO owns the AML programme and is accountable to SEBI.',
@@ -380,6 +403,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Wait for exit',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — servicing sanctioned clients breaches obligations.',
       'Correct — freeze, reject, report immediately; strict liability.',
@@ -396,6 +420,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only illegal for banks',
     ],
     answer: 1,
+    section: "SEBI Framework & Market Controls",
     explain: [
       'Wrong — tipping off is prohibited.',
       'Correct — disclosing suspicion/SAR to the subject is prohibited.',
@@ -412,6 +437,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only foreign investors',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       "Wrong — it's for intermediaries' staff.",
       'Correct — SEBI requires designated persons at regulated intermediaries to pass NISM-XXIV or equivalent.',
@@ -428,6 +454,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'It reduces taxes',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — it supplements, not replaces, CDD.',
       'Correct — KRA-KYC lets clients complete KYC once, recognised across intermediaries.',
@@ -444,6 +471,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'System error',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — unexplained transfers to unrelated parties are a flag.',
       'Correct — rapid movement through unrelated accounts suggests layering/mule use.',
@@ -460,6 +488,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only foreign clients',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — RBA is proportionate.',
       'Correct — SEBI applies FATF-aligned risk-based approach.',
@@ -476,6 +505,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'A bank product',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — informal tip channels are red flags.',
       'Correct — unregistered tip providers are a major fraud/AML indicator.',
@@ -492,6 +522,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only system errors',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — covers all suspicion, not just size.',
       'Correct — the PO oversees all STR filings and the AML programme.',
@@ -508,6 +539,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Tax planning',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — sub-threshold repetition is smurfing.',
       'Correct — repeated just-below-₹10L cash deposits = structuring.',
@@ -524,6 +556,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Ignore — trading is legal',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — unexplained large capital needs verification.',
       'Correct — EDD corroborates source; decline if unresolvable.',
@@ -540,6 +573,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Minor documentation',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — principal liable for agent failures.',
       "Correct — intermediaries answer for their agents' KYC.",
@@ -556,6 +590,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Skip UBO for private cos',
     ],
     answer: 1,
+    section: "Monitoring, Reporting & Enforcement",
     explain: [
       'Wrong — CDD precedes servicing.',
       'Correct — entity verification → UBO → risk → decision.',
@@ -572,6 +607,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only foreign investors',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — PIT applies to all participants.',
       'Correct — UPSI trading prohibited; compliance frameworks required.',
@@ -588,6 +624,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only inform SEBI',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — ongoing screening catches changes.',
       'Correct — new PEP status triggers EDD and enhanced monitoring.',
@@ -604,6 +641,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only names',
     ],
     answer: 0,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Correct — who/what/when/where/why/how with exact figures.',
       'Wrong — too thin.',
@@ -620,6 +658,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Employer letter',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       "Wrong — lease isn't standard OVD.",
       'Correct — passport is a prescribed OVD.',
@@ -636,6 +675,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only reject for NRIs',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — expired OVD fails.',
       'Correct — documents must be valid; seek alternative or decline.',
@@ -652,6 +692,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Neither — trust client',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — single document insufficient.',
       'Correct — SoF explains specific funds; SoW explains overall wealth.',
@@ -668,6 +709,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'System glitch',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — abrupt exit after churn is a flag.',
       'Correct — unusual trading then sudden stop can indicate manipulation.',
@@ -684,6 +726,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Exchange format',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — FIU-IND specifies format.',
       'Correct — STRs go to FIU-IND in prescribed format.',
@@ -700,6 +743,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only corporates',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — any account type can be a mule.',
       'Correct — mules move illicit money through legitimate-looking channels.',
@@ -716,6 +760,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Ends after first trade',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — securities intermediaries have full CDD duties.',
       'Correct — every client undergoes CDD scaled by risk.',
@@ -732,6 +777,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'SEBI-approved',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — guaranteed high returns are impossible legitimately.',
       'Correct — Ponzi indicator; refuse and report if solicited.',
@@ -748,6 +794,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only FIU-IND',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — broader accountability.',
       'Correct — reports to SEBI and internal governance.',
@@ -764,6 +811,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Profile-inconsistent trading',
     ],
     answer: 2,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — unexplained SoF is valid basis.',
       'Wrong — structuring is valid.',
@@ -780,6 +828,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Faster trading',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       "Wrong — it centralises, doesn't skip.",
       'Correct — KRA-KYC shares verified KYC across SEBI-regulated entities.',
@@ -796,6 +845,7 @@ export const NISM_XXIV: ModuleQuizQuestion[] = [
       'Only passport',
     ],
     answer: 1,
+    section: "Scenarios, Filing & Practical Application",
     explain: [
       'Wrong — NRI onboarding has extra requirements.',
       'Correct — NRI KYC adds overseas proof, tax residency, PIS compliance.',
