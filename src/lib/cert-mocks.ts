@@ -2,6 +2,7 @@ import type { ModuleQuizQuestion } from "./module-quizzes";
 import { IIBF_AML_KYC } from "./cert-banks/iibf-aml-kyc";
 import { NISM_XXIV } from "./cert-banks/nism-xxiv";
 import { CAMS } from "./cert-banks/cams";
+import { OPS_TOOLING } from "./cert-banks/ops-tooling";
 
 export interface CertMock {
   id: string;
@@ -46,6 +47,16 @@ export const CERT_MOCKS: CertMock[] = [
     durationMin: 210,
     passCount: 75,
     questions: CAMS,
+  },
+  {
+    id: "ops-tooling",
+    cert: "Operations & Tooling Readiness Mock",
+    body: "Internal readiness assessment — not a certification",
+    fee: "Free",
+    format: "50 MCQs · self-paced · aim for 80%+",
+    durationMin: 60,
+    passPct: 0.8,
+    questions: OPS_TOOLING,
   },
 ];
 

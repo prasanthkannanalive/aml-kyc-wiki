@@ -5,7 +5,7 @@ import { CERT_MOCKS } from "@/lib/cert-mocks";
 export const metadata: Metadata = {
   title: "Certification Mock Exams — AML/KYC Wiki",
   description:
-    "Full-length certification mocks for the IIBF AML/KYC certificate, NISM Series XXIV, and the ACAMS CAMS — real exam format, timed, with per-option explanations on review.",
+    "Full-length certification mocks for the IIBF AML/KYC certificate, NISM Series XXIV, and the ACAMS CAMS — plus an operations & tooling readiness mock — real exam format, timed, with per-option explanations on review.",
 };
 
 export default function CertMocksPage() {
@@ -20,9 +20,10 @@ export default function CertMocksPage() {
       <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
         Full-length mocks built to the real exam specs — question count, time
         limit, and pass mark — for the three credentials AML/KYC professionals
-        actually sit for. Every question includes a per-option explanation on
-        review. These are practice simulations only; they do not issue
-        credentials.
+        actually sit for, plus a job-readiness mock covering the platforms and
+        workflows employers ask about (Actimize, Verafin, Quantexa, Chainalysis,
+        SAR/STR support, QA). Every question includes a per-option explanation
+        on review. Certification mocks do not issue credentials.
       </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cert-mocks/iibf-aml-kyc",
     "/cert-mocks/nism-xxiv",
     "/cert-mocks/cams",
+    "/cert-mocks/ops-tooling",
     "/review",
     "/labs",
     "/teams",
