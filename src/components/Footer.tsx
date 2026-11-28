@@ -29,6 +29,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["cheatsheets", "/cheatsheets"],
       ["typologies", "/typologies"],
       ["tech", "/tech"],
+      ["sqlTrack", "/sql"],
     ],
   },
   {

@@ -169,6 +169,13 @@ export default function SearchPage() {
       text: "Full-length certification mocks — IIBF AML/KYC (120 Qs/2h/60%), NISM Series XXIV (50 Qs/1h/50%), ACAMS CAMS (120 Qs/3.5h/75 correct) — with per-option explanations.",
     },
     {
+      title: "SQL & Data Skills for AML/KYC — learning track",
+      subtitle: "Learn · technical skills",
+      href: "/sql",
+      kind: "Course",
+      text: "Six-section SQL track for AML analysts — joins, window functions, structuring detection, Dune/Flipside/BigQuery blockchain SQL practice — with section checks and a capstone.",
+    },
+    {
       title: "Daily Review — spaced repetition",
       subtitle: "Assessment · daily quiz",
       href: "/review",

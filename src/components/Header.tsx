@@ -20,6 +20,7 @@ export default async function Header() {
         { href: "/training", label: L("nav.training") },
         { href: "/disciplines", label: L("nav.disciplines") },
         { href: "/tech", label: L("tech") },
+        { href: "/sql", label: "SQL Track" },
         { href: "/library", label: L("nav.library") },
       ],
     },

@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/arcade",
     "/challenge",
     "/tech",
+    "/sql",
     "/about",
     "/privacy",
     "/terms",
