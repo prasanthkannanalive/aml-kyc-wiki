@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { courses, getCourse } from "@/lib/content";
+import { courses, getCourse, glossary } from "@/lib/content";
 import {
   estimateMins,
   getChapter,
@@ -54,6 +54,16 @@ export default async function ChapterPage({
   const next = idx < all.length - 1 ? all[idx + 1] : null;
   const mins = estimateMins(body);
   const words = body.split(/\s+/).filter(Boolean).length;
+
+  // glossary terms that actually appear in this chapter — powers the "terms" strip
+  const lower = body.toLowerCase();
+  const hasTerm = (t: string) =>
+    new RegExp(`\\b${t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+")}\\b`, "i").test(
+      body
+    );
+  const termsInChapter = glossary
+    .filter((g) => hasTerm(g.term) || hasTerm(g.term.replace(/\s*\/\s*/g, " / ")))
+    .slice(0, 10);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -140,6 +150,24 @@ export default async function ChapterPage({
           From {course.title}
         </p>
 
+        {termsInChapter.length > 0 && (
+          <div className="mt-4 flex flex-wrap items-center gap-1.5">
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-muted">
+              Terms in this chapter
+            </span>
+            {termsInChapter.map((t) => (
+              <Link
+                key={t.term}
+                href="/glossary"
+                title={t.definition}
+                className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300 transition-colors hover:bg-emerald-400/20"
+              >
+                {t.term}
+              </Link>
+            ))}
+          </div>
+        )}
+
         <ChapterScenario slug={slug} num={meta.num} title={meta.title} />
 
         {meta.moduleNum != null && meta.moduleNum > 0 &&
@@ -169,6 +197,24 @@ export default async function ChapterPage({
         <article className="mt-8">
           <ChapterContent markdown={body} />
         </article>
+
+        {/* Check yourself — links back to the module quiz on the course page */}
+        <div className="mt-10 rounded-xl border border-emerald-400/25 bg-emerald-400/5 p-5">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
+            Check yourself
+          </p>
+          <p className="mt-1.5 text-sm text-muted">
+            Finished reading? Lock it in — the module check at the end of this
+            module quizzes you on what you just covered, with an explanation
+            for every option.
+          </p>
+          <Link
+            href={`/courses/${course.slug}`}
+            className="mt-3 inline-block rounded-lg bg-emerald-400 px-4 py-2 text-xs font-semibold text-zinc-950 transition-colors hover:bg-emerald-300"
+          >
+            Take the module check →
+          </Link>
+        </div>
 
         {/* Prev / next */}
         <div className="mt-12 grid gap-3 sm:grid-cols-2">

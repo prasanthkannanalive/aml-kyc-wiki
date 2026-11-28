@@ -83,6 +83,69 @@ function inline(text: string, k0 = 0): React.ReactNode[] {
   return nodes;
 }
 
+const CALLOUT_STYLES: Record<string, { label: string; cls: string; chip: string }> = {
+  "exam trap": {
+    label: "Exam trap",
+    cls: "border-amber-400/40 bg-amber-400/5",
+    chip: "bg-amber-400/15 text-amber-300",
+  },
+  "common mistake": {
+    label: "Common mistake",
+    cls: "border-red-400/40 bg-red-400/5",
+    chip: "bg-red-400/15 text-red-300",
+  },
+  "why it matters": {
+    label: "Why it matters",
+    cls: "border-sky-400/40 bg-sky-400/5",
+    chip: "bg-sky-400/15 text-sky-300",
+  },
+  "field note": {
+    label: "Field note",
+    cls: "border-violet-400/40 bg-violet-400/5",
+    chip: "bg-violet-400/15 text-violet-300",
+  },
+  "pro tip": {
+    label: "Pro tip",
+    cls: "border-emerald-400/40 bg-emerald-400/5",
+    chip: "bg-emerald-400/15 text-emerald-300",
+  },
+  "remember": {
+    label: "Remember",
+    cls: "border-line bg-surface/60",
+    chip: "bg-surface-2 text-muted",
+  },
+};
+
+function Callout({ text }: { text: string }) {
+  const lines = text
+    .split("\n")
+    .map((l) => l.replace(/^>\s?/, "").trim())
+    .filter(Boolean);
+  const first = lines[0] ?? "";
+  const m = first.match(/^\*\*([^*]+):?\*\*\s*(.*)$/);
+  const labelKey = m ? m[1].trim().toLowerCase() : "";
+  const style = CALLOUT_STYLES[labelKey];
+  const bodyLines = style ? [m![2], ...lines.slice(1)] : lines;
+  return (
+    <div className={`rounded-xl border p-4 ${style?.cls ?? "border-line bg-surface/50"}`}>
+      {style && (
+        <span
+          className={`mb-2 inline-block rounded-full px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest ${style.chip}`}
+        >
+          {style.label}
+        </span>
+      )}
+      <div className="space-y-1.5 text-sm leading-6 text-body">
+        {bodyLines.filter(Boolean).map((l, j) => (
+          <p key={j}>{inline(l)}</p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const RECAP_RE = /takeaways|what to take/i;
+
 export default function ChapterContent({ markdown }: { markdown: string }) {
   // strip a leading "# Title" — the page already renders the chapter title
   const body = markdown.replace(/^#\s+[^\n]+\n+/, "");
@@ -90,9 +153,15 @@ export default function ChapterContent({ markdown }: { markdown: string }) {
   const blocks: React.ReactNode[] = [];
   let i = 0;
   let key = 0;
+  let recap = false;
 
   while (i < raw.length) {
     const text = raw[i];
+    if (text.startsWith("> ")) {
+      blocks.push(<Callout key={key++} text={text} />);
+      i++;
+      continue;
+    }
     if (text.startsWith("- ")) {
       const items: string[] = [];
       while (i < raw.length && raw[i].startsWith("- ")) {
@@ -102,8 +171,8 @@ export default function ChapterContent({ markdown }: { markdown: string }) {
         }
         i++;
       }
-      blocks.push(
-        <ul key={key++} className="list-disc space-y-1.5 pl-6 text-body">
+      const list = (
+        <ul className="list-disc space-y-1.5 pl-6 text-body">
           {items.map((it, j) => (
             <li key={j} className="leading-7">
               {inline(it)}
@@ -111,21 +180,49 @@ export default function ChapterContent({ markdown }: { markdown: string }) {
           ))}
         </ul>
       );
+      blocks.push(
+        recap ? (
+          <div
+            key={key++}
+            className="rounded-xl border border-emerald-400/25 bg-emerald-400/5 p-5"
+          >
+            <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
+              Recap
+            </p>
+            {list}
+          </div>
+        ) : (
+          <div key={key++}>{list}</div>
+        )
+      );
       continue;
     }
     if (text.startsWith("### ")) {
+      recap = false;
       blocks.push(
         <h3 key={key++} className="pt-4 font-mono text-sm font-semibold text-emerald-300">
           {inline(text.slice(4))}
         </h3>
       );
     } else if (text.startsWith("## ")) {
+      const heading = text.slice(3);
+      recap = RECAP_RE.test(heading);
       blocks.push(
-        <h2 key={key++} className="pt-2 text-lg font-semibold text-ink">
-          {inline(text.slice(3))}
-        </h2>
+        recap ? (
+          <p
+            key={key++}
+            className="pt-2 font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400"
+          >
+            {inline(heading)}
+          </p>
+        ) : (
+          <h2 key={key++} className="pt-2 text-lg font-semibold text-ink">
+            {inline(heading)}
+          </h2>
+        )
       );
     } else {
+      recap = false;
       blocks.push(
         <p key={key++} className="leading-8 text-body">
           {inline(text)}
