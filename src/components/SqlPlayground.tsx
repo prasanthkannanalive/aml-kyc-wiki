@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
 import { generate } from "@/components/DataLab";
+import { generateChain } from "@/lib/chain-data";
 import { SQL_CHALLENGES, type SqlChallenge } from "@/lib/sql-challenges";
 
 const SEED = 42;
@@ -26,6 +27,12 @@ function normRows(values: unknown[][]): string[] {
   return values.map((r) => r.map((v) => String(v)).join("|"));
 }
 
+const SCHEMA_HINT: Record<SqlChallenge["dataset"], string> = {
+  bank: "transactions(id, ts, customer, counterparty, type, amount, currency, channel, is_new_cp)",
+  chain:
+    "chain_transactions(tx_hash, block_number, block_time, from_address, to_address, value, token, chain)",
+};
+
 export default function SqlPlayground() {
   const [ready, setReady] = useState(false);
   const [dbErr, setDbErr] = useState("");
@@ -37,8 +44,10 @@ export default function SqlPlayground() {
   const [verdict, setVerdict] = useState<"idle" | "pass" | "fail">("idle");
   const [err, setErr] = useState("");
   const [expectedCount, setExpectedCount] = useState<number | null>(null);
+  const [passed, setPassed] = useState<Set<string>>(new Set());
 
   const challenge: SqlChallenge = SQL_CHALLENGES[chIdx];
+  const bankCount = SQL_CHALLENGES.filter((c) => c.dataset === "bank").length;
 
   useEffect(() => {
     let dead = false;
@@ -46,6 +55,8 @@ export default function SqlPlayground() {
       try {
         const SQL = await getSql();
         const db = new SQL.Database();
+
+        // bank ledger table
         db.run(
           "CREATE TABLE transactions (id INTEGER, ts TEXT, customer TEXT, counterparty TEXT, type TEXT, amount REAL, currency TEXT, channel TEXT, is_new_cp INTEGER)"
         );
@@ -66,6 +77,28 @@ export default function SqlPlayground() {
           ]);
         }
         stmt.free();
+
+        // on-chain table (Dune-style)
+        db.run(
+          "CREATE TABLE chain_transactions (tx_hash TEXT, block_number INTEGER, block_time TEXT, from_address TEXT, to_address TEXT, value REAL, token TEXT, chain TEXT)"
+        );
+        const cstmt = db.prepare(
+          "INSERT INTO chain_transactions VALUES (?,?,?,?,?,?,?,?)"
+        );
+        for (const t of generateChain(SEED)) {
+          cstmt.run([
+            t.tx_hash,
+            t.block_number,
+            t.block_time,
+            t.from_address,
+            t.to_address,
+            t.value,
+            t.token,
+            t.chain,
+          ]);
+        }
+        cstmt.free();
+
         if (!dead) {
           dbRef.current = db;
           setReady(true);
@@ -105,17 +138,15 @@ export default function SqlPlayground() {
       }
       const got = res[0];
       setResult({ columns: got.columns, values: got.values });
-      // compare against reference
       const exp = db.exec(challenge.referenceSql)[0];
       setExpectedCount(exp.values.length);
       const gotNorm = normRows(got.values).sort();
       const expNorm = normRows(exp.values).sort();
-      setVerdict(
+      const ok =
         gotNorm.length === expNorm.length &&
-          gotNorm.every((r, i) => r === expNorm[i])
-          ? "pass"
-          : "fail"
-      );
+        gotNorm.every((r, i) => r === expNorm[i]);
+      setVerdict(ok ? "pass" : "fail");
+      if (ok) setPassed((p) => new Set(p).add(challenge.id));
     } catch (e) {
       setErr(String(e).replace(/^Error:\s*/i, ""));
     } finally {
@@ -125,17 +156,27 @@ export default function SqlPlayground() {
 
   return (
     <div className="rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-400/5 to-transparent p-6 sm:p-8">
-      <p className="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400">
-        Hands-on playground
-      </p>
-      <h2 className="mt-1 text-xl font-bold text-ink">
-        Write the query — real SQL on the lab dataset
-      </h2>
-      <p className="mt-1 text-sm text-muted">
-        The same {240}+ synthetic transactions from the Data Lab (seed 42),
-        loaded into an in-browser SQLite engine. Write actual SQL — your
-        results are checked against the reference answer.
-      </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400">
+            Hands-on playground
+          </p>
+          <h2 className="mt-1 text-xl font-bold text-ink">
+            Investigation scenarios — write the query, crack the case
+          </h2>
+          <p className="mt-1 text-sm text-muted">
+            Two live datasets in an in-browser SQLite engine: the bank ledger
+            from the Data Lab, and a Dune-style on-chain table. Each challenge
+            is a real analyst scenario — your SQL is checked against the
+            reference answer.
+          </p>
+        </div>
+        {ready && (
+          <span className="rounded-full border border-line bg-surface/60 px-3 py-1 font-mono text-[11px] text-muted">
+            {passed.size}/{SQL_CHALLENGES.length} solved
+          </span>
+        )}
+      </div>
 
       {!ready && !dbErr && (
         <p className="mt-6 text-sm text-muted">Loading SQL engine…</p>
@@ -149,26 +190,66 @@ export default function SqlPlayground() {
       {ready && (
         <>
           {/* challenge picker */}
-          <div className="mt-5 flex flex-wrap gap-1.5">
-            {SQL_CHALLENGES.map((c, i) => (
-              <button
-                key={c.id}
-                onClick={() => pick(i)}
-                className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
-                  i === chIdx
-                    ? "border-emerald-400/60 bg-emerald-400/10 text-ink"
-                    : "border-line bg-surface/60 text-muted hover:border-emerald-400/40 hover:text-ink"
-                }`}
-              >
-                {i + 1}. {c.title}
-              </button>
-            ))}
+          <div className="mt-5 space-y-2">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-faint">
+              Bank ledger scenarios ({bankCount})
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {SQL_CHALLENGES.map((c, i) =>
+                c.dataset === "bank" ? (
+                  <button
+                    key={c.id}
+                    onClick={() => pick(i)}
+                    className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
+                      i === chIdx
+                        ? "border-emerald-400/60 bg-emerald-400/10 text-ink"
+                        : "border-line bg-surface/60 text-muted hover:border-emerald-400/40 hover:text-ink"
+                    }`}
+                  >
+                    {passed.has(c.id) ? "✓ " : ""}
+                    {c.title}
+                  </button>
+                ) : null
+              )}
+            </div>
+            <p className="pt-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-faint">
+              On-chain scenarios — Dune-style ({SQL_CHALLENGES.length - bankCount})
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {SQL_CHALLENGES.map((c, i) =>
+                c.dataset === "chain" ? (
+                  <button
+                    key={c.id}
+                    onClick={() => pick(i)}
+                    className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
+                      i === chIdx
+                        ? "border-sky-400/60 bg-sky-400/10 text-ink"
+                        : "border-line bg-surface/60 text-muted hover:border-sky-400/40 hover:text-ink"
+                    }`}
+                  >
+                    {passed.has(c.id) ? "✓ " : ""}
+                    ⛓ {c.title}
+                  </button>
+                ) : null
+              )}
+            </div>
           </div>
 
-          {/* prompt */}
+          {/* scenario + prompt */}
           <div className="mt-5 rounded-xl border border-line bg-surface/60 p-4">
-            <p className="text-sm font-semibold text-ink">{challenge.title}</p>
-            <p className="mt-1 text-sm leading-6 text-body">{challenge.prompt}</p>
+            <p
+              className={`text-[10px] font-mono font-semibold uppercase tracking-widest ${
+                challenge.dataset === "chain" ? "text-sky-400" : "text-emerald-400"
+              }`}
+            >
+              {challenge.dataset === "chain"
+                ? "On-chain investigation · Dune-style"
+                : "Bank investigation"}
+            </p>
+            <p className="mt-1.5 text-sm italic leading-6 text-body">
+              {challenge.scenario}
+            </p>
+            <p className="mt-2 text-sm font-semibold text-ink">{challenge.prompt}</p>
             <p className="mt-2 font-mono text-[11px] text-faint">
               hint: {challenge.hint}
             </p>
@@ -184,7 +265,11 @@ export default function SqlPlayground() {
               setErr("");
             }}
             spellCheck={false}
-            placeholder={"SELECT customer, SUM(amount) AS total\nFROM transactions\nGROUP BY customer\nORDER BY total DESC"}
+            placeholder={
+              challenge.dataset === "chain"
+                ? "SELECT block_time, from_address, to_address, value\nFROM chain_transactions\nWHERE ..."
+                : "SELECT customer, SUM(amount) AS total\nFROM transactions\nGROUP BY customer\nORDER BY total DESC"
+            }
             className="mt-4 h-32 w-full resize-y rounded-xl border border-line bg-zinc-950/80 p-4 font-mono text-xs leading-5 text-emerald-200 outline-none placeholder:text-faint/50 focus:border-emerald-400/50"
           />
 
@@ -202,8 +287,19 @@ export default function SqlPlayground() {
             >
               Clear
             </button>
+            {challenge.tryOn && (
+              <a
+                href={challenge.tryOn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-sky-400 hover:underline"
+              >
+                {challenge.tryOn.label}
+              </a>
+            )}
             <span className="text-[11px] text-faint">
-              Table: <code className="font-mono">transactions(id, ts, customer, counterparty, type, amount, currency, channel, is_new_cp)</code>
+              Table:{" "}
+              <code className="font-mono">{SCHEMA_HINT[challenge.dataset]}</code>
             </span>
           </div>
 
@@ -211,16 +307,20 @@ export default function SqlPlayground() {
           {verdict === "pass" && (
             <div className="mt-4 rounded-lg border border-emerald-400/40 bg-emerald-400/10 p-4">
               <p className="text-sm font-semibold text-emerald-300">
-                ✓ Correct — your result set matches the reference exactly.
+                ✓ Case cracked — your result set matches the reference exactly.
               </p>
               <p className="mt-1 text-xs leading-5 text-muted">{challenge.explain}</p>
-              {chIdx < SQL_CHALLENGES.length - 1 && (
+              {chIdx < SQL_CHALLENGES.length - 1 ? (
                 <button
                   onClick={() => pick(chIdx + 1)}
                   className="mt-3 rounded-lg bg-emerald-400 px-3 py-1.5 text-xs font-semibold text-zinc-950 hover:bg-emerald-300"
                 >
-                  Next challenge →
+                  Next scenario →
                 </button>
+              ) : (
+                <p className="mt-3 text-xs font-semibold text-emerald-300">
+                  🏆 All scenarios solved — you&apos;re ready for real data.
+                </p>
               )}
             </div>
           )}
