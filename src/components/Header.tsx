@@ -19,6 +19,7 @@ export default async function Header() {
         { href: "/paths", label: L("nav.paths") },
         { href: "/training", label: L("nav.training") },
         { href: "/disciplines", label: L("nav.disciplines") },
+        { href: "/tech", label: L("tech") },
         { href: "/library", label: L("nav.library") },
       ],
     },

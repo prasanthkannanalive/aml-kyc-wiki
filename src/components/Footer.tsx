@@ -28,6 +28,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.glossary", "/glossary"],
       ["cheatsheets", "/cheatsheets"],
       ["typologies", "/typologies"],
+      ["tech", "/tech"],
     ],
   },
   {

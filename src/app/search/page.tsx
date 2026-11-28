@@ -134,6 +134,13 @@ export default function SearchPage() {
       text: "Five fixed AML scenario questions per day, same for everyone worldwide — submit your score to today's leaderboard and build a streak.",
     },
     {
+      title: "Tech Skills — SQL, Python, Web3 & RegTech for AML roles",
+      subtitle: "Reference · technical track",
+      href: "/tech",
+      kind: "Tool",
+      text: "The programming layer AML/KYC roles hire for: SQL window functions and joins, Python pandas automation, Excel/VBA, Solidity reading and blockchain APIs, RegTech/AI workflows and BI — mapped to each role level.",
+    },
+    {
       title: "Interactive Tools — risk calculator, UBO calculator, SAR timer",
       subtitle: "Interactive · calculators",
       href: "/tools",
