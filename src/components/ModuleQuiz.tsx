@@ -50,7 +50,7 @@ export default function ModuleQuiz({
         </span>
       </div>
       <p className="mt-1 text-xs text-muted">
-        Five-question knowledge check — answer all, then submit.
+        {questions.length}-question knowledge check — answer all, then submit.
       </p>
 
       <div className="mt-4 space-y-4">

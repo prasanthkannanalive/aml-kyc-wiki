@@ -113,7 +113,7 @@ export default function FinalExam({
             End-of-course exam — {courseTitle}
           </h2>
           <p className="mt-1 text-sm text-muted">
-            {questions.length} questions across all six modules. Pass mark:{" "}
+            {questions.length} questions across all modules. Pass mark:{" "}
             {Math.round(PASS_MARK * 100)}%. Passing issues your course
             completion badge.
           </p>
