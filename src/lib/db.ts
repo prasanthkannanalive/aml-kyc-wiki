@@ -31,16 +31,24 @@ async function kvGet<T>(...args: string[]): Promise<T | null> {
   }
 }
 
-/** Write command — args in path; optional JSON body for value commands. */
+/** Write command — args in path; string bodies sent raw (Upstash stores the
+ *  request body verbatim, so pre-stringified JSON must not be re-encoded). */
 async function kvPost<T>(args: string[], body?: unknown): Promise<T | null> {
   try {
     const res = await fetch(`${KV_URL}/${args.map(encodeURIComponent).join("/")}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${KV_TOKEN}`,
-        ...(body !== undefined ? { "Content-Type": "application/json" } : {}),
+        ...(body !== undefined && typeof body !== "string"
+          ? { "Content-Type": "application/json" }
+          : {}),
       },
-      body: body !== undefined ? JSON.stringify(body) : undefined,
+      body:
+        body !== undefined
+          ? typeof body === "string"
+            ? body
+            : JSON.stringify(body)
+          : undefined,
       cache: "no-store",
     });
     const json = (await res.json()) as { result?: T };
@@ -340,7 +348,14 @@ export async function getChallengeBoard(
   let board: ChallengeEntry[] = [];
   if (kvEnabled()) {
     const raw = await kvGet<string>("GET", K.challenge(day));
-    board = raw ? (JSON.parse(raw) as ChallengeEntry[]) : [];
+    try {
+      // tolerate legacy double-encoded values written before the kvPost fix
+      let v: unknown = raw ? JSON.parse(raw) : [];
+      if (typeof v === "string") v = JSON.parse(v);
+      if (Array.isArray(v)) board = v as ChallengeEntry[];
+    } catch {
+      board = [];
+    }
   } else {
     board = readJson<Record<string, ChallengeEntry[]>>("challenge.json", {})[
       day
