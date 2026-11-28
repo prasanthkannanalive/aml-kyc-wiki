@@ -4,6 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 
 const AIRTM_URL = "https://airtm.me/prasanth36zqf2vg";
+// Set to the owner's UPI ID (e.g. name@okhdfcbank) to enable India payments.
+const UPI_ID = "";
+const UPI_MONTHLY_INR = 999;
+const UPI_YEARLY_INR = 7999;
+
+function upiLink(amountInr: number) {
+  const params = new URLSearchParams({
+    pa: UPI_ID,
+    pn: "AML/KYC Wiki Pro",
+    am: String(amountInr),
+    cu: "INR",
+    tn: `Pro ${amountInr === UPI_MONTHLY_INR ? "monthly" : "yearly"}`,
+  });
+  return `upi://pay?${params.toString()}`;
+}
 
 export default function ProCheckout() {
   const [code, setCode] = useState("");
@@ -67,6 +82,38 @@ export default function ProCheckout() {
           airtm.me/prasanth36zqf2vg · include your account email as the note
         </span>
       </div>
+
+      {UPI_ID && (
+        <div className="mt-5 rounded-xl border border-line bg-surface/60 p-4">
+          <p className="text-sm font-semibold text-ink">
+            Pay via UPI — India
+          </p>
+          <p className="mt-1 text-xs leading-5 text-muted">
+            ₹{UPI_MONTHLY_INR.toLocaleString("en-IN")}/month or ₹
+            {UPI_YEARLY_INR.toLocaleString("en-IN")}/year. Pay from any UPI app
+            (GPay, PhonePe, Paytm, BHIM) to{" "}
+            <span className="font-mono font-semibold text-emerald-300">
+              {UPI_ID}
+            </span>{" "}
+            — include your account email as the note, then redeem your code
+            below.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              href={upiLink(UPI_MONTHLY_INR)}
+              className="rounded-lg border border-emerald-400/50 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-300 transition-colors hover:bg-emerald-400/20"
+            >
+              Pay ₹{UPI_MONTHLY_INR.toLocaleString("en-IN")} monthly
+            </a>
+            <a
+              href={upiLink(UPI_YEARLY_INR)}
+              className="rounded-lg border border-emerald-400/50 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-300 transition-colors hover:bg-emerald-400/20"
+            >
+              Pay ₹{UPI_YEARLY_INR.toLocaleString("en-IN")} yearly
+            </a>
+          </div>
+        </div>
+      )}
 
       <div className="mt-6 border-t border-line/60 pt-5">
         <p className="text-sm font-semibold text-ink">Have a code?</p>

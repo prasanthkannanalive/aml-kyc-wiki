@@ -67,7 +67,7 @@ const TIERS = [
 const FAQ = [
   {
     q: "How do I pay for Pro?",
-    a: "Crypto via Airtm — hit 'Pay with Airtm' below, send $12 (monthly) or $96 (yearly), and include your account email as the note. We activate Pro and send a one-time redeem code within 24 hours. Card payments via Stripe are on the roadmap.",
+    a: "India: UPI (GPay, PhonePe, Paytm) — ₹999/month or ₹7,999/year, pay to our UPI ID below and redeem your code. Global: crypto via Airtm — $12/month or $96/year. We activate Pro and send a one-time redeem code within 24 hours. Card payments via Stripe are on the roadmap.",
   },
   {
     q: "Can I cancel anytime?",
