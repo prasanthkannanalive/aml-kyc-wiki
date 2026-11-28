@@ -183,6 +183,26 @@ export default function ExamSimulator({
             </div>
           ))}
         </div>
+        {Object.entries(breakdown).some(([, b]) => b.ok / b.n < PASS) && (
+          <div className="mt-4 rounded-lg border border-amber-400/30 bg-amber-400/5 p-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-amber-300">
+              Focus your revision
+            </p>
+            <ul className="mt-2 space-y-1.5">
+              {Object.entries(breakdown)
+                .filter(([, b]) => b.ok / b.n < PASS)
+                .map(([mod, b]) => (
+                  <li key={mod} className="text-xs leading-5 text-body">
+                    <span className="font-semibold text-ink">
+                      {mod} — {Math.round((b.ok / b.n) * 100)}%
+                    </span>{" "}
+                    ({b.ok}/{b.n}). Revisit that module&apos;s chapters, then
+                    retake its module check before your next mock.
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
         <div className="mt-5 flex flex-wrap gap-3">
           <button
             onClick={() => setMode("pick")}

@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
+import QuizDebrief from "@/components/QuizDebrief";
 
 const PASS_MARK = 0.7;
 const STORAGE_PREFIX = "aml-kyc-final-exam:";
@@ -225,6 +226,10 @@ export default function FinalExam({
               </div>
             ))}
           </div>
+
+          {submitted && (
+            <QuizDebrief questions={questions} picked={picked} />
+          )}
 
           <div className="mt-6 flex items-center gap-4">
             {!submitted ? (

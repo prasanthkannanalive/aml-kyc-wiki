@@ -2064,6 +2064,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "The customer has been a client for over a year",
       ],
       answer: 1,
+      section: "Risk-Based Approach & CDD",
       explain: [
         "Wrong — customer preference doesn't determine the risk rating.",
         "Correct — SDD applies only where risk is demonstrably low across all dimensions.",
@@ -2080,6 +2081,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only applies to corporate customers",
       ],
       answer: 1,
+      section: "pKYC & Ongoing Monitoring",
       explain: [
         "Wrong — that's periodic review, the model pKYC replaces.",
         "Correct — pKYC refreshes on triggers (PEP change, adverse media, unusual activity) rather than fixed dates.",
@@ -2096,6 +2098,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Enhanced ongoing monitoring",
       ],
       answer: 2,
+      section: "EDD, PEPs & Enhanced Controls",
       explain: [
         "Wrong — senior management approval IS a standard EDD requirement for PEPs.",
         "Wrong — corroborating source of wealth IS required; 'already known' doesn't substitute for evidence.",
@@ -2107,6 +2110,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Person A owns 50% of HoldCo, which owns 60% of Target Co. Person A's indirect stake in Target Co is:",
       options: ["30%", "60%", "45%", "15%"],
       answer: 0,
+      section: "KYB, UBO & Ownership",
       explain: [
         "Correct — multiply the ownership chain: 50% × 60% = 30%.",
         "60% — that's HoldCo's stake in Target, not A's indirect stake.",
@@ -2123,6 +2127,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Keeping invoices for seven years",
       ],
       answer: 0,
+      section: "Trade Finance & TBML",
       explain: [
         "Correct — over/under-invoicing transfers value via falsified trade documents — the core TBML technique.",
         "Wrong — paying on time is normal, expected behaviour.",
@@ -2139,6 +2144,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "An account held by a funnel-marketing firm",
       ],
       answer: 0,
+      section: "Typologies & Mule Accounts",
       explain: [
         "Correct — funnel accounts aggregate many small deposits (often mule proceeds) then sweep them onward.",
         "Wrong — that's a dormant/reactivated account, a different pattern.",
@@ -2155,6 +2161,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Provide a secure response channel",
       ],
       answer: 2,
+      section: "Investigation Craft — RFIs",
       explain: [
         "Wrong — naming specific transactions is required for a useful RFI.",
         "Wrong — a deadline is good practice; it keeps the investigation moving.",
@@ -2171,6 +2178,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "There is no deadline",
       ],
       answer: 1,
+      section: "Reporting Rules — PMLA Thresholds",
       explain: [
         "30 days — that's the US SAR window, not India.",
         "Correct — PMLA Rule 8: 7 days from concluding the transaction is suspicious.",
@@ -2187,6 +2195,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "The firm must refile",
       ],
       answer: 1,
+      section: "SAR/STR Regimes — UK & Global",
       explain: [
         "Wrong — silence isn't refusal; it's deemed consent.",
         "Correct — under the DAML regime, no NCA response within 7 working days = consent deemed given.",
@@ -2203,6 +2212,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Accuse the customer of specific crimes",
       ],
       answer: 0,
+      section: "SAR Writing & Narratives",
       explain: [
         "Correct — chronological facts + exact figures + 'suspicion' framing gives the FIU what it needs.",
         "Wrong — conclusions without facts can't be investigated or defended.",
@@ -2221,6 +2231,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Prevent, detect, respond",
       ],
       answer: 1,
+      section: "Fraud Fundamentals",
       explain: [
         "Wrong — that's an enforcement lifecycle, not the fraudster's mindset.",
         "Correct — Cressey's triangle explains why people commit fraud.",
@@ -2237,6 +2248,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "It's always detected immediately",
       ],
       answer: 1,
+      section: "Payment Fraud & APP",
       explain: [
         "Wrong — APP scams manipulate people, not systems.",
         "Correct — social engineering convinces victims to send money willingly; controls must address the human layer.",
@@ -2253,6 +2265,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Outside the organisation",
       ],
       answer: 1,
+      section: "Governance & Three Lines",
       explain: [
         "Wrong — first line owns day-to-day controls in the business.",
         "Correct — fraud/risk functions are second-line: they set the framework and oversee first-line execution.",
@@ -2264,6 +2277,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Expense fraud is classified as:",
       options: ["Financial statement fraud", "Asset misappropriation", "Corruption", "External fraud"],
       answer: 1,
+      section: "Fraud Types & Schemes",
       explain: [
         "Wrong — that's misstating financials, a different category.",
         "Correct — expense fraud steals company assets — asset misappropriation.",
@@ -2280,6 +2294,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "It's a sign of good detection",
       ],
       answer: 1,
+      section: "Detection & Analytics",
       explain: [
         "Wrong — high FPs indicate tuning problems, not rising fraud.",
         "Correct — drowning in false alerts buries true positives; precision matters.",
@@ -2296,6 +2311,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Waiting for audit",
       ],
       answer: 1,
+      section: "Response & Containment",
       explain: [
         "Wrong — publicity can tip off accomplices.",
         "Correct — contain first to stop further loss, then investigate and remediate.",
@@ -2312,6 +2328,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Automatic full reimbursement always",
       ],
       answer: 1,
+      section: "Regulatory & Reimbursement",
       explain: [
         "Wrong — mandatory reimbursement applies since Oct 2024.",
         "Correct — PSR rules allocate loss between firms with caps and a gross-negligence exemption.",
@@ -2328,6 +2345,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only banks face liability",
       ],
       answer: 1,
+      section: "Corporate Liability",
       explain: [
         "Wrong — entities face criminal/civil liability too.",
         "Correct — failure-to-prevent offences make firms liable for associated persons' conduct.",
@@ -2344,6 +2362,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only work for banks",
       ],
       answer: 1,
+      section: "Mule Accounts & Networks",
       explain: [
         "Wrong — mules are often deceived or paid; they're cut-outs, not masterminds.",
         "Correct — mule accounts break the audit trail between criminal and victim funds.",
@@ -2360,6 +2379,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only customer reports",
       ],
       answer: 1,
+      section: "Detection Strategy",
       explain: [
         "Wrong — manual alone can't scale.",
         "Correct — layered detection: automated scoring + human judgement for the riskiest alerts.",
@@ -2378,6 +2398,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Require no monitoring",
       ],
       answer: 1,
+      section: "Sanctions Fundamentals",
       explain: [
         "Wrong — targeted sanctions can be harder to enforce precisely.",
         "Correct — post-Cold War shift to 'smart' sanctions aims at perpetrators, not whole economies.",
@@ -2394,6 +2415,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Custom only",
       ],
       answer: 1,
+      section: "UN & Global Frameworks",
       explain: [
         "Wrong — they're mandatory, not voluntary.",
         "Correct — Chapter VII resolutions create binding legal obligations for all member states.",
@@ -2405,6 +2427,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "OFAC is the sanctions authority of:",
       options: ["The UN", "The United States", "The European Union", "The UK"],
       answer: 1,
+      section: "Jurisdictions & Authorities",
       explain: [
         "Wrong — the UN has its own sanctions committees.",
         "Correct — OFAC = US Treasury's Office of Foreign Assets Control.",
@@ -2421,6 +2444,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Ignore it if small",
       ],
       answer: 1,
+      section: "Sanctions Implementation",
       explain: [
         "Wrong — freezing holds funds; confiscation is a separate court process.",
         "Correct — freeze = prohibit transactions, hold funds, report to OFAC/OFSI.",
@@ -2437,6 +2461,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "It has 50 employees",
       ],
       answer: 1,
+      section: "Ownership Rules & Aggregation",
       explain: [
         "Wrong — direction matters: OWNED BY sanctioned parties.",
         "Correct — ≥50% ownership by sanctioned person(s), aggregated, triggers deemed sanctions status.",
@@ -2453,6 +2478,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Hide company registration",
       ],
       answer: 1,
+      section: "Ownership Rules & Aggregation",
       explain: [
         "Wrong — legitimate investment isn't the target.",
         "Correct — two SDNs owning 30%+25% = 55% → entity blocked despite being unlisted.",
@@ -2469,6 +2495,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only email addresses",
       ],
       answer: 1,
+      section: "Screening Technology",
       explain: [
         "Wrong — exact matching is what fuzzy matching improves upon.",
         "Correct — 'Mohammed' vs 'Muhammad', spelling variants need algorithmic matching.",
@@ -2485,6 +2512,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Wait for the next audit",
       ],
       answer: 1,
+      section: "Match Resolution & Freezing",
       explain: [
         "Wrong — processing a sanctioned transaction is a strict-liability breach.",
         "Correct — freeze, reject, file report, maintain confidentiality.",
@@ -2501,6 +2529,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Technical upgrades",
       ],
       answer: 1,
+      section: "Maritime & Evasion Typologies",
       explain: [
         "Wrong — AIS gaps are abnormal and suspicious.",
         "Correct — disabling tracking near sanctioned ports is a classic evasion indicator.",
@@ -2517,6 +2546,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Are required by maritime law",
       ],
       answer: 1,
+      section: "Maritime & Evasion Typologies",
       explain: [
         "Wrong — STS is legal; misuse for sanctions evasion is the risk.",
         "Correct — mid-ocean transfers hide the link between sanctioned producers and buyers.",
@@ -2535,6 +2565,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "It's identical to laundering",
       ],
       answer: 1,
+      section: "TF Fundamentals",
       explain: [
         "Wrong — TF often involves small amounts.",
         "Correct — TF = providing funds for terrorism; source can be clean (charity, business) or dirty.",
@@ -2551,6 +2582,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Maintain sanctions lists",
       ],
       answer: 1,
+      section: "Global Frameworks — FATF",
       explain: [
         "Wrong — FATF sets standards; enforcement is national.",
         "Correct — FATF issues 40 Recommendations and conducts mutual evaluations.",
@@ -2567,6 +2599,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Banned from UN",
       ],
       answer: 1,
+      section: "FATF Lists & Compliance",
       explain: [
         "Wrong — grey listing isn't sanctions.",
         "Correct — enhanced monitoring + technical assistance demands until deficiencies resolve.",
@@ -2583,6 +2616,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "It's always illegal",
       ],
       answer: 1,
+      section: "Hawala & Informal Transfers",
       explain: [
         "Wrong — hawala is a traditional trust-based network, not crypto.",
         "Correct — value moves via broker networks with little paper trail.",
@@ -2599,6 +2633,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only big NGOs are at risk",
       ],
       answer: 1,
+      section: "NPO Abuse & Charities",
       explain: [
         "Wrong — most are legitimate; vulnerability ≠ guilt.",
         "Correct — cash-heavy ops in high-risk areas + weak oversight = diversion risk.",
@@ -2615,6 +2650,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "TF is easier to detect",
       ],
       answer: 1,
+      section: "Detection Challenges",
       explain: [
         "Wrong — TF is typically smaller-scale.",
         "Correct — small 'clean' amounts + speed requirement make detection harder.",
@@ -2631,6 +2667,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Optional",
       ],
       answer: 1,
+      section: "Asset Freezing",
       explain: [
         "Wrong — listing creates automatic freezing duties.",
         "Correct — freeze immediately; delays can enable attacks.",
@@ -2647,6 +2684,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Banks can't cooperate",
       ],
       answer: 1,
+      section: "International Cooperation",
       explain: [
         "Wrong — terrorist networks are transnational.",
         "Correct — money, people and attacks cross borders; FIU/security cooperation is critical.",
@@ -2663,6 +2701,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Using multiple accounts legitimately",
       ],
       answer: 1,
+      section: "Typologies — Smurfing & Structuring",
       explain: [
         "Wrong — it's financial structuring.",
         "Correct — same evasion technique as ML structuring, applied to TF.",
@@ -2679,6 +2718,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
         "Only registries",
       ],
       answer: 1,
+      section: "List-Based Screening",
       explain: [
         "Wrong — statutory screening uses official lists.",
         "Correct — UNSC lists + national proscribed-organisation lists + PEP screening.",
@@ -2692,6 +2732,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Trafficking revenue comes primarily from:",
       options: ["Drug sales", "Exploiting victims — forced labour, sexual exploitation, organs", "Legitimate profits", "Government grants"],
       answer: 1,
+      section: "Trafficking Economics",
       explain: [
         "Wrong — drugs are separate; trafficking monetises human exploitation.",
         "Correct — profits derive from exploiting victims across multiple forms.",
@@ -2703,6 +2744,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Trafficking financial flows typically use:",
       options: ["Only cash", "Cash, hawala, front companies and digital payments", "Only banks", "No finance"],
       answer: 1,
+      section: "Flow Typologies",
       explain: [
         "Wrong — cash is common but not exclusive.",
         "Correct — networks diversify across informal and formal channels.",
@@ -2714,6 +2756,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "A key tracing challenge is that proceeds are often:",
       options: ["Always huge", "Commingled with legitimate business revenue via front companies", "Nonexistent", "Only in crypto"],
       answer: 1,
+      section: "Tracing & Investigation",
       explain: [
         "Wrong — size isn't the issue; obscuring origin is.",
         "Correct — fronts (parlours, farms, hospitality) launder exploitation revenue as business income.",
@@ -2725,6 +2768,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Red flags for trafficking include:",
       options: ["Regular salary payments", "Shared/controlled accounts, third-party account control, cash-intensive fronts", "Only crypto", "No activity"],
       answer: 1,
+      section: "Detection & Red Flags",
       explain: [
         "Wrong — regular salaries are normal.",
         "Correct — victims' wages controlled by handlers, shared accounts, cash-heavy fronts are key indicators.",
@@ -2736,6 +2780,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Third-party control of a victim's account signals:",
       options: ["Legal requirement", "The victim isn't in control of their earnings — exploitation", "Normal practice", "Only minors"],
       answer: 1,
+      section: "Victim Account Indicators",
       explain: [
         "Wrong — no law requires handler control.",
         "Correct — 'boyfriend'/employer controlling accounts indicates exploitation.",
@@ -2747,6 +2792,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "FI obligations for trafficking require:",
       options: ["Ignoring suspicion", "Reporting to FIUs and cooperating with LE", "Only closing accounts", "Public naming"],
       answer: 1,
+      section: "Institutional Obligations",
       explain: [
         "Wrong — ignoring SAR obligations breaches compliance.",
         "Correct — report suspicious activity and assist law enforcement.",
@@ -2758,6 +2804,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Trafficking cases need international cooperation because:",
       options: ["They're domestic", "Victims, traffickers and proceeds cross borders", "UN does all", "Banks can't share"],
       answer: 1,
+      section: "Global Cooperation",
       explain: [
         "Wrong — trafficking is transnational.",
         "Correct — cross-border movement of people and funds requires joint investigation.",
@@ -2769,6 +2816,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Asset recovery in trafficking aims to:",
       options: ["Only punish", "Seize proceeds to compensate victims and dismantle networks", "Fund government", "Only bank assets"],
       answer: 1,
+      section: "Asset Recovery",
       explain: [
         "Wrong — it serves victims and network disruption.",
         "Correct — forfeiture compensates victims and starves criminal operations.",
@@ -2780,6 +2828,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "An anti-trafficking framework should include:",
       options: ["Only posters", "Training, monitoring, escalation and LE partnerships", "Only audits", "Nothing"],
       answer: 1,
+      section: "Prevention Frameworks",
       explain: [
         "Wrong — awareness alone doesn't detect finance.",
         "Correct — trained staff + monitoring + escalation + LE relationships.",
@@ -2791,6 +2840,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Trafficking escalation should prioritise:",
       options: ["Slow review", "Rapid reporting while protecting victim confidentiality", "Public disclosure", "Customer notification"],
       answer: 1,
+      section: "Escalation & Response",
       explain: [
         "Wrong — victim safety can't wait.",
         "Correct — escalate fast to MLRO/LE, protect identity, coordinate support.",
@@ -2804,6 +2854,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "A VASP is:",
       options: ["Any tech company", "A business providing exchange/transfer/custody services for virtual assets", "Only miners", "Only NFT artists"],
       answer: 1,
+      section: "VASP Definition & Regulation",
       explain: [
         "Wrong — VASP is a specific regulatory category.",
         "Correct — FATF defines VASPs as virtual-asset service providers under AML obligations.",
@@ -2815,6 +2866,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "The Travel Rule requires VASPs to:",
       options: ["Check passports only", "Exchange originator/beneficiary data on transfers above threshold", "Only apply to BTC", "Nothing"],
       answer: 1,
+      section: "Travel Rule",
       explain: [
         "Wrong — it's about transaction data, not just ID.",
         "Correct — like wire transfers, virtual-asset transfers carry counterparty information.",
@@ -2826,6 +2878,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Stablecoins are higher AML risk because they:",
       options: ["They're scams", "Combine price stability with crypto transferability — ideal for illicit moves", "Untraceable", "Only criminal"],
       answer: 1,
+      section: "Asset Risk Assessment",
       explain: [
         "Wrong — many are legitimate; risk is in the characteristics.",
         "Correct — stable value + crypto rails = attractive for moving illicit funds.",
@@ -2837,6 +2890,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "On-chain analytics works by:",
       options: ["Guessing owners", "Tracing public blockchain flows to cluster wallets and flag mixers/sanctioned addresses", "Checking emails", "Nothing — anonymous"],
       answer: 1,
+      section: "Blockchain Analytics",
       explain: [
         "Wrong — it clusters and traces, not guesses.",
         "Correct — every transaction is public; analytics follows flows and flags risk.",
@@ -2848,6 +2902,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Mixers are AML red flags because they:",
       options: ["Speed transactions", "Deliberately obscure the transaction trail to hide fund sources", "Are legal requirements", "Only small amounts"],
       answer: 1,
+      section: "Obfuscation Typologies",
       explain: [
         "Wrong — mixers add obfuscation, not speed.",
         "Correct — they pool and redistribute to break on-chain links.",
@@ -2859,6 +2914,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Chain-hopping in laundering refers to:",
       options: ["Exchange hopping", "Moving across blockchains to break the trail", "Same-chain wallets", "Trading strategy"],
       answer: 1,
+      section: "Obfuscation Typologies",
       explain: [
         "Wrong — that's simpler exchange hopping.",
         "Correct — cross-chain conversion (BTC→ETH→stablecoin) complicates tracing.",
@@ -2870,6 +2926,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "VASPs need KYC because:",
       options: ["Crypto is exempt", "FATF standards and laws like MiCA impose AML obligations", "Only banks need it", "Voluntary"],
       answer: 1,
+      section: "KYC/CDD for VASPs",
       explain: [
         "Wrong — crypto isn't exempt.",
         "Correct — FATF R.15 + MiCA + national laws require full AML on VASPs.",
@@ -2881,6 +2938,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Crypto monitoring should flag:",
       options: ["Failed logins only", "Mixer deposits, sanctioned addresses, darknet markets, layering patterns", "Only large trades", "Nothing"],
       answer: 1,
+      section: "Transaction Monitoring",
       explain: [
         "Wrong — monitoring covers transaction patterns.",
         "Correct — mixer/sanctioned/darknet interactions and velocity are key alerts.",
@@ -2892,6 +2950,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "DeFi complicates AML because:",
       options: ["It's illegal", "Smart contracts remove central intermediaries — no VASP to enforce KYC", "Too slow", "Only stablecoins"],
       answer: 1,
+      section: "DeFi & Emerging Risks",
       explain: [
         "Wrong — it's a regulatory grey zone, not banned.",
         "Correct — disintermediation raises the question of who bears AML duty.",
@@ -2903,6 +2962,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "NFT AML risk comes from:",
       options: ["Always fraud", "Wash trading, inflated prices and pseudonymous transfers enabling laundering", "Can't be sold", "One platform"],
       answer: 1,
+      section: "NFT & Emerging Risks",
       explain: [
         "Wrong — most are legitimate; abuse is the risk.",
         "Correct — self-dealing and pseudonymous sales can disguise illicit funds.",
@@ -2916,6 +2976,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML is:",
       options: ["Crypto laundering", "Moving illicit value through trade by manipulating documents and transactions", "Cash smuggling", "Only containers"],
       answer: 1,
+      section: "TBML Fundamentals",
       explain: [
         "Wrong — crypto is separate.",
         "Correct — TBML exploits trade finance via falsified invoices and phantom shipments.",
@@ -2927,6 +2988,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML is hard to detect because it:",
       options: ["Small amounts", "Abuses legitimate trade flows making illicit transactions appear normal", "Only poor countries", "No banks"],
       answer: 1,
+      section: "Detection Challenges",
       explain: [
         "Wrong — it often involves large amounts.",
         "Correct — legitimate trade provides cover; falsified docs look normal.",
@@ -2938,6 +3000,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML may be the largest laundering method because:",
       options: ["It's proven exactly", "Trade volumes are enormous and mostly unmonitored for AML", "Banks report it all", "It's new"],
       answer: 1,
+      section: "Scale & Impact",
       explain: [
         "Wrong — it's an estimate, not proven exact.",
         "Correct — global trade dwarfs other channels; verification of underlying reality is hard.",
@@ -2949,6 +3012,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Over-invoicing transfers value by:",
       options: ["Undercharging", "Declaring goods above market value so excess payment moves to the seller", "Currency only", "Delaying"],
       answer: 1,
+      section: "Invoice Fraud Typologies",
       explain: [
         "Wrong — that's under-invoicing.",
         "Correct — inflated price means the 'excess' is illicit value to the seller.",
@@ -2960,6 +3024,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Phantom shipments are:",
       options: ["Mislabeled goods", "Fictitious transactions — documents exist but no goods move", "Damaged goods", "Delayed"],
       answer: 1,
+      section: "Invoice Fraud Typologies",
       explain: [
         "Wrong — phantom means non-existent goods.",
         "Correct — fake bills of lading create trade appearance without moving anything.",
@@ -2971,6 +3036,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Multiple invoicing involves:",
       options: ["One invoice", "Several invoices for the same shipment extracting extra payments", "Instalments", "Currencies"],
       answer: 1,
+      section: "Invoice Fraud Typologies",
       explain: [
         "Wrong — multiple means more than one.",
         "Correct — duplicate invoices for one shipment allow extra 'payments' = laundering.",
@@ -2982,6 +3048,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML red flags include:",
       options: ["Market-consistent pricing", "Price deviations, high-risk jurisdictions, unusual trade patterns", "Large shipments", "Air freight"],
       answer: 1,
+      section: "Detection & Red Flags",
       explain: [
         "Wrong — consistent pricing is normal.",
         "Correct — anomalies vs benchmarks, risky corridors, inconsistent patterns signal TBML.",
@@ -2993,6 +3060,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML detection requires comparing:",
       options: ["Only balances", "Invoice prices vs market benchmarks and verifying trade documents", "Only names", "Only dates"],
       answer: 1,
+      section: "Analytics & Benchmarks",
       explain: [
         "Wrong — balances don't reveal manipulation.",
         "Correct — price benchmarking + document verification + commercial logic assessment.",
@@ -3004,6 +3072,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "Correspondent banks' TBML exposure comes from:",
       options: ["Processing all trades", "Providing finance without visibility into underlying transactions", "No trade", "Domestic only"],
       answer: 1,
+      section: "Correspondent Banking Exposure",
       explain: [
         "Wrong — correspondents don't see underlying trades.",
         "Correct — nested relationships mean limited visibility into each transaction's legitimacy.",
@@ -3015,6 +3084,7 @@ export const FINAL_EXAM: Record<string, ModuleQuizQuestion[]> = {
       q: "TBML response should include:",
       options: ["Process anyway", "Escalate, consider freezing, file SAR/STR, document thoroughly", "Ignore", "Warn only"],
       answer: 1,
+      section: "Response & Controls",
       explain: [
         "Wrong — processing suspected TBML breaches compliance.",
         "Correct — escalate, freeze if needed, report, preserve evidence.",

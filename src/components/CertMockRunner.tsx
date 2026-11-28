@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { CertMock } from "@/lib/cert-mocks";
 import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
+import { tipForSection } from "@/lib/quiz-tips";
 
 function fmt(secs: number) {
   const m = Math.floor(secs / 60);
@@ -64,26 +65,6 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
   const missed = questions
     .map((item, i) => ({ item, i, ok: picked[i] === item.answer }))
     .filter((x) => !x.ok);
-
-  const IMPROVEMENTS: Record<string, string> = {
-    "PMLA": "Re-read PMLA/RBI KYC chapters — thresholds (₹10L CTR), deadlines (7-day STR) and definitions (proceeds of crime, scheduled offences) are the most-tested facts.",
-    "FIU-IND": "Focus on reporting mechanics: STR vs CTR vs CNTR, 7-day window, FIU-IND formats — drill the filing guides.",
-    "SEBI": "Review SEBI AML/CFT framework + market-abuse chapters — UCC, KRA-KYC, UBO 25% threshold and market-specific red flags.",
-    "KYC": "Revisit CDD/EDD chapters — OVDs, pKYC refresh cycles (2/8/10 yrs), PEP/RCAs and source-of-wealth verification.",
-    "Monitoring": "Work the transaction-monitoring + labs chapters — structuring, velocity, pass-through and false-positive tuning.",
-    "TBML": "Study the TBML typology + trade-finance chapters — over/under-invoicing, phantom shipments, black-hole corridors.",
-    "Crypto": "Review virtual-asset + sanctions chapters — Travel Rule, mixers, chain-hopping, VASP obligations.",
-    "SAR": "Practise SAR/STR writing in /sar-writer — five Ws, chronology, suspicion-not-guilt framing, continuing reports.",
-    "EDD": "Deep-dive the EDD/PEP chapters — senior approval, SoW corroboration, adverse media, RCAs.",
-    "Governance": "Read enforcement cases + careers chapter — MLRO duties, three-lines model, personal liability.",
-    "FATF": "Study the regulators page + FATF recommendation chapters — grey/black lists, R.10/16/20/30-32.",
-    "Enforcement": "Review the /cases library — TD Bank, Binance, Danske teach institutional-failure patterns.",
-  };
-  const tipFor = (name: string) => {
-    for (const [k, v] of Object.entries(IMPROVEMENTS))
-      if (name.includes(k)) return v;
-    return "Revisit the relevant course chapters and re-take the module quiz for this section.";
-  };
 
   const submit = () => {
     if (timer.current) clearInterval(timer.current);
@@ -155,7 +136,7 @@ export default function CertMockRunner({ mock }: { mock: CertMock }) {
                 <span className="font-semibold text-ink">
                   {s.name} — {Math.round(s.pct * 100)}%
                 </span>{" "}
-                ({s.correct}/{s.total} correct). {tipFor(s.name)}
+                ({s.correct}/{s.total} correct). {tipForSection(s.name)}
               </li>
             ))}
             {missed.length === 0 && (

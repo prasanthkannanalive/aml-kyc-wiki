@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { BankQuestion } from "./ExamSimulator";
+import QuizDebrief from "@/components/QuizDebrief";
+import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 
 const REVIEW_SIZE = 10;
 
@@ -42,6 +44,7 @@ export default function ReviewSession({
   const [qs, setQs] = useState(() => shuffle(questions).slice(0, REVIEW_SIZE));
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [streak, setStreak] = useState<number | null>(null);
@@ -52,6 +55,11 @@ export default function ReviewSession({
   const choose = (oi: number) => {
     if (answered) return;
     setPicked(oi);
+    setAnswers((prev) => {
+      const n = [...prev];
+      n[idx] = oi;
+      return n;
+    });
     if (oi === cur.q.answer) setScore((s) => s + 1);
   };
 
@@ -74,6 +82,7 @@ export default function ReviewSession({
     setQs(shuffle(questions).slice(0, REVIEW_SIZE));
     setIdx(0);
     setPicked(null);
+    setAnswers([]);
     setScore(0);
     setFinished(false);
     setStreak(null);
@@ -97,6 +106,12 @@ export default function ReviewSession({
             🔥 {streak}-day review streak
           </p>
         )}
+        <div className="mx-auto mt-5 max-w-lg text-left">
+          <QuizDebrief
+            questions={qs.map((x) => x.q as ModuleQuizQuestion)}
+            picked={answers}
+          />
+        </div>
         <button
           onClick={restart}
           className="mt-5 rounded-lg bg-emerald-400 px-4 py-2 text-xs font-semibold text-zinc-950 hover:bg-emerald-300"

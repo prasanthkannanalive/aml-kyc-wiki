@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import QuizDebrief from "@/components/QuizDebrief";
+import type { ModuleQuizQuestion } from "@/lib/module-quizzes";
 
-export interface QuizQuestion {
-  q: string;
-  options: string[];
-  answer: number;
-  explain?: string[];
-}
+export interface QuizQuestion extends ModuleQuizQuestion {}
 
 export default function ModuleQuiz({
   moduleTitle,
@@ -119,6 +116,10 @@ export default function ModuleQuiz({
           </div>
         ))}
       </div>
+
+      {submitted && (
+        <QuizDebrief questions={questions as ModuleQuizQuestion[]} picked={picked} />
+      )}
 
       <div className="mt-5 flex items-center gap-4">
         {!submitted ? (
