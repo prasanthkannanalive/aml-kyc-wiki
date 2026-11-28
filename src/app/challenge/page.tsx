@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { challengeDay } from "@/lib/challenge";
 import DailyChallenge from "@/components/DailyChallenge";
+import ChallengeArchive from "@/components/ChallengeArchive";
 import ViewTracker from "@/components/ViewTracker";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +35,8 @@ export default function ChallengePage() {
         <div className="mt-8 rounded-2xl border border-line bg-surface/40 p-6">
           <DailyChallenge day={day} questions={questions} />
         </div>
+
+        <ChallengeArchive day={day} />
       </div>
     </>
   );

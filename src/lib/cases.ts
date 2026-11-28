@@ -706,6 +706,92 @@ export const enforcementCases: EnforcementCase[] = [
       "Consumer-harm failures and AML failures share a root cause — both are 'the control existed but nobody owned the outcome'.",
     ],
   },
+  {
+    slug: "td-bank",
+    study: [
+      { label: "BSA program & filing duties", href: "/courses/kyc-cdd-tm-analyst" },
+      { label: "AML filing walkthroughs", href: "/filing" },
+    ],
+    org: "TD Bank, N.A.",
+    headline: "The $3B plea — growth outpaced the BSA program",
+    country: "USA",
+    year: 2024,
+    fineUsd: 3.09e9,
+    penalty: "$3.09B total resolution — largest BSA-violation penalty ever; guilty plea, monitorship, asset cap",
+    typologies: ["BSA program failure", "CTR/reporting failures", "High-risk business lines", "Fentanyl & trafficking proceeds"],
+    status: "Resolved — guilty plea (Oct 2024), 3-year monitorship, growth constraints",
+    people: ["TD Bank, N.A. (entity)", "US DOJ, FinCEN, OCC, Federal Reserve"],
+    regulator: "US DOJ, FinCEN, OCC, Federal Reserve",
+    rootFailure: "The bank explicitly prioritised growth over risk controls — high-risk business lines (MSBs, remote deposits, P2P, shell-company activity) expanded while transaction monitoring, CTR filing and staffing lagged far behind.",
+    analystAngle: "Billions in unmonitored high-risk flows — remote-deposit, P2P and MSB channels grew while alert queues, CTR thresholds and investigator staffing stayed flat; an analyst watching alert backlog vs. transaction growth would have seen the gap years out.",
+    summary:
+      "In October 2024 TD Bank pleaded guilty to conspiring to violate the Bank Secrecy Act, money-laundering conspiracy and failure to file currency transaction reports — a $3.09 billion resolution, the largest penalty ever for BSA violations. Prosecutors documented a bank that chose growth: internal reviews literally ranked 'New York risk' — the danger of regulators in the market where TD was expanding fastest — and high-risk payment channels processed fentanyl proceeds and human-trafficking funds with almost no effective monitoring.",
+    mistakes: [
+      {
+        title: "Risk registers that documented the problem and did nothing",
+        detail:
+          "Internal assessments repeatedly identified the monitoring gaps — the failure wasn't ignorance, it was that known risk was accepted because the revenue was growing. A risk register without enforcement is a diary, not a control.",
+      },
+      {
+        title: "Alert capacity never matched volume",
+        detail:
+          "Transaction-monitoring alerts piled up unworked while higher-risk product lines expanded. When the queue becomes the control, queue depth IS the control failure — measurable months before examiners arrive.",
+      },
+      {
+        title: "Regulator proximity treated as a business risk, not a compliance signal",
+        detail:
+          "The bank's own risk language worried about New York regulators as a threat to expansion — the inverse of what a healthy program looks like. When compliance is framed as an obstacle to growth rather than the condition of it, the program is already failing.",
+      },
+    ],
+    lessons: [
+      "Growth without proportional compliance capacity is itself a reportable red flag — headcount, alert capacity and CTR coverage must scale with volume.",
+      "The largest BSA penalty in history went to a bank that knew its gaps and chose revenue anyway — documented acceptance of risk is worse than ignorance.",
+      "Monitorships and asset caps are the new enforcement endgame: consequences now reach the business model, not just the compliance budget.",
+    ],
+  },
+  {
+    slug: "binance",
+    study: [
+      { label: "Virtual asset compliance", href: "/courses/virtual-asset-compliance" },
+      { label: "Sanctions screening", href: "/courses/sanctions-screening" },
+    ],
+    org: "Binance",
+    headline: "The $4.3B crypto-compliance settlement",
+    country: "Global (Cayman / US nexus)",
+    year: 2023,
+    fineUsd: 4.3e9,
+    penalty: "$4.3B combined resolutions (DOJ, CFTC, FinCEN); guilty pleas; CEO stepped down",
+    typologies: ["Unlicensed money transmission", "Sanctions violations", "Weak VASP onboarding", "High-risk jurisdiction exposure"],
+    status: "Resolved — guilty pleas (Nov 2023); monitorship; leadership change",
+    people: ["Binance Holdings (entity)", "Changpeng 'CZ' Zhao (CEO — pleaded guilty, sentenced 2024)", "US DOJ, CFTC, FinCEN, SEC"],
+    regulator: "US DOJ, CFTC, FinCEN, SEC",
+    rootFailure: "The world's largest exchange operated without a real AML program — onboarding that ignored sanctions exposure, transactions for restricted jurisdictions (Cuba, Syria, Iran, Crimea) and mixers processed with minimal controls.",
+    analystAngle: "A VASP onboarding and KYT analyst would have flagged it daily — customers in sanctioned jurisdictions, mixer interactions, unverified counterparties — the exchange's growth strategy was literally its typology list.",
+    summary:
+      "In November 2023 Binance pleaded guilty to operating an unlicensed money-transmitting business, violating US sanctions and running an ineffective anti-money-laundering program — a combined $4.3 billion resolution across the DOJ, CFTC and FinCEN, then the largest crypto-enforcement action ever. Founder Changpeng Zhao stepped down as CEO and pleaded guilty personally, receiving a four-month sentence in 2024. The case established that offshore crypto exchanges serving US users inherit the full BSA/sanctions stack — domicile provides no shelter.",
+    mistakes: [
+      {
+        title: "Jurisdiction arbitrage as strategy",
+        detail:
+          "Binance deliberately avoided licensing anywhere, which meant avoiding AML obligations everywhere. The settlement proved the perimeter isn't where you're licensed — it's where your users and the dollar system are.",
+      },
+      {
+        title: "Sanctioned-jurisdiction flows treated as growth",
+        detail:
+          "Transactions touching Cuba, Syria, Iran and Crimea were processed as ordinary volume. For a VASP, restricted-jurisdiction exposure is a blocking issue at onboarding — not a revenue line to be monitored later.",
+      },
+      {
+        title: "Compliance as a cost centre to be minimised",
+        detail:
+          "The exchange famously ran 'no KYC' tiers and minimal transaction monitoring to stay fast. Every control skipped to win market share became an element of the guilty plea — the shortcuts ARE the indictment.",
+      },
+    ],
+    lessons: [
+      "VASP status isn't optional once you serve users in a regulated market — the Travel Rule and BSA duties attach by activity, not by licence.",
+      "Growth in sanctioned or high-risk jurisdictions is a liability, not a metric — onboarding controls must be the gate, not the cleanup.",
+      "Personal accountability is now real in crypto enforcement: the CEO pleaded guilty and served time — 'corporate veil' defence is gone.",
+    ],
+  },
 ];
 
 export function getCase(slug: string): EnforcementCase | undefined {
