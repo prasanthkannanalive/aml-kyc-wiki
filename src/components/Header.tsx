@@ -29,6 +29,7 @@ export default async function Header() {
         { href: "/playground", label: L("nav.playground") },
         { href: "/sandbox", label: L("nav.sandbox") },
         { href: "/exams", label: L("nav.exams") },
+        { href: "/cert-mocks", label: "Cert Mocks" },
         { href: "/review", label: L("nav.review") },
         { href: "/labs", label: "Data Lab" },
         { href: "/tools", label: L("nav.tools") },

@@ -162,6 +162,13 @@ export default function SearchPage() {
       text: "Timed randomized mock exams across all AML/KYC courses — mixed papers or per-course, 15-minute timer, per-module score breakdown.",
     },
     {
+      title: "Certification Mock Exams — IIBF, NISM, CAMS",
+      subtitle: "Assessment · certification prep",
+      href: "/cert-mocks",
+      kind: "Tool",
+      text: "Full-length certification mocks — IIBF AML/KYC (120 Qs/2h/60%), NISM Series XXIV (50 Qs/1h/50%), ACAMS CAMS (120 Qs/3.5h/75 correct) — with per-option explanations.",
+    },
+    {
       title: "Daily Review — spaced repetition",
       subtitle: "Assessment · daily quiz",
       href: "/review",

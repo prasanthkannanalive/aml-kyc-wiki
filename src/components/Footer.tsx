@@ -37,6 +37,7 @@ const GROUPS: { key: string; links: [string, string][] }[] = [
       ["nav.playground", "/playground"],
       ["nav.sandbox", "/sandbox"],
       ["nav.exams", "/exams"],
+      ["certMocks", "/cert-mocks"],
       ["nav.review", "/review"],
       ["labs", "/labs"],
       ["nav.tools", "/tools"],

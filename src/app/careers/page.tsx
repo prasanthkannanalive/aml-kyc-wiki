@@ -213,6 +213,14 @@ export default async function CareersPage() {
             </tbody>
           </table>
         </div>
+        <p className="mt-4 text-sm text-muted">
+          Practise for the big three with our{" "}
+          <Link href="/cert-mocks" className="font-medium text-emerald-400 hover:underline">
+            full-length certification mocks
+          </Link>{" "}
+          — IIBF AML/KYC, NISM Series XXIV and ACAMS CAMS, built to the real
+          exam format.
+        </p>
       </section>
 
       {/* CTA */}

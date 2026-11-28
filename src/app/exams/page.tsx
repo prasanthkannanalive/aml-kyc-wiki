@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { courses } from "@/lib/content";
 import { MODULE_QUIZZES, FINAL_EXAM } from "@/lib/module-quizzes";
 import ExamSimulator, { type BankCourse } from "@/components/ExamSimulator";
@@ -56,6 +57,16 @@ export default async function ExamsPage({
         Questions are drawn from the same banks as the end-of-module checks and
         final assessments in each course. Passing a course&apos;s own final
         exam (not the simulator) is what issues your verifiable certificate.
+      </p>
+      <p className="mt-3 text-xs leading-5 text-muted">
+        Preparing for a real credential? Try the{" "}
+        <Link
+          href="/cert-mocks"
+          className="font-medium text-emerald-400 hover:underline"
+        >
+          full-length certification mocks
+        </Link>{" "}
+        — IIBF, NISM Series XXIV and CAMS, built to the real exam specs.
       </p>
     </div>
   );
