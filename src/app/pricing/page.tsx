@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ViewTracker from "@/components/ViewTracker";
+import ProCheckout from "@/components/ProCheckout";
 
 export const metadata: Metadata = {
   title: "Pricing — AML/KYC Wiki",
@@ -32,7 +33,7 @@ const TIERS = [
     price: "$12",
     period: "/month · $96/year (save 33%)",
     tagline: "For analysts preparing for roles & certifications",
-    cta: { label: "Get Pro — launching soon", href: "/contact" },
+    cta: { label: "Get Pro — pay with Airtm", href: "#get-pro" },
     features: [
       "Everything in Free",
       "Job simulation — scored analyst shifts",
@@ -65,8 +66,8 @@ const TIERS = [
 
 const FAQ = [
   {
-    q: "When does billing go live?",
-    a: "Paid plans are being finalised — checkout will be powered by Stripe. Join the free tier now and we'll email early access when Pro launches.",
+    q: "How do I pay for Pro?",
+    a: "Crypto via Airtm — hit 'Pay with Airtm' below, send $12 (monthly) or $96 (yearly), and include your account email as the note. We activate Pro and send a one-time redeem code within 24 hours. Card payments via Stripe are on the roadmap.",
   },
   {
     q: "Can I cancel anytime?",
@@ -142,8 +143,10 @@ export default function PricingPage() {
         ))}
       </div>
 
+      <ProCheckout />
+
       <p className="mt-6 text-center text-xs text-faint">
-        Secure checkout via Stripe · cancel anytime · prices in USD · see{" "}
+        Crypto payments via Airtm · card checkout (Stripe) coming soon · cancel anytime · prices in USD · see{" "}
         <Link href="/terms" className="text-emerald-400 hover:underline">Terms</Link> &{" "}
         <Link href="/privacy" className="text-emerald-400 hover:underline">Privacy</Link>
       </p>

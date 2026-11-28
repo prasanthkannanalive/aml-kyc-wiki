@@ -68,6 +68,7 @@ const K = {
   cert: (id: string) => `aml:cert:${id}`, // verifiable course certificate
   teams: "aml:teams", // JSON doc: TeamRecord[]
   challenge: (day: string) => `aml:challenge:${day}`, // JSON doc: ChallengeEntry[]
+  procodes: "aml:procodes", // set of unredeemed Pro codes
 };
 
 /* ------------------------- JSON fallback --------------------------- */
@@ -136,6 +137,7 @@ export interface User {
   salt: string;
   hash: string;
   createdAt: string;
+  plan?: "pro" | "team";
 }
 
 async function kvGetUser(id: string): Promise<User | null> {
@@ -289,6 +291,49 @@ export async function setCert(rec: CertRecord): Promise<void> {
   const all = readJson<Record<string, CertRecord>>("certs.json", {});
   all[rec.id] = rec;
   writeJson("certs.json", all);
+}
+
+/* ----------------------------- plans ------------------------------- */
+
+/** Set a user's plan ("pro" | "team"). No-op if user missing. */
+export async function setUserPlan(
+  userId: string,
+  plan: "pro" | "team"
+): Promise<boolean> {
+  const user = await getUserById(userId);
+  if (!user) return false;
+  const updated = { ...user, plan };
+  if (kvEnabled()) {
+    await kvPost(["SET", K.user(userId)], JSON.stringify(updated));
+    return true;
+  }
+  const users = await getUsers();
+  const i = users.findIndex((u) => u.id === userId);
+  if (i < 0) return false;
+  users[i] = updated;
+  writeJson("users.json", users);
+  return true;
+}
+
+/**
+ * Atomically consume a one-time Pro code. Returns true only on first use.
+ * Codes are added out-of-band (admin script / manual SADD).
+ */
+export async function consumeProCode(code: string): Promise<boolean> {
+  const c = code.trim().toUpperCase();
+  if (!/^PRO-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(c)) return false;
+  if (kvEnabled()) {
+    const member = await kvPost<number>(["SISMEMBER", K.procodes, c]);
+    if (!member) return false;
+    await kvPost(["SREM", K.procodes, c]);
+    return true;
+  }
+  const codes = readJson<string[]>("procodes.json", []);
+  const i = codes.indexOf(c);
+  if (i < 0) return false;
+  codes.splice(i, 1);
+  writeJson("procodes.json", codes);
+  return true;
 }
 
 /* ----------------------------- teams ------------------------------- */

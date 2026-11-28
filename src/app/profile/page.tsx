@@ -60,7 +60,14 @@ export default async function ProfilePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
       <SyncOnVisit />
-      <h1 className="text-3xl font-bold tracking-tight">{user.name}</h1>
+      <h1 className="text-3xl font-bold tracking-tight">
+        {user.name}
+        {user.plan === "pro" && (
+          <span className="ml-3 inline-block rounded-full border border-emerald-400/50 bg-emerald-400/10 px-2.5 py-0.5 align-middle text-xs font-bold text-emerald-300">
+            PRO
+          </span>
+        )}
+      </h1>
       <p className="mt-1 text-sm text-muted">{user.email}</p>
 
       <div className="mt-8 grid grid-cols-3 gap-4">
