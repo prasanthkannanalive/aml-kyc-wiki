@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { interviewSections } from "@/lib/content";
 import InterviewBrowser from "@/components/InterviewBrowser";
 import QuizMode from "@/components/QuizMode";
@@ -31,6 +32,20 @@ export default function InterviewPrepPage() {
       <div className="mt-8">
         <InterviewBrowser sections={interviewSections} />
       </div>
+      <p className="mt-10 text-sm text-muted">
+        Preparing for a real sit-down? The{" "}
+        <Link href="/cert-mocks" className="font-medium text-emerald-400 hover:underline">
+          certification mocks
+        </Link>{" "}
+        cover IIBF, NISM Series XXIV and CAMS at full exam length, and the{" "}
+        <Link
+          href="/cert-mocks/ops-tooling"
+          className="font-medium text-emerald-400 hover:underline"
+        >
+          ops &amp; tooling mock
+        </Link>{" "}
+        drills the platform questions interviewers love.
+      </p>
     </div>
   );
 }

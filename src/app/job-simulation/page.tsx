@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import JobSimulation from "@/components/JobSimulation";
 import ViewTracker from "@/components/ViewTracker";
 
@@ -24,6 +25,16 @@ export default function JobSimulationPage() {
       <div className="mt-10">
         <JobSimulation />
       </div>
+      <p className="mt-10 text-sm text-muted">
+        Want to test the platform knowledge employers ask about? Try the{" "}
+        <Link
+          href="/cert-mocks/ops-tooling"
+          className="font-medium text-emerald-400 hover:underline"
+        >
+          Operations &amp; Tooling readiness mock
+        </Link>{" "}
+        — TM platforms, chain analytics, SAR/STR support and QA.
+      </p>
     </div>
   );
 }

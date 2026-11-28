@@ -319,6 +319,7 @@ export const SQL_SECTIONS: SqlSection[] = [
       "Prompt engineering is now a compliance skill: LLMs draft SAR narratives and triage false positives — but outputs must be validated.",
       "BI tools (Power BI/Tableau) communicate alert metrics and typologies to senior compliance.",
       "For crypto roles: reading Solidity (not writing dApps), web3.py/Ethers.js for batch queries, Dune dashboards for protocol flows.",
+      "Employers also ask about platforms by name — Actimize, Verafin, Oracle FCCM, SAS AML, Quantexa for TM; Chainalysis, Elliptic, TRM Labs for chain analytics — drill them in the ops & tooling mock.",
     ],
     questions: [
       q("What is the primary use of pandas in AML analytics?",
