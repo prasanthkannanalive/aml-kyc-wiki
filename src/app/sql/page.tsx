@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ModuleQuiz from "@/components/ModuleQuiz";
+import SqlPlayground from "@/components/SqlPlayground";
 import { SQL_SECTIONS, SQL_FINAL, SQL_TRACK_INTRO } from "@/lib/sql-track";
 
 export const metadata: Metadata = {
@@ -69,6 +70,10 @@ export default function SqlTrackPage() {
           />
         </section>
       ))}
+
+      <div className="mt-12">
+        <SqlPlayground />
+      </div>
 
       <section className="mt-14 rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-400/10 to-transparent p-6 sm:p-8">
         <p className="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400">

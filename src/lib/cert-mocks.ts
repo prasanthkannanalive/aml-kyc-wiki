@@ -14,12 +14,15 @@ export interface CertMock {
   /** pass rule: minimum correct answers OR minimum percentage — whichever the cert uses */
   passCount?: number;
   passPct?: number;
+  /** Requires a Pro plan to attempt (ops-tooling readiness mock stays free). */
+  pro?: boolean;
   questions: ModuleQuizQuestion[];
 }
 
 export const CERT_MOCKS: CertMock[] = [
   {
     id: "iibf-aml-kyc",
+    pro: true,
     cert: "IIBF Certificate in AML/KYC",
     body: "Indian Institute of Banking & Finance",
     fee: "₹1,100 (members) / ₹1,600 (non-members) + taxes",
@@ -30,6 +33,7 @@ export const CERT_MOCKS: CertMock[] = [
   },
   {
     id: "nism-xxiv",
+    pro: true,
     cert: "NISM Series XXIV — AML & CFT",
     body: "National Institute of Securities Markets",
     fee: "₹885 + gateway charges",
@@ -40,6 +44,7 @@ export const CERT_MOCKS: CertMock[] = [
   },
   {
     id: "cams",
+    pro: true,
     cert: "CAMS — Certified Anti-Money Laundering Specialist",
     body: "ACAMS (Global)",
     fee: "~$1,595 – $2,095 (includes membership & study materials)",

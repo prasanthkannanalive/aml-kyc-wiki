@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CERT_MOCKS, getCertMock } from "@/lib/cert-mocks";
+import { getSessionUser } from "@/lib/auth";
 import CertMockRunner from "@/components/CertMockRunner";
+import ProCheckout from "@/components/ProCheckout";
 
 export function generateStaticParams() {
   return CERT_MOCKS.map((m) => ({ id: m.id }));
@@ -31,6 +33,10 @@ export default async function CertMockPage({
   const mock = getCertMock(id);
   if (!mock) notFound();
 
+  const user = await getSessionUser();
+  const isPro = user?.plan === "pro" || user?.plan === "team";
+  const gated = mock.pro === true && !isPro;
+
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
       <Link
@@ -50,9 +56,37 @@ export default async function CertMockPage({
         Practice simulation only — completing this mock does not issue the
         certification.
       </p>
-      <div className="mt-8">
-        <CertMockRunner mock={mock} />
-      </div>
+
+      {gated ? (
+        <div className="mt-8 rounded-2xl border border-emerald-400/30 bg-emerald-400/5 p-6 sm:p-8">
+          <p className="font-mono text-xs font-semibold uppercase tracking-widest text-emerald-400">
+            Pro feature
+          </p>
+          <h2 className="mt-1 text-lg font-bold text-ink">
+            This certification mock is part of Pro
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            {user
+              ? "Upgrade to Pro to unlock full-length certification mocks with timed conditions, section-wise scoring and per-option explanations."
+              : "Sign in and upgrade to Pro to unlock full-length certification mocks with timed conditions, section-wise scoring and per-option explanations."}
+          </p>
+          <div className="mt-5">
+            <ProCheckout />
+          </div>
+          {!user && (
+            <p className="mt-4 text-xs text-muted">
+              <Link href="/signup" className="text-emerald-400 hover:underline">
+                Create a free account
+              </Link>{" "}
+              first if you don&apos;t have one.
+            </p>
+          )}
+        </div>
+      ) : (
+        <div className="mt-8">
+          <CertMockRunner mock={mock} />
+        </div>
+      )}
     </div>
   );
 }

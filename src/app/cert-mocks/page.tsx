@@ -33,9 +33,20 @@ export default function CertMocksPage() {
             href={`/cert-mocks/${m.id}`}
             className="group flex flex-col rounded-xl border border-line bg-surface/60 p-5 transition-colors hover:border-emerald-400/50"
           >
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
-              {m.body}
-            </p>
+            <div className="flex items-start justify-between gap-2">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-400">
+                {m.body}
+              </p>
+              {m.pro ? (
+                <span className="shrink-0 rounded-full border border-emerald-400/50 bg-emerald-400/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-emerald-300">
+                  Pro
+                </span>
+              ) : (
+                <span className="shrink-0 rounded-full border border-line px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-faint">
+                  Free
+                </span>
+              )}
+            </div>
             <h2 className="mt-1 text-base font-bold leading-6 text-ink group-hover:text-emerald-300">
               {m.cert}
             </h2>

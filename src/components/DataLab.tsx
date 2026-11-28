@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 /* ---------------- synthetic dataset ---------------- */
 
-interface Txn {
+export interface Txn {
   id: number;
   ts: number; // epoch ms
   customer: string;
@@ -30,7 +30,7 @@ const CUSTOMERS = ["Acme Trading", "Nova Retail", "BluePeak LLC", "Orbit Foods",
 const CPS = ["Payroll-UK", "Supplier-DE", "Client-US", "Vendor-SG", "Partner-AE", "Customer-IN", "Subsidiary-NL", "Freelancer-BR"];
 const CHANNELS = ["Wire", "ACH", "SEPA", "Crypto off-ramp", "Card settlement"];
 
-function generate(seed: number): Txn[] {
+export function generate(seed: number): Txn[] {
   const rnd = mulberry32(seed);
   const txns: Txn[] = [];
   const start = Date.UTC(2025, 0, 1);
